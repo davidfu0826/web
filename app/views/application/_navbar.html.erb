@@ -4,7 +4,7 @@
     <%= navbar_group align: 'right' do %>
       <% if current_user %>
         <%= navbar_text current_user.email %>
-        <%= navbar_item "Log Out", destroy_user_session_path %>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <%= navbar_item "Log In", new_user_session_path %>
       <% end %>
