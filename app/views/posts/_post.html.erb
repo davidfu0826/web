@@ -4,7 +4,7 @@
     <p><%= post.content %></p>
   </div>
   <div class="panel-footer">
-    <%= link_to t(:edit), edit_post_path(post) %>
-    <%= link_to t(:destroy), post_path(post), method: :delete %>
+    <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
+    <%= link_to t(:destroy), post_path(post), method: :delete if can? :destroy, post %>
   </div>
 </div>
