@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+  </div>
+  <div class="panel-footer">
+    <%= link_to t(:edit), edit_post_path(post) %>
+    <%= link_to t(:destroy), post_path(post), method: :delete %>
+  </div>
+</div>

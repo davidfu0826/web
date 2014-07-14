@@ -1,0 +1,13 @@
+<%= navbar fixed: :top do %>
+  <%= navbar_header brand: 'My great app', brand_link: '/home' %>
+  <%= navbar_collapse do %>
+    <%= navbar_group align: 'right' do %>
+      <% if current_user %>
+        <%= navbar_text current_user.email %>
+        <%= navbar_item "Log Out", destroy_user_session_path %>
+      <% else %>
+        <%= navbar_item "Log In", new_user_session_path %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
