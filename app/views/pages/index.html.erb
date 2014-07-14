@@ -1,0 +1,10 @@
+<% if can? :create, Post.new %>
+  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+<% end %>
+
+<%= render @posts %>
+
+<%= link_to "New Page", new_page_path, class: "btn btn-success" %>
+<% @pages.each do |page| %>
+  <%= link_to page.title, page %>
+<% end %>
