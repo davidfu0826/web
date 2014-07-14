@@ -1,0 +1,19 @@
+@font-face {
+  font-family: guilds;
+  src: url(asset_path('guilds.ttf'));
+}
+
+.guilds {
+  font-family: guilds;
+  font-size: 48px;
+  text-align: center;
+
+  a {
+    color: black;
+    margin-left: 10px;
+
+    &:hover {
+      text-decoration: inherit;
+    }
+  }
+}
