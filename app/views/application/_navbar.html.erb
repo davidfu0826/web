@@ -1,6 +1,21 @@
+<% @nav_row = NavItem.first %>
+<% @nav_row = NavItem.first ? NavItem.first.children : [] %>
 <%= navbar fixed: :top do %>
   <%= navbar_header brand: 'TLTH' %>
   <%= navbar_collapse do %>
+    <%= navbar_group do %>
+      <% @nav_row.each do |nav_item| %>
+        <% if nav_item.children.count > 0 %>
+          <%= navbar_dropdown nav_item.page.title do %>
+            <% nav_item.children.each do |child| %>
+              <%= navbar_item child.page.title, url_for(child.page) %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= navbar_item nav_item.page.title, url_for(nav_item.page) %>
+        <% end %>
+      <% end %>
+    <% end %>
     <%= navbar_group align: 'right' do %>
       <% if current_user %>
         <%= navbar_text current_user.email %>

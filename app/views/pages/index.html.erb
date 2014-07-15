@@ -5,6 +5,4 @@
 <%= render @posts %>
 
 <%= link_to "New Page", new_page_path, class: "btn btn-success" %>
-<% @pages.each do |page| %>
-  <%= link_to page.title, page %>
-<% end %>
+<%= link_to "New Navitem", new_nav_item_path, class: "btn btn-success" %>
