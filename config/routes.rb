@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :posts, except: [:show]
   get 'feed', to: 'posts#feed'
 
+  resources :nav_items
+
   get ':id', to: 'pages#show', as: :page
   resources :pages, except: :show
 end

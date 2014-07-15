@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def index
     @posts = Post.all
     @pages = Page.all
