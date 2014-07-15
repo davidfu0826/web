@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @posts = Post.all
+
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false } #index.rss.builder
+    end
+  end
+
   def new
     @post = Post.new
   end
