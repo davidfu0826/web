@@ -8,7 +8,7 @@ class NavItemsController < ApplicationController
     @nav_item = NavItem.new
     @nav_items = NavItem.all
     @pages = Page.all
-    @parent = NavItem.find(params[:parent])
+    @parent = NavItem.find(params[:parent]) if params[:parent]
   end
 
   def create
@@ -16,7 +16,7 @@ class NavItemsController < ApplicationController
     if @nav_item.save
       redirect_to nav_items_path
     else
-      @parent = NavItem.find(nav_item_params[:parent_id])
+      @parent = NavItem.find(nav_item_params[:parent_id]) if nav_item_params[:parent_id]
       @pages = Page.all
       render 'new'
     end

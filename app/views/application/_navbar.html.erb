@@ -1,5 +1,4 @@
-<% @nav_row = NavItem.first %>
-<% @nav_row = NavItem.first ? NavItem.first.children : [] %>
+<% @nav_row = NavItem.orphans %>
 <%= navbar fixed: :top do %>
   <%= navbar_header brand: 'TLTH' %>
   <%= navbar_collapse do %>
