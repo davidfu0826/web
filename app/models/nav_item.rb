@@ -20,7 +20,7 @@ class NavItem < ActiveRecord::Base
   end
 
   def has_title_or_page
-    if parent.present? ^ title.present? #XOR
+    unless page.present? ^ read_attribute(:title).present? #XOR
       errors.add(:title, "Måste tilldelas en sida eller en titel")
     end
   end

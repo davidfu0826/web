@@ -6,21 +6,13 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Father</th>
         <th>Item</th>
         <th>Children</th>
       </tr>
     </thead>
     <tbody>
-      <% @nav_items.each do |father| %>
-        <tr>
-          <td><%= father.title %></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <% father.children.each do |nav_item| %>
+      <% @nav_items.each do |nav_item| %>
           <tr>
-            <td></td>
             <td>
               <%= nav_item.title unless nav_item.has_page? %>
               <%= link_to nav_item.title, nav_item.page if nav_item.has_page? %>
@@ -33,7 +25,6 @@
           <% nav_item.children.each do |child| %>
             <tr>
               <td></td>
-              <td></td>
               <td>
                 <%= child.title unless child.has_page? %>
                 <%= link_to child.title, child.page if child.has_page? %>
@@ -45,16 +36,13 @@
           <% end %>
           <tr>
             <td></td>
-            <td></td>
             <td><%= link_to "New Child", new_nav_item_path(parent: nav_item.id), class: "btn btn-success btn-xs" %></td>
           </tr>
-        <% end %>
-        <tr>
-          <td></td>
-          <td><%= link_to "New Item", new_nav_item_path(parent: father.id), class: "btn btn-success btn-xs" %></td>
-          <td></td>
-        </tr>
       <% end %>
+      <tr>
+        <td><%= link_to "New Item", new_nav_item_path, class: "btn btn-success btn-xs" %></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 </div>
