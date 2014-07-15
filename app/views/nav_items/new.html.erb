@@ -1,8 +1,1 @@
-<%= bootstrap_form_for @nav_item do |f| %>
-
-  <%= f.collection_select :page_id, @pages, :id, :title %>
-  <%= f.text_field :title %>
-  <br />
-  <%= f.collection_select :parent_id, @pages, :id, :title %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
