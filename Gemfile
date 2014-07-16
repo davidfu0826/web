@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'icalendar'
 gem 'traco' #Localization
+gem 'auto_html'
 
 group :development do
   gem 'spring'

@@ -19,4 +19,4 @@
   <%= link_to "Add User to page", page_add_user_path(@page.id), class: "btn btn-success" %>
 <% end %>
 
-<%= link_to "redigerae", edit_page_path(@page) if can?(:edit, @page) %>
+<%= link_to "redigera", edit_page_path(@page), class: "btn btn-default" if can?(:edit, @page) %>

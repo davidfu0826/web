@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   include Markdown
+  include AutoHtml
 
   validates :title, presence: true
   validates :slug, presence: true
@@ -9,9 +10,21 @@ class Page < ActiveRecord::Base
   translates :title, :content
 
   has_one :nav_item
-
-  markdown :content
   belongs_to :user
+
+  #markdown :content
+
+
+  def content_html
+    auto_html self.content do
+      html_escape
+      image
+      youtube(:width => 400, :height => 250, :autoplay => true)
+      link :target => "_blank", :rel => "nofollow"
+      redcarpet
+      simple_format
+    end
+  end
 
   def to_param
     slug
