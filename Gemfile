@@ -18,9 +18,10 @@ gem 'cancancan', '~> 1.8'
 gem 'pagedown-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'redcarpet'
+gem 'icalendar'
 
 group :development do
-  #gem 'spring'
+  gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -28,6 +29,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
-  gem "spring-commands-rspec"
+  gem 'spring-commands-rspec'
   gem 'capybara'
 end

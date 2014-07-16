@@ -73,6 +73,7 @@ GEM
     gem_config (0.3.1)
     hike (1.2.3)
     i18n (0.6.11)
+    icalendar (2.1.0)
     jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -192,6 +193,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-rails
+  icalendar
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -202,6 +204,7 @@ DEPENDENCIES
   redcarpet
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
+  spring
   spring-commands-rspec
   sqlite3
   turbolinks

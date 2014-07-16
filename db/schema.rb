@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716093847) do
+ActiveRecord::Schema.define(version: 20140716110458) do
+
+  create_table "bootsy_image_galleries", force: true do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: true do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_groups", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nav_items", force: true do |t|
     t.string   "title"
@@ -27,7 +54,10 @@ ActiveRecord::Schema.define(version: 20140716093847) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

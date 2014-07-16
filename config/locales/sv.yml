@@ -1,0 +1,12 @@
+sv:
+  back: Tillbaka
+
+  application:
+    navbar:
+      events: Event
+
+
+  events:
+    index:
+      new_event: Nytt Event
+      new_event_group: Ny Eventgrupp

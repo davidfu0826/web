@@ -8,4 +8,15 @@
   </div>
 </div>
 
+<% if @page.user.present? %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <strong>Name: </strong><%= @page.user.name %><br>
+      <strong>Email: </strong><%= @page.user.email %>
+    </div>
+  </div>
+<% else %>
+  <%= link_to "Add User to page", page_add_user_path(@page.id), class: "btn btn-success" %>
+<% end %>
+
 <%= link_to "redigerae", edit_page_path(@page) if can?(:edit, @page) %>

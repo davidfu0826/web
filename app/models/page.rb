@@ -9,6 +9,7 @@ class Page < ActiveRecord::Base
   has_one :nav_item
 
   markdown :content
+  belongs_to :user
 
   def to_param
     slug
