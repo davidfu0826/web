@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
 
   scope :by_group, ->(group) { where event_group: group }
 
+  translates :title, :description
+
   def to_ics
     event = Icalendar::Event.new
     event.dtstart = start_time

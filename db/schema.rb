@@ -11,48 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716110458) do
+ActiveRecord::Schema.define(version: 20140716134109) do
 
   create_table "event_groups", force: true do |t|
-    t.string "name"
+    t.string "name_sv"
+    t.string "name_en"
   end
 
   create_table "events", force: true do |t|
-    t.string   "title"
-    t.string   "description"
+    t.string   "title_sv"
+    t.string   "description_sv"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_group_id"
+    t.string   "title_en"
+    t.string   "description_en"
   end
 
   add_index "events", ["event_group_id"], name: "index_events_on_event_group_id"
 
   create_table "nav_items", force: true do |t|
-    t.string   "title"
+    t.string   "title_sv"
     t.integer  "page_id"
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title_en"
   end
 
   create_table "pages", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "title_sv"
+    t.text     "content_sv"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "title_en"
+    t.text     "content_en"
   end
 
   add_index "pages", ["user_id"], name: "index_pages_on_user_id"
 
   create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "title_sv"
+    t.text     "content_sv"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title_en"
+    t.text     "content_en"
   end
 
   create_table "users", force: true do |t|
@@ -71,7 +79,8 @@ ActiveRecord::Schema.define(version: 20140716110458) do
     t.boolean  "admin"
     t.string   "name"
     t.string   "phonenumber"
-    t.string   "title"
+    t.string   "title_sv"
+    t.string   "title_en"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -3,6 +3,8 @@ class EventGroup < ActiveRecord::Base
 
   has_many :events
 
+  translates :name
+
   def to_s
     name
   end

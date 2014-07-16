@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
   validates :slug, presence: true
   validates :content, presence: true
 
+  translates :title, :content
+
   has_one :nav_item
   belongs_to :user
 

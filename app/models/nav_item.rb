@@ -7,11 +7,13 @@ class NavItem < ActiveRecord::Base
 
   validate :has_title_or_page
 
-  def title
+  translates :title
+
+  def item_title
     if page
       page.title
     else
-      read_attribute(:title)
+      title
     end
   end
 
@@ -20,8 +22,8 @@ class NavItem < ActiveRecord::Base
   end
 
   def has_title_or_page
-    unless page.present? ^ read_attribute(:title).present? #XOR
-      errors.add(:title, "Måste tilldelas en sida eller en titel")
+    unless page.present? ^ title.present? #XOR
+      errors.add(:title, I18n.t('.should_have_page_or_title'))
     end
   end
 end
