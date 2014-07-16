@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :events
+  resources :event_groups, only: [:new, :create]
   resources :posts, except: [:show]
   get 'feed', to: 'posts#feed'
 

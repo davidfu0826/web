@@ -1,4 +1,8 @@
-Title: <%= @event.title %> <br>
-Description: <%= @event.description %> <br>
+<div class="page-header">
+  <h1><%= @event.title %></h1>
+  <div class="lead"><%= @event.description %></div>
+  <%= link_to t(:back), events_path, class: "btn btn-default" %>
+</div>
+
 Start: <%= @event.start_time %> <br>
 End: <%= @event.end_time %> <br>

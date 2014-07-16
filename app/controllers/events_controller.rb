@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @events = Event.all
@@ -22,6 +23,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event_groups = EventGroup.all
   end
 
   def create
@@ -52,7 +54,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_time, :end_time)
+    params.require(:event).permit(:title, :description, :start_time, :end_time, :event_group_id)
   end
 
 end
