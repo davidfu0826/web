@@ -15,6 +15,9 @@ gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem 'rails_bootstrap_navbar'
 gem 'cancancan', '~> 1.8'
+gem 'pagedown-bootstrap-rails'
+gem 'font-awesome-rails'
+gem 'redcarpet'
 
 group :development do
   #gem 'spring'
@@ -28,4 +31,3 @@ group :development, :test do
   gem "spring-commands-rspec"
   gem 'capybara'
 end
-

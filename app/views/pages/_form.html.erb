@@ -1,7 +1,13 @@
-<%= bootstrap_form_for @page do |f| %>
+<%= bootstrap_form_for @page, layout: :horizontal do |f| %>
   <%= f.text_field :title %>
   <%= f.text_field :slug %>
-  <%= f.text_area :content %>
-
+  <!-- TODO: Helper me -->
+  <%= f.form_group do %>
+    <div id="wmd-button-bar-content"></div>
+    <textarea class="form-control wmd-input" id="wmd-input-content" name="page[content]"></textarea>
+    <div class="well">
+      <div id="wmd-preview-content"></div>
+    </div>
+  <% end %>
   <%= f.submit %>
 <% end %>

@@ -4,6 +4,8 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= @page.content %>
+    <%= @page.content_html %>
   </div>
 </div>
+
+<%= link_to "redigerae", edit_page_path(@page) if can?(:edit, @page) %>

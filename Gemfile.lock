@@ -68,6 +68,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     gem_config (0.3.1)
     hike (1.2.3)
     i18n (0.6.11)
@@ -95,6 +97,8 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.1.0)
+      railties (> 3.1)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-contrib (1.1.0)
@@ -120,6 +124,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    redcarpet (3.1.2)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -186,12 +191,15 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   devise
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
   meta_request
+  pagedown-bootstrap-rails
   rails (= 4.1.1)
   rails_bootstrap_navbar
+  redcarpet
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   spring-commands-rspec

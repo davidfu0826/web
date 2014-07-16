@@ -1,10 +1,14 @@
 class Page < ActiveRecord::Base
+  include Markdown
+
   validates :title, presence: true
   validates :slug, presence: true
   validates :content, presence: true
+  # slug får inte vara ett reserverat namn typ users osv
 
   has_one :nav_item
 
+  markdown :content
 
   def to_param
     slug
