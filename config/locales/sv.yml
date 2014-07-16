@@ -10,3 +10,5 @@ sv:
     index:
       new_event: Nytt Event
       new_event_group: Ny Eventgrupp
+      search: Gruppera
+      reset: Återställ

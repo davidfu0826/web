@@ -1,8 +1,14 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   def index
-    @events = Event.all
+    @event_groups = EventGroup.all
+    if params[:search].present?
+      group = EventGroup.find(params[:search])
+      @events = Event.by_group(group)
+    else
+      @events = Event.all
+    end
 
     respond_to do |format|
       format.html

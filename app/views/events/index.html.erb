@@ -8,6 +8,14 @@
 <br>
 <br>
 
+<%= bootstrap_form_tag url: events_path, :method => 'get' do |f| %>
+  <p>
+    <%= f.collection_select :search, @event_groups, :id, :name, { include_blank: true, label: t('.search') } %>
+    <%= f.submit t('.search'), :name => nil %>
+    <%= link_to t('.reset'), events_path, class: "btn btn-default" %>
+  </p>
+<% end %>
+
 <% @events.each do |event| %>
   <%= link_to event.title, event %> <br>
 <% end %>
