@@ -1,0 +1,13 @@
+<%= render @posts %>
+
+<% if can? :create, Post %>
+  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+<% end %>
+
+<% if can? :create, Page %>
+  <%= link_to "New Page", new_page_path, class: "btn btn-success" %>
+<% end %>
+
+<% if can? :manage, NavItem %>
+  <%= link_to "Nav Index", nav_items_path, class: "btn btn-default" %>
+<% end %>

@@ -7,7 +7,5 @@ class User < ActiveRecord::Base
   validates :email, presence: :true
   has_one :page
 
-  def admin?
-    self.admin
-  end
+  enum role: %i{admin editor events}
 end
