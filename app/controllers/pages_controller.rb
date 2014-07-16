@@ -23,6 +23,24 @@ class PagesController < ApplicationController
     end
   end
 
+  def add_user
+    @page = Page.find(params[:page_id])
+    @users = User.all
+  end
+
+  def add_user_update
+    @page = Page.find(params[:page_id])
+    @user = User.find(params[:user_id])
+
+    @page.user = @user
+
+    if @page.save
+      redirect_to @page
+    else
+      render 'add_user'
+    end
+  end
+
   private
 
   def page_params

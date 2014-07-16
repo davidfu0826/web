@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :nav_items
 
   get ':id', to: 'pages#show', as: :page
-  resources :pages, except: :show
+  resources :pages, except: :show do
+    get 'add_user', to: :add_user
+    post 'add_user', to: :add_user_update
+  end
 end

@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   validates :content, presence: true
 
   has_one :nav_item
-
+  belongs_to :user
 
   def to_param
     slug
