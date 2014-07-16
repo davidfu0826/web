@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20140716110458) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_group_id"
   end
+
+  add_index "events", ["event_group_id"], name: "index_events_on_event_group_id"
 
   create_table "nav_items", force: true do |t|
     t.string   "title"

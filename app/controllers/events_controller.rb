@@ -32,12 +32,14 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      @event_groups = EventGroup.all
       render 'new'
     end
   end
 
   def edit
     @event = Event.find(params[:id])
+    @event_groups = EventGroup.all
   end
 
   def update
@@ -47,6 +49,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      @event_groups = EventGroup.all
       render 'edit'
     end
   end
