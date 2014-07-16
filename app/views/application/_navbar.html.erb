@@ -24,6 +24,10 @@
       <% end %>
     <% end %>
     <%= navbar_group align: 'right' do %>
+      <%= navbar_dropdown "Settings" do %>
+        <li><%= navbar_item "New Page", new_page_path %></li>
+        <li><%= navbar_item "Nav Index", nav_items_path %></li>
+      <% end %>
       <% if current_user %>
         <%= navbar_text current_user.email %>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>

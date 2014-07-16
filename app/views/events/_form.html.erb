@@ -1,0 +1,8 @@
+<%= bootstrap_form_for @event do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description %>
+  <%= f.date_field :start_time %>
+  <%= f.date_field :end_time %>
+
+  <%= f.submit %>
+<% end %>

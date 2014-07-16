@@ -1,0 +1,7 @@
+<%= link_to t('.new_event'), new_event_path %>
+<br>
+<br>
+
+<% @events.each do |event| %>
+  <%= link_to event.title, event %> <br>
+<% end %>

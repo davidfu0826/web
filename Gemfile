@@ -15,6 +15,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem 'rails_bootstrap_navbar'
 gem 'cancancan', '~> 1.8'
+gem 'icalendar'
 
 group :development do
   #gem 'spring'
