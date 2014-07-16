@@ -4,7 +4,7 @@
   <!-- TODO: Helper me -->
   <%= f.form_group do %>
     <div id="wmd-button-bar-content"></div>
-    <textarea class="form-control wmd-input" id="wmd-input-content" name="page[content]"></textarea>
+    <%= f.text_area :content, class: "form-control wmd-input", id: "wmd-input-content" %>
     <div class="well">
       <div id="wmd-preview-content"></div>
     </div>

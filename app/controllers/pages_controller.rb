@@ -24,6 +24,16 @@ class PagesController < ApplicationController
   def edit
   end
 
+  def update
+    @page = Page.find_by_slug(params[:id])
+
+    if @page.update(page_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   def add_user
     @page = Page.find(params[:page_id])
     @users = User.all
