@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715082939) do
+ActiveRecord::Schema.define(version: 20140716093847) do
 
   create_table "nav_items", force: true do |t|
     t.string   "title"
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20140715082939) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin"
     t.string   "name"
     t.string   "phonenumber"
     t.string   "title"
+    t.integer  "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
