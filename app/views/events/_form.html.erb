@@ -3,6 +3,7 @@
   <%= f.text_area :description %>
   <%= f.date_field :start_time %>
   <%= f.date_field :end_time %>
+  <%= f.collection_select :event_group_id, @event_groups, :id, :name, { include_blank: true } %>
 
   <%= f.submit %>
 <% end %>

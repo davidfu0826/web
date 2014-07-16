@@ -3,6 +3,8 @@
 </div>
 
 <%= link_to t('.new_event'), new_event_path, class: "btn btn-success" %>
+<%= link_to t('.new_event_group'), new_event_group_path, class: "btn btn-success" %>
+<%= link_to t('.webcal'), :controller => 'events', action: :index, format: :ics, protocol: 'webcal', class: "btn btn-default" %>
 <br>
 <br>
 
