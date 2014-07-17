@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to root_path
+      redirect_to @page
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     @page = Page.find_by_slug(params[:id])
 
     if @page.update(page_params)
-      redirect_to root_path
+      redirect_to @page
     else
       render 'edit'
     end

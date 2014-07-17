@@ -17,11 +17,11 @@ class Page < ActiveRecord::Base
 
   def content_html
     auto_html self.content do
-      html_escape
-      image
-      youtube(:width => 400, :height => 250, :autoplay => true)
-      link :target => "_blank", :rel => "nofollow"
+      #html_escape
+      #image
+      #link :target => "_blank", :rel => "nofollow"
       redcarpet
+      youtube(:width => '70%', :height => '400', :autoplay => false)
       simple_format
     end
   end
