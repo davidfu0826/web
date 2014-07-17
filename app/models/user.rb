@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :email, presence: :true
+  validates :name, presence: true
+  validates :email, presence: true
   has_one :page
+
+  translates :title
 
   enum role: %i{admin editor events}
 end

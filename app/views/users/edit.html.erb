@@ -1,0 +1,9 @@
+<%= bootstrap_form_for @user do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :title %>
+  <%= f.text_field :phonenumber %>
+  <%= f.select :role, @roles %>
+
+  <%= f.submit %>
+
+<% end %>

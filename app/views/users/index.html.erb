@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Title</th>
+    <th>Phone Number</th>
+    <th>Role</th>
+    <th>Tools</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.title %></td>
+        <td><%= user.phonenumber %></td>
+        <td><%= user.role %></td>
+        <td>
+          <%= link_to "Edit", edit_user_path(user) %>
+          <%= link_to "Delete", user_path(user), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
