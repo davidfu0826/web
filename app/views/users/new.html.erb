@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @user do |f| %>
+
+  <%= render 'shared_form_fields', f: f %>
+
+  <% password = secure_password %>
+  <%= f.hidden_field :password, value: password %>
+  <%= f.hidden_field :password_confirmation, value: password %>
+
+  <%= f.submit %>
+<% end %>

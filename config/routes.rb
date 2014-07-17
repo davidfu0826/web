@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   devise_for :users
+  resources :users, except: [:show]
 
   resources :users, only: [:index, :edit, :update]
   resources :events
