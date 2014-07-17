@@ -1,12 +1,7 @@
 class NavItemsController < ApplicationController
-
-  def index
-    @nav_items = NavItem.orphans
-    @orphan_pages = Page.orphans
-  end
+  load_and_authorize_resource
 
   def new
-    @nav_item = NavItem.new
     @nav_items = NavItem.all
     @pages = Page.all
     @parent = NavItem.find(params[:parent]) if params[:parent]
