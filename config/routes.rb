@@ -9,16 +9,15 @@ Rails.application.routes.draw do
   resources :posts, except: [:show]
   get 'feed', to: 'posts#feed'
 
-  resources :nav_items do
-    get 'move_higher', to: :move_higher, as: 'higher'
-    get 'move_lower', to: :move_lower, as: 'lower'
-  end
+  resources :nav_items
+  get 'nav_items/:id/move_higher', to: 'nav_items#move_higher', as: 'nav_item_higher'
+  get 'nav_items/:id/move_lower', to: 'nav_items#move_lower', as: 'nav_item_lower'
+
   get 'pages', to: 'pages#index'
   get ':id', to: 'pages#show', as: :page
   patch ':id', to: 'pages#update'
   delete ':id', to: 'pages#destroy'
-  resources :pages, except: [:show, :update, :destroy, :index] do
-    get 'add_user', to: :add_user
-    post 'add_user', to: :add_user_update
-  end
+  get ':id/add_user', to: 'pages#add_user'
+  post ':id/add_user', to: 'pages#add_user_update'
+  resources :pages, except: [:show, :update, :destroy, :index]
 end

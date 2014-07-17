@@ -1,13 +1,11 @@
 class EventsController < ApplicationController
-  #load_and_authorize_resource
+  before_filter :load_event_groups, only: [:index, :new, :edit]
+  load_and_authorize_resource
 
   def index
-    @event_groups = EventGroup.all
     if params[:search].present?
-      group = EventGroup.find(params[:search])
-      @events = Event.by_group(group)
-    else
-      @events = Event.all
+      group = @event_groups.find(params[:search])
+      @events = @events.by_group(group)
     end
 
     respond_to do |format|
@@ -24,38 +22,28 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
-    @event = Event.new
-    @event_groups = EventGroup.all
   end
 
   def create
-    @event = Event.new(event_params)
-
     if @event.save
       redirect_to event_path(@event)
     else
-      @event_groups = EventGroup.all
+      load_event_groups
       render 'new'
     end
   end
 
   def edit
-    @event = Event.find(params[:id])
-    @event_groups = EventGroup.all
   end
 
   def update
-    @event = Event.find(params[:id])
-    @event.update(event_params)
-
     if @event.save
       redirect_to event_path(@event)
     else
-      @event_groups = EventGroup.all
+      load_event_groups
       render 'edit'
     end
   end
@@ -64,6 +52,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :start_time, :end_time, :event_group_id)
+  end
+
+  def load_event_groups
+    @event_groups = EventGroup.all
   end
 
 end

@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   load_resource find_by: :slug
   authorize_resource
 
+  #TODO Authorize stuff
   def index
     @orphan_pages = Page.orphans
     @nav_items = NavItem.orphans.order("position ASC")
@@ -12,12 +13,11 @@ class PagesController < ApplicationController
 
   def new
     @create_nav = params[:create_nav] if params[:create_nav].present?
-    @parent = params[:parent] if params[:parent].present?
+    @parent     = params[:parent]     if params[:parent].present?
   end
 
+  #TODO Authorize NavItem
   def create
-    @page = Page.new(page_params)
-
     if params[:page][:create_nav]
       if params[:page][:parent]
         @parent = NavItem.find(params[:page][:parent])
@@ -41,8 +41,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page = Page.find_by_slug(params[:id])
-
     if @page.update(page_params)
       redirect_to @page
     else
@@ -51,23 +49,19 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    page = Page.find_by_slug(params[:id])
-    page.destroy
-
+    @page.destroy
     redirect_to pages_path
   end
 
+  #TODO Authorize User
   def add_user
-    @page = Page.find(params[:page_id])
     @users = User.all
   end
 
+  #TODO Authorize User
   def add_user_update
-    @page = Page.find(params[:page_id])
     @user = User.find(params[:user_id])
-
     @page.user = @user
-
     if @page.save
       redirect_to @page
     else
