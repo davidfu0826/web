@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20140717132456) do
     t.string   "name"
     t.string   "phonenumber"
     t.string   "title_sv"
-    t.string   "title_en"
     t.integer  "role"
+    t.string   "title_en"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
