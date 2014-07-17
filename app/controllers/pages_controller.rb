@@ -3,16 +3,32 @@ class PagesController < ApplicationController
   authorize_resource
 
   def index
+    @orphan_pages = Page.orphans
+    @nav_items = NavItem.orphans.order("position ASC")
   end
 
   def show
   end
 
   def new
+    @create_nav = params[:create_nav] if params[:create_nav].present?
+    @parent = params[:parent] if params[:parent].present?
   end
 
   def create
     @page = Page.new(page_params)
+
+    if params[:page][:create_nav]
+      if params[:page][:parent]
+        @parent = NavItem.find(params[:page][:parent])
+        @nav_item = NavItem.new(page: @page, parent: @parent)
+      else
+        @nav_item = NavItem.new(page: @page)
+      end
+      unless @nav_item.save
+        render 'new'
+      end
+    end
 
     if @page.save
       redirect_to @page
@@ -32,6 +48,13 @@ class PagesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    page = Page.find_by_slug(params[:id])
+    page.destroy
+
+    redirect_to pages_path
   end
 
   def add_user

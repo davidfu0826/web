@@ -1,25 +1,27 @@
 class Page < ActiveRecord::Base
-  include Markdown
   include AutoHtml
 
   validates :title, presence: true
-  validates :slug, presence: true
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
+  validate :slug_not_reserved_name
   validates :content, presence: true
-  # slug får inte vara ett reserverat namn typ users osv
 
   translates :title, :content
 
-  has_one :nav_item
+  has_one :nav_item, dependent: :destroy
   belongs_to :user
 
-  #markdown :content
+  scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
 
+  def slug_not_reserved_name
+    reserved_names = %(users events event_groups posts nav_items pages)
+    if reserved_names.include? slug
+      errors.add(:slug, I18n.t('.slug_reserved'))
+    end
+  end
 
   def content_html
     auto_html self.content do
-      #html_escape
-      #image
-      #link :target => "_blank", :rel => "nofollow"
       redcarpet
       youtube(:width => '70%', :height => '400', :autoplay => false)
       simple_format

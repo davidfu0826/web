@@ -2,6 +2,7 @@ class NavItemsController < ApplicationController
 
   def index
     @nav_items = NavItem.orphans
+    @orphan_pages = Page.orphans
   end
 
   def new
@@ -30,6 +31,18 @@ class NavItemsController < ApplicationController
     nav_item.destroy
 
     redirect_to nav_items_path
+  end
+
+  def move_higher
+    @nav_item = NavItem.find(params[:nav_item_id])
+    @nav_item.move_higher
+    redirect_to pages_path
+  end
+
+  def move_lower
+    @nav_item = NavItem.find(params[:nav_item_id])
+    @nav_item.move_lower
+    redirect_to pages_path
   end
 
   private

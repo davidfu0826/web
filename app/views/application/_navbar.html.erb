@@ -1,4 +1,4 @@
-<% @nav_row = NavItem.orphans %>
+<% @nav_row = NavItem.orphans.order("position ASC") %>
 <%= navbar fixed: :top do %>
   <%= navbar_header brand: 'TLTH' %>
   <%= navbar_collapse do %>
@@ -8,9 +8,9 @@
           <%= navbar_dropdown nav_item.item_title do %>
             <% nav_item.children.each do |child| %>
               <% if child.has_page? %>
-                <%= navbar_item child.title, url_for(child.page) %>
+                <%= navbar_item child.item_title, url_for(child.page) %>
               <% else %>
-                <li><a href="#"><%= child.title %></a></li>
+                <li><a href="#"><%= child.item_title %></a></li>
               <% end %>
             <% end %>
           <% end %>
@@ -26,8 +26,7 @@
     <% end %>
     <%= navbar_group align: 'right' do %>
       <%= navbar_dropdown "Settings" do %>
-        <li><%= navbar_item "New Page", new_page_path if can? :create, Page %></li>
-        <li><%= navbar_item "Nav Index", nav_items_path if can? :manage, NavItem %></li>
+        <li><%= navbar_item "Page Management", pages_path if can? :manage, Page %></li>
         <li><%= navbar_item "User Management", users_path if can? :manage, User %></li>
       <% end %>
       <% if current_user %>

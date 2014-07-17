@@ -1,13 +1,14 @@
 class NavItem < ActiveRecord::Base
   belongs_to :page
   belongs_to :parent, class_name: "NavItem"
-  has_many :children, class_name: "NavItem", foreign_key: "parent_id", dependent: :destroy
+  has_many :children, -> { order("position ASC") }, class_name: "NavItem", foreign_key: "parent_id", dependent: :destroy
 
   scope :orphans, -> { where(parent: nil) }
 
   validate :has_title_or_page
 
   translates :title
+  acts_as_list scope: :parent, class_name: "NavItem"
 
   def item_title
     if page

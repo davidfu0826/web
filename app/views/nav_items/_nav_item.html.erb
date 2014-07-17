@@ -1,0 +1,47 @@
+<div class="col-xs-5">
+  <div class="panel panel-default">
+    <div class="panel-body-sm">
+      <% if nav_item.has_page? %>
+        <%= link_to nav_item.item_title, nav_item.page %>
+      <% else %>
+        <%= nav_item.item_title %>
+      <% end %>
+      <div class="pull-right">
+        <% if (nav_item.higher_items.count > 0) %>
+          <%= link_to nav_item_higher_path(nav_item.id), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          <% end %>
+        <% end %>
+        <% if (nav_item.lower_items.count > 0) %>
+          <%= link_to nav_item_lower_path(nav_item.id), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          <% end %>
+        <% end %>
+
+        <%= link_to new_nav_item_path(parent: nav_item.id), class: "btn btn-success btn-xs" do %>
+          <span class="glyphicon glyphicon-plus"></span> Menu
+        <% end %>
+        <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs" do %>
+          <span class="glyphicon glyphicon-plus"></span> Page
+        <% end %>
+
+        <% if nav_item.has_page? %>
+          <%= link_to edit_page_path(nav_item.page), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to nav_item.page, method: :delete, class: "btn btn-danger btn-xs" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        <% else %>
+          <%= link_to nav_item_path(nav_item), method: :delete, class: "btn btn-danger btn-xs" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-11 pull-right no-padding">
+  <%= render nav_item.children %>
+</div>
+

@@ -21,6 +21,7 @@ gem 'redcarpet'
 gem 'icalendar'
 gem 'traco' #Localization
 gem 'auto_html'
+gem 'acts_as_list'
 
 group :development do
   gem 'spring'

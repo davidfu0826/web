@@ -4,5 +4,7 @@
   <%= f.form_group do %>
     <%= f.pagedown_input :content %>
   <% end %>
+  <%= f.hidden_field :parent, value: @parent if @parent %>
+  <%= f.hidden_field :create_nav, value: @create_nav if @create_nav %>
   <%= f.submit %>
 <% end %>
