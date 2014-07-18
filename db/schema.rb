@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718123039) do
+ActiveRecord::Schema.define(version: 20140718144114) do
 
   create_table "event_groups", force: true do |t|
     t.string "name_sv"
@@ -70,6 +70,20 @@ ActiveRecord::Schema.define(version: 20140718123039) do
     t.datetime "updated_at"
     t.string   "title_en"
     t.text     "content_en"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tags_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
