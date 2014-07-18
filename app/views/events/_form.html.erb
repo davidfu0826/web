@@ -1,8 +1,8 @@
 <%= bootstrap_form_for @event do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :description %>
-  <%= f.date_field :start_time %>
-  <%= f.date_field :end_time %>
+  <%= f.text_field :start_time, 'data-behaviour' => 'datepicker' %>
+  <%= f.text_field :end_time, 'data-behaviour' => 'datepicker' %>
   <%= f.collection_select :event_group_id, @event_groups, :id, :name, { include_blank: true } %>
 
   <%= f.submit %>
