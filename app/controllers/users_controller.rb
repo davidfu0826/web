@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_password_email
+    @user.send_reset_password_instructions
+    redirect_to users_path, notice: t('.reset_sent', user: @user.name)
+  end
+
   private
 
   def user_params

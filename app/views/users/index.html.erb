@@ -16,8 +16,9 @@
         <td><%= user.phonenumber %></td>
         <td><%= user.role %></td>
         <td>
-          <%= link_to "Edit", edit_user_path(user) %>
-          <%= link_to "Delete", user_path(user), method: :delete %>
+          <%= link_to t('.send_password'), user_new_password_email_path(user) %>
+          <%= link_to t(:edit), edit_user_path(user) %>
+          <%= link_to t(:delete), user_path(user), method: :delete %>
         </td>
       </tr>
     <% end %>
@@ -25,4 +26,3 @@
 </table>
 
 <%= link_to "New User", new_user_path %>
-
