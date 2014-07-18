@@ -73,6 +73,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dragonfly (1.0.5)
+      multi_json (~> 1.0)
+      rack
     erubis (2.7.0)
     execjs (2.2.1)
     font-awesome-rails (4.1.0.0)
@@ -110,6 +113,8 @@ GEM
       railties (> 3.1)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-test (0.6.2)
@@ -206,6 +211,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   devise
+  dragonfly (~> 1.0.5)
   font-awesome-rails
   http_accept_language
   icalendar
@@ -214,6 +220,7 @@ DEPENDENCIES
   jquery-turbolinks
   meta_request
   pagedown-bootstrap-rails
+  rack-cache
   rails (= 4.1.1)
   rails_bootstrap_navbar
   redcarpet

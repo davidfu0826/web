@@ -7,12 +7,15 @@ Rails.application.routes.draw do
 
   resources :events
   resources :event_groups, only: [:new, :create]
+
   resources :posts, except: [:show]
   get 'feed', to: 'posts#feed'
 
   resources :nav_items
   get 'nav_items/:id/move_higher', to: 'nav_items#move_higher', as: 'nav_item_higher'
   get 'nav_items/:id/move_lower', to: 'nav_items#move_lower', as: 'nav_item_lower'
+
+  resources :images, except: [:show, :edit, :update]
 
   get 'pages', to: 'pages#index'
   get ':id', to: 'pages#show', as: :page

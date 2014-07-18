@@ -18,6 +18,7 @@
 //= require pagedown_bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv.js
+//= require ekko-lightbox
 //= require_tree .
 
 
@@ -28,3 +29,8 @@ $(document).ready(function(){
     todayHighlight: true
   });
 })
+
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});

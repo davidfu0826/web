@@ -1,0 +1,14 @@
+<%= link_to t('.new_image'), new_image_path %>
+
+<div class="row gallery-parent">
+  <% @images.each do |image| %>
+    <% if image.image_stored? %>
+      <div class="col-sm-3">
+        <%= link_to image.image.url,
+            data: { toggle: "lightbox", gallery: "images", parent: ".gallery-parent"}  do %>
+          <%= image_tag image.image.thumb('300x300#').url, class: "img-responsive img-tumbnail" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
