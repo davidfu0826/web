@@ -25,11 +25,12 @@
       <li><%= navbar_item t('.events'), events_path %></li>
     <% end %>
     <%= navbar_group align: 'right' do %>
-      <%= navbar_dropdown "Settings" do %>
-        <li><%= navbar_item "Page Management", pages_path if can? :manage, Page %></li>
-        <li><%= navbar_item "User Management", users_path if can? :manage, User %></li>
-      <% end %>
       <% if current_user %>
+      <%= navbar_dropdown "Settings" do %>
+        <li><%= navbar_item t('.account_settings'), edit_user_path(current_user) %></li>
+        <li><%= navbar_item t('.page_management'), pages_path if can? :manage, Page %></li>
+        <li><%= navbar_item t('.user_management'), users_path if can? :manage, User %></li>
+      <% end %>
         <%= navbar_text current_user.email %>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
