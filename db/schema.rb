@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140718144114) do
   create_table "taggings", force: true do |t|
     t.integer  "taggable_id"
     t.string   "taggable_type"
-    t.integer  "tags_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

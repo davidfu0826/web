@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+  before_action :load_tags, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
+    if params[:tag]
+      @tag = Tag.find(params[:tag])
+      @posts = @posts.with_tag(@tag)
+    end
     respond_to do |format|
       format.html
       format.rss { render :layout => false } #index.rss.builder
@@ -15,6 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      load_tags
       render 'new'
     end
   end
@@ -26,6 +32,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to root_path
     else
+      load_tags
       render 'edit'
     end
   end
@@ -33,6 +40,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, tag_ids: [])
+  end
+
+  def load_tags
+    @tags = Tag.all
   end
 end

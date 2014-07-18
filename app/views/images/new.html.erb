@@ -1,4 +1,7 @@
 <%= bootstrap_form_for @image do |f| %>
   <%= f.file_field :image %>
+  <%= f.text_area :description %>
+  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true }, { id: 'select2', multiple: true } %>
+
   <%= f.submit %>
 <% end %>

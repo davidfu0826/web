@@ -26,6 +26,7 @@ gem 'acts_as_list'
 gem 'bootstrap-datepicker-rails'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'rack-cache', :require => 'rack/cache' #Caching images
+gem 'select2-rails'
 
 group :development do
   gem 'spring'

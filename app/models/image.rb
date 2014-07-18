@@ -1,6 +1,10 @@
 class Image < ActiveRecord::Base
+  dragonfly_accessor :image
+
+  validates :image, presence: true
+
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
-  dragonfly_accessor :image
+  scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
 end

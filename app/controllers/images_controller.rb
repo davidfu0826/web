@@ -1,7 +1,12 @@
 class ImagesController < ApplicationController
+  before_action :load_tags, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
+    if params[:tag]
+      @tag = Tag.find(params[:tag])
+      @images = @images.with_tag(@tag)
+    end
   end
 
   def new
@@ -11,7 +16,20 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to images_path
     else
+      load_tags
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @image.update(image_params)
+      redirect_to images_path
+    else
+      load_tags
+      render 'edit'
     end
   end
 
@@ -23,7 +41,11 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image)
+    params.require(:image).permit(:image, :description, tag_ids: [])
+  end
+
+  def load_tags
+    @tags = Tag.all
   end
 
 end
