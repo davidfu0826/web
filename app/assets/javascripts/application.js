@@ -18,13 +18,38 @@
 //= require pagedown_bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv.js
+//= require ekko-lightbox
+//= require select2
+//= require select2_locale_sv
 //= require_tree .
 
 
 $(document).ready(function(){
+  load_datepicker();
+  load_select2();
+})
+
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
+
+function load_datepicker() {
   $('[data-behaviour~=datepicker]').datepicker({
     language: 'sv',
     autoclose: true,
     todayHighlight: true
   });
-})
+}
+
+function load_select2() {
+  var sel = document.querySelectorAll("#select2");
+  for (index = 0; index < sel.length; ++index) {
+    $(sel[index]).select2();
+  }
+  $(".question-dropdown").select2({
+    formatResult: format,
+    formatSelection: format,
+    escapeMarkup: function(m) { return m; }
+  });
+}

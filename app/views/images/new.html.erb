@@ -1,6 +1,6 @@
-<%= bootstrap_form_for @post do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area  :content %>
+<%= bootstrap_form_for @image do |f| %>
+  <%= f.file_field :image %>
+  <%= f.text_area :description %>
   <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true }, { id: 'select2', multiple: true } %>
 
   <%= f.submit %>

@@ -3,6 +3,9 @@
 @import "pagedown_bootstrap";
 @import "font-awesome";
 @import "guilds";
+@import "ekko-lightbox";
+@import "select2";
+@import "select2-bootstrap";
 
 #page-content {
   margin-top: 55px;
@@ -22,4 +25,8 @@
 
 .panel-body-sm {
   padding: 7px;
+}
+
+.img-library {
+  padding: 15px;
 }

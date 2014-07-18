@@ -1,0 +1,21 @@
+<%= link_to t('.new_tag'), new_tag_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('.title') %> </th>
+      <th><%= t(:tools) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.title %></td>
+        <td>
+          <%= link_to t('.show_posts'), posts_path(tag: tag) %>
+          <%= link_to t('.show_images'), images_path(tag: tag) %>
+          <%= link_to t(:delete), tag_path(tag), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
