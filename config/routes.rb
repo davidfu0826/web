@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   devise_for :users
-  resources :users, except: [:show]
-
-  resources :users, only: [:index, :edit, :update]
+  resources :users, except: :show
   resources :events
   resources :event_groups, only: [:new, :create]
   resources :posts, except: [:show]
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   get ':id', to: 'pages#show', as: :page
   patch ':id', to: 'pages#update'
   delete ':id', to: 'pages#destroy'
-  get ':id/add_user', to: 'pages#add_user'
-  post ':id/add_user', to: 'pages#add_user_update'
+  get ':id/add_user', to: 'pages#add_user', as: 'page_add_user'
+  post ':id/add_user', to: 'pages#add_user_update', as: 'page_add_user_update'
   resources :pages, except: [:show, :update, :destroy, :index]
 end

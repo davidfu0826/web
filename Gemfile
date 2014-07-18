@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'icalendar'
 gem 'traco' #Localization
+gem 'http_accept_language' #Auto set locale
 gem 'auto_html'
 gem 'acts_as_list'
 

@@ -77,6 +77,7 @@ GEM
       railties (>= 3.2, < 5.0)
     gem_config (0.3.1)
     hike (1.2.3)
+    http_accept_language (2.0.1)
     i18n (0.6.11)
     icalendar (2.1.0)
     jbuilder (2.1.2)
@@ -203,6 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-rails
+  http_accept_language
   icalendar
   jbuilder (~> 2.0)
   jquery-rails
