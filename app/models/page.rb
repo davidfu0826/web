@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
 
   has_one :nav_item, dependent: :destroy
   belongs_to :user
+  has_many :contact_forms
 
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
 

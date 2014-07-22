@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   has_one :page
+  has_many :contact_forms
 
   translates :title
 
