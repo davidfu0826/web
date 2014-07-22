@@ -9,10 +9,10 @@ module ApplicationHelper
   end
 
   def pagedown_input(object_name, method, options = {})
-      button_bar = content_tag(:div, '', id: "wmd-button-bar-content")
-      options.merge!(class: "form-control wmd-input", id: "wmd-input-content")
-      content = text_area(object_name, method, options )
-      preview = content_tag(:div, content_tag(:div, '', id: "wmd-preview-content"), class: "well")
+      options.merge!(class: "form-control wmd-input", id: "wmd-input-#{method.to_s}")
+      button_bar = content_tag(:div, '', id: "wmd-button-bar-#{method.to_s}")
+      content = text_area(object_name, method, options)
+      preview = content_tag(:div, content_tag(:div, '', id: "wmd-preview-#{method.to_s}"), class: "well")
       content_tag(:div, ( button_bar + content + preview ))
   end
 end

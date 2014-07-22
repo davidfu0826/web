@@ -2,6 +2,7 @@ $ ->
   $('textarea.wmd-input').each (i, input) ->
     console.log input
     attr = $(input).attr('id').split('wmd-input')[1]
+    console.log attr
     converter = new Markdown.Converter()
     Markdown.Extra.init(converter)
     help =

@@ -1,7 +1,35 @@
-<%= bootstrap_form_for @post do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area  :content %>
-  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true }, { id: 'select2', multiple: true } %>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#sv" role="tab" data-toggle="tab">
+    Svenska
+    <% if (@exists || false) && (@post.content_sv.blank? || @post.title_sv.blank?) %>
+      <span class="glyphicon glyphicon-warning-sign"></span>
+    <% end %>
+  </a></li>
+  <li><a href="#en" role="tab" data-toggle="tab">
+    Engelska
+    <% if (@exists || false) && (@post.content_en.blank? || @post.title_en.blank?) %>
+      <span class="glyphicon glyphicon-warning-sign"></span>
+    <% end %>
+  </a></li>
+</ul>
 
-  <%= f.submit %>
+<!-- Tab panes -->
+<%= bootstrap_form_for @post, layout: :horizontal do |f| %>
+  <div class="tab-content">
+    <div class="tab-pane active" id="sv">
+      <%= f.text_field :title_sv %>
+      <%= f.form_group do %>
+        <%= f.pagedown_input :content_sv %>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="en">
+      <%= f.text_field :title_en %>
+      <%= f.form_group do %>
+        <%= f.pagedown_input :content_en %>
+      <% end %>
+    </div>
+  </div>
+  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('.tags') }, { id: 'select2', multiple: true } %>
+  <%= f.submit t(:save) %>
 <% end %>

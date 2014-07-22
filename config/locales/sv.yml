@@ -1,10 +1,10 @@
 sv:
   back: Tillbaka
+  save: Spara
 
   application:
     navbar:
       events: Event
-
 
   events:
     index:

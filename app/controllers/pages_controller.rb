@@ -38,12 +38,14 @@ class PagesController < ApplicationController
   end
 
   def edit
+    @exists = true
   end
 
   def update
     if @page.update(page_params)
       redirect_to @page
     else
+      @exists = true
       render 'edit'
     end
   end
@@ -72,6 +74,6 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title, :content, :slug)
+    params.require(:page).permit(:title, :content, :title_sv, :content_sv, :title_en, :content_en, :slug)
   end
 end

@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @exists = true
   end
 
   def update
@@ -33,6 +34,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       load_tags
+      @exists = true
       render 'edit'
     end
   end
@@ -40,7 +42,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, :title_sv, :content_sv, :title_en, :content_en, tag_ids: [])
   end
 
   def load_tags
