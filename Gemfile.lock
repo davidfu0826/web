@@ -106,6 +106,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.0)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -221,6 +222,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   meta_request
+  nested_form
   pagedown-bootstrap-rails
   rack-cache
   rails (= 4.1.1)
