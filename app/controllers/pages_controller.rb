@@ -18,20 +18,23 @@ class PagesController < ApplicationController
 
   #TODO Authorize NavItem
   def create
-    if params[:page][:create_nav]
-      if params[:page][:parent]
-        @parent = NavItem.find(params[:page][:parent])
-        @nav_item = NavItem.new(page: @page, parent: @parent)
-      else
-        @nav_item = NavItem.new(page: @page)
-      end
-      unless @nav_item.save
-        render 'new'
-      end
-    end
 
     if @page.save
-      redirect_to @page
+      if params[:page][:create_nav]
+        if params[:page][:parent]
+          @parent = NavItem.find(params[:page][:parent])
+          @nav_item = NavItem.new(page: @page, parent: @parent)
+        else
+          @nav_item = NavItem.new(page: @page)
+        end
+        if @nav_item.save
+          redirect_to @page
+        else
+          render 'new'
+        end
+      else
+        redirect_to @page
+      end
     else
       render 'new'
     end
