@@ -14,9 +14,9 @@ class Page < ActiveRecord::Base
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
 
   def slug_not_reserved_name
-    reserved_names = %(users events event_groups posts nav_items pages)
+    reserved_names = %(users events event_groups posts nav_items pages).split
     if reserved_names.include? slug
-      errors.add(:slug, I18n.t('.slug_reserved'))
+      errors.add(:slug, I18n.t('errors.slug_reserved'))
     end
   end
 
