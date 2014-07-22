@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'nav_items/:id/move_higher', to: 'nav_items#move_higher', as: 'nav_item_higher'
   get 'nav_items/:id/move_lower', to: 'nav_items#move_lower', as: 'nav_item_lower'
 
+  get 'locale_sv', to: 'locale#locale_sv', as: 'swedish_locale'
+  get 'locale_en', to: 'locale#locale_en', as: 'english_locale'
+
   get 'pages', to: 'pages#index'
   get ':id', to: 'pages#show', as: :page
   patch ':id', to: 'pages#update'

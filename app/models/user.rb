@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   translates :title
 
   enum role: %i{admin editor events}
+  enum locale: %i{sv en}
 end

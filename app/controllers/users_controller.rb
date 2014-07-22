@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :load_roles, only: [:new, :edit]
+  before_filter :load_resources, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
@@ -38,10 +38,11 @@ class UsersController < ApplicationController
 
   def user_params
     params[:user][:role] = params[:user][:role].to_i
-    params.require(:user).permit(:name, :email, :title, :role, :phonenumber, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :title, :role, :locale, :phonenumber, :password, :password_confirmation)
   end
 
   def load_roles
     @roles = User.roles
+    @locales = User.locales
   end
 end

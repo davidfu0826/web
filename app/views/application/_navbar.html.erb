@@ -1,4 +1,5 @@
 <% @nav_row = NavItem.orphans.order("position ASC") %>
+<% @locale = I18n.locale %>
 <%= navbar fixed: :top do %>
   <%= navbar_header brand: 'TLTH' %>
   <%= navbar_collapse do %>
@@ -27,17 +28,19 @@
       <li><%= navbar_item t('.tags'), tags_path %></li>
     <% end %>
     <%= navbar_group align: 'right' do %>
-      <% if current_user %>
-      <%= navbar_dropdown "Settings" do %>
-        <li><%= navbar_item t('.account_settings'), edit_user_path(current_user) %></li>
-        <li><%= navbar_item t('.page_management'), pages_path if can? :manage, Page %></li>
-        <li><%= navbar_item t('.user_management'), users_path if can? :manage, User %></li>
+      <%= navbar_dropdown t(:settings) do %>
+        <% if current_user %>
+          <li><%= navbar_item t('.page_management'), pages_path if can? :manage, Page %></li>
+          <li><%= navbar_item t('.user_management'), users_path if can? :manage, User %></li>
+          <%= navbar_dropdown_divider %>
+          <li><%= navbar_item t('.account_settings'), edit_user_path(current_user) %></li>
+          <li><%= link_to t(:log_out), destroy_user_session_path, method: :delete %></li>
+        <% end %>
       <% end %>
-        <%= navbar_text current_user.email %>
-        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <%= navbar_item "Log In", new_user_session_path %>
-      <% end %>
+      <%= navbar_text current_user.email %>
+      <%= navbar_item t(:log_in), new_user_session_path unless current_user %>
+      <li><%= link_to "Svenska", swedish_locale_path if @locale == :en %></li>
+      <li><%= link_to "English", english_locale_path if @locale == :sv %></li>
     <% end %>
   <% end %>
 <% end %>

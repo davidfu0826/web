@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    if current_user && current_user.locale.present?
+      current_user.locale.to_sym
+    elsif cookies['locale'] && I18n.available_locales.include?(cookies['locale'].to_sym)
+      I18n.locale = cookies['locale'].to_sym
+    else
+      I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    end
   end
 end
