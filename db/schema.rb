@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722120324) do
+ActiveRecord::Schema.define(version: 20140723125100) do
+
+  create_table "contact_forms", force: true do |t|
+    t.integer  "page_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
 
   create_table "event_groups", force: true do |t|
     t.string "name_sv"
@@ -63,6 +71,13 @@ ActiveRecord::Schema.define(version: 20140722120324) do
 
   add_index "pages", ["user_id"], name: "index_pages_on_user_id"
 
+  create_table "pages_users", force: true do |t|
+    t.integer  "page_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title_sv"
     t.text     "content_sv"
@@ -70,6 +85,13 @@ ActiveRecord::Schema.define(version: 20140722120324) do
     t.datetime "updated_at"
     t.string   "title_en"
     t.text     "content_en"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "content"
+    t.integer  "contact_form_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|

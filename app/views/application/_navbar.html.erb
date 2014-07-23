@@ -37,10 +37,10 @@
           <li><%= link_to t(:log_out), destroy_user_session_path, method: :delete %></li>
         <% end %>
       <% end %>
-      <%= navbar_text current_user.email %>
+      <%= navbar_text current_user.email if current_user %>
       <%= navbar_item t(:log_in), new_user_session_path unless current_user %>
       <li><%= link_to "Svenska", swedish_locale_path if @locale == :en %></li>
-      <li><%= link_to "English", english_locale_path if @locale == :sv %></li>
+      <li><%= link_to "English", english_locale_path if @locale != :en %></li>
     <% end %>
   <% end %>
 <% end %>

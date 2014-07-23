@@ -1,0 +1,10 @@
+<%= bootstrap_nested_form_for [@page, @contact_form] do |f| %>
+  <%= f.fields_for :questions do |qf| %>
+    <%= qf.text_field :content %>
+    <%= qf.link_to_remove t('.remove_question') %>
+  <% end %>
+  <p><%= f.link_to_add t('.add_question'), :questions %></p>
+  <%= f.hidden_field :page_id, value: @page.id %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit %>
+<% end %>

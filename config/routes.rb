@@ -28,5 +28,8 @@ Rails.application.routes.draw do
   delete ':id', to: 'pages#destroy'
   get ':id/add_user', to: 'pages#add_user', as: 'page_add_user'
   post ':id/add_user', to: 'pages#add_user_update', as: 'page_add_user_update'
-  resources :pages, except: [:show, :update, :destroy, :index]
+  post 'contact_forms/:id/send_mail', to: 'contact_forms#send_mail', as: 'contact_form_send_mail'
+  resources :pages, except: [:show, :update, :destroy, :index], shallow: true do
+    resources :contact_forms
+  end
 end

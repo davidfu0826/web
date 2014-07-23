@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @contact_forms = @page.contact_forms
   end
 
   def new
@@ -66,7 +67,7 @@ class PagesController < ApplicationController
   #TODO Authorize User
   def add_user_update
     @user = User.find(params[:user_id])
-    @page.user = @user
+    @page.contacts << @user
     if @page.save
       redirect_to @page
     else

@@ -13,6 +13,16 @@ sv:
       search: Gruppera
       reset: Återställ
 
+  contact_forms:
+    send_mail:
+      question_form_sent: Ett mail har skickats till kontaktpersonen.
+
+  users:
+    user:
+      contact: Kontakta
+      add_contact_form: Lägg till kontaktformulär
+      edit_contact_form: Redigera kontaktformulär
+
   date:
     abbr_day_names:
     - sön
