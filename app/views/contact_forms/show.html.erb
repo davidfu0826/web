@@ -1,0 +1,10 @@
+<%= bootstrap_form_tag url: contact_form_send_mail_path(@contact_form), method: :post do |f| %>
+
+  <%= f.text_field :sender_email %>
+  <% @contact_form.questions.each do |q| %>
+      <%= f.text_area q.content, name: "answer[#{q.id}]" %>
+  <% end %>
+
+    <%= f.hidden_field :user, value: @contact_form.user.id %>
+  <%= f.submit %>
+<% end %>

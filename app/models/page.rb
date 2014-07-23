@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
   translates :title, :content
 
   has_one :nav_item, dependent: :destroy
-  belongs_to :user
+  has_and_belongs_to_many :contacts, class_name: 'User'
   has_many :contact_forms
 
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }

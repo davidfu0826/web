@@ -21,6 +21,7 @@
 //= require ekko-lightbox
 //= require select2
 //= require select2_locale_sv
+//= require jquery_nested_form
 //= require_tree .
 
 

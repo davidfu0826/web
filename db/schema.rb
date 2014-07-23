@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722140908) do
+ActiveRecord::Schema.define(version: 20140723100358) do
 
   create_table "contact_forms", force: true do |t|
     t.integer  "page_id"
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 20140722140908) do
   end
 
   add_index "pages", ["user_id"], name: "index_pages_on_user_id"
+
+  create_table "pages_users", force: true do |t|
+    t.integer  "page_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title_sv"

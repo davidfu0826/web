@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Du har fått ett mail från <%= @sender_email %></p>
+          <% @answers.each do |a| %>
+            <p><strong><%= @questions.find(a.first).content %></strong></p>
+            <p> <%= a.second %></p>
+          <% end %>
+    </body>
+</html>

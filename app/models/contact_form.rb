@@ -1,6 +1,8 @@
 class ContactForm < ActiveRecord::Base
   belongs_to :page
-  has_many :users
-  has_many :questions
+  belongs_to :user
+  has_many :questions, dependent: :destroy
   accepts_nested_attributes_for :questions
+
+  validate :questions, presence: true
 end
