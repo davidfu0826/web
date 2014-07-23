@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path
     else
-      load_roles
+      load_resources
       render 'new'
     end
   end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path
     else
-      load_roles
+      load_resources
       render 'edit'
     end
   end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :title, :role, :locale, :phonenumber, :password, :password_confirmation)
   end
 
-  def load_roles
+  def load_resources
     @roles = User.roles
     @locales = User.locales
   end

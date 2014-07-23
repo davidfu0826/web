@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   load_resource find_by: :slug
-  load_resource :users, only: [:add_user, :add_user_update]
   authorize_resource
 
   #TODO Authorize stuff
@@ -62,6 +61,7 @@ class PagesController < ApplicationController
 
   #TODO Authorize User
   def add_user
+    @users = User.all
   end
 
   #TODO Authorize User
