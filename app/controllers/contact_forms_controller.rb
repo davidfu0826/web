@@ -42,7 +42,8 @@ class ContactFormsController < ApplicationController
     sender_email = params[:sender_email]
     questions = @contact_form.questions
     answers = params[:answer]
-    ContactFormMailer.contact_email(user, sender_email, questions, answers).deliver
+    title = @contact_form.page.title
+    ContactFormMailer.contact_email(user, sender_email, questions, answers, title).deliver
     redirect_to @contact_form.page, notice: t('.question_form_sent')
   end
 
