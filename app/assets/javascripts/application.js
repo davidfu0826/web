@@ -30,6 +30,13 @@ $(document).ready(function(){
   load_select2();
 })
 
+$(document).ready(function(){
+  $( ".img-choose" ).click(function(e) {
+    console.log(e.target.src);
+    //$('#myModal').modal('hide')
+  });
+})
+
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
     event.preventDefault();
     $(this).ekkoLightbox();
@@ -48,9 +55,4 @@ function load_select2() {
   for (index = 0; index < sel.length; ++index) {
     $(sel[index]).select2();
   }
-  $(".question-dropdown").select2({
-    formatResult: format,
-    formatSelection: format,
-    escapeMarkup: function(m) { return m; }
-  });
 }

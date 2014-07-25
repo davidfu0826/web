@@ -9,6 +9,6 @@
 </div>
 
 <%= render @page.contacts %>
-<%= link_to "Add User to page", page_add_user_path(@page), class: "btn btn-success" %>
+<%= link_to t('.add_user'), page_add_user_path(@page), class: "btn btn-success" %>
 
-<%= link_to "redigera", edit_page_path(@page), class: "btn btn-default" if can?(:edit, @page) %>
+<%= link_to t('.edit_page'), edit_page_path(@page), class: "btn btn-default" if can?(:edit, @page) %>

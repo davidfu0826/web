@@ -23,6 +23,11 @@ sv:
       add_contact_form: Lägg till kontaktformulär
       edit_contact_form: Redigera kontaktformulär
 
+  pages:
+    show:
+      add_user: Lägg till användare
+      edit_page: Redigera sida
+
   date:
     abbr_day_names:
     - sön
