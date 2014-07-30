@@ -9,8 +9,13 @@
 @import "select2-bootstrap";
 @import "theme";
 
+p {
+  color: #555555;
+}
+
 #page-content {
-  margin-top: 55px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .wmd-input {
@@ -55,4 +60,48 @@
   margin-top: 50px;
   overflow: hidden;
   position: relative;
+}
+
+
+.footer p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.page-header {
+  border-bottom: none;
+}
+
+.content {
+  border-right: 2px solid #eeeeee
+}
+
+.post-tools {
+  font-style: italic;
+  a {
+    color: #aaaaaa !important;
+  }
+}
+
+.navbar .navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+
+.navbar-nav li {
+  display: inline-block;
+  float: none;
+}
+
+.navbar-nav .dropdown-menu li {
+  display: block;
+}
+
+.sidebar-links a {
+  color: gray;
+}
+
+.twitter-heading {
+  margin-bottom: 2px;
+  font-size: 18px;
 }
