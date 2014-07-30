@@ -15,13 +15,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require pagedown_bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.sv.js
 //= require ekko-lightbox
 //= require select2
 //= require select2_locale_sv
 //= require jquery_nested_form
+//= require pagedown_bootstrap
 //= require_tree .
 
 

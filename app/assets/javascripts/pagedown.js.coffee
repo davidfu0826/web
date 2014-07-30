@@ -1,9 +1,16 @@
 $ ->
   $('textarea.wmd-input').each (i, input) ->
-    console.log input
     attr = $(input).attr('id').split('wmd-input')[1]
-    console.log attr
     converter = new Markdown.Converter()
+    converter.hooks.chain "plainLinkText", (url) ->
+      if /^https:\/\/podio\.com\/webforms\//i.test(url)
+        #id = url.split("/").pop()
+        #script = "<script src=#{url}.js></script>"+"<script type='text/javascript'>_podioWebForm.render(#{id})</script>"
+        "<b>Podio Webform</b>"
+      else if /^https:\/\/docs\.google\.com\/forms\//i.test(url)
+        "<b>Google Docs Form</b>"
+      else
+        url
     Markdown.Extra.init(converter)
     help =
       handler: () ->
@@ -13,14 +20,14 @@ $ ->
     editor = new Markdown.Editor(converter, attr, help)
     editor.hooks.set "insertImageDialog", (callback) ->
       setTimeout ( ->
-          $("#myModal").modal "show"
-          $(".img-choose").click (e) ->
-            $("#myModal").modal "hide"
-            console.log(e.target.attributes['data-source'].value)
-            callback(e.target.attributes['data-source'].value)
-          $("#modal-close").click (e) ->
-            $("#myModal").modal "hide"
-            callback(null)
+        $("#imageModal").modal "show"
+        $(".img-choose").click (e) ->
+          $("#imageModal").modal "hide"
+          callback(e.target.attributes['data-source'].value)
+        $("#modal-close").click (e) ->
+          $("#imageModal").modal "hide"
+          callback(null)
       ), 0
       true
     editor.run()
+
