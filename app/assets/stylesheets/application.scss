@@ -30,3 +30,27 @@
 .img-library {
   padding: 15px;
 }
+
+#logo {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  max-width: 780px;
+  z-index: 1;
+}
+
+#panorama {
+  margin-top: -5px;
+  margin-bottom: -10px;
+  width: 100%;
+}
+
+.panorama-wrapper {
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+}

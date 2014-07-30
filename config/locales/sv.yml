@@ -28,6 +28,11 @@ sv:
       add_user: Lägg till användare
       edit_page: Redigera sida
 
+  posts:
+    index:
+      welcome: Välkommen till Teknologkåren
+      lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
+
   date:
     abbr_day_names:
     - sön

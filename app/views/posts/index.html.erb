@@ -1,5 +1,16 @@
-<%= render @posts %>
+<div class="col-md-8">
+  <div class="page-header">
+    <h1><%= t('.welcome') %></h1>
+    <div class="lead">
+      <%= t('.lead') %>
+    </div>
+  </div>
+  <%= render @posts %>
+  <% if can? :create, Post %>
+    <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
+  <% end %>
+</div>
+<div class="col-md4">
 
-<% if can? :create, Post %>
-  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
-<% end %>
+</div>
+
