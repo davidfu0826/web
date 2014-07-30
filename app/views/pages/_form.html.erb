@@ -1,4 +1,4 @@
-<!-- Nav tabs -->
+  <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a href="#sv" role="tab" data-toggle="tab">
     Svenska
@@ -19,19 +19,18 @@
   <div class="tab-content">
     <div class="tab-pane active" id="sv">
       <%= f.text_field :title_sv %>
-      <%= f.text_field :slug %>
       <%= f.form_group do %>
         <%= f.pagedown_input :content_sv %>
       <% end %>
     </div>
     <div class="tab-pane" id="en">
       <%= f.text_field :title_en %>
-      <%= f.text_field :slug %>
       <%= f.form_group do %>
         <%= f.pagedown_input :content_en %>
       <% end %>
     </div>
   </div>
+  <%= f.text_field :slug %>
   <%= f.hidden_field :parent, value: @parent if @parent %>
   <%= f.hidden_field :create_nav, value: @create_nav if @create_nav %>
   <%= f.submit t(:save) %>
