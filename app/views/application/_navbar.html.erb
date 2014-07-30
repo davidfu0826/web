@@ -1,9 +1,9 @@
 <% @nav_row = NavItem.orphans.order("position ASC") %>
 <% @locale = I18n.locale %>
 <%= navbar fixed: :top do %>
-  <%= navbar_header brand: 'TLTH' %>
   <%= navbar_collapse do %>
     <%= navbar_group do %>
+      <li><%= navbar_item t('.start'), root_path %></li>
       <% @nav_row.each do |nav_item| %>
         <% if nav_item.children.count > 0 %>
           <%= navbar_dropdown nav_item.item_title do %>
@@ -26,10 +26,8 @@
       <li><%= navbar_item t('.events'), events_path %></li>
       <li><%= navbar_item t('.images'), images_path %></li>
       <li><%= navbar_item t('.tags'), tags_path %></li>
-    <% end %>
-    <%= navbar_group align: 'right' do %>
-      <%= navbar_dropdown t(:settings) do %>
-        <% if current_user %>
+      <% if current_user %>
+        <%= navbar_dropdown current_user.email do %>
           <li><%= navbar_item t('.page_management'), pages_path if can? :manage, Page %></li>
           <li><%= navbar_item t('.user_management'), users_path if can? :manage, User %></li>
           <%= navbar_dropdown_divider %>
@@ -37,7 +35,6 @@
           <li><%= link_to t(:log_out), destroy_user_session_path, method: :delete %></li>
         <% end %>
       <% end %>
-      <%= navbar_text current_user.email if current_user %>
       <%= navbar_item t(:log_in), new_user_session_path unless current_user %>
       <li><%= link_to "Svenska", swedish_locale_path if @locale == :en %></li>
       <li><%= link_to "English", english_locale_path if @locale != :en %></li>
