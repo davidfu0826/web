@@ -9,9 +9,6 @@
 @import "select2-bootstrap";
 @import "theme";
 
-p {
-  color: #555555;
-}
 
 /*  -- NAVBAR --  */
 .navbar .navbar-nav {
@@ -54,12 +51,21 @@ p {
 }
 
 /*  -- PAGE CONTENT --  */
-#page-content {
+#content {
   margin-top: 50px;
   margin-bottom: 50px;
 
-  .content {
-    border-right: 2px solid #eeeeee
+  .news-feed {
+    border-right: 2px solid #eee;
+
+    .post {
+      .post-tools {
+        font-style: italic;
+        a {
+          color: $light-gray !important;
+        }
+      }
+    }
   }
 
   .img-library {
@@ -73,20 +79,53 @@ p {
 
 /*  -- SIDEBAR --  */
 .sidebar {
-  .post-tools {
-    font-style: italic;
-    a {
-      color: #aaaaaa !important;
-    }
-  }
-
-  .twitter-feed {
+  ul {
     list-style-type: none;
     padding-left: 0;
+  }
 
+
+  .twitter-feed {
     h5 {
       margin-bottom: 2px;
       font-size: 18px;
+    }
+
+    .twitter-name {
+      font-size: 14px;
+      color: $gray;
+    }
+  }
+
+  .calendar-feed {
+    .event-thumb {
+      margin-right: 15px;
+      margin-top: 2px;
+      height: 50px;
+      width: 50px;
+
+      border: 1px solid $brand-primary;
+      border-radius: 3px;
+
+      text-align: center;
+
+      .month {
+        font-size: 11px;
+        color: $brand-primary;
+      }
+
+      .day {
+        font-size: 24px;
+        margin-bottom: -2px;
+      }
+    }
+
+    h3 {
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 13px;
     }
   }
 

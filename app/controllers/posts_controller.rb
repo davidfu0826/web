@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :load_tags, only: [:new, :edit]
+  before_action :load_events, only: :index
   load_and_authorize_resource
 
   def index
+    @posts = @posts.order(:created_at).take(3)
     if params[:tag]
       @tag = Tag.find(params[:tag])
       @posts = @posts.with_tag(@tag)
@@ -47,5 +49,9 @@ class PostsController < ApplicationController
 
   def load_tags
     @tags = Tag.all
+  end
+
+  def load_events
+    @events = Event.order(:start_time).take(3)
   end
 end

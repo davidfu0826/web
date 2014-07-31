@@ -23,4 +23,12 @@ class Event < ActiveRecord::Base
     event
   end
 
+  def day
+    start_time.strftime("%e")
+  end
+
+  def short_month
+    start_time.strftime("%B")[0,3]
+  end
+
 end
