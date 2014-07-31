@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :load_tags, only: [:new, :edit]
   before_action :load_events, only: :index
+  #before_action :load_tweets, only: :tweets
   load_and_authorize_resource
 
   def index
@@ -41,6 +42,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def tweets
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
+    end
+    @tweets = client.user_timeline[0..1]
+    render partial: 'tweet', collection: @tweets
+  end
+
   private
 
   def post_params
@@ -53,5 +65,16 @@ class PostsController < ApplicationController
 
   def load_events
     @events = Event.order(:start_time).take(3)
+
+  end
+
+  def load_tweets
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
+    end
+    @tweets = client.user_timeline[0..2]
   end
 end

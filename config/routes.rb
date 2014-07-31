@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/:id/new_password_email', to: 'users#new_password_email', as: 'user_new_password_email'
 
   resources :posts, except: [:show]
+  get 'posts/tweets', to: 'posts#tweets'
   get 'feed', to: 'posts#feed'
 
   resources :images, except: [:show, :edit, :update]

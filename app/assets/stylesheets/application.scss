@@ -55,9 +55,14 @@
   margin-top: 50px;
   margin-bottom: 50px;
 
-  .news-feed {
-    border-right: 2px solid #eee;
+  padding-left: 4%;
+  padding-right: 4%;
 
+  .lead {
+    font-size: 18px;
+  }
+
+  .news-feed {
     .post {
       .post-tools {
         font-style: italic;
@@ -79,13 +84,14 @@
 
 /*  -- SIDEBAR --  */
 .sidebar {
+  border-left: 2px solid #eee;
+
   ul {
     list-style-type: none;
     padding-left: 0;
   }
 
-
-  .twitter-feed {
+  #twitter-feed {
     h5 {
       margin-bottom: 2px;
       font-size: 18px;

@@ -1,6 +1,6 @@
 <% @nav_row = NavItem.orphans.order("position ASC") %>
 <% @locale = I18n.locale %>
-<%= navbar fixed: :top, container: 'fluid' do %>
+<%= navbar fixed: :top do %>
   <%= navbar_collapse do %>
     <%= navbar_group do %>
       <li><%= navbar_item t('.start'), root_path %></li>

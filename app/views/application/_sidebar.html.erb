@@ -1,6 +1,6 @@
-<div class="sidebar">
+<div class="col-sm-12">
   <% if current_user %>
-    <div class="col-sm-12">
+    <div class="row">
       <h3><%= t(:tools) %></h3>
         <ul>
           <li><%= link_to t('.account_settings'), edit_user_path(current_user)    %></li>
@@ -13,30 +13,19 @@
         </ul>
     </div>
   <% end %>
-  <div class="col-sm-12 hidden-sm hidden-xs">
+  <div class="row hidden-sm hidden-xs">
     <h3>Twitter</h3>
-    <ul class="twitter-feed">
-      <li>
-        <h5>Per-Victor Persson <span class="twitter-name">@dracyr</span></h5>
-        <p>
-          Kan säga massor med saker på bara 140 karaktärer
-        </p>
-      </li>
-      <li>
-        <h5>Per-Victor Persson</h5>
-        <p>
-          Kan säga massor med saker på bara 140 karaktärer
-        </p>
-      </li>
+    <ul id="twitter-feed">
+      <%= render partial: 'tweet', collection: @tweets %>
     </ul>
   </div>
-  <div class="col-sm-12">
+  <div class="row">
     <h3><%= t(:calendar) %></h3>
     <ul class="calendar-feed">
       <%= render @events %>
     </ul>
   </div>
-  <div class="col-sm-12 sidebar-links">
+  <div class="row sidebar-links">
     <h3><%= t(:links) %></h3>
     <h4><a href="#">Facebook</a></h4>
     <h4><a href="#">KFS AB</a></h4>

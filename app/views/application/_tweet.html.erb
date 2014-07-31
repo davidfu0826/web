@@ -1,0 +1,9 @@
+<li>
+  <h5>
+    <%= link_to tweet.user.name, tweet.user.url.to_param %>
+    <%= link_to "@#{tweet.user.handle}", tweet.user.url.to_param, class: "twitter-name" %>
+  </h5>
+  <p>
+    <%= format_tweet(tweet.text) %>
+  </p>
+</li>

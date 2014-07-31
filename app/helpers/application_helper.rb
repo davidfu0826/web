@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include AutoHtml
   def flash_class(level)
     case level
       when "notice" then "alert alert-info alert-dismissable"
@@ -14,5 +15,12 @@ module ApplicationHelper
     content = text_area(object_name, method, options)
     preview = content_tag(:div, content_tag(:div, '', id: "wmd-preview-#{method.to_s}"), class: "well")
     content_tag(:div, ( button_bar + content + preview ))
+  end
+
+  def format_tweet(text)
+    auto_html(text) do
+      link
+      hashtag
+    end
   end
 end

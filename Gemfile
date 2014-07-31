@@ -28,6 +28,7 @@ gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'rack-cache', :require => 'rack/cache' #Caching images
 gem 'select2-rails'
 gem 'nested_form'
+gem 'twitter'
 
 group :development do
   gem 'spring'
