@@ -13,15 +13,109 @@ p {
   color: #555555;
 }
 
+/*  -- NAVBAR --  */
+.navbar .navbar-nav {
+  width: 100%;
+  text-align: center;
+  display: table;
+
+  li {
+    float: none;
+    display: table-cell;
+  }
+  .dropdown-menu li {
+    display: block;
+  }
+}
+
+/*  -- PANORAMA --  */
+.panorama-wrapper {
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+
+  #logo {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    max-width: 780px;
+    z-index: 1;
+  }
+
+  #panorama {
+    margin-top: -5px;
+    margin-bottom: -10px;
+    width: 100%;
+  }
+}
+
+/*  -- PAGE CONTENT --  */
 #page-content {
   margin-top: 50px;
   margin-bottom: 50px;
+
+  .content {
+    border-right: 2px solid #eeeeee
+  }
+
+  .img-library {
+    padding: 15px;
+  }
+
+  .wmd-input {
+    height: 300px !important;
+  }
 }
 
-.wmd-input {
-  height: 300px !important;
+/*  -- SIDEBAR --  */
+.sidebar {
+  .post-tools {
+    font-style: italic;
+    a {
+      color: #aaaaaa !important;
+    }
+  }
+
+  .twitter-feed {
+    list-style-type: none;
+    padding-left: 0;
+
+    h5 {
+      margin-bottom: 2px;
+      font-size: 18px;
+    }
+  }
+
+  .sidebar-links a {
+    color: gray;
+  }
 }
 
+/*  -- FOOTER --  */
+.footer {
+  ul {
+    width: 100%;
+    padding-left: 0;
+    display: table;
+    list-style-type: none;
+    text-align:center;
+
+    li {
+      display: table-cell;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/*  -- Stuff --  */
 .video {
   text-align: center;
 }
@@ -32,76 +126,4 @@ p {
 
 .panel-body-sm {
   padding: 7px;
-}
-
-.img-library {
-  padding: 15px;
-}
-
-#logo {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 35%;
-  max-width: 780px;
-  z-index: 1;
-}
-
-#panorama {
-  margin-top: -5px;
-  margin-bottom: -10px;
-  width: 100%;
-}
-
-.panorama-wrapper {
-  margin-top: 50px;
-  overflow: hidden;
-  position: relative;
-}
-
-
-.footer p {
-  font-size: 12px;
-  text-align: center;
-}
-
-.page-header {
-  border-bottom: none;
-}
-
-.content {
-  border-right: 2px solid #eeeeee
-}
-
-.post-tools {
-  font-style: italic;
-  a {
-    color: #aaaaaa !important;
-  }
-}
-
-.navbar .navbar-nav {
-  width: 100%;
-  text-align: center;
-}
-
-.navbar-nav li {
-  display: inline-block;
-  float: none;
-}
-
-.navbar-nav .dropdown-menu li {
-  display: block;
-}
-
-.sidebar-links a {
-  color: gray;
-}
-
-.twitter-heading {
-  margin-bottom: 2px;
-  font-size: 18px;
 }
