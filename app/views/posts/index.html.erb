@@ -1,5 +1,54 @@
-<%= render @posts %>
+<div class="col-md-8 content">
+  <div class="media">
+    <div class="media-body">
+      <div class="media-heading">
+        <h1><%= t('.welcome') %></h1>
+      </div>
+      <div class="lead">
+        <p><%= t('.lead') %></p>
+      </div>
+    </div>
+  </div>
+  <%= render @posts %>
+</div>
+<div class="col-md-4">
+  <div class="sidebar">
+      <% if can? :create, Post %>
+        <div class="col-sm-12">
+          <h3>Verktyg</h3>
+            <%= link_to "New Post", new_post_path if can? :create, Post  %>
+        </div>
+      <% end %>
+      <div class="col-sm-12">
+        <h3>Twitter</h3>
+        <ul class="twitter-feed">
+          <li>
+            <h5>Per-Victor Persson</h5>
+            <p>
+              Kan säga massor med saker på bara 140 karaktärer
+            </p>
+          </li>
+          <li>
+            <h5>Per-Victor Persson</h5>
+            <p>
+              Kan säga massor med saker på bara 140 karaktärer
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-12">
+        <h3>Kalender</h3>
+        <ul class="calendar-feed">
+          <li>
 
-<% if can? :create, Post %>
-  <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
-<% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-12 sidebar-links">
+        <h3>Länkar</h3>
+        <h4><a href="#">Facebook</a></h4>
+        <h4><a href="#">KFS AB</a></h4>
+      </div>
+  </div>
+</div>
+

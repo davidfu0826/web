@@ -8,6 +8,10 @@
   </head>
   <body>
     <%= render 'navbar' %>
+    <div class="panorama-wrapper">
+      <%= image_tag 'white_stand_se.svg', id: "logo" %>
+      <%= image_tag 'http://placehold.it/1920x600', id: "panorama", class: "img-responsive center-block" %>
+    </div>
     <div class="container" id="page-content">
       <% flash.each do |name, msg| %>
         <div class="<%= flash_class(name) %>"><%= msg %></div>
@@ -15,5 +19,7 @@
       <%= yield %>
     </div>
     <%= render 'guilds' %>
+    <%= render 'footer' %>
   </body>
 </html>
+
