@@ -3,6 +3,7 @@ sv:
   save: Spara
   edit: Redigera
   destroy: Radera
+  reset: Återställ
   read_more: Läs Mer
   tools: Verktyg
   name: Namn

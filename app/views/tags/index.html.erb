@@ -1,4 +1,3 @@
-<%= link_to t('.new_tag'), new_tag_path %>
 <table class="table">
   <thead>
     <tr>
@@ -19,3 +18,12 @@
     <% end %>
   </tbody>
 </table>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <li><%= link_to t('.new_tag'), new_tag_path %></li>
+    </ul>
+  </div>
+<% end %>
