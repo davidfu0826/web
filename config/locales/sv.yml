@@ -4,6 +4,9 @@ sv:
   edit: Redigera
   destroy: Radera
   read_more: Läs Mer
+  tools: Verktyg
+  name: Namn
+  email: Email
 
   application:
     navbar:
@@ -36,6 +39,7 @@ sv:
     show:
       add_user: Lägg till användare
       edit_page: Redigera sida
+    contacts: Kontaktpersoner
 
   posts:
     index:

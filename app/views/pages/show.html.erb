@@ -2,13 +2,20 @@
   <h1><%= @page.title %></h1>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <%= @page.content_html %>
+<%= @page.content_html %>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+      <ul>
+        <li><%= link_to t('.add_user'), page_add_user_path(@page) %></li>
+        <li><%= link_to t('.edit_page'), edit_page_path(@page) %></li>
+      </ul>
   </div>
-</div>
-
-<%= render @page.contacts %>
-<%= link_to t('.add_user'), page_add_user_path(@page), class: "btn btn-success" %>
-
-<%= link_to t('.edit_page'), edit_page_path(@page), class: "btn btn-default" if can?(:edit, @page) %>
+  <% if @page.contacts.present? %>
+    <div class="row">
+      <h3><%= t('pages.contacts') %></h3>
+      <%= render @page.contacts %>
+    </div>
+  <% end %>
+<% end %>

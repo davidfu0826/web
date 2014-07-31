@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 
   #TODO Authorize NavItem
   def create
+    @page.slug = @page.title_en.parameterize.underscore
     if @page.save
       if nav_params[:create_nav]
         if nav_params[:parent]
@@ -31,12 +32,16 @@ class PagesController < ApplicationController
         if @nav_item.save
           redirect_to @page
         else
+          @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
+          @parent     = nav_params[:parent]     if nav_params[:parent].present?
           render 'new'
         end
       else
         redirect_to @page
       end
     else
+      @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
+      @parent     = nav_params[:parent]     if nav_params[:parent].present?
       render 'new'
     end
   end
@@ -78,7 +83,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :slug)
+    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en)
   end
 
   def nav_params

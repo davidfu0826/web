@@ -1,17 +1,14 @@
 <div class="page-header">
-  <h1><%= t('.page_manegement') %></h1>
+  <h1><%= t('.page_management') %></h1>
 </div>
 
 
 <div class="col-xs-12"><%= render @nav_items %></div>
 
-<%= link_to t('New Menu'), new_nav_item_path, class: "btn btn-success" %>
-<%= link_to t('New Page'), new_page_path(create_nav: true), class: "btn btn-success" %>
-
 <h2><%= t('.hidden_pages') %></h2>
 
 <div class="col-xs-12">
-  <div class="col-xs-5">
+  <div class="col-xs-12">
     <% @orphan_pages.each do |page| %>
       <div class="panel panel-default">
         <div class="panel-body-sm">
@@ -27,6 +24,16 @@
         </div>
       </div>
     <% end %>
-    <%= link_to "New Page", new_page_path, class: "btn btn-success" if can? :create, Page %>
   </div>
 </div>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <li><%= link_to t('pages.new_nav_item'), new_nav_item_path if can? :create, NavItem %></li>
+      <li><%= link_to t('pages.new_page'), new_page_path(create_nav: true) if can? :create, Page %></li>
+      <li><%= link_to t('pages.new_hidden_page'), new_page_path if can? :create, Page %></li>
+    </ul>
+  </div>
+<% end %>

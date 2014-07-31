@@ -1,4 +1,4 @@
-<div class="news-feed col-md-8">
+<div class="news-feed">
   <div class="media">
     <div class="media-body">
       <div class="media-heading">
@@ -11,7 +11,7 @@
   </div>
   <%= render @posts %>
 </div>
-<div class="sidebar col-md-4">
-  <%= render 'sidebar' %>
-</div>
 
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>

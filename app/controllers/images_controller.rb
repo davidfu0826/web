@@ -1,9 +1,13 @@
 class ImagesController < ApplicationController
-  before_action :load_tags, only: [:new, :edit]
+  before_action :load_tags, only: [:index, :new, :edit]
   load_and_authorize_resource
 
   def index
-    if params[:tag]
+    if params[:search]
+      @images = @images.search(params[:search])
+      @search = params[:search]
+    end
+    if params[:tag] && !params[:tag].blank?
       @tag = Tag.find(params[:tag])
       @images = @images.with_tag(@tag)
     end

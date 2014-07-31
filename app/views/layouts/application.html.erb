@@ -16,7 +16,18 @@
       <% flash.each do |name, msg| %>
         <div class="<%= flash_class(name) %>"><%= msg %></div>
       <% end %>
-      <%= yield %>
+      <% if content_for?(:sidebar) %>
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+        <div class="sidebar col-md-4">
+          <div class="col-xs-12">
+            <%= yield :sidebar %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
     </div>
     <%= render 'guilds' %>
     <%= render 'footer' %>

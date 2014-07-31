@@ -1,5 +1,3 @@
-<%= link_to t('.new_image'), new_image_path %>
-
 <div class="row gallery-parent">
   <% @images.each do |image| %>
     <% if image.image_stored? %>
@@ -12,3 +10,23 @@
     <% end %>
   <% end %>
 </div>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <li><%= link_to t('.new_image'), new_image_path %></li>
+    </ul>
+  </div>
+  <div class="row">
+    <h3><%= t(:filter) %></h3>
+    <%= bootstrap_form_tag url: images_path, method: 'get' do |f| %>
+      <p>
+        <%= f.text_field :search, value: @search %>
+        <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, label: t('.filter') }, { id: 'select2'} %>
+        <%= f.submit %>
+        <%= link_to t('.reset'), images_path %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
