@@ -2,9 +2,9 @@
   <h1>Events</h1>
 </div>
 
-<% @events.each do |event| %>
-  <%= link_to event.title, event %> <br>
-<% end %>
+<%# @events.each do |event| %>
+  <%#= link_to event.title, event %> <br>
+<%# end %>
 
 <% content_for :sidebar do %>
   <div class="row">
@@ -24,6 +24,28 @@
         <%= f.submit %>
         <%= link_to t(:reset), events_path %>
       </p>
+    <% end %>
+  </div>
+<% end %>
+
+<% [@last_month, @this_month, @next_month].each do |month| %>
+  <div class="col-md-4">
+    <h3><%= t(:"date.month_names")[month] %></h3>
+    <% if @events[month].present? %>
+      <% @events[month].keys.sort.each do |week| %>
+        <h5><%= t('.week', week: week) %></h5>
+        <ul class="event-week">
+          <% @events[month][week].sort_by!(&:start_time) %>
+          <% @events[month][week].each do |event| %>
+            <li>
+              <span style="font-weight: bold;">[<%= l(event.start_time, format: :week_day) %>]</span>
+              <%= link_to event.title, event %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% else %>
+      <%= t('.no_events') %>
     <% end %>
   </div>
 <% end %>

@@ -30,5 +30,4 @@ class Event < ActiveRecord::Base
   def short_month
     start_time.strftime("%B")[0,3]
   end
-
 end
