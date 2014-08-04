@@ -15,6 +15,9 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
   end
 
@@ -39,6 +42,10 @@ class PostsController < ApplicationController
       @exists = true
       render 'edit'
     end
+  end
+
+  def archive
+    @posts = @posts.paginate(:page => params[:page], :per_page => 5)
   end
 
   private

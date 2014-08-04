@@ -100,3 +100,6 @@ sv:
         other: "! '%{count} fel förhindrade denna %{model} från att sparas'"
     slug_reserved: används
 
+  will_paginate:
+    next_label: Nästa
+    previous_label: Föregående
