@@ -4,14 +4,14 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = @posts.order(:created_at).take(3)
+    @posts = @posts.order(:created_at)
     if params[:tag]
       @tag = Tag.find(params[:tag])
       @posts = @posts.with_tag(@tag)
     end
     respond_to do |format|
-      format.html
-      format.rss { render :layout => false } #index.rss.builder
+      format.html { @posts = @posts.take(3) }
+      format.rss  { render :layout => false } #index.rss.builder
     end
   end
 
@@ -45,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   def archive
+    @posts = @posts.order(:created_at)
     if params[:search]
       @posts = @posts.search(params[:search])
       @search = params[:search]

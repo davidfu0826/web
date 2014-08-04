@@ -3,15 +3,14 @@ class Page < ActiveRecord::Base
   include ApplicationHelper
 
 
+  before_validation do
+    self.slug = self.title_en.parameterize.underscore
+  end
   validates :title_sv, presence: true
   validates :title_en, presence: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validate :slug_not_reserved_name
   validates :content, presence: true
-
-  before_validation do
-    self.slug = self.title_en.parameterize.underscore
-  end
 
   translates :title, :content
 
@@ -36,8 +35,8 @@ class Page < ActiveRecord::Base
       youtube(:width => '70%', :height => '400', :autoplay => false)
       podio_webforms
       google_docs_forms
-      #image_gallery
       responsive_iframes
+      responsive_images
       simple_format
     end
   end
@@ -65,12 +64,9 @@ class Page < ActiveRecord::Base
         %{<div class="embed-responsive embed-responsive-4by3">#{match}</div>}
       end
     end
-    AutoHtml.add_filter(:image_gallery) do |text|
-      text.gsub(/!\{[\S+\s]+\}/) do |match|
-        images = match.slice(2, match.length - 3 ).split
-        #%{#{images}}
-        image_gallery = image_gallery images
-        %{#{image_gallery}}
+    AutoHtml.add_filter(:responsive_images) do |text|
+      text.gsub(/<img[^>]+/) do |match|
+        %{#{match} class="img-responsive"}
       end
     end
   end
