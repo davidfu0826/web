@@ -30,8 +30,7 @@ gem 'select2-rails'
 gem 'nested_form'
 gem 'twitter'
 gem 'faker'
-#gem 'will_paginate-bootstrap'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 group :development do
   gem 'spring'

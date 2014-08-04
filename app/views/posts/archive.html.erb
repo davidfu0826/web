@@ -1,2 +1,17 @@
 <%= render @posts %>
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:filter) %></h3>
+    <%= bootstrap_form_tag url: posts_archive_path, method: 'get' do |f| %>
+      <p>
+        <%= f.text_field :search, value: @search %>
+        <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, label: t('.filter') }, { id: 'select2'} %>
+        <%= f.submit %>
+        <%= link_to t('.reset'), posts_archive_path %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

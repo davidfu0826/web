@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :load_tags, only: [:new, :edit]
+  before_action :load_tags, only: [:new, :edit, :archive]
   before_action :load_events, only: :index
   load_and_authorize_resource
 
@@ -45,6 +45,14 @@ class PostsController < ApplicationController
   end
 
   def archive
+    if params[:search]
+      @posts = @posts.search(params[:search])
+      @search = params[:search]
+    end
+    if params[:tag] && !params[:tag].blank?
+      @tag = Tag.find(params[:tag])
+      @posts = @posts.with_tag(@tag)
+    end
     @posts = @posts.paginate(:page => params[:page], :per_page => 5)
   end
 
