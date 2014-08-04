@@ -19,7 +19,7 @@ class PagesController < ApplicationController
 
   #TODO Authorize NavItem
   def create
-    @page.slug = @page.title_en.parameterize.underscore
+    #@page.slug = @page.title_en.parameterize.underscore
     if @page.save
       if nav_params[:create_nav]
         if nav_params[:parent]

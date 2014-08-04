@@ -9,6 +9,10 @@ class Page < ActiveRecord::Base
   validate :slug_not_reserved_name
   validates :content, presence: true
 
+  before_validation do
+    self.slug = self.title_en.parameterize.underscore
+  end
+
   translates :title, :content
 
   has_one :nav_item, dependent: :destroy
