@@ -26,7 +26,7 @@
 
 
 $(document).ready(function(){
-  $("#twitter-feed").load("/posts/tweets");
+  $("#twitter-feed").load("/tweets");
   load_datepicker();
   load_select2();
 })
