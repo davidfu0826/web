@@ -29,6 +29,7 @@ gem 'rack-cache', :require => 'rack/cache' #Caching images
 gem 'select2-rails'
 gem 'nested_form'
 gem 'twitter'
+gem 'faker'
 
 group :development do
   gem 'spring'

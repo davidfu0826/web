@@ -25,6 +25,7 @@ sv:
       new_event_group: Ny Eventgrupp
       search: Gruppera
       reset: Återställ
+      week: Vecka %{week}
 
   contact_forms:
     send_mail:
@@ -48,15 +49,26 @@ sv:
       lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
 
   date:
+    day_names:
+    - söndag
+    - måndag
+    - tisdag
+    - onsdag
+    - tordag
+    - fredag
+    - lördag
     abbr_day_names:
-    - sön
-    - mån
-    - tis
-    - ons
-    - tor
-    - fre
-    - lör
+    - Sön
+    - Mån
+    - Tis
+    - Ons
+    - Tor
+    - Fre
+    - Lör
     month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
+  time:
+    formats:
+      week_day: "%a %e/%-m"
   errors:
     format: "! '%{attribute} %{message}'"
     messages:
