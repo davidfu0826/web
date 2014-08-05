@@ -12,12 +12,15 @@
 </div>
 
 <% content_for :sidebar do %>
-  <div class="row">
-    <h3><%= t(:tools) %></h3>
-    <ul>
-      <li><%= link_to t('.new_image'), new_image_path %></li>
-    </ul>
-  </div>
+  <% if can? :manage, Image %>
+    <div class="row">
+      <h3><%= t(:tools) %></h3>
+      <ul>
+        <li><%= link_to t('.new_image'), new_image_path %></li>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <h3><%= t(:filter) %></h3>
     <%= bootstrap_form_tag url: images_path, method: 'get' do |f| %>

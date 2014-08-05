@@ -2,32 +2,6 @@
   <h1>Events</h1>
 </div>
 
-<%# @events.each do |event| %>
-  <%#= link_to event.title, event %> <br>
-<%# end %>
-
-<% content_for :sidebar do %>
-  <div class="row">
-    <h3><%= t(:tools) %></h3>
-    <ul>
-      <li><%= link_to t('.new_event'), new_event_path %></li>
-      <li><%= link_to t('.new_event_group'), new_event_group_path %></li>
-      <li><%= link_to t('.webcal'), events_path(format: :ics, protocol: 'webcal') %></li>
-    </ul>
-  </div>
-
-  <div class="row">
-    <h3><%= t(:filter) %></h3>
-    <%= bootstrap_form_tag url: events_path, method: 'get' do |f| %>
-      <p>
-        <%= f.collection_select :search, @event_groups, :id, :name, { include_blank: true, label: t('.filter') } %>
-        <%= f.submit %>
-        <%= link_to t(:reset), events_path %>
-      </p>
-    <% end %>
-  </div>
-<% end %>
-
 <% [@last_month, @this_month, @next_month].each do |month| %>
   <div class="col-md-4">
     <h3><%= t(:"date.month_names")[month] %></h3>
@@ -46,6 +20,30 @@
       <% end %>
     <% else %>
       <%= t('.no_events') %>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <% if can? :manage, Event %>
+        <li><%= link_to t('.new_event'), new_event_path %></li>
+        <li><%= link_to t('.new_event_group'), new_event_group_path %></li>
+      <% end %>
+      <li><%= link_to t('.webcal'), events_path(format: :ics, protocol: 'webcal') %></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <h3><%= t(:filter) %></h3>
+    <%= bootstrap_form_tag url: events_path, method: 'get' do |f| %>
+      <p>
+        <%= f.collection_select :search, @event_groups, :id, :name, { include_blank: true, label: t('.filter') } %>
+        <%= f.submit %>
+        <%= link_to t(:reset), events_path %>
+      </p>
     <% end %>
   </div>
 <% end %>

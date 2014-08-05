@@ -133,6 +133,10 @@
     p {
       font-size: 13px;
     }
+
+    li {
+      height: 35px;
+    }
   }
 
   .sidebar-links a {
@@ -192,4 +196,10 @@
 
 .img-select-active {
   background-color: $brand-primary;
+}
+
+.archive-link {
+  display: inherit;
+  text-align: center;
+  color: $light-gray;
 }

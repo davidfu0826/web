@@ -10,7 +10,7 @@
     </div>
   </div>
   <%= render @posts %>
-  <%= link_to t('.archive'), posts_archive_path %>
+  <%= link_to t('.archive'), posts_archive_path, class: "archive-link" %>
 </div>
 
 <% content_for :sidebar do %>

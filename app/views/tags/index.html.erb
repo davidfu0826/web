@@ -12,18 +12,20 @@
         <td>
           <%= link_to t('.show_posts'), posts_archive_path(tag: tag) %>
           <%= link_to t('.show_images'), images_path(tag: tag) %>
-          <%= link_to t(:delete), tag_path(tag), method: :delete %>
+          <%= link_to t(:delete), tag_path(tag), method: :delete if can? :delete, tag %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<% content_for :sidebar do %>
-  <div class="row">
-    <h3><%= t(:tools) %></h3>
-    <ul>
-      <li><%= link_to t('.new_tag'), new_tag_path %></li>
-    </ul>
-  </div>
+<% if can? :create, Tag %>
+  <% content_for :sidebar do %>
+    <div class="row">
+      <h3><%= t(:tools) %></h3>
+      <ul>
+        <li><%= link_to t('.new_tag'), new_tag_path %></li>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

@@ -26,6 +26,7 @@ sv:
       search: Gruppera
       reset: Återställ
       week: Vecka %{week}
+      webcal: Prenumerera på iCal
 
   contact_forms:
     send_mail:

@@ -5,13 +5,15 @@
 <%= @page.content_html %>
 
 <% content_for :sidebar do %>
-  <div class="row">
-    <h3><%= t(:tools) %></h3>
-      <ul>
-        <li><%= link_to t('.add_user'), page_add_user_path(@page) %></li>
-        <li><%= link_to t('.edit_page'), edit_page_path(@page) %></li>
-      </ul>
-  </div>
+  <% if can? :manage, @page %>
+    <div class="row">
+      <h3><%= t(:tools) %></h3>
+        <ul>
+          <li><%= link_to t('.add_user'), page_add_user_path(@page) %></li>
+          <li><%= link_to t('.edit_page'), edit_page_path(@page) %></li>
+        </ul>
+    </div>
+  <% end %>
   <% if @page.contacts.present? %>
     <div class="row">
       <h3><%= t('pages.contacts') %></h3>
