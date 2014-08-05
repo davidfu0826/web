@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   get 'posts/archive', to: 'posts#archive', as: 'posts_archive'
   resources :posts
-  get 'feed', to: 'posts#feed'
   get 'tweets', to: 'tweets#tweets'
 
   resources :images, except: [:show, :edit, :update]

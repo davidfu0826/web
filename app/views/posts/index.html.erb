@@ -10,9 +10,15 @@
     </div>
   </div>
   <%= render @posts %>
-  <%= link_to t('.archive'), posts_archive_path, class: "archive-link" %>
+  <div class="post-links">
+    <%= link_to t('.archive'), posts_archive_path %>
+    |
+    <%= link_to t('.rss'), posts_path(format: :rss) %>
+  </div>
+  <%= auto_discovery_link_tag(:rss, { action: :index }, { title: "TLTH" }) %>
 </div>
 
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
 <% end %>
+

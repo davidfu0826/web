@@ -21,6 +21,11 @@ module ApplicationHelper
     auto_html(text) do
       link
       hashtag
+      twitter_user do |text|
+        text.gsub(/@([^\s]+)/) do |user|
+          %{<a href="http://twitter.com/#{user}" class="hashtag" target="_blank">#{user}</a>}
+        end
+      end
     end
   end
 end

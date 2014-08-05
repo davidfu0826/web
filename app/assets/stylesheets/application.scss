@@ -11,17 +11,19 @@
 
 
 /*  -- NAVBAR --  */
-.navbar .navbar-nav {
-  width: 100%;
-  text-align: center;
-  display: table;
+@media (min-width: $screen-xs-max) {
+  .navbar .navbar-nav {
+    width: 100%;
+    text-align: center;
+    display: table;
 
-  li {
-    float: none;
-    display: table-cell;
-  }
-  .dropdown-menu li {
-    display: block;
+    li {
+      float: none;
+      display: table-cell;
+    }
+    .dropdown-menu li {
+      display: block;
+    }
   }
 }
 
@@ -198,8 +200,11 @@
   background-color: $brand-primary;
 }
 
-.archive-link {
+.post-links {
   display: inherit;
   text-align: center;
   color: $light-gray;
+  a {
+    color: $brand-primary;
+  }
 }
