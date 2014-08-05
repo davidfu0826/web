@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :events
   resources :event_groups, only: [:new, :create]
 
-  resources :nav_items
   get 'nav_items/:id/move_higher', to: 'nav_items#move_higher', as: 'nav_item_higher'
   get 'nav_items/:id/move_lower', to: 'nav_items#move_lower', as: 'nav_item_lower'
 
