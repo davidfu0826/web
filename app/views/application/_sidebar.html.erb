@@ -13,19 +13,19 @@
   </div>
 <% end %>
 <div class="row hidden-sm hidden-xs">
-  <h3>Twitter</h3>
+  <h3>Twitter <span class="pull-right"><%= image_tag "twitter.svg" %></span></h3>
   <ul id="twitter-feed">
     <%= render partial: 'tweet', collection: @tweets %>
   </ul>
 </div>
 <div class="row">
-  <h3><%= t(:calendar) %></h3>
+  <h3><%= t(:calendar) %><span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span></h3>
   <ul class="calendar-feed">
     <%= render @events %>
   </ul>
 </div>
 <div class="row sidebar-links">
-  <h3><%= t(:links) %></h3>
+  <h3><%= t(:links) %><span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span></h3>
   <h4><a href="#">Facebook</a></h4>
   <h4><a href="#">KFS AB</a></h4>
 </div>

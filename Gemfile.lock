@@ -42,12 +42,12 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-datepicker-rails (1.3.0.2)
-      railties (>= 3.0)
     bootstrap-navbar (2.1.4)
       gem_config (~> 0.3)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
+    bootstrap3-datetimepicker-rails (3.0.0.2)
+      momentjs-rails (~> 2.5.0)
     bootstrap_form (2.1.1)
     buftok (0.2.0)
     builder (3.2.2)
@@ -117,6 +117,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.0)
+    momentjs-rails (2.5.1)
+      railties (>= 3.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
@@ -236,8 +238,8 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
-  bootstrap-datepicker-rails
   bootstrap-sass (~> 3.2.0)
+  bootstrap3-datetimepicker-rails (~> 3.0.0.2)
   bootstrap_form
   cancancan (~> 1.8)
   capybara
@@ -252,6 +254,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   meta_request
+  momentjs-rails (>= 2.5.0)
   nested_form
   pagedown-bootstrap-rails
   rack-cache

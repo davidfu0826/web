@@ -1,3 +1,7 @@
+<% if @posts.blank? %>
+  <h3><%= t('.no_posts') %></h3>
+  <%= t('.no_posts_lead') %>
+<% end %>
 <%= render @posts %>
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 

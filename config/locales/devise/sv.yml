@@ -55,3 +55,17 @@ sv:
         subject: 'Instruktioner om återställning av lösenord'
       unlock_instructions:
         subject: 'Instruktioner om upplåsning av konto'
+    sessions:
+      new:
+        sign_in: Logga In
+        email: Email
+        password: Lösenord
+        remember_me: Kom ihåg mig
+      user:
+        signed_in: Du har loggats in
+        signed_out: Du har loggats ut
+    shared:
+      links:
+        sign_in: Logga in
+        forgot_password: 'Glömt lösenord?'
+        sign_in_with: 'Logga in med %{provider}'

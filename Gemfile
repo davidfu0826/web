@@ -23,7 +23,8 @@ gem 'traco' #Localization
 gem 'http_accept_language' #Auto set locale
 gem 'auto_html'
 gem 'acts_as_list'
-gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails', '>= 2.5.0' #Required for datetimepicker
+gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'rack-cache', :require => 'rack/cache' #Caching images
 gem 'select2-rails'

@@ -5,7 +5,7 @@
 <%= @page.content_html %>
 
 <% content_for :sidebar do %>
-  <% if can? :manage, @page %>
+  <% if can? :update, @page %>
     <div class="row">
       <h3><%= t(:tools) %></h3>
         <ul>

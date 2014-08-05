@@ -1,3 +1,8 @@
+<% if @images.blank? %>
+  <h3><%= t('.no_images') %></h3>
+  <%= t('.no_images_lead') %>
+<% end %>
+
 <div class="row gallery-parent">
   <% @images.each do |image| %>
     <% if image.image_stored? %>

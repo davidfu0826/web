@@ -57,3 +57,17 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  sessions:
+    new:
+      sign_in: Sign in
+      email: Email
+      password: Password
+      remember_me: Remember Me
+    user:
+      signed_in: You have been signed in
+      signed_out: You have been signed out
+    shared:
+      links:
+        sign_in: Sign In
+        forgot_password: Forgot your password?
+        sign_in_with: Sign in with %{provider}

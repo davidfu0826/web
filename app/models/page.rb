@@ -8,8 +8,8 @@ class Page < ActiveRecord::Base
   end
   validates :title_sv, presence: true
   validates :title_en, presence: true
-  validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validate :slug_not_reserved_name
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
   translates :title, :content

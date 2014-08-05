@@ -1,18 +1,22 @@
 @import "variables";
+$icon-font-path: 'bootstrap/'; //TODO: Why is this needed
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-datepicker3";
+@import "bootstrap-datetimepicker";
 @import "pagedown_bootstrap";
 @import "font-awesome";
 @import "guilds";
 @import "ekko-lightbox";
 @import "select2";
 @import "select2-bootstrap";
-@import "theme";
-
 
 /*  -- NAVBAR --  */
-@media (min-width: $screen-xs-max) {
-  .navbar .navbar-nav {
+.navbar .navbar-nav {
+  .dropdown-menu {
+    min-width: 100%;
+    text-align: center;
+  }
+  @media (min-width: $screen-xs-max) {
     width: 100%;
     text-align: center;
     display: table;
@@ -64,14 +68,10 @@
     font-size: 18px;
   }
 
-  .news-feed {
-    .post {
-      .post-tools {
-        font-style: italic;
-        a {
-          color: $light-gray !important;
-        }
-      }
+  .post {
+    a {
+    font-style: italic;
+    color: $light-gray !important;
     }
   }
 
@@ -100,14 +100,14 @@
     }
 
     .twitter-name {
-      font-size: 14px;
+      font-size: 12px;
       color: $gray;
     }
   }
 
   .calendar-feed {
     .event-thumb {
-      margin-right: 15px;
+      margin-right: 20px;
       margin-top: 2px;
       height: 50px;
       width: 50px;
@@ -137,12 +137,16 @@
     }
 
     li {
-      height: 35px;
+      height: 40px;
     }
   }
 
   .sidebar-links a {
     color: gray;
+  }
+
+  .sidebar-glyph {
+    color: $lighter-gray;
   }
 }
 
@@ -207,4 +211,8 @@
   a {
     color: $brand-primary;
   }
+}
+
+.modal-dialog {
+  max-width: 85% !important;
 }

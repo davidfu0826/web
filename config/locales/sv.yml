@@ -10,6 +10,8 @@ sv:
   email: Email
   calendar: Kalender
   links: Länkar
+  log_in: Logga In
+  log_out: Logga Ut
 
   application:
     navbar:
@@ -52,6 +54,14 @@ sv:
       lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
       archive: Arkiv
       rss: RSS
+    archive:
+      no_posts: Kunde inte hitta några nyheter
+      no_posts_lead: Testa med en annan filtrering.
+
+  images:
+    index:
+      no_images: Kunde inte hitta några bilder.
+      no_images_lead: Testa med en annan filtrering.
 
   date:
     day_names:
@@ -108,3 +118,7 @@ sv:
   will_paginate:
     next_label: Nästa
     previous_label: Föregående
+
+  locales:
+    sv: Svenska
+    en: Engelska

@@ -18,14 +18,15 @@ module ApplicationHelper
   end
 
   def format_tweet(text)
+    AutoHtml.add_filter(:twitter_user) do |text|
+      text.gsub(/@([^\s]+)/) do |user|
+        %{<a href="http://twitter.com/#{user}" class="hashtag" target="_blank">#{user}</a>}
+      end
+    end
     auto_html(text) do
       link
       hashtag
-      twitter_user do |text|
-        text.gsub(/@([^\s]+)/) do |user|
-          %{<a href="http://twitter.com/#{user}" class="hashtag" target="_blank">#{user}</a>}
-        end
-      end
+      twitter_user
     end
   end
 end

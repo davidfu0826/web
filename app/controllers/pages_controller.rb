@@ -17,9 +17,7 @@ class PagesController < ApplicationController
     @parent     = params[:parent]     if params[:parent].present?
   end
 
-  #TODO Authorize NavItem
   def create
-    #@page.slug = @page.title_en.parameterize.underscore
     if @page.save
       if nav_params[:create_nav]
         if nav_params[:parent]
@@ -64,12 +62,10 @@ class PagesController < ApplicationController
     redirect_to pages_path
   end
 
-  #TODO Authorize User
   def add_user
     @users = User.all
   end
 
-  #TODO Authorize User
   def add_user_update
     @user = User.find(params[:user_id])
     @page.contacts << @user
