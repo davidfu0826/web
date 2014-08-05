@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include HtmlHelper
+
   validates :title, presence: true
   validates :content, presence: true
 
@@ -17,4 +19,8 @@ class Post < ActiveRecord::Base
   }
 
   translates :title, :content
+
+  def content_html
+    process_into_html self.content
+  end
 end
