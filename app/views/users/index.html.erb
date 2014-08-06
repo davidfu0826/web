@@ -1,3 +1,7 @@
+<div class="page-header">
+  <h1><%= t('.users') %></h1>
+</div>
+
 <table class="table">
   <thead>
     <th>Name</th>
@@ -14,7 +18,6 @@
         <td><%= user.title %></td>
         <td><%= user.role %></td>
         <td>
-          <%= link_to t('.send_password'), user_new_password_email_path(user) %>
           <%= link_to t(:edit), edit_user_path(user) %>
           <%= link_to t(:delete), user_path(user), method: :delete %>
         </td>

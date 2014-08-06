@@ -1,3 +1,7 @@
+<div class="page-header">
+  <h1><%= t('.tags') %></h1>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -19,8 +23,8 @@
   </tbody>
 </table>
 
-<% if can? :create, Tag %>
-  <% content_for :sidebar do %>
+<% content_for :sidebar do %>
+  <% if can? :create, Tag %>
     <div class="row">
       <h3><%= t(:tools) %></h3>
       <ul>

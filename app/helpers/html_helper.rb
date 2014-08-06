@@ -21,7 +21,12 @@ module HtmlHelper
     AutoHtml.add_filter(:podio_webforms) do |link|
       link.gsub(/https:\/\/podio\.com\/webforms\/([0-9]*)\/([0-9]*)(\/)?/) do |url|
         id = url.split('/').last
-        %{<script src="#{url}.js"></script><script type="text/javascript">_podioWebForm.render("#{id}")</script>}
+        %{
+          <div class="podio-webform-container">
+            <script src="#{url}.js"></script>
+            <script type="text/javascript">$(window).load(function(){_podioWebForm.render("#{id}"); console.log("hej"); })</script>
+          </div>
+        }
       end
     end
     AutoHtml.add_filter(:google_docs_forms) do |link|

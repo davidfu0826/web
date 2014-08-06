@@ -68,6 +68,6 @@ class PostsController < ApplicationController
   end
 
   def load_events
-    @events = Event.order(:start_time).take(3)
+    @events = Event.upcoming.take(3)
   end
 end

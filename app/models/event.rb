@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   belongs_to :event_group
 
   scope :by_group, ->(group) { where event_group: group }
+  scope :upcoming, -> { where(["start_time > ?", Time.now]).order(:start_time) }
 
   translates :title, :description
 
