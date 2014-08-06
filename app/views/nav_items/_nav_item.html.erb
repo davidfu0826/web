@@ -18,11 +18,8 @@
           <% end %>
         <% end %>
 
-        <%#= link_to new_nav_item_path(parent: nav_item.id), class: "btn btn-success btn-xs" do %>
-          <%# <span class="glyphicon glyphicon-plus"></span> Menu %>
-        <%# end %>
-
-        <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs" do %>
+        <% disabled = first_level ? "disabled" : "" %>
+        <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs #{disabled}" do %>
           <span class="glyphicon glyphicon-plus"></span> Page
         <% end %>
 
@@ -46,6 +43,6 @@
   </div>
 </div>
 <div class="col-xs-11 pull-right no-padding">
-  <%= render nav_item.children %>
+  <%= render nav_item.children, first_level: false %>
 </div>
 
