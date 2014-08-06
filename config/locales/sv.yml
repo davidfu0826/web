@@ -59,7 +59,15 @@ sv:
     show:
       add_user: Lägg till användare
       edit_page: Redigera sida
+    index:
+      page_management: Sidhantering
+      hidden_pages: Gömda sidor
     contacts: Kontaktpersoner
+    new_nav_item: Ny meny
+    new_page: Ny sida
+    new_hidden_page: Ny gömd sida
+    page: Sida
+
 
   posts:
     index:

@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
     end
-    @tweets = client.user_timeline[0..2]
+    @tweets = client.search("Teknologkaren OR #tlth").take(3)
   end
 
 end
