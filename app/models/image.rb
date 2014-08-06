@@ -3,8 +3,15 @@ class Image < ActiveRecord::Base
 
   validates :image, presence: true
 
-  has_many :taggings, :as => :taggable
-  has_many :tags, :through => :taggings
+  has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
+
+  before_validation(on: [:create, :update]) do
+    taggings.each do |t|
+      t.taggable = self
+    end
+  end
 
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
+  scope :search, -> (string) { where(["image_name LIKE ?", "%#{string}%"]) }
 end

@@ -1,30 +1,32 @@
 @import "variables";
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-datepicker3";
+@import "bootstrap-datetimepicker";
 @import "pagedown_bootstrap";
 @import "font-awesome";
 @import "guilds";
 @import "ekko-lightbox";
 @import "select2";
 @import "select2-bootstrap";
-@import "theme";
-
-p {
-  color: #555555;
-}
 
 /*  -- NAVBAR --  */
 .navbar .navbar-nav {
-  width: 100%;
-  text-align: center;
-  display: table;
-
-  li {
-    float: none;
-    display: table-cell;
+  .dropdown-menu {
+    min-width: 100%;
+    text-align: center;
   }
-  .dropdown-menu li {
-    display: block;
+  @media (min-width: $screen-xs-max) {
+    width: 100%;
+    text-align: center;
+    display: table;
+
+    li {
+      float: none;
+      display: table-cell;
+    }
+    .dropdown-menu li {
+      display: block;
+    }
   }
 }
 
@@ -54,12 +56,22 @@ p {
 }
 
 /*  -- PAGE CONTENT --  */
-#page-content {
+#content {
   margin-top: 50px;
   margin-bottom: 50px;
 
-  .content {
-    border-right: 2px solid #eeeeee
+  padding-left: 4%;
+  padding-right: 4%;
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .post {
+    a {
+    font-style: italic;
+    color: $light-gray !important;
+    }
   }
 
   .img-library {
@@ -73,25 +85,67 @@ p {
 
 /*  -- SIDEBAR --  */
 .sidebar {
-  .post-tools {
-    font-style: italic;
-    a {
-      color: #aaaaaa !important;
-    }
-  }
+  border-left: 2px solid #eee;
 
-  .twitter-feed {
+  ul {
     list-style-type: none;
     padding-left: 0;
+  }
 
+  #twitter-feed {
     h5 {
       margin-bottom: 2px;
       font-size: 18px;
+    }
+
+    .twitter-name {
+      font-size: 12px;
+      color: $gray;
+    }
+  }
+
+  .calendar-feed {
+    .event-thumb {
+      margin-right: 20px;
+      margin-top: 2px;
+      height: 50px;
+      width: 50px;
+
+      border: 1px solid $brand-primary;
+      border-radius: 3px;
+
+      text-align: center;
+
+      .month {
+        font-size: 11px;
+        color: $brand-primary;
+      }
+
+      .day {
+        font-size: 24px;
+        margin-bottom: -2px;
+      }
+    }
+
+    h3 {
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    li {
+      height: 40px;
     }
   }
 
   .sidebar-links a {
     color: gray;
+  }
+
+  .sidebar-glyph {
+    color: $lighter-gray;
   }
 }
 
@@ -115,15 +169,52 @@ p {
   }
 }
 
-/*  -- Stuff --  */
-.video {
-  text-align: center;
+/* Events */
+.event-weeknbr {
+  text-align: right;
 }
 
+.event-week {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+/* Posts */
+.post-links {
+  display: inherit;
+  text-align: center;
+  color: $light-gray;
+  a {
+    color: $brand-primary;
+  }
+}
+// Post index
+.pagination {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Pages */
+// Page Edit
+.img-select-active {
+  background-color: $brand-primary;
+}
+// Page form
+.nav-tabs {
+  margin-bottom: 20px;
+}
+// Used in Page index
+.panel-body-sm {
+  padding: 7px;
+}
 .no-padding {
   padding: 0;
 }
 
-.panel-body-sm {
-  padding: 7px;
+/*  -- Stuff --  */
+
+// Images
+.modal-dialog {
+  max-width: 85% !important;
 }

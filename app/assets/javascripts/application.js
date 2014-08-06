@@ -15,8 +15,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.sv.js
+//= require moment
+//= require moment/sv
+//= require bootstrap-datetimepicker
+//= require locales/bootstrap-datetimepicker.sv.js
 //= require ekko-lightbox
 //= require select2
 //= require select2_locale_sv
@@ -26,15 +28,9 @@
 
 
 $(document).ready(function(){
+  $("#twitter-feed").load("/tweets");
   load_datepicker();
   load_select2();
-})
-
-$(document).ready(function(){
-  $( ".img-choose" ).click(function(e) {
-    console.log(e.target.src);
-    //$('#myModal').modal('hide')
-  });
 })
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
@@ -43,10 +39,11 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
 });
 
 function load_datepicker() {
-  $('[data-behaviour~=datepicker]').datepicker({
+  $('[data-behaviour~=datepicker]').datetimepicker({
     language: 'sv',
     autoclose: true,
-    todayHighlight: true
+    todayHighlight: true,
+    pick12HourFormat: false
   });
 }
 

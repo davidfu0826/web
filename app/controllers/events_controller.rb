@@ -9,7 +9,12 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html
+      format.html do
+        @events = events_by_month_and_week(@events)
+        @this_month = Time.now.month
+        @last_month = (@this_month-2)%12+1 #Kan inte månader vara nollindexerade
+        @next_month = (@this_month)%12+1
+      end
       format.ics do
         calendar = Icalendar::Calendar.new
         @events.each do |event|
@@ -40,12 +45,17 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.save
+    if @event.update(event_params)
       redirect_to event_path(@event)
     else
       load_event_groups
       render 'edit'
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path
   end
 
   private
@@ -58,4 +68,11 @@ class EventsController < ApplicationController
     @event_groups = EventGroup.all
   end
 
+  def events_by_month_and_week(events)
+    events = events.group_by { |u| u.start_time.month }
+    events.each_key do |k|
+      events[k] = events[k].group_by { |e| e.start_time.strftime("%W").to_i }
+    end
+    events
+  end
 end

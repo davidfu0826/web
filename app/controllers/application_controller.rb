@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :set_locale
+  before_filter :load_nav_items
+  before_filter :load_locale
 
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -19,5 +21,13 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
     end
+  end
+
+  def load_nav_items
+    @nav_row = NavItem.orphans.order("position ASC")
+  end
+
+  def load_locale
+    @locale = I18n.locale
   end
 end

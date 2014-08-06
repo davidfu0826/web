@@ -1,16 +1,12 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <strong>Name: </strong><%= user.name %><br>
-    <strong>Email: </strong><%= user.email %>
-    <% contact_form = @page.contact_forms.where( user: user ).first %>
-      <p>
-        <% if contact_form.blank? %>
-          <%= link_to t('.add_contact_form'), new_page_contact_form_path(@page, user: user.id), class: "btn btn-default" if can? :manage, @page %>
-        <% else %>
-          <%= link_to t('.edit_contact_form'), edit_contact_form_path(contact_form, user: user.id), class: "btn btn-default" if can? :manage, @page %>
-          <% title = contact_form.title || t('.contact') %>
-          <%= link_to title, contact_form_path(contact_form), class: "btn btn-default" %>
-        <% end %>
-      </p>
-  </div>
-</div>
+<strong><%= t(:name) %>: </strong><%= user.name %><br>
+<strong><%= t(:email) %>: </strong><%= user.email %>
+<% contact_form = @page.contact_forms.where( user: user ).first %>
+<p>
+  <% if contact_form.blank? %>
+    <%= link_to t('.add_contact_form'), new_page_contact_form_path(@page, user: user.id) if can? :edit, @page %>
+  <% else %>
+    <% title = contact_form.title || t('.contact') %>
+    <%= link_to title, contact_form_path(contact_form) %><br>
+    <%= link_to t('.edit_contact_form'), edit_contact_form_path(contact_form, user: user.id) if can? :edit, contact_form %>
+  <% end %>
+</p>

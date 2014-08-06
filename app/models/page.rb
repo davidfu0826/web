@@ -1,10 +1,15 @@
 class Page < ActiveRecord::Base
-  include AutoHtml
-  include ApplicationHelper
+  #include ApplicationHelper
+  include HtmlHelper
 
-  validates :title, presence: true
-  validates :slug, presence: true, uniqueness: { case_sensitive: false }
+
+  before_validation do
+    self.slug = self.title_en.parameterize.underscore
+  end
+  validates :title_sv, presence: true
+  validates :title_en, presence: true
   validate :slug_not_reserved_name
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
   translates :title, :content
@@ -23,48 +28,10 @@ class Page < ActiveRecord::Base
   end
 
   def content_html
-    filters
-    auto_html self.content do
-      redcarpet
-      youtube(:width => '70%', :height => '400', :autoplay => false)
-      podio_webforms
-      google_docs_forms
-      #image_gallery
-      responsive_iframes
-      simple_format
-    end
+    process_into_html self.content
   end
 
   def to_param
     slug
-  end
-
-  private
-
-  def filters
-    AutoHtml.add_filter(:podio_webforms) do |link|
-      link.gsub(/https:\/\/podio\.com\/webforms\/([0-9]*)\/([0-9]*)(\/)?/) do |url|
-        id = url.split('/').last
-        %{<script src="#{url}.js"></script><script type="text/javascript">_podioWebForm.render("#{id}")</script>}
-      end
-    end
-    AutoHtml.add_filter(:google_docs_forms) do |link|
-      link.gsub(/https:\/\/docs\.google\.com\/forms\/d\/\w+\//) do |url|
-        %{<iframe class="embed-responsive-item" src="#{url}viewform?embedded=true"></iframe>}
-      end
-    end
-    AutoHtml.add_filter(:responsive_iframes) do |text|
-      text.gsub(/<iframe.+<\/iframe>/) do |match|
-        %{<div class="embed-responsive embed-responsive-4by3">#{match}</div>}
-      end
-    end
-    AutoHtml.add_filter(:image_gallery) do |text|
-      text.gsub(/!\{[\S+\s]+\}/) do |match|
-        images = match.slice(2, match.length - 3 ).split
-        #%{#{images}}
-        image_gallery = image_gallery images
-        %{#{image_gallery}}
-      end
-    end
   end
 end

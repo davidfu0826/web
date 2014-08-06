@@ -1,15 +1,15 @@
-<h2>Sign in</h2>
+<h2><%= t('.sign_in') %></h2>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.email_field :email, autofocus: true %>
+  <%= f.email_field :email, autofocus: true, label: t('.email') %>
 
-  <%= f.password_field :password, autocomplete: "off" %>
+  <%= f.password_field :password, autocomplete: "off", label: t('.password') %>
 
   <% if devise_mapping.rememberable? -%>
-    <%= f.check_box :remember_me %>
+    <%= f.check_box :remember_me, label: t('.remember_me') %>
   <% end -%>
 
-  <%= f.submit "Sign in" %>
+  <%= f.submit t('.sign_in') %>
 <% end %>
 
 <%= render "devise/shared/links" %>

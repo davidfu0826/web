@@ -5,9 +5,6 @@ class ContactFormsController < ApplicationController
   def show
   end
 
-  def index
-  end
-
   def new
     @user = User.find(params[:user])
   end

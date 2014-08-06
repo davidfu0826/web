@@ -4,19 +4,31 @@
     <title>TLTH</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.png' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <%= render 'navbar' %>
     <div class="panorama-wrapper">
       <%= image_tag 'white_stand_se.svg', id: "logo" %>
-      <%= image_tag 'http://placehold.it/1920x600', id: "panorama", class: "img-responsive center-block" %>
+      <%= image_tag '1920x600.gif', id: "panorama", class: "img-responsive center-block" %>
     </div>
-    <div class="container" id="page-content">
+    <div class="container" id="content">
       <% flash.each do |name, msg| %>
         <div class="<%= flash_class(name) %>"><%= msg %></div>
       <% end %>
-      <%= yield %>
+      <% if content_for?(:sidebar) %>
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+        <div class="sidebar col-md-4">
+          <div class="col-xs-12">
+            <%= yield :sidebar %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
     </div>
     <%= render 'guilds' %>
     <%= render 'footer' %>

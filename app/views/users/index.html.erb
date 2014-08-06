@@ -25,4 +25,12 @@
   </tbody>
 </table>
 
-<%= link_to "New User", new_user_path %>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <li><%= link_to t('.new_user'), new_user_path %></li>
+    </ul>
+  </div>
+<% end %>

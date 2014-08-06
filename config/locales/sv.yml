@@ -1,6 +1,17 @@
 sv:
   back: Tillbaka
   save: Spara
+  edit: Redigera
+  destroy: Radera
+  reset: Återställ
+  read_more: Läs Mer
+  tools: Verktyg
+  name: Namn
+  email: Email
+  calendar: Kalender
+  links: Länkar
+  log_in: Logga In
+  log_out: Logga Ut
 
   application:
     navbar:
@@ -9,6 +20,8 @@ sv:
       email: "E-Post: expen@tlth.se"
       telephone: "Telefon: 046 - 540 89 20"
       opening_hours: "Expeditionens öppettider: Måndag-Fredag 11-14"
+    sidebar:
+      new_post: Skapa nyhet
 
   events:
     index:
@@ -16,6 +29,15 @@ sv:
       new_event_group: Ny Eventgrupp
       search: Gruppera
       reset: Återställ
+      week: Vecka %{week}
+      webcal: Prenumerera på iCal
+    show:
+      start: 'Startar: '
+      end:   'Slutar: '
+    status:
+      ongoing: Pågående
+      has_ended: Har avslutats
+      has_not_started_yet: Har inte börjat än
 
   contact_forms:
     send_mail:
@@ -31,22 +53,45 @@ sv:
     show:
       add_user: Lägg till användare
       edit_page: Redigera sida
+    contacts: Kontaktpersoner
 
   posts:
     index:
       welcome: Välkommen till Teknologkåren
       lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
+      archive: Arkiv
+      rss: RSS
+    archive:
+      no_posts: Kunde inte hitta några nyheter
+      no_posts_lead: Testa med en annan filtrering.
+
+  images:
+    index:
+      no_images: Kunde inte hitta några bilder.
+      no_images_lead: Testa med en annan filtrering.
 
   date:
+    day_names:
+    - söndag
+    - måndag
+    - tisdag
+    - onsdag
+    - tordag
+    - fredag
+    - lördag
     abbr_day_names:
-    - sön
-    - mån
-    - tis
-    - ons
-    - tor
-    - fre
-    - lör
+    - Sön
+    - Mån
+    - Tis
+    - Ons
+    - Tor
+    - Fre
+    - Lör
     month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
+  time:
+    formats:
+      default: "%R %d-%m-%Y"
+      week_day: "%a %e"
   errors:
     format: "! '%{attribute} %{message}'"
     messages:
@@ -78,3 +123,10 @@ sv:
         other: "! '%{count} fel förhindrade denna %{model} från att sparas'"
     slug_reserved: används
 
+  will_paginate:
+    next_label: Nästa
+    previous_label: Föregående
+
+  locales:
+    sv: Svenska
+    en: Engelska
