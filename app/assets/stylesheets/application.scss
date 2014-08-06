@@ -87,6 +87,10 @@
 .sidebar {
   border-left: 2px solid #eee;
 
+  .row {
+    margin-bottom: 5px;
+  }
+
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -128,6 +132,7 @@
     }
 
     h3 {
+      margin-top: 0px;
       margin-bottom: 2px;
     }
 
@@ -136,6 +141,7 @@
     }
 
     li {
+      display: inline;
       height: 40px;
     }
   }

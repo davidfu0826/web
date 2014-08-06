@@ -7,13 +7,11 @@ class EventsController < ApplicationController
       group = @event_groups.find(params[:search])
       @events = @events.by_group(group)
     end
-
+    @offset = params[:offset].to_i || 0
+    @this_month = Time.now.beginning_of_month + @offset.months
     respond_to do |format|
       format.html do
         @events = events_by_month_and_week(@events)
-        @this_month = Time.now.month
-        @last_month = (@this_month-2)%12+1 #Kan inte månader vara nollindexerade
-        @next_month = (@this_month)%12+1
       end
       format.ics do
         calendar = Icalendar::Calendar.new
@@ -69,7 +67,7 @@ class EventsController < ApplicationController
   end
 
   def events_by_month_and_week(events)
-    events = events.group_by { |u| u.start_time.month }
+    events = events.group_by { |u| u.start_time.to_time.beginning_of_month }
     events.each_key do |k|
       events[k] = events[k].group_by { |e| e.start_time.strftime("%W").to_i }
     end

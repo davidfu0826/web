@@ -26,7 +26,7 @@
 <% content_for :sidebar do %>
   <% if can? :create, Tag %>
     <div class="row">
-      <h3><%= t(:tools) %></h3>
+      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
       <ul>
         <li><%= link_to t('.new_tag'), new_tag_path %></li>
       </ul>

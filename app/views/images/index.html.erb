@@ -23,7 +23,7 @@
 <% content_for :sidebar do %>
   <% if can? :manage, Image %>
     <div class="row">
-      <h3><%= t(:tools) %></h3>
+      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
       <ul>
         <li><%= link_to t('.new_image'), new_image_path %></li>
       </ul>

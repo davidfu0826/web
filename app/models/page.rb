@@ -27,10 +27,6 @@ class Page < ActiveRecord::Base
     end
   end
 
-  def content_html
-    process_into_html self.content
-  end
-
   def to_param
     slug
   end

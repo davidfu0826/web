@@ -1,10 +1,9 @@
 <div class="page-header">
-  <h1><%= t('.events') %></h1>
+  <h1><%= t('.event') %></h1>
 </div>
-
-<% [@last_month, @this_month, @next_month].each do |month| %>
+<% [@this_month.last_month, @this_month, @this_month.next_month].each do |month| %>
   <div class="col-md-4">
-    <h3><%= t(:"date.month_names")[month] %></h3>
+    <h3><%= t(:"date.month_names")[month.strftime("%-m").to_i] %></h3>
     <% if @events[month].present? %>
       <% @events[month].keys.sort.each do |week| %>
         <h5 class="event-weeknbr"><%= t('.week', week: week) %></h5>
@@ -24,9 +23,18 @@
   </div>
 <% end %>
 
+<div class="col-xs-12">
+  <%= link_to events_path(offset: @offset - 1) do %>
+    <span class="glyphicon glyphicon-chevron-left"></span><%= t('.previous_month') %>
+  <% end %>
+  <%= link_to events_path(offset: @offset + 1), class: "pull-right" do %>
+    <span class="glyphicon glyphicon-chevron-right pull-right"></span><%= t('.next_month') %>
+  <% end %>
+</div>
+
 <% content_for :sidebar do %>
   <div class="row">
-    <h3><%= t(:tools) %></h3>
+    <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
     <ul>
       <% if can? :manage, Event %>
         <li><%= link_to t('.new_event'), new_event_path %></li>

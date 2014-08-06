@@ -37,11 +37,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :title, :role, :locale, :phonenumber, :password, :password_confirmation, :profile_image)
+    params.require(:user).permit(:name, :email, :title, :role, :phonenumber, :password, :password_confirmation, :profile_image)
   end
 
   def load_resources
     @roles = User.roles
-    @locales = User.locales
   end
 end

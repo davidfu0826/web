@@ -18,9 +18,10 @@
           <% end %>
         <% end %>
 
-        <%= link_to new_nav_item_path(parent: nav_item.id), class: "btn btn-success btn-xs" do %>
-          <span class="glyphicon glyphicon-plus"></span> Menu
-        <% end %>
+        <%#= link_to new_nav_item_path(parent: nav_item.id), class: "btn btn-success btn-xs" do %>
+          <%# <span class="glyphicon glyphicon-plus"></span> Menu %>
+        <%# end %>
+
         <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs" do %>
           <span class="glyphicon glyphicon-plus"></span> Page
         <% end %>
@@ -33,6 +34,9 @@
             <span class="glyphicon glyphicon-remove"></span>
           <% end %>
         <% else %>
+          <%= link_to edit_nav_item_path(nav_item), class: "btn btn-default btn-xs" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
           <%= link_to nav_item_path(nav_item), method: :delete, class: "btn btn-danger btn-xs" do %>
             <span class="glyphicon glyphicon-remove"></span>
           <% end %>

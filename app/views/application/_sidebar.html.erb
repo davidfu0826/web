@@ -1,6 +1,6 @@
 <% if current_user %>
   <div class="row">
-    <h3><%= t(:tools) %></h3>
+    <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
       <ul>
         <li><%= link_to t('.account_settings'), edit_user_path(current_user)    %></li>
         <li><%= link_to t('.new_post'), new_post_path    if can? :create, Post  %></li>
