@@ -8,7 +8,7 @@
       <%= link_to event.title, event %>
     </h3>
     <p>
-      <%= event.description %>
+      <%= truncate(event.description, length: 35) %>
     </p>
   </div>
 </li>

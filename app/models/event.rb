@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
     event.ip_class = "PUBLIC"
     event.created = self.created_at
     event.last_modified = self.updated_at
-    #event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}" #TODO: Rätt url
+    event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}" #TODO: Rätt url
     event
   end
 
@@ -35,5 +35,18 @@ class Event < ActiveRecord::Base
 
   def short_month
     start_time.strftime("%B")[0,3]
+  end
+
+  def status_text
+    now = Time.now
+    if start_time > now
+      if end_time > now
+        I18n.t('events.status.has_ended')
+      else
+        I18n.t('events.status.ongoing')
+      end
+    else
+      I18n.t('events.status.has_not_started_yet')
+    end
   end
 end

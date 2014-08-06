@@ -31,6 +31,13 @@ sv:
       reset: Återställ
       week: Vecka %{week}
       webcal: Prenumerera på iCal
+    show:
+      start: 'Startar: '
+      end:   'Slutar: '
+    status:
+      ongoing: Pågående
+      has_ended: Har avslutats
+      has_not_started_yet: Har inte börjat än
 
   contact_forms:
     send_mail:
@@ -83,7 +90,8 @@ sv:
     month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
   time:
     formats:
-      week_day: "%a %e/%-m"
+      default: "%R %d-%m-%Y"
+      week_day: "%a %e"
   errors:
     format: "! '%{attribute} %{message}'"
     messages:

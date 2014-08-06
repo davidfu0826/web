@@ -1,10 +1,24 @@
 <div class="page-header">
   <h1><%= @event.title %></h1>
-  <div class="lead"><%= @event.description %></div>
-  <%= link_to t(:back), events_path, class: "btn btn-default" %>
-  <%= link_to t(:edit), edit_event_path(@event), class: "btn btn-default" %>
+  <div class="lead"><%= @event.event_group %></div>
 </div>
 
-Start: <%= @event.start_time %> <br>
-End: <%= @event.end_time %> <br>
-Group: <%= @event.event_group %> <br>
+<p class="event-date">
+  <%= t('.start') %><%= l(@event.start_time) %><br>
+  <%= t('.end') %><%= l(@event.end_time) %>
+</p>
+
+<p><%= @event.description %></p>
+
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <h3><%= t(:tools) %></h3>
+    <ul>
+      <% if can? :edit, Event %>
+        <li><%= link_to t(:edit), edit_event_path(@event) %></li>
+        <li><%= link_to t(:delete), event_path(@event), method: :delete %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
