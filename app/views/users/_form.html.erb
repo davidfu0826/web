@@ -5,6 +5,7 @@
   <%= f.text_field :phonenumber %>
   <%= f.select :locale, @locales.collect {|l| [ t("locales.#{l.first}"), l.first ] } %>
   <%= f.select :role,   @roles.collect   {|r| [ r.first, r.first ] }, include_blank: true if can? :manage, User %>
+  <%= f.file_field :profile_image %>
 
   <%= f.submit %>
 <% end %>

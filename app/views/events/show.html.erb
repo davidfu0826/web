@@ -17,7 +17,7 @@
     <ul>
       <% if can? :edit, Event %>
         <li><%= link_to t(:edit), edit_event_path(@event) %></li>
-        <li><%= link_to t(:delete), event_path(@event), method: :delete %></li>
+        <li><%= link_to t(:destroy), event_path(@event), method: :delete %></li>
       <% end %>
     </ul>
   </div>

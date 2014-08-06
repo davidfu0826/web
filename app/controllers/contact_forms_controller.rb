@@ -23,7 +23,7 @@ class ContactFormsController < ApplicationController
 
   def update
     if @contact_form.update(contact_form_params)
-      redirect_to @page
+      redirect_to @contact_form.page
     else
       render 'new'
     end
@@ -47,6 +47,6 @@ class ContactFormsController < ApplicationController
   private
 
   def contact_form_params
-    params.require(:contact_form).permit(:page_id, :user_id, questions_attributes: [:id, :content, :_destroy])
+    params.require(:contact_form).permit(:title, :page_id, :user_id, questions_attributes: [:id, :content, :_destroy])
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723125100) do
+ActiveRecord::Schema.define(version: 20140806100544) do
 
   create_table "contact_forms", force: true do |t|
     t.integer  "page_id"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20140723125100) do
     t.integer  "role"
     t.string   "title_en"
     t.integer  "locale"
+    t.string   "profile_image_uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

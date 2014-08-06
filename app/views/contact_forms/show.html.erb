@@ -1,3 +1,8 @@
+<div class="page-heading">
+  <%= @contact_form.title %>
+</div>
+
+
 <%= bootstrap_form_tag url: contact_form_send_mail_path(@contact_form), method: :post do |f| %>
 
   <% if current_user %>

@@ -12,7 +12,7 @@
           <% @events[month][week].sort_by!(&:start_time) %>
           <% @events[month][week].each do |event| %>
             <li>
-              <span style="font-weight: bold;">[<%= l(event.start_time, format: :week_day) %>]</span>
+              <span style="font-weight: bold;"><%= l(event.start_time, format: :week_day) %></span>
               <%= link_to event.title, event %>
             </li>
           <% end %>
