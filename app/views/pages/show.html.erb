@@ -16,7 +16,7 @@
   <% end %>
   <% if @page.contacts.present? %>
     <div class="row">
-      <h3><%= t('pages.contacts') %></h3>
+      <h3><%= t('pages.contacts') %><span class="pull-right sidebar-glyph glyphicon glyphicon-user"></span></h3>
       <%= render @page.contacts %>
     </div>
   <% end %>

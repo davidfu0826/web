@@ -36,6 +36,7 @@ gem 'acts_as_list'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'will_paginate-bootstrap'
 gem 'twitter'
+gem 'dynamic_sitemaps'
 
 group :development do
   gem 'spring'

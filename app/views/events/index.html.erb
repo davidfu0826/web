@@ -1,6 +1,7 @@
 <div class="page-header">
   <h1><%= t('.event') %></h1>
 </div>
+
 <% [@this_month.last_month, @this_month, @this_month.next_month].each do |month| %>
   <div class="col-md-4">
     <h3><%= t(:"date.month_names")[month.strftime("%-m").to_i] %></h3>

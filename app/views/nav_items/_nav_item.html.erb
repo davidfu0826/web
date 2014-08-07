@@ -8,20 +8,20 @@
       <% end %>
       <% if can? :manage, Page %>
         <div class="pull-right">
-          <% if (nav_item.higher_items.count > 0) %>
-            <%= link_to nav_item_higher_path(nav_item.id), class: "btn btn-default btn-xs" do %>
-              <span class="glyphicon glyphicon-arrow-up"></span>
-            <% end %>
-          <% end %>
-          <% if (nav_item.lower_items.count > 0) %>
-            <%= link_to nav_item_lower_path(nav_item.id), class: "btn btn-default btn-xs" do %>
-              <span class="glyphicon glyphicon-arrow-down"></span>
+
+          <% unless nav_item.has_page? %>
+            <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs" do %>
+              <span class="glyphicon glyphicon-plus"></span> <%= t('pages.page') %>
             <% end %>
           <% end %>
 
-          <% disabled = first_level ? "disabled" : "" %>
-          <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs #{disabled}" do %>
-            <span class="glyphicon glyphicon-plus"></span> <%= t('pages.page') %>
+          <% disable_down = (nav_item.lower_items.count  > 0) ? "" : "disabled" %>
+          <% disable_up   = (nav_item.higher_items.count > 0) ? "" : "disabled" %>
+          <%= link_to nav_item_higher_path(nav_item.id), class: "btn btn-default btn-xs #{disable_up}" do %>
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          <% end %>
+          <%= link_to nav_item_lower_path(nav_item.id), class: "btn btn-default btn-xs #{disable_down}" do %>
+            <span class="glyphicon glyphicon-arrow-down"></span>
           <% end %>
 
           <% if nav_item.has_page? %>
@@ -45,6 +45,6 @@
   </div>
 </div>
 <div class="col-xs-11 pull-right no-padding">
-  <%= render nav_item.children, first_level: false %>
+  <%= render nav_item.children, level: level + 1 %>
 </div>
 

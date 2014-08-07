@@ -24,7 +24,7 @@ module HtmlHelper
         %{
           <div class="podio-webform-container">
             <script src="#{url}.js"></script>
-            <script type="text/javascript">$(window).load(function(){_podioWebForm.render("#{id}"); console.log("hej"); })</script>
+            <script type="text/javascript">_podioWebForm.render("#{id}")</script>
           </div>
         }
       end
