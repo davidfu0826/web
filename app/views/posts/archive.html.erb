@@ -8,7 +8,7 @@
 
 <% content_for :sidebar do %>
   <div class="row">
-    <h3><%= t(:filter) %></h3>
+    <h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
     <%= bootstrap_form_tag url: posts_archive_path, method: 'get' do |f| %>
       <p>
         <%= f.text_field :search, value: @search %>
