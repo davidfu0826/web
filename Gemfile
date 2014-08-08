@@ -51,3 +51,9 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
 end
+
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+end
