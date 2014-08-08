@@ -22,10 +22,8 @@ module HtmlHelper
       link.gsub(/https:\/\/podio\.com\/webforms\/([0-9]*)\/([0-9]*)(\/)?/) do |url|
         id = url.split('/').last
         %{
-          <div class="podio-webform-container">
-            <script src="#{url}.js"></script>
-            <script type="text/javascript">_podioWebForm.render("#{id}")</script>
-          </div>
+          <script src="#{url}.js"></script>
+          <script type="text/javascript">_podioWebForm.render("#{id}")</script>
         }
       end
     end

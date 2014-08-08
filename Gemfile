@@ -6,8 +6,6 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'autoprefixer-rails'
 gem 'rack-cache', :require => 'rack/cache' #Caching images
