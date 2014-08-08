@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
 
 
   before_validation do
-    self.slug = self.title_en.parameterize.underscore
+    self.slug = self.title_en.parameterize
   end
   validates :title_sv, presence: true
   validates :title_en, presence: true
