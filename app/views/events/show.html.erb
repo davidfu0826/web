@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1><%= @event.title %></h1>
+  <div class="lead"><%= link_to t('.show_all'), events_path %></div>
   <div class="lead"><%= @event.tags.to_a.join(', ') %></div>
 </div>
 

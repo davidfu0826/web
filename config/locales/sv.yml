@@ -40,6 +40,7 @@ sv:
     show:
       start: 'Startar: '
       end:   'Slutar: '
+      show_all: Visa alla event
     status:
       ongoing: Pågående
       has_ended: Har avslutats

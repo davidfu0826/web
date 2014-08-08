@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @archive = params[:archive] || false
   end
 
   def new
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   def archive
+    @archive = true
     @posts = @posts.order(:created_at)
     if params[:search]
       @posts = @posts.search(params[:search])

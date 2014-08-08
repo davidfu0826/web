@@ -9,7 +9,7 @@
         <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
         <%= link_to t(:destroy), post_path(post), method: :delete if can? :destroy, post %>
         <div class="pull-right">
-          <%= link_to t(:read_more), post_path(post) %>
+          <%= link_to t(:read_more), post_path(post, archive: (@archive ||= false)) %>
         </div>
       </div>
     </div>

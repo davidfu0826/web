@@ -1,5 +1,12 @@
 <div class="page-header">
   <h1><%= @post.title %></h1>
+  <div class="lead">
+    <% if @archive ||= false %>
+      <%= link_to t(:back), posts_archive_path %>
+    <% else %>
+      <%= link_to t(:back), posts_path %>
+    <% end %>
+  </div>
 </div>
 
 <%= @post.content_html %>
