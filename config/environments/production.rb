@@ -88,5 +88,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  PUBLIC_URL= "tlth.se/"
+  PUBLIC_URL= "http://www.tlth.se/"
 end
