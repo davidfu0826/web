@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140806100544) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contact_forms", force: true do |t|
     t.integer  "page_id"
     t.integer  "user_id"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140806100544) do
     t.string   "description_en"
   end
 
-  add_index "events", ["event_group_id"], name: "index_events_on_event_group_id"
+  add_index "events", ["event_group_id"], name: "index_events_on_event_group_id", using: :btree
 
   create_table "images", force: true do |t|
     t.string   "description"
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140806100544) do
     t.text     "content_en"
   end
 
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
+  add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
   create_table "pages_users", force: true do |t|
     t.integer  "page_id"
@@ -130,7 +133,7 @@ ActiveRecord::Schema.define(version: 20140806100544) do
     t.string   "profile_image_uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
