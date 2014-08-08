@@ -19,7 +19,7 @@ class NavItem < ActiveRecord::Base
   end
 
   def has_page?
-    page ? true : false
+    !!page
   end
 
   def has_title_or_page
