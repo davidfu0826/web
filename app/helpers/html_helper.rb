@@ -15,6 +15,16 @@ module HtmlHelper
     end
   end
 
+  def news_html content
+    filters
+    auto_html content do
+      sanitize
+      strip_image_tags
+      redcarpet
+      simple_format
+    end
+  end
+
   private
 
   def filters
@@ -40,6 +50,11 @@ module HtmlHelper
     AutoHtml.add_filter(:responsive_images) do |text|
       text.gsub(/<img[^>]+/) do |match|
         %{#{match} class="img-responsive"}
+      end
+    end
+    AutoHtml.add_filter(:strip_image_tags) do |text|
+      text.gsub(/!\[\S+\]\[\d+\]/) do |match|
+        %{}
       end
     end
   end
