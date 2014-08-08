@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
-  before_filter :load_event_groups, only: [:index, :new, :edit]
+  before_filter :load_tags, only: [:index, :new, :edit]
   load_and_authorize_resource
 
   def index
-    if params[:search].present?
-      group = @event_groups.find(params[:search])
-      @events = @events.by_group(group)
+    if params[:tag] && !params[:tag].blank?
+      @tag = Tag.find(params[:tag])
+      @events = @events.with_tag(@tag)
     end
+
     @offset = params[:offset].to_i || 0
     @this_month = Time.now.beginning_of_month + @offset.months
     respond_to do |format|
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      load_event_groups
+      load_tags
       render 'new'
     end
   end
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
-      load_event_groups
+      load_tags
       render 'edit'
     end
   end
@@ -62,8 +63,8 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :start_time, :end_time, :event_group_id)
   end
 
-  def load_event_groups
-    @event_groups = EventGroup.all
+  def load_tags
+    @tags = Tag.all
   end
 
   def events_by_month_and_week(events)

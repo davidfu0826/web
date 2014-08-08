@@ -2,7 +2,6 @@ class Page < ActiveRecord::Base
   #include ApplicationHelper
   include HtmlHelper
 
-
   before_validation do
     self.slug = self.title_en.parameterize
   end

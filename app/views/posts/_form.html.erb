@@ -32,6 +32,7 @@
       <% end %>
     </div>
   </div>
+
   <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('.tags') }, { id: 'select2', multiple: true } %>
   <%= f.submit t(:save) %>
 <% end %>
