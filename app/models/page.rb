@@ -11,7 +11,8 @@ class Page < ActiveRecord::Base
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
-  translates :title, :content
+  translates :title
+  translates :content
 
   has_one :nav_item, dependent: :destroy
   has_and_belongs_to_many :contacts, class_name: 'User'

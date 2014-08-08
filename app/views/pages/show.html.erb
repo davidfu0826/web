@@ -2,7 +2,14 @@
   <h1><%= @page.title %></h1>
 </div>
 
-<%= process_into_html(@page.content) %>
+<% if @page.content(fallback: false).present? %>
+  <%= process_into_html(@page.content) %>
+<% else %>
+  <div class="alert alert-warning" role="alert">
+    <%= t('.no_content') %>
+  </div>
+  <%= process_into_html(@page.content) %>
+<% end %>
 
 <% content_for :sidebar do %>
   <% if can? :update, @page %>

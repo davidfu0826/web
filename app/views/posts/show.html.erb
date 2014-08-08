@@ -9,7 +9,14 @@
   </div>
 </div>
 
-<%= @post.content_html %>
+<% if @post.content(fallback: false).present? %>
+  <%= process_into_html(@post.content) %>
+<% else %>
+  <div class="alert alert-warning" role="alert">
+    <%= t('.no_content') %>
+  </div>
+  <%= process_into_html(@post.content) %>
+<% end %>
 
 <% if can? :edit, @post %>
   <% content_for :sidebar do %>
