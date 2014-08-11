@@ -4,9 +4,15 @@ class Event < ActiveRecord::Base
   validates :end_time, presence: true
   validate :end_time_after_start_time
 
-  belongs_to :event_group
+  before_validation(on: [:create, :update]) do
+    taggings.each do |t|
+      t.taggable = self
+    end
+  end
+  has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
+  scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
 
-  scope :by_group, ->(group) { where event_group: group }
   scope :upcoming, -> { where(["start_time > ?", Time.now]).order(:start_time) }
 
   translates :title, :description

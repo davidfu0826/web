@@ -81,6 +81,10 @@
   .wmd-input {
     height: 300px !important;
   }
+  .lead a {
+    color: $light-gray;
+    font-style: italic;
+  }
 }
 
 /*  -- SIDEBAR --  */
@@ -257,6 +261,6 @@
 /*  -- Stuff --  */
 
 // Images
-.modal-dialog {
-  max-width: 85% !important;
+.modal-content {
+  //max-width: 85% !important;
 }

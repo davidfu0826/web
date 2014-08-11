@@ -40,6 +40,7 @@ sv:
     show:
       start: 'Startar: '
       end:   'Slutar: '
+      show_all: Visa alla event
     status:
       ongoing: Pågående
       has_ended: Har avslutats
@@ -59,6 +60,7 @@ sv:
     show:
       add_user: Lägg till användare
       edit_page: Redigera sida
+      no_content: "Denna sida finns inte på svenska"
     index:
       page_management: Sidhantering
       hidden_pages: Gömda sidor
@@ -75,6 +77,8 @@ sv:
       lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
       archive: Arkiv
       rss: RSS
+    show:
+      no_content: "Denna post finns inte på svenska"
     archive:
       no_posts: Kunde inte hitta några nyheter
       no_posts_lead: Testa med en annan filtrering.

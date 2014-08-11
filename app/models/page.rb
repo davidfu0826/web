@@ -2,9 +2,8 @@ class Page < ActiveRecord::Base
   #include ApplicationHelper
   include HtmlHelper
 
-
   before_validation do
-    self.slug = self.title_en.parameterize.underscore
+    self.slug = self.title_en.parameterize
   end
   validates :title_sv, presence: true
   validates :title_en, presence: true
@@ -12,7 +11,8 @@ class Page < ActiveRecord::Base
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
-  translates :title, :content
+  translates :title
+  translates :content
 
   has_one :nav_item, dependent: :destroy
   has_and_belongs_to_many :contacts, class_name: 'User'
@@ -21,7 +21,7 @@ class Page < ActiveRecord::Base
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
 
   def slug_not_reserved_name
-    reserved_names = %(users events event_groups posts nav_items pages).split
+    reserved_names = %w(users events event_groups posts nav_items pages)
     if reserved_names.include? slug
       errors.add(:slug, I18n.t('errors.slug_reserved'))
     end

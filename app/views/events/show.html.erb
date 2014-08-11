@@ -1,15 +1,15 @@
 <div class="page-header">
   <h1><%= @event.title %></h1>
-  <div class="lead"><%= @event.event_group %></div>
+  <div class="lead"><%= link_to t('.show_all'), events_path %></div>
+  <div class="lead"><%= @event.tags.to_a.join(', ') %></div>
 </div>
 
 <p class="event-date">
-  <%= t('.start') %><%= l(@event.start_time) %><br>
-  <%= t('.end') %><%= l(@event.end_time) %>
+  <%= t('.start') %> <%= l(@event.start_time) %><br>
+  <%= t('.end') %>   <%= l(@event.end_time) %>
 </p>
 
 <p><%= @event.description %></p>
-
 
 <% content_for :sidebar do %>
   <div class="row">

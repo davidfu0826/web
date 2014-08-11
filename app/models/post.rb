@@ -4,6 +4,11 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
+  before_validation(on: [:create, :update]) do
+    taggings.each do |t|
+      t.taggable = self
+    end
+  end
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
