@@ -5,11 +5,11 @@ class PagesController < ApplicationController
   #TODO Authorize stuff
   def index
     @orphan_pages = Page.orphans
-    @nav_items = NavItem.orphans.order("position ASC")
+    @nav_items = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
   end
 
   def show
-    @contact_forms = @page.contact_forms
+    @contact_forms = @page.contact_forms.includes(:pages, :users)
   end
 
   def new

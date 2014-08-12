@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_nav_items
-    @nav_row = NavItem.orphans.order("position ASC")
+    @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
   end
 
   def load_locale
