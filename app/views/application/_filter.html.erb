@@ -1,0 +1,11 @@
+<h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
+<%= bootstrap_form_tag url: path, method: 'get' do |f| %>
+  <p>
+    <%= f.text_field :search, value: @search, label: t('search')  %>
+    <%= f.collection_select :tag, @tags, :id, :title,
+      { include_blank: true, label: t('filter') }, { id: 'select2'} %>
+
+    <%= f.submit t('filter') %>
+    <%= link_to t('reset'), path %>
+  </p>
+<% end %>

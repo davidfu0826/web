@@ -29,4 +29,19 @@ module ApplicationHelper
       twitter_user
     end
   end
+
+  def image_link(image)
+    edit_button   = "<a class='btn btn-default' href='/images/#{image.id}/edit'>#{t(:edit)}</a>"
+    delete_button = "<a class='btn btn-danger' data-method='delete' href='/images/#{image.id}' rel='nofollow'>#{t(:destroy)}</a>"
+    link_to image.image.url,
+      data: {
+        toggle: "lightbox",
+        gallery: "images",
+        parent: ".gallery-parent",
+        title: image.image_uid.split('/').last,
+        footer: (edit_button + delete_button)
+      } do
+        image_tag image.image.thumb('300x300#').url, class: "img-responsive img-thumbnail"
+    end
+  end
 end

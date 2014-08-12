@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
     event.ip_class = "PUBLIC"
     event.created = self.created_at
     event.last_modified = self.updated_at
-    event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}" #TODO: Rätt url
+    event.uid = event.url = "#{PUBLIC_URL}events/#{self.id}"
     event
   end
 

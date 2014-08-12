@@ -8,14 +8,6 @@
 
 <% content_for :sidebar do %>
   <div class="row">
-    <h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
-    <%= bootstrap_form_tag url: posts_archive_path, method: 'get' do |f| %>
-      <p>
-        <%= f.text_field :search, value: @search %>
-        <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, label: t('.filter') }, { id: 'select2'} %>
-        <%= f.submit %>
-        <%= link_to t('.reset'), posts_archive_path %>
-      </p>
-    <% end %>
+    <%= render 'filter', path: posts_archive_path %>
   </div>
 <% end %>

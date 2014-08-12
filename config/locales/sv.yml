@@ -12,6 +12,12 @@ sv:
   links: Länkar
   log_in: Logga In
   log_out: Logga Ut
+  filter: Filtrera
+  search: Sök
+  reset: Återställ
+
+  shared:
+    tags: Taggar
 
   application:
     navbar:
@@ -87,6 +93,8 @@ sv:
 
   images:
     index:
+      images: Bilder
+      new_image: Ladda upp ny bild
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
 
@@ -150,3 +158,67 @@ sv:
   locales:
     sv: Svenska
     en: Engelska
+
+  activerecord:
+    models:
+      contact_form: Kontaktformulär
+      event: Event
+      image: Bild
+      nav_item: Navigeringsmeny
+      page: Sida
+      post: Nyhet
+      question: Formulärsfråga
+      tag: Tag
+      user: Användare
+    attributes:
+      contact_form:
+        title: Titel
+      event:
+        title: Titel
+        description: Beskrivning
+        start_time: Börjar
+        end_time: Slutar
+        tags: Taggar
+      image:
+        tags: Taggar
+        image: Bild
+      nav_item:
+        title: Titel
+        description: Beskrivning
+      page:
+        title: Titel
+        content: Innehåll
+        slug: Permalänk
+      post:
+        title: Titel
+        content: Innehåll
+        tags: Taggar
+      question:
+        content: Frågeinnehåll
+      tag:
+        title: Titel
+      user:
+        email: Email
+        password: Lösenord
+        password_confirmation: Upprepa lösenord
+        name: Namn
+        phonenumber: Telefon
+        title: Titel
+        role: Roll
+        locale: Språkval
+  helpers:
+    submit:
+      event:
+        create: Skapa %{model}
+        update: Uppdatera %{model}
+      post:
+        create: Skapa %{model}
+        update: Uppdatera %{model}
+      page:
+        create: Skapa %{model}
+        update: Uppdatera %{model}
+      image:
+        create: Ladda upp %{model}
+        update: Spara taggar för %{model}
+      nav_item:
+        create: Skapa %{model}

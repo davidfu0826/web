@@ -47,13 +47,6 @@
   </div>
 
   <div class="row">
-    <h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
-    <%= bootstrap_form_tag url: events_path, method: 'get' do |f| %>
-      <p>
-        <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, label: t('.filter') }, { id: 'select2'} %>
-        <%= f.submit %>
-        <%= link_to t(:reset), events_path %>
-      </p>
-    <% end %>
+    <%= render 'filter', path: events_path %>
   </div>
 <% end %>
