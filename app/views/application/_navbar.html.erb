@@ -6,8 +6,8 @@
     <%= navbar_group do %>
       <li><%= navbar_item t('.start'), root_path %></li>
       <%= render 'nav_items' %>
-      <li><%= link_to "Svenska", swedish_locale_path if @locale == :en %></li>
-      <li><%= link_to "English", english_locale_path if @locale != :en %></li>
+      <li><%= link_to "Svenska", swedish_locale_path(url: request.path) if @locale == :en %></li>
+      <li><%= link_to "English", english_locale_path(url: request.path) if @locale != :en %></li>
     <% end %>
   <% end %>
 <% end %>

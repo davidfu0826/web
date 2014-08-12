@@ -29,7 +29,7 @@ $(document).ready(function(){
   $("#twitter-feed").load("/tweets");
   load_datepicker();
   load_select2();
-})
+});
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
     event.preventDefault();
