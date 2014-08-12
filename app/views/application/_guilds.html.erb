@@ -1,13 +1,15 @@
 <div class="guilds">
-  <a href="http://www.fsek.tlth.se/">f</a>
-  <a href="http://www.esek.tlth.se/">e</a>
-  <a href="http://www.msek.tlth.se">m</a>
-  <a href="http://www.vsek.tlth.se">v</a>
-  <a href="http://www.asek.tlth.se">a</a>
-  <a href="http://www.ksek.tlth.se">k</a>
-  <a href="http://www.dsek.lth.se">d</a>
-  <!-- <a href="http://www.tlth.se/~dokt/">?</a> -->
-  <a href="http://www.ingsek.tlth.se/">n</a>
-  <a href="http://www.wsek.tlth.se">w</a>
-  <a href="http://www.isek.tlth.se">i</a>
+  <%= link_to "f", "http://www.fsek.tlth.se/" %>
+  <%= link_to "e", "http://www.esek.tlth.se/" %>
+  <%= link_to "m", "http://www.msek.tlth.se/" %>
+  <%= link_to "v", "http://www.vsek.tlth.se/" %>
+  <%= link_to "a", "http://www.asek.tlth.se/" %>
+  <%= link_to "k", "http://www.ksek.tlth.se/" %>
+  <%= link_to "d", "http://www.dsek.tlth.se/" %>
+  <%= link_to "http://www.tlth.se/~dokt/" do %>
+    <%= image_tag "dokt.svg", id: "dokt" %>
+  <% end %>
+  <%= link_to "n", "http://www.ingsek.tlth.se/" %>
+  <%= link_to "w", "http://www.wsek.tlth.se/" %>
+  <%= link_to "i", "http://www.isek.tlth.se/" %>
 </div>
