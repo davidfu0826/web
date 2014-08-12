@@ -7,9 +7,9 @@ class EventsController < ApplicationController
       @tag = Tag.find(params[:tag])
       @events = @events.with_tag(@tag)
     end
-
+    @now = Time.now
     @offset = params[:offset].to_i || 0
-    @this_month = Time.now.beginning_of_month + @offset.months
+    @this_month = @now.beginning_of_month + @offset.months
     respond_to do |format|
       format.html do
         @events = events_by_month_and_week(@events)

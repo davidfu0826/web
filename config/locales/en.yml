@@ -18,6 +18,8 @@ en:
       opening_hours: "Opening Hours: Monday-Friday 11-14"
     sidebar:
       new_post: Create News Post
+      all_events: Show all events
+      twitter_link: Show tweets by Teknologkåren
 
   events:
     index:

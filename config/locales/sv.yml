@@ -28,6 +28,8 @@ sv:
       manage_events: Hantera events
       manage_images: Hantera bilder
       manage_tags: Hantera taggar
+      all_events: Visa alla evenemang
+      twitter_link: Visa Teknologkårens twitter
 
   events:
     index:

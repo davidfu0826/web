@@ -91,13 +91,28 @@
 .sidebar {
   border-left: 2px solid #eee;
 
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .link {
+    color: $light-gray;
+    font-style: italic;
+    text-align: right;
+    display: inherit;
+  }
+
   .row {
     margin-bottom: 5px;
   }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
+  .sidebar-links a {
+    color: $gray;
+  }
+
+  .sidebar-glyph {
+    color: $lighter-gray;
   }
 
   #twitter-feed {
@@ -148,14 +163,6 @@
       display: inline;
       height: 40px;
     }
-  }
-
-  .sidebar-links a {
-    color: gray;
-  }
-
-  .sidebar-glyph {
-    color: $lighter-gray;
   }
 }
 

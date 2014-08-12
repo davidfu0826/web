@@ -17,12 +17,14 @@
   <ul class="calendar-feed">
     <%= render @events %>
   </ul>
+  <%= link_to t('.all_events'), events_path, class: "link" %>
 </div>
 <div class="row hidden-sm hidden-xs">
   <h3>Twitter <span class="pull-right"><%= image_tag "twitter.svg" %></span></h3>
   <ul id="twitter-feed">
     <%= render partial: 'tweet', collection: @tweets %>
   </ul>
+  <%= link_to t('.twitter_link'), "https://twitter.com/Teknologkaren", class: "link" %>
 </div>
 <div class="row sidebar-links">
   <h3><%= t(:links) %><span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span></h3>
