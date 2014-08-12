@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get "sitemap.xml" => "application#sitemap", format: :xml, as: :sitemap
+  get "robots.txt" => "application#robots", format: :text, as: :robots
+
   root 'posts#index'
   devise_for :users
   resources :users, except: :show

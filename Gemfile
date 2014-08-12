@@ -35,6 +35,7 @@ gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'will_paginate-bootstrap'
 gem 'twitter'
 gem 'dynamic_sitemaps'
+gem 'whenever', :require => false #Automatically generate sitemaps
 
 group :development do
   gem 'spring'
