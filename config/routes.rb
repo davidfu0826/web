@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :posts
   get 'tweets', to: 'tweets#tweets'
 
-  resources :images, except: [:show, :edit, :update]
+  resources :images, except: :show
 
   resources :tags, except: [:show]
 
