@@ -11,7 +11,8 @@
         <ul class="event-week">
           <% @events[month][week].sort_by!(&:start_time) %>
           <% @events[month][week].each do |event| %>
-            <li>
+            <% disabled = event.start_time < Time.now ? "disabled" : "" %>
+            <li class="<%= disabled %>">
               <span style="font-weight: bold;"><%= l(event.start_time, format: :week_day) %></span>
               <%= link_to event.title, event %>
             </li>

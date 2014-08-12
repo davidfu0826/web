@@ -181,6 +181,12 @@
   }
 }
 
+.event-weekday {
+  &.disabled {
+    color: #888;
+  }
+}
+
 /* Events */
 .event-weeknbr {
   font-size: 12px;
@@ -193,6 +199,15 @@
   padding-left: 0px;
   padding-bottom: 6px;
   border-bottom: 1px solid #d8d8d8;
+
+  li {
+    &.disabled {
+      color: #888;
+      a {
+        color: #d8d8d8;
+      }
+    }
+  }
 }
 
 /* Posts */
