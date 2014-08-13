@@ -29,18 +29,34 @@ insertImageDialog = (callback) ->
     selected_image = null
     $("#imageModal").modal "show"
     $(".img-select").click (e) ->
-      if selected_image != null
-        $(selected_image).toggleClass 'img-select-active'
-      selected_image = e.target
-      $(selected_image).toggleClass 'img-select-active'
+      loadImageSelection e, selected_image
+
+    $("#image-select-body").on "imageSelection", (e, image) ->
+      selected_image = image
+    $("#image-select-body").change (e) ->
+      $(".img-select").click (ev) ->
+        loadImageSelection ev, selected_image
+
     $("#img-submit").click (e) ->
       $("#imageModal").modal "hide"
-      callback(selected_image.attributes['data-source'].value)
+      $(".img-select-active").removeClass 'img-select-active'
+      value = selected_image.attributes['data-source'].value
+      selected_image = null
+      callback(value)
     $("#modal-close").click (e) ->
       $("#imageModal").modal "hide"
+      $(".img-select-active").removeClass 'img-select-active'
+      selected_image = null
       callback(null)
   ), 0
   true
+
+loadImageSelection = (e, selected_image) ->
+  if selected_image != null
+    $(selected_image).toggleClass 'img-select-active'
+  selected_image = e.target
+  $(selected_image).toggleClass 'img-select-active'
+  $("#image-select-body").trigger "imageSelection", selected_image
 
 transform_urls = (url) ->
   if /^https:\/\/podio\.com\/webforms\//i.test(url)

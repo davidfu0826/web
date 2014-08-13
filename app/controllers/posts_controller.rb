@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :load_tags, only: [:new, :edit, :archive]
   before_action :load_events, only: :index
+  before_action :load_images, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       load_tags
+      load_images
       render 'new'
     end
   end
@@ -40,6 +42,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       load_tags
+      load_images
       @exists = true
       render 'edit'
     end
@@ -71,5 +74,9 @@ class PostsController < ApplicationController
 
   def load_events
     @events = Event.upcoming.take(3)
+  end
+
+  def load_images
+    @images = Image.all
   end
 end

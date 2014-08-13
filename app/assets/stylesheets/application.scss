@@ -281,3 +281,16 @@
 }
 
 /*  -- Stuff --  */
+
+#image-select-body {
+  max-height: 700px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.large-select {
+  .select2-choice {
+    height: 36px;
+    width: 200px;
+  }
+}

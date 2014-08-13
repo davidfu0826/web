@@ -10,7 +10,7 @@ class Image < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
-  scope :search, -> (string) { where(["image_name LIKE ?", "%#{string}%"]) }
+  scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }
 
   dragonfly_accessor :image
 end

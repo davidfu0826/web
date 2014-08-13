@@ -1,0 +1,31 @@
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="imageModalLabel"><%= t(:images) %></h4>
+      </div>
+
+      <div class="modal-body" id="image-select-body">
+        <div class="row">
+          <%= render 'image_search' %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <%= bootstrap_form_tag url: images_path, method: 'get', layout: :inline, remote: true do |f| %>
+          <div class="pull-left">
+            <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, hide_label: true }, { class: "large-select", id: 'select2'} %>
+            <%= f.text_field :search, hide_label: true, icon: 'search' %>
+            <%= f.submit %>
+          </div>
+          <div class="pull-right">
+            <button id="modal-close" type="button" class="btn btn-default pull-right"><%= t(:close) %></button>
+            <button id="img-submit" type="button" class="btn btn-primary pull-right"><%= t(:select) %></button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
