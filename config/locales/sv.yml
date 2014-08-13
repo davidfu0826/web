@@ -3,6 +3,7 @@ sv:
   save: Spara
   edit: Redigera
   destroy: Radera
+  delete: Radera
   reset: Återställ
   read_more: Läs Mer
   tools: Verktyg
@@ -18,6 +19,8 @@ sv:
 
   shared:
     tags: Taggar
+    image_select_modal:
+      images: Bilder
 
   application:
     navbar:
@@ -97,6 +100,13 @@ sv:
       new_image: Ladda upp ny bild
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
+
+  tags:
+    index:
+      title: Titel
+      new_tag: Skapa tagg
+      show_posts: Visa nyheter
+      show_images: Visa bilder
 
   date:
     day_names:
@@ -208,17 +218,8 @@ sv:
         locale: Språkval
   helpers:
     submit:
-      event:
-        create: Skapa %{model}
-        update: Uppdatera %{model}
-      post:
-        create: Skapa %{model}
-        update: Uppdatera %{model}
-      page:
-        create: Skapa %{model}
-        update: Uppdatera %{model}
+      create: Skapa %{model}
+      update: Uppdatera %{model}
       image:
         create: Ladda upp %{model}
         update: Spara taggar för %{model}
-      nav_item:
-        create: Skapa %{model}

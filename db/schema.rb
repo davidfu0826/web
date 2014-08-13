@@ -61,12 +61,9 @@ ActiveRecord::Schema.define(version: 20140812191608) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "title_en"
     t.text     "content_en"
   end
-
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
   create_table "pages_users", force: true do |t|
     t.integer  "page_id"
