@@ -11,6 +11,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  def sitemap
+    path = Rails.root.join("public", "sitemaps", "sitemap.xml")
+    if File.exists?(path)
+      render xml: open(path).read
+    else
+      render text: "Sitemap not found.", status: :not_found
+    end
+  end
+
+  def robots
+  end
+
   private
 
   def set_locale
@@ -22,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_nav_items
-    @nav_row = NavItem.orphans.order("position ASC")
+    @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
   end
 
   def load_locale

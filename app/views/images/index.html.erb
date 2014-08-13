@@ -11,13 +11,7 @@
   <% @images.each do |image| %>
     <% if image.image_stored? %>
       <div class="col-sm-3 img-library">
-        <% edit_button   = "<a class='btn btn-default' href='/images/#{image.id}/edit'>#{t(:delete)}</a>" %>
-        <% delete_button = "<a class='btn btn-default' data-method='delete' href='/images/#{image.id}' rel='nofollow'>#{t(:destroy)}</a>" %>
-        <%= link_to image.image.url,
-            data: { toggle: "lightbox", gallery: "images", parent: ".gallery-parent",
-              title: image.image_uid.split('/').last, footer: (edit_button + delete_button) }  do %>
-          <%= image_tag image.image.thumb('300x300#').url, class: "img-responsive img-thumbnail" %>
-        <% end %>
+        <%= image_link image %>
       </div>
     <% end %>
   <% end %>
@@ -34,14 +28,6 @@
   <% end %>
 
   <div class="row">
-    <h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
-    <%= bootstrap_form_tag url: images_path, method: 'get' do |f| %>
-      <p>
-        <%= f.text_field :search, value: @search %>
-        <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, label: t('.filter') }, { id: 'select2'} %>
-        <%= f.submit %>
-        <%= link_to t('.reset'), images_path %>
-      </p>
-    <% end %>
+    <%= render 'filter', path: images_path %>
   </div>
 <% end %>

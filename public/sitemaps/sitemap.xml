@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>http://http://localhost:3000//sitemaps/site.xml</loc>
+</sitemap>
+<sitemap>
+<loc>http://http://localhost:3000//sitemaps/pages.xml</loc>
+</sitemap>
+<sitemap>
+<loc>http://http://localhost:3000//sitemaps/posts.xml</loc>
+</sitemap>
+<sitemap>
+<loc>http://http://localhost:3000//sitemaps/events.xml</loc>
+</sitemap>
+</sitemapindex>
