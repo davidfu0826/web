@@ -42,6 +42,17 @@ class ImagesController < ApplicationController
     redirect_to images_path
   end
 
+  def search
+    if params[:search]
+      @images = @images.search(params[:search])
+      @search = params[:search]
+    end
+    if params[:tag] && !params[:tag].blank?
+      @tag = Tag.find(params[:tag])
+      @images = @images.with_tag(@tag)
+    end
+  end
+
   private
 
   def image_params

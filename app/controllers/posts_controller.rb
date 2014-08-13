@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = @posts.order(:created_at)
+    @posts = @posts.order(:created_at).includes(:image)
     if params[:tag]
       @tag = Tag.find(params[:tag])
       @posts = @posts.with_tag(@tag)
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
   def archive
     @archive = true
-    @posts = @posts.order(:created_at)
+    @posts = @posts.order(:created_at).includes(:image)
     if params[:search]
       @posts = @posts.search(params[:search])
       @search = params[:search]

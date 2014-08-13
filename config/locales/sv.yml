@@ -46,7 +46,6 @@ sv:
       new_event_group: Ny Eventgrupp
       search: Gruppera
       reset: Återställ
-      week: Vecka %{week}
       webcal: Prenumerera på iCal
     show:
       start: 'Startar: '
@@ -56,6 +55,9 @@ sv:
       ongoing: Pågående
       has_ended: Har avslutats
       has_not_started_yet: Har inte börjat än
+    event_calendar:
+      week: Vecka %{week}
+
 
   contact_forms:
     send_mail:
@@ -100,6 +102,7 @@ sv:
     index:
       images: Bilder
       new_image: Ladda upp ny bild
+    image_feed:
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
 

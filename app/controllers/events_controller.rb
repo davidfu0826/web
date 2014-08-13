@@ -14,6 +14,9 @@ class EventsController < ApplicationController
       format.html do
         @events = events_by_month_and_week(@events)
       end
+      format.js do
+        @events = events_by_month_and_week(@events)
+      end
       format.ics do
         calendar = Icalendar::Calendar.new
         @events.each do |event|

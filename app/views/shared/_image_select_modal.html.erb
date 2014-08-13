@@ -8,13 +8,11 @@
       </div>
 
       <div class="modal-body" id="image-select-body">
-        <div class="row">
-          <%= render 'shared/image_search' %>
-        </div>
+        <%= render 'shared/image_search' %>
       </div>
 
       <div class="modal-footer">
-        <%= bootstrap_form_tag url: images_path, method: 'get', layout: :inline, remote: true do |f| %>
+        <%= bootstrap_form_tag url: images_search_path, method: 'get', layout: :inline, remote: true do |f| %>
           <div class="pull-left">
             <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, hide_label: true }, { class: "large-select", id: 'select2'} %>
             <%= f.text_field :search, hide_label: true, icon: 'search' %>

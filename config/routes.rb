@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'tweets', to: 'tweets#tweets'
 
   resources :images, except: :show
+  get 'images/search', to: 'images#search', as: 'images_search'
 
   resources :tags, except: [:show]
 

@@ -2,19 +2,8 @@
   <h1><%= t('.images') %></h1>
 </div>
 
-<% if @images.blank? %>
-  <h3><%= t('.no_images') %></h3>
-  <%= t('.no_images_lead') %>
-<% end %>
-
-<div class="row gallery-parent">
-  <% @images.each do |image| %>
-    <% if image.image_stored? %>
-      <div class="col-sm-3 img-library">
-        <%= image_link image %>
-      </div>
-    <% end %>
-  <% end %>
+<div id="image-feed">
+  <%= render 'image_feed' %>
 </div>
 
 <% content_for :sidebar do %>
