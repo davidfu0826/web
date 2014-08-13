@@ -1,11 +1,26 @@
 <% if post.content(fallback: false).present? %>
   <div class="post">
     <div class="media">
+      <div class="pull-left">
+        <% if post.image.present? %>
+          <%= image_tag post.image.image.thumb('300x300#').url %>
+        <% else %>
+          <%= image_tag "http://placehold.it/160x160" %>
+        <% end %>
+        <% first_tag = post.tags.first %>
+        <% if first_tag.present? %>
+          <div class="tag">
+            <div class="tag-color" style="background: <%= first_tag.color if post %>"></div>
+            <div class="tag-text"><%= first_tag.title %></div>
+          </div>
+        <% end %>
+        <%#= image_tag post.image %>
+      </div>
       <div class="media-body">
         <div class="media-heading">
           <h2><%= post.title %></h2>
         </div>
-        <p><%= news_html truncate(post.content, length: 300) %></p>
+        <p><%= news_html truncate(post.content, length: 250) %></p>
         <div class="post-tools">
           <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
           <%= link_to t(:destroy), post_path(post), method: :delete if can? :destroy, post %>

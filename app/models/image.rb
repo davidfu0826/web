@@ -5,9 +5,12 @@ class Image < ActiveRecord::Base
     end
   end
   validates :image, presence: true
+  delegate :url, to: :image
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
+
+  has_many :posts
 
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
   scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }

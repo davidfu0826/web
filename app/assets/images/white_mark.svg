@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 43.75 43.762501"
+   height="43.762501"
+   width="43.75"
+   xml:space="preserve"
+   version="1.1"
+   id="svg2">
+   <metadata id="metadata8">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs6">
+    <clipPath id="clipPath18" clipPathUnits="userSpaceOnUse">
+       <path id="path20" d="m 0,0 349.996,0 0,350 L 0,350 0,0 Z" />
+     </clipPath>
+   </defs>
+   <g transform="matrix(1.25,0,0,-1.25,0,43.7625)" id="g10">
+    <g transform="scale(0.1,0.1)" id="g12">
+      <g id="g14">
+        <g clip-path="url(#clipPath18)" id="g16">
+          <path id="path22" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             d="M 174.996,20 C 121.949,20 75.0469,46.7969 47.0938,87.5508 l 255.8012,0 C 274.945,46.7969 228.043,20 174.996,20 Z M 20,175 c 0,81.477 63.1875,148.461 143.137,154.543 L 35.2344,108.02 C 25.4727,128.301 20,151.027 20,175 Z m 225.172,13.566 c 21.414,-37.101 40.789,-70.656 46.766,-81.015 -7.305,0 -24.629,0 -46.766,0 l 0,81.015 z M 104.828,107.551 c -22.1366,0 -39.4608,0 -46.7655,0 5.9766,10.359 25.3516,43.914 46.7655,81.004 l 0,-81.004 z m 120.344,0.215 -100.344,0 0,100.339 100.344,0 0,-100.339 z m -50.168,202.332 c 6.031,-10.45 25.695,-44.508 47.336,-81.993 l -94.676,0 c 21.645,37.485 41.305,71.543 47.34,81.993 z M 329.996,175 c 0,-23.973 -5.48,-46.699 -15.234,-66.98 L 186.871,329.543 C 266.812,323.457 329.996,256.469 329.996,175 Z m -3.437,-87.4102 c 14.89,25.7382 23.437,55.5942 23.437,87.4102 0,96.469 -78.469,174.953 -174.934,174.992 l -0.058,0.106 -0.063,-0.106 C 78.4727,349.961 0,271.477 0,175 0,143.184 8.53906,113.328 23.4414,87.5898 l -0.0234,-0.039 0.0429,0 C 53.7617,35.2539 110.336,0 174.996,0 239.652,0 296.234,35.2539 326.527,87.5508 l 0.059,0 -0.027,0.039" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

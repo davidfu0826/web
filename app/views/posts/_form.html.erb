@@ -2,6 +2,15 @@
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
+  <%= f.form_group do %>
+    <div class="col-sm-3"><div id="post-image-preview">
+      <%= image_tag @post.image.url, id: "post-image", class: "img-thumbnail" if @post.image.present? %>
+      <%= image_tag "http://placehold.it/160x160", id: "post-image", class: "img-thumbnail" if @post.image.blank? %>
+    </div>
+    <%= f.hidden_field :image_id %></div>
+
+    <div class="col-sm-3"><%= button_tag t('.select_image'), type: :button, class: "btn btn-default", id: "post-image-button" %></div>
+  <% end %>
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">

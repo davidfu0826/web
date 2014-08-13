@@ -12,13 +12,15 @@ class Post < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  belongs_to :image
+
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
   scope :search, -> (search) {
     where([
-    "title_sv LIKE ? OR
-     title_en LIKE ? OR
-     content_sv LIKE ? OR
-     content_sv LIKE ?",
+    "lower(title_sv) LIKE ? OR
+     lower(title_en) LIKE ? OR
+     lower(content_sv) LIKE ? OR
+     lower(content_sv) LIKE ?",
     "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
     ])
   }

@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   has_many :images, through: :taggings, source: :taggable, source_type: 'Image'
   has_many :events, through: :taggings, source: :taggable, source_type: 'Event'
 
-  scope :has_posts,  -> { where( "posts_count > 0" )  }
+  scope :has_posts,  -> { where( "posts_count > 0"  ) }
   scope :has_images, -> { where( "images_count > 0" ) }
-  scope :has_event, -> { where( "events_count > 0" ) }
+  scope :has_event,  -> { where( "events_count > 0" ) }
 end

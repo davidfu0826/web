@@ -1,0 +1,7 @@
+<% @images.each do |image| %>
+  <% if image.image_stored? %>
+    <div class="col-sm-3">
+      <%= image_tag image.image.thumb('300x300#').url, class: "img-select img-responsive img-thumbnail", data: { source: image.image.url, id: image.id } %>
+    </div>
+  <% end %>
+<% end %>

@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= t('.title') %> </th>
+      <th><%= t('.resources') %></th>
       <th><%= t(:tools) %></th>
     </tr>
   </thead>
@@ -16,6 +17,9 @@
         <td>
           <%= link_to t('.show_posts'), posts_archive_path(tag: tag) %>
           <%= link_to t('.show_images'), images_path(tag: tag) %>
+        </td>
+        <td>
+          <%= link_to t(:edit), edit_tag_path(tag) if can? :edit, tag %>
           <%= link_to t(:delete), tag_path(tag), method: :delete if can? :delete, tag %>
         </td>
       </tr>

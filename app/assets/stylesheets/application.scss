@@ -8,6 +8,7 @@
 @import "ekko-lightbox";
 @import "select2";
 @import "select2-bootstrap";
+@import "jquery.minicolors";
 
 /*  -- NAVBAR --  */
 .navbar .navbar-nav {
@@ -71,6 +72,12 @@
     a {
     font-style: italic;
     color: $light-gray !important;
+    }
+
+    img {
+      height: 180px;
+      width: 180px;
+      margin-top: 22px;
     }
   }
 
@@ -218,8 +225,40 @@
 }
 
 /* Posts */
+#post-image {
+  width: 160px;
+  height: 160px;
+}
+
 .post {
   padding-right: 50px;
+
+  .pull-left {
+    margin-right: 20px;
+  }
+
+  .tag {
+    position: relative;
+    height: 20px;
+    bottom: 20px;
+    /* width: 160px; */
+    //background: $brand-primary;
+    background: rgba(0, 0, 0, 0.33);
+    color: white;
+    //padding-left: 30px;
+    .tag-color {
+      position: relative;
+      height: 20px;
+      width: 20px;
+      opacity: 0.8;
+      filter: alpha(opacity=80); /* For IE8 and earlier */
+    }
+    .tag-text {
+      position: relative;
+      bottom: 20px;
+      padding-left: 30px;
+    }
+  }
 }
 .post-links {
   display: inherit;

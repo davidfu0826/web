@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :tags, except: [:show]
 
   resources :events
-  resources :event_groups, only: [:new, :create]
 
   resources :nav_items, except: [:index, :show]
   get 'nav_items/:id/move_higher', to: 'nav_items#move_higher', as: 'nav_item_higher'

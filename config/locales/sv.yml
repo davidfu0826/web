@@ -93,6 +93,8 @@ sv:
     archive:
       no_posts: Kunde inte hitta några nyheter
       no_posts_lead: Testa med en annan filtrering.
+    form:
+      select_image: Välj bild
 
   images:
     index:

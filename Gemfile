@@ -24,6 +24,7 @@ gem 'momentjs-rails', '>= 2.5.0' #Required for datetimepicker
 gem 'select2-rails'
 gem 'auto_html'
 gem 'redcarpet'
+gem 'jquery-minicolors-rails'
 
 # Other
 gem 'http_accept_language' #Auto set locale
