@@ -3,27 +3,20 @@ class EventsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:tag] && !params[:tag].blank?
-      @tag = Tag.find(params[:tag])
-      @events = @events.with_tag(@tag)
-    end
+    @events = filter_resource @events
+
     @now = Time.now
     @offset = params[:offset].to_i || 0
     @this_month = @now.beginning_of_month + @offset.months
+
     respond_to do |format|
-      format.html do
-        @events = events_by_month_and_week(@events)
-      end
-      format.js do
-        @events = events_by_month_and_week(@events)
-      end
+      format.html { @events = events_by_month_and_week(@events) }
+      format.js   { @events = events_by_month_and_week(@events) }
       format.ics do
         calendar = Icalendar::Calendar.new
-        @events.each do |event|
-          calendar.add_event(event.to_ics)
-        end
+        @events.each { |event| calendar.add_event(event.to_ics) }
         calendar.publish
-        render :text => calendar.to_ical
+        render text: calendar.to_ical
       end
     end
   end

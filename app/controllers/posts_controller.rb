@@ -6,10 +6,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = @posts.order(:created_at).includes(:image)
-    if params[:tag]
-      @tag = Tag.find(params[:tag])
-      @posts = @posts.with_tag(@tag)
-    end
+    @posts = filter_resource @posts
+
     respond_to do |format|
       format.html { @posts = @posts.take(3) }
       format.rss  { render :layout => false } #index.rss.builder
@@ -49,16 +47,9 @@ class PostsController < ApplicationController
   end
 
   def archive
-    @archive = true
+    @archive = true #Used to determine where to redirect back from post
     @posts = @posts.order(:created_at).includes(:image)
-    if params[:search]
-      @posts = @posts.search(params[:search])
-      @search = params[:search]
-    end
-    if params[:tag] && !params[:tag].blank?
-      @tag = Tag.find(params[:tag])
-      @posts = @posts.with_tag(@tag)
-    end
+    @posts = filter_resource @posts
     @posts = @posts.paginate(:page => params[:page], :per_page => 5)
   end
 

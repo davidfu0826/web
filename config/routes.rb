@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   root 'posts#index'
   devise_for :users
   resources :users, except: :show
-  get 'users/:id/new_password_email', to: 'users#new_password_email', as: 'user_new_password_email'
 
   get 'posts/archive', to: 'posts#archive', as: 'posts_archive'
   resources :posts

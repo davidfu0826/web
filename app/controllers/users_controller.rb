@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :load_resources, only: [:new, :edit]
+  before_filter :load_roles, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path
     else
-      load_resources
+      load_roles
       render 'new'
     end
   end
@@ -24,14 +24,9 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path
     else
-      load_resources
+      load_roles
       render 'edit'
     end
-  end
-
-  def new_password_email
-    @user.send_reset_password_instructions
-    redirect_to users_path, notice: t('.reset_sent', user: @user.name)
   end
 
   private
@@ -40,7 +35,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :title, :role, :phonenumber, :password, :password_confirmation, :profile_image)
   end
 
-  def load_resources
+  def load_roles
     @roles = User.roles
   end
 end

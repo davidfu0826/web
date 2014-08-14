@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
+  scope :search, -> (string) { where(["lower(title) LIKE ?", "%#{string}%"]) }
 
   scope :upcoming, -> { where(["start_time > ?", Time.now]).order(:start_time) }
 

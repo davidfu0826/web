@@ -3,14 +3,7 @@ class ImagesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:search]
-      @images = @images.search(params[:search])
-      @search = params[:search]
-    end
-    if params[:tag] && !params[:tag].blank?
-      @tag = Tag.find(params[:tag])
-      @images = @images.with_tag(@tag)
-    end
+    @images = filter_resource @images
   end
 
   def new
@@ -43,14 +36,7 @@ class ImagesController < ApplicationController
   end
 
   def search
-    if params[:search]
-      @images = @images.search(params[:search])
-      @search = params[:search]
-    end
-    if params[:tag] && !params[:tag].blank?
-      @tag = Tag.find(params[:tag])
-      @images = @images.with_tag(@tag)
-    end
+    @images = filter_resource @images
   end
 
   private

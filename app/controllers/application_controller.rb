@@ -3,9 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :set_locale
-  before_filter :load_nav_items
-  before_filter :load_locale
-
+  before_filter :load_nav_items_and_locale
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
@@ -33,11 +31,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def load_nav_items
-    @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
+  def filter_resource resource
+    if params[:search]
+      resource = resource.search(params[:search])
+    end
+    if params[:tag] && !params[:tag].blank?
+      @tag = Tag.find(params[:tag])
+      resource = resource.with_tag(@tag)
+    end
+    resource
   end
 
-  def load_locale
+  def load_nav_items_and_locale
+    @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
     @locale = I18n.locale
   end
 end

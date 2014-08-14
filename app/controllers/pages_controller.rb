@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :load_images_and_tags, only: [:new, :edit]
+  before_action :load_resources, only: [:new, :edit]
   load_resource find_by: :slug
   authorize_resource
 
@@ -14,8 +14,6 @@ class PagesController < ApplicationController
   end
 
   def new
-    @create_nav = params[:create_nav] if params[:create_nav].present?
-    @parent     = params[:parent]     if params[:parent].present?
   end
 
   def create
@@ -31,18 +29,14 @@ class PagesController < ApplicationController
         if @nav_item.save
           redirect_to @page
         else
-          @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
-          @parent     = nav_params[:parent]     if nav_params[:parent].present?
-          load_images_and_tags
+          load_resources
           render 'new'
         end
       else
         redirect_to @page
       end
     else
-      @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
-      @parent     = nav_params[:parent]     if nav_params[:parent].present?
-      load_images_and_tags
+      load_resources
       render 'new'
     end
   end
@@ -55,7 +49,7 @@ class PagesController < ApplicationController
     if @page.update(page_params)
       redirect_to @page
     else
-      load_images
+      load_resources
       @exists = true
       render 'edit'
     end
@@ -73,9 +67,11 @@ class PagesController < ApplicationController
   def add_user_update
     @user = User.find(params[:user_id])
     @page.contacts << @user
+
     if @page.save
       redirect_to @page
     else
+      @users = User.all
       render 'add_user'
     end
   end
@@ -90,7 +86,9 @@ class PagesController < ApplicationController
     params.require(:page).permit(:create_nav, :parent)
   end
 
-  def load_images_and_tags
+  def load_resources
+    @create_nav = params[:create_nav] if params[:create_nav].present?
+    @parent     = params[:parent]     if params[:parent].present?
     @images = Image.all
     @tags = Tag.all
   end

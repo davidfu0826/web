@@ -1,5 +1,4 @@
 class LocaleController < ApplicationController
-  #load_and_authorize_resource
 
   def locale_sv
     cookies['locale'] = { :value => :sv, :expires => 1.year.from_now }
