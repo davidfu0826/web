@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = @posts.order(:created_at).includes(:image)
+    @posts = @posts.order(created_at: :desc).includes(:image)
     @posts = filter_resource @posts
 
     respond_to do |format|
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   def archive
     @archive = true #Used to determine where to redirect back from post
-    @posts = @posts.order(:created_at).includes(:image)
+    @posts = @posts.order(created_at: :desc).includes(:image)
     @posts = filter_resource @posts
     @posts = @posts.paginate(:page => params[:page], :per_page => 5)
   end
