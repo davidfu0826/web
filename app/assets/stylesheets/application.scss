@@ -225,9 +225,13 @@
 }
 
 /* Posts */
-#post-image {
+.post-preview-image {
   width: 160px;
   height: 160px;
+}
+
+.preview-image {
+  margin-bottom: 40px;
 }
 
 .post {

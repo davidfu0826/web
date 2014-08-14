@@ -47,6 +47,7 @@ sv:
       search: Gruppera
       reset: Återställ
       webcal: Prenumerera på iCal
+      change_cover: Ändra coverbild
     show:
       start: 'Startar: '
       end:   'Slutar: '
@@ -57,6 +58,10 @@ sv:
       has_not_started_yet: Har inte börjat än
     event_calendar:
       week: Vecka %{week}
+    change_cover:
+      heading: Ändra coverbild
+      delete_cover: Radera coverbild
+      select_image: Välj Bild
 
 
   contact_forms:
@@ -74,9 +79,14 @@ sv:
       add_user: Lägg till användare
       edit_page: Redigera sida
       no_content: "Denna sida finns inte på svenska"
+      change_cover: Ändra coverbild
     index:
       page_management: Sidhantering
       hidden_pages: Gömda sidor
+    change_cover:
+      heading: Ändra coverbild
+      delete_cover: Radera coverbild
+      select_image: Välj Bild
     contacts: Kontaktpersoner
     new_nav_item: Ny meny
     new_page: Ny sida

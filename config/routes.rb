@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :tags, except: [:show]
 
+  get 'events/change_cover', to: 'events#change_cover', as: 'events_change_cover'
+  post 'events/change_cover', to: 'events#change_cover_update', as: 'events_change_cover_update'
+  delete 'events/delete_cover', to: 'events#delete_cover', as: 'events_delete_cover'
   resources :events
 
   resources :nav_items, except: [:index, :show]
@@ -33,6 +36,8 @@ Rails.application.routes.draw do
   post ':id/add_user', to: 'pages#add_user_update', as: 'page_add_user_update'
   post 'contact_forms/:id/send_mail', to: 'contact_forms#send_mail', as: 'contact_form_send_mail'
   resources :pages, except: [:show, :update, :destroy, :index], shallow: true do
+    get 'change_cover', to: :change_cover, as: 'change_cover'
+    delete 'delete_cover', to: :delete_cover, as: 'delete_cover'
     resources :contact_forms
   end
 end

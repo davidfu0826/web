@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :load_resources, only: [:new, :edit]
+  before_action :load_resources, only: [:new, :edit, :change_cover]
   load_resource find_by: :slug
   authorize_resource
 
@@ -76,10 +76,25 @@ class PagesController < ApplicationController
     end
   end
 
+  def change_cover
+    @page = @pages.find_by(slug: params[:page_id])
+    authorize! :edit, @page
+    @image = @page.image
+  end
+
+  def delete_cover
+    @page = @pages.find_by(slug: params[:page_id])
+    authorize! :edit, @page
+    @page.image = nil
+    @page.save
+    redirect_to @page
+  end
+
+
   private
 
   def page_params
-    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en)
+    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :image_id)
   end
 
   def nav_params

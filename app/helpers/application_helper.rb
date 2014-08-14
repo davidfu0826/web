@@ -44,4 +44,14 @@ module ApplicationHelper
         image_tag image.image.thumb('300x300#').url, class: "img-responsive img-thumbnail"
     end
   end
+
+  def get_cover_image_url
+    if @events_cover.present?
+      @events_cover.url
+    elsif @page.present? && @page.image.present?
+      @page.image.url
+    else
+      'cover.jpg'
+    end
+  end
 end

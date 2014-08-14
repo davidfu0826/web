@@ -11,6 +11,7 @@ class Image < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   has_many :posts
+  has_many :pages
 
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
   scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }

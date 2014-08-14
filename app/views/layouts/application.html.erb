@@ -11,7 +11,7 @@
     <%= render 'navbar' %>
     <div class="panorama-wrapper">
       <%= image_tag 'white_stand_se.svg', id: "logo" %>
-      <%= image_tag 'cover.jpg', id: "panorama", class: "img-responsive center-block" %>
+      <%= image_tag get_cover_image_url, id: "panorama", class: "img-responsive center-block" %>
     </div>
     <div class="container" id="content">
       <% flash.each do |name, msg| %>
@@ -21,7 +21,7 @@
         <div class="col-md-8">
           <%= yield %>
         </div>
-        <div class="sidebar col-md-4">
+        <div class="col-md-4 sidebar ">
           <div class="col-xs-12">
             <%= yield :sidebar %>
           </div>

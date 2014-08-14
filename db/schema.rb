@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813120355) do
+ActiveRecord::Schema.define(version: 20140814143349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,10 @@ ActiveRecord::Schema.define(version: 20140813120355) do
     t.integer  "user_id"
     t.string   "title_en"
     t.text     "content_en"
+    t.integer  "image_id"
   end
 
+  add_index "pages", ["image_id"], name: "index_pages_on_image_id", using: :btree
   add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
   create_table "pages_users", force: true do |t|
@@ -93,6 +95,17 @@ ActiveRecord::Schema.define(version: 20140813120355) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "settings", force: true do |t|
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "taggable_id"

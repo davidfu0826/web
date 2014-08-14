@@ -18,6 +18,8 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :contacts, class_name: 'User'
   has_many :contact_forms
 
+  belongs_to :image
+
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
 
   def slug_not_reserved_name

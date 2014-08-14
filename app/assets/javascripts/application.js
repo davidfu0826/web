@@ -31,7 +31,7 @@ $(document).ready(function(){
   $('#colorpicker').minicolors({
     theme: 'bootstrap'
   });
-  $('#post-image-button').click(function() {
+  $('#image-button').click(function() {
     insertImageDialog(set_image);
   });
   load_datepicker();
@@ -44,8 +44,8 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
 });
 
 function set_image(image) {
-  $('#post-image').attr('src', image['source']);
-  $('#post_image_id').val(image['id']);
+  $('#preview-image').attr('src', image['source']);
+  $("[id*='_image_id']").val(image['id']);
 }
 
 function load_datepicker() {
