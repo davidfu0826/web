@@ -37,6 +37,7 @@ gem 'will_paginate-bootstrap'
 gem 'twitter'
 gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
+gem 'nokogiri'
 
 group :development do
   gem 'spring'
