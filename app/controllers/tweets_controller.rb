@@ -9,10 +9,10 @@ class TweetsController < ApplicationController
 
   def load_tweets
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
+      config.consumer_key        = Rails.application.secrets.twitter_consumer_key
+      config.consumer_secret     = Rails.application.secrets.twitter_consumer_secret
+      config.access_token        = Rails.application.secrets.twitter_access_token
+      config.access_token_secret = Rails.application.secrets.twitter_access_secret
     end
     @tweets = client.search("Teknologkaren OR #tlth").take(3)
   end

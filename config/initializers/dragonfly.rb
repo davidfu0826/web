@@ -9,12 +9,12 @@ Dragonfly.app.configure do
 
   if !Rails.env.production?
     protect_from_dos_attacks true
-    secret "f26c521eefc30df3acb939f23410e28ceb2ac8e2da2da3f6d961222f032f2f73"
+    secret Rails.application.secrets.dragonfly_dos_protection
 
     datastore :s3,
-      bucket_name: ENV['S3_BUCKET_NAME'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      bucket_name: Rails.application.secrets.dragonfly_bucket,
+      access_key_id: Rails.application.secrets.dragonfly_access_key_id,
+      secret_access_key: Rails.application.secrets.dragonfly_secret_access_key,
       region: 'eu-west-1'
   else
     datastore :file,
