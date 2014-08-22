@@ -107,7 +107,7 @@ sv:
     formats:
       default: "%R %d-%m-%Y"
       long: "%e %B %Y %H:%M"
-      long_month: "%d %B %R"
+      long_month: "%e %B %R"
       short: "%e %b %H:%M"
       week_day: "%a %e"
     pm: ''

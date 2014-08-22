@@ -107,7 +107,7 @@ en:
       formats:
         default: "%R %d-%m-%Y"
         long: "! '%B %d, %Y %H:%M'"
-        long_month: "%d %B %R"
+        long_month: "%e %B %R"
         short: "! '%d %b %H:%M'"
         week_day: "%a %e"
       pm: pm
