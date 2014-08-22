@@ -7,7 +7,7 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-  if !Rails.env.production?
+  if Rails.env.production?
     protect_from_dos_attacks true
     secret Rails.application.secrets.dragonfly_dos_protection
 
