@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title_sv, presence: true
+  validates :title_en, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :end_time_after_start_time

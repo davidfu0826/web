@@ -82,7 +82,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_time, :end_time, :event_group_id)
+    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time, :event_group_id)
   end
 
   def load_tags
@@ -103,7 +103,10 @@ class EventsController < ApplicationController
 
   def load_cover_image
     if Settings.events_cover_image.present?
-      @events_cover = Image.find(Settings.events_cover_image)
+      @events_cover = Image.where(id: Settings.events_cover_image)
+      if @events_cover.blank?
+        Settings.events_cover_image = nil
+      end
     end
   end
 end

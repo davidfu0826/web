@@ -47,7 +47,7 @@ module ApplicationHelper
 
   def get_cover_image_url
     if @events_cover.present?
-      @events_cover.url
+      @events_cover.take.url
     elsif @page.present? && @page.image.present?
       @page.image.url
     else

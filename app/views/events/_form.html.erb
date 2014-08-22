@@ -1,6 +1,33 @@
-<%= bootstrap_form_for @event do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :description %>
+<%= bootstrap_form_for @event, layout: :horizontal do |f| %>
+  <%= f.text_field :title_sv %>
+  <%= f.text_field :title_en %>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#sv" role="tab" data-toggle="tab">
+      <%= t(:swedish) %>
+      <% if (@exists || false) && (resource.description_sv.blank? || resource.title_sv.blank?) %>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+      <% end %>
+    </a></li>
+    <li><a href="#en" role="tab" data-toggle="tab">
+      <%= t(:english) %>
+      <% if (@exists || false) && (resource.description_en.blank? || resource.title_en.blank?) %>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+      <% end %>
+    </a></li>
+  </ul>
+
+  <!-- Tab Panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="sv">
+      <%= f.text_area :description_sv %>
+    </div>
+    <div class="tab-pane" id="en">
+      <%= f.text_area :description_en %>
+    </div>
+  </div>
+
   <%= f.text_field :start_time, 'data-behaviour' => 'datepicker' %>
   <%= f.text_field :end_time, 'data-behaviour' => 'datepicker' %>
   <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') }, { id: 'select2', multiple: true } %>
