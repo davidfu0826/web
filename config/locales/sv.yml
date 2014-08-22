@@ -17,6 +17,7 @@ sv:
   log_in: Logga In
   log_out: Logga Ut
   confirm_delete: Är du säker på att detta verkligen ska raderas?
+  navigation: Navigation
 
   helpers:
     select:
