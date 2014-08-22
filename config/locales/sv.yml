@@ -16,6 +16,7 @@ sv:
   links: Länkar
   log_in: Logga In
   log_out: Logga Ut
+  confirm_delete: Är du säker på att detta verkligen ska raderas?
 
   helpers:
     select:

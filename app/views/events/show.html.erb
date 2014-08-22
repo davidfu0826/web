@@ -2,8 +2,10 @@
   <h1><%= @event.title %></h1>
   <div class="lead">
     <%= link_to t('.show_all'), events_path %><br>
-    <span class="light-text"><%= t('.tags') %>: </span>
-    <%= @event.tags.to_a.map(&:title).join(', ') %>
+    <% if @event.tags.any? %>
+      <span class="light-text"><%= t('.tags') %></span>
+      <%= @event.tags.to_a.map(&:title).join(', ') %>
+    <% end %>
   </div>
 </div>
 
@@ -23,7 +25,11 @@
 </div>
 <div class="col-sm-6">
   <h4><%= t('.desc') %></h4>
-  <p><%= @event.description %></p>
+  <% if @event.description.present? %>
+    <p><%= @event.description %></p>
+  <% else %>
+    <p><%= t('.no_description') %></p>
+  <% end %>
 </div>
 
 <% content_for :sidebar do %>
@@ -32,7 +38,7 @@
     <ul>
       <% if can? :edit, Event %>
         <li><%= link_to t(:edit), edit_event_path(@event) %></li>
-        <li><%= link_to t(:destroy), event_path(@event), method: :delete %></li>
+        <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
       <% end %>
     </ul>
   </div>

@@ -20,7 +20,7 @@
         </td>
         <td>
           <%= link_to t(:edit), edit_tag_path(tag) if can? :edit, tag %>
-          <%= link_to t(:delete), tag_path(tag), method: :delete if can? :delete, tag %>
+          <%= link_to t(:delete), tag_path(tag), method: :delete, data: {confirm: t(:confirm_delete)} if can? :delete, tag %>
         </td>
       </tr>
     <% end %>

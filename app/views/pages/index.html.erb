@@ -18,7 +18,7 @@
               <%= link_to edit_page_path(page), class: "btn btn-default btn-xs" do %>
                 <span class="glyphicon glyphicon-edit"></span>
               <% end %>
-              <%= link_to page, method: :delete, class: "btn btn-danger btn-xs" do %>
+              <%= link_to page, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: t(:confirm_delete)} do %>
                 <span class="glyphicon glyphicon-remove"></span>
               <% end %>
             </div>

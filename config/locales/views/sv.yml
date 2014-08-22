@@ -19,6 +19,8 @@ sv:
       end: 'Till: '
       show_all: Visa alla event
       start: 'Från: '
+      tags: 'Taggar: '
+      no_description: "Det finns ingen beskrivning :("
     status:
       has_ended: Har avslutats
       has_not_started_yet: Har inte börjat än

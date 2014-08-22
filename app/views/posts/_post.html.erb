@@ -23,7 +23,7 @@
         <p><%= news_html truncate(post.content, length: 250) %></p>
         <div class="post-tools">
           <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
-          <%= link_to t(:destroy), post_path(post), method: :delete if can? :destroy, post %>
+          <%= link_to t(:destroy), post_path(post), method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
           <div class="pull-right">
             <%= link_to t(:read_more), post_path(post, archive: (@archive ||= false)) %>
           </div>
