@@ -45,5 +45,6 @@ class ApplicationController < ActionController::Base
   def load_nav_items_and_locale
     @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
     @locale = I18n.locale
+    @links = Settings.sidebar_links
   end
 end

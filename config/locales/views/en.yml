@@ -66,6 +66,7 @@ en:
       welcome: Welcome to Teknologkåren
     show:
       no_content: This post is not available in english
+      edit_post: Edit post
   users:
     user:
       add_contact_form: Add contactform

@@ -66,6 +66,7 @@ sv:
       welcome: Välkommen till Teknologkåren
     show:
       no_content: Denna post finns inte på svenska
+      edit_post: Redigera nyhet
   shared:
     image_select_modal:
       images: Bilder
