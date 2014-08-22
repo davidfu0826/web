@@ -1,15 +1,30 @@
 <div class="page-header">
   <h1><%= @event.title %></h1>
-  <div class="lead"><%= link_to t('.show_all'), events_path %></div>
-  <div class="lead"><%= @event.tags.to_a.join(', ') %></div>
+  <div class="lead">
+    <%= link_to t('.show_all'), events_path %><br>
+    <span class="light-text"><%= t('.tags') %>: </span>
+    <%= @event.tags.to_a.map(&:title).join(', ') %>
+  </div>
 </div>
 
-<p class="event-date">
-  <%= t('.start') %> <%= l(@event.start_time) %><br>
-  <%= t('.end') %>   <%= l(@event.end_time) %>
-</p>
+<div class="col-sm-6">
+  <h4><%= t('.date') %></h4>
+  <p class="event-date">
+    <span class="light-text">
+      <%= t('.start') %>
+    </span>
+    <%= l(@event.start_time, format: :long_month) %><br>
 
-<p><%= @event.description %></p>
+    <span class="light-text">
+      <%= t('.end') %>
+    </span>
+    <%= l(@event.end_time, format: :long_month) %>
+  </p>
+</div>
+<div class="col-sm-6">
+  <h4><%= t('.desc') %></h4>
+  <p><%= @event.description %></p>
+</div>
 
 <% content_for :sidebar do %>
   <div class="row">

@@ -52,9 +52,11 @@ sv:
       webcal: Prenumerera på iCal
       change_cover: Ändra coverbild
     show:
-      start: 'Startar: '
-      end:   'Slutar: '
+      start: 'Från: '
+      end:   'Till: '
       show_all: Visa alla event
+      date: Datum
+      desc: Beskrivning
     status:
       ongoing: Pågående
       has_ended: Har avslutats
@@ -148,6 +150,7 @@ sv:
     formats:
       default: "%R %d-%m-%Y"
       week_day: "%a %e"
+      long_month: "%d %B %R"
   errors:
     format: "! '%{attribute} %{message}'"
     messages:

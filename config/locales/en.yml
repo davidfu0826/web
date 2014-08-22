@@ -170,5 +170,6 @@ en:
       long: "! '%B %d, %Y %H:%M'"
       short: "! '%d %b %H:%M'"
       week_day: "%a %e"
+      long_month: "%d %B %R"
     pm: pm
 

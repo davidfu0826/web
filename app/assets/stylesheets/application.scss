@@ -195,12 +195,6 @@
   }
 }
 
-.event-weekday {
-  &.disabled {
-    color: #888;
-  }
-}
-
 /* Events */
 .event-weeknbr {
   font-size: 12px;
@@ -223,6 +217,17 @@
     }
   }
 }
+
+.event-weekday {
+  &.disabled {
+    color: #888;
+  }
+}
+
+.light-text {
+  color: #999;
+}
+
 
 /* Posts */
 .post-preview-image {

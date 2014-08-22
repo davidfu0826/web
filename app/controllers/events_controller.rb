@@ -82,7 +82,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time, :event_group_id)
+    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time, tag_ids: [])
   end
 
   def load_tags
