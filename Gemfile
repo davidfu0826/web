@@ -25,14 +25,13 @@ gem 'select2-rails'
 gem 'auto_html'
 gem 'redcarpet'
 gem 'jquery-minicolors-rails'
-
-# Other
 gem 'http_accept_language' #Auto set locale
 gem 'traco' #Localization
 gem 'nested_form'
 gem 'icalendar'
 gem 'acts_as_list'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
+gem 'dragonfly-s3_data_store'
 gem 'will_paginate-bootstrap'
 gem 'twitter'
 gem 'dynamic_sitemaps'
