@@ -5,6 +5,8 @@ class Image < ActiveRecord::Base
     end
   end
   validates :image, presence: true
+  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
+                   message: I18n.t('errors.messages.image_format'), if: :image_changed?
   delegate :url, to: :image
 
   has_many :taggings, as: :taggable

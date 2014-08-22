@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :contact_forms, dependent: :destroy
 
   dragonfly_accessor :profile_image
+  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
+                   message: I18n.t('errors.messages.image_format'), if: :image_changed?
 
   translates :title
 
