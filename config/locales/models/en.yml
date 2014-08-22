@@ -1,0 +1,56 @@
+en:
+  dictionary:
+    title: &title Title
+    content: &content Content
+    description: &description Description
+    tags: &tags Tags
+    image: &image Image
+    email: &email Email
+
+  activerecord:
+    attributes:
+      contact_form:
+        title: *title
+      event:
+        description: *description
+        end_time: Ends
+        start_time: Starts
+        tags: *tags
+        title: *title
+      image:
+        image: *image
+        tags: *tags
+      nav_item:
+        description: *description
+        title: *title
+      page:
+        content: *content
+        slug: Slug
+        title: *title
+      post:
+        content: *content
+        tags: *tags
+        title: *title
+      question:
+        content: Question Content
+      tag:
+        title: *title
+      user:
+        email: *email
+        locale: Locale
+        name: Name
+        password: Password
+        password_confirmation: Repeat Password
+        phonenumber: Phone
+        role: Role
+        title: *title
+    models:
+      contact_form: Contact form
+      event: Event
+      image: *image
+      nav_item: Navigation menu
+      page: Page
+      post: Post
+      question: Form question
+      tag: Tag
+      user: User

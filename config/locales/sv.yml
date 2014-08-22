@@ -1,156 +1,52 @@
 sv:
-  swedish: Svenska
-  english: Engelska
-
+  locales:
+    en: Engelska
+    sv: Svenska
   back: Tillbaka
-  save: Spara
-  edit: Redigera
-  destroy: Radera
-  delete: Radera
-  reset: Återställ
-  read_more: Läs Mer
-  tools: Verktyg
-  name: Namn
-  email: Email
   calendar: Kalender
+  delete: Radera
+  destroy: Radera
+  edit: Redigera
+  read_more: Läs Mer
+  reset: "Återställ"
+  save: Spara
+  search: Sök
+  tools: Verktyg
+  filter: Filtrera
   links: Länkar
   log_in: Logga In
   log_out: Logga Ut
-  filter: Filtrera
-  search: Sök
-  reset: Återställ
 
-  shared:
-    tags: Taggar
-    image_select_modal:
-      images: Bilder
+  helpers:
+    select:
+      prompt: Välj
+    submit:
+      create: Skapa %{model}
+      image:
+        create: Ladda upp %{model}
+        update: Spara taggar för %{model}
+      submit: Spara %{model}
+      update: Uppdatera %{model}
+
 
   application:
+    footer:
+      email: 'E-Post: expen@tlth.se'
+      opening_hours: 'Expeditionens öppettider: Måndag-Fredag 11-14'
+      telephone: 'Telefon: 046 - 540 89 20'
     navbar:
       events: Event
-    footer:
-      email: "E-Post: expen@tlth.se"
-      telephone: "Telefon: 046 - 540 89 20"
-      opening_hours: "Expeditionens öppettider: Måndag-Fredag 11-14"
     sidebar:
       account_settings: Kontoinställningar
-      new_post: Skapa nyhet
-      manage_pages: Hantera sidor
-      manage_users: Hantera användare
+      all_events: Visa alla evenemang
       manage_events: Hantera events
       manage_images: Hantera bilder
+      manage_pages: Hantera sidor
       manage_tags: Hantera taggar
-      all_events: Visa alla evenemang
+      manage_users: Hantera användare
+      new_post: Skapa nyhet
       twitter_link: Visa Teknologkårens twitter
 
-  events:
-    index:
-      new_event: Nytt Event
-      new_event_group: Ny Eventgrupp
-      search: Gruppera
-      reset: Återställ
-      webcal: Prenumerera på iCal
-      change_cover: Ändra coverbild
-    show:
-      start: 'Från: '
-      end:   'Till: '
-      show_all: Visa alla event
-      date: Datum
-      desc: Beskrivning
-    status:
-      ongoing: Pågående
-      has_ended: Har avslutats
-      has_not_started_yet: Har inte börjat än
-    event_calendar:
-      week: Vecka %{week}
-    change_cover:
-      heading: Ändra coverbild
-      delete_cover: Radera coverbild
-      select_image: Välj Bild
-
-
-  contact_forms:
-    send_mail:
-      question_form_sent: Ett mail har skickats till kontaktpersonen.
-
-  users:
-    user:
-      contact: Kontakta
-      add_contact_form: Lägg till kontaktformulär
-      edit_contact_form: Redigera kontaktformulär
-
-  pages:
-    show:
-      add_user: Lägg till användare
-      edit_page: Redigera sida
-      no_content: "Denna sida finns inte på svenska"
-      change_cover: Ändra coverbild
-    index:
-      page_management: Sidhantering
-      hidden_pages: Gömda sidor
-    change_cover:
-      heading: Ändra coverbild
-      delete_cover: Radera coverbild
-      select_image: Välj Bild
-    contacts: Kontaktpersoner
-    new_nav_item: Ny meny
-    new_page: Ny sida
-    new_hidden_page: Ny gömd sida
-    page: Sida
-
-
-  posts:
-    index:
-      welcome: Välkommen till Teknologkåren
-      lead: 'Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.'
-      archive: Arkiv
-      rss: RSS
-    show:
-      no_content: "Denna post finns inte på svenska"
-    archive:
-      no_posts: Kunde inte hitta några nyheter
-      no_posts_lead: Testa med en annan filtrering.
-    form:
-      select_image: Välj bild
-
-  images:
-    index:
-      images: Bilder
-      new_image: Ladda upp ny bild
-    image_feed:
-      no_images: Kunde inte hitta några bilder.
-      no_images_lead: Testa med en annan filtrering.
-
-  tags:
-    index:
-      title: Titel
-      new_tag: Skapa tagg
-      show_posts: Visa nyheter
-      show_images: Visa bilder
-
-  date:
-    day_names:
-    - söndag
-    - måndag
-    - tisdag
-    - onsdag
-    - tordag
-    - fredag
-    - lördag
-    abbr_day_names:
-    - Sön
-    - Mån
-    - Tis
-    - Ons
-    - Tor
-    - Fre
-    - Lör
-    month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
-  time:
-    formats:
-      default: "%R %d-%m-%Y"
-      week_day: "%a %e"
-      long_month: "%d %B %R"
   errors:
     format: "! '%{attribute} %{message}'"
     messages:
@@ -160,9 +56,10 @@ sv:
       empty: får ej vara tom
       equal_to: måste vara samma som
       even: måste vara jämnt
-      exclusion: är reserverat
+      exclusion: "är reserverat"
       greater_than: måste vara större än %{count}
       greater_than_or_equal_to: måste vara större än eller lika med %{count}
+      image_format: borde vara något av följande .jpeg, .jpg, .png, .bmp
       inclusion: finns inte i listan
       invalid: har fel format
       less_than: måste vara mindre än %{count}
@@ -170,78 +67,74 @@ sv:
       not_a_number: måste vara ett nummer
       not_an_integer: måste vara ett heltal
       odd: måste vara udda
+      other_than:
+        one: Måste vara något annat än %{count}
+        other: Måste vara något annat än %{count}
+      present: måste vara blank
       record_invalid: "! 'Ett fel uppstod: %{errors}'"
+      restrict_dependent_destroy:
+        one: Kan inte raderas för att det finns en beroende på %{record}
+        other: Kan inte raderas för att det finns en beroende på %{record}
       taken: har redan tagits
-      too_long: är för lång (maximum är %{count} tecken)
-      too_short: är för kort (minimum är %{count} tecken)
+      too_long: "är för lång (maximum är %{count} tecken)"
+      too_short: "är för kort (minimum är %{count} tecken)"
       wrong_length: har fel längd (ska vara %{count} tecken)
-      image_format: "borde vara något av följande .jpeg, .jpg, .png, .bmp"
+    slug_reserved: används
     template:
       body: "! 'Det var problem med följande fält:'"
       header:
         one: Ett fel förhindrade denna %{model} från att sparas
         other: "! '%{count} fel förhindrade denna %{model} från att sparas'"
-    slug_reserved: används
 
-  will_paginate:
-    next_label: Nästa
-    previous_label: Föregående
-
-  locales:
-    sv: Svenska
-    en: Engelska
-
-  activerecord:
-    models:
-      contact_form: Kontaktformulär
-      event: Event
-      image: Bild
-      nav_item: Navigeringsmeny
-      page: Sida
-      post: Nyhet
-      question: Formulärsfråga
-      tag: Tag
-      user: Användare
-    attributes:
-      contact_form:
-        title: Titel
-      event:
-        title: Titel
-        description: Beskrivning
-        start_time: Börjar
-        end_time: Slutar
-        tags: Taggar
-      image:
-        tags: Taggar
-        image: Bild
-      nav_item:
-        title: Titel
-        description: Beskrivning
-      page:
-        title: Titel
-        content: Innehåll
-        slug: Permalänk
-      post:
-        title: Titel
-        content: Innehåll
-        tags: Taggar
-      question:
-        content: Frågeinnehåll
-      tag:
-        title: Titel
-      user:
-        email: Email
-        password: Lösenord
-        password_confirmation: Upprepa lösenord
-        name: Namn
-        phonenumber: Telefon
-        title: Titel
-        role: Roll
-        locale: Språkval
-  helpers:
-    submit:
-      create: Skapa %{model}
-      update: Uppdatera %{model}
-      image:
-        create: Ladda upp %{model}
-        update: Spara taggar för %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n %u"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: kr
+    format:
+      delimiter: " "
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Miljard
+          million: Miljon
+          quadrillion: Biljard
+          thousand: Tusen
+          trillion: Biljon
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " och "
+      two_words_connector: " och "
+      words_connector: ", "

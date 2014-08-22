@@ -1,0 +1,84 @@
+sv:
+  events:
+    change_cover:
+      delete_cover: Radera coverbild
+      heading: "Ändra coverbild"
+      select_image: Välj Bild
+    event_calendar:
+      week: Vecka %{week}
+    index:
+      change_cover: "Ändra coverbild"
+      new_event: Nytt Event
+      new_event_group: Ny Eventgrupp
+      reset: "Återställ"
+      search: Gruppera
+      webcal: Prenumerera på iCal
+    show:
+      date: Datum
+      desc: Beskrivning
+      end: 'Till: '
+      show_all: Visa alla event
+      start: 'Från: '
+    status:
+      has_ended: Har avslutats
+      has_not_started_yet: Har inte börjat än
+      ongoing: Pågående
+  contact_forms:
+    send_mail:
+      question_form_sent: Ett mail har skickats till kontaktpersonen.
+  images:
+    image_feed:
+      no_images: Kunde inte hitta några bilder.
+      no_images_lead: Testa med en annan filtrering.
+    index:
+      images: Bilder
+      new_image: Ladda upp ny bild
+  pages:
+    change_cover:
+      delete_cover: Radera coverbild
+      heading: "Ändra coverbild"
+      select_image: Välj Bild
+    contacts: Kontaktpersoner
+    index:
+      hidden_pages: Gömda sidor
+      page_management: Sidhantering
+    new_hidden_page: Ny gömd sida
+    new_nav_item: Ny meny
+    new_page: Ny sida
+    page: Sida
+    show:
+      add_user: Lägg till användare
+      change_cover: "Ändra coverbild"
+      edit_page: Redigera sida
+      no_content: Denna sida finns inte på svenska
+  posts:
+    archive:
+      no_posts: Kunde inte hitta några nyheter
+      no_posts_lead: Testa med en annan filtrering.
+    form:
+      select_image: Välj bild
+    index:
+      archive: Arkiv
+      lead: Teknologkåren arbetar för att studenterna vid LTH ska få en så bra studietid som möjligt. Vi har 7500 medlemmar och mycket av vårt arbete med utbildning, näringsliv och fritid sker på de 11 sektionerna.
+      rss: RSS
+      welcome: Välkommen till Teknologkåren
+    show:
+      no_content: Denna post finns inte på svenska
+  shared:
+    image_select_modal:
+      images: Bilder
+    tags: Taggar
+  users:
+    user:
+      add_contact_form: Lägg till kontaktformulär
+      contact: Kontakta
+      edit_contact_form: Redigera kontaktformulär
+  will_paginate:
+    next_label: Nästa
+    previous_label: Föregående
+  tags:
+    index:
+      new_tag: Skapa tagg
+      show_images: Visa bilder
+      show_posts: Visa nyheter
+      title: Titel

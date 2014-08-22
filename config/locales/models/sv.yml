@@ -1,0 +1,56 @@
+sv:
+  dictionary:
+    title: &title Titel
+    content: &content Innehåll
+    description: &description Beskrivning
+    tags: &tags Taggar
+    image: &image Bild
+    email: &email Email
+
+  activerecord:
+    attributes:
+      contact_form:
+        title: *title
+      event:
+        description: *description
+        end_time: Slutar
+        start_time: Börjar
+        tags: *tags
+        title: *title
+      image:
+        image: *image
+        tags: *tags
+      nav_item:
+        description: *description
+        title: *title
+      page:
+        content: *content
+        slug: Permalänk
+        title: *title
+      post:
+        content: *content
+        tags: *tags
+        title: *title
+      question:
+        content: Frågeinnehåll
+      tag:
+        title: *title
+      user:
+        email: *email
+        locale: Språkval
+        name: Namn
+        password: Lösenord
+        password_confirmation: Upprepa lösenord
+        phonenumber: Telefon
+        role: Roll
+        title: *title
+    models:
+      contact_form: Kontaktformulär
+      event: Event
+      image: *image
+      nav_item: Navigeringsmeny
+      page: Sida
+      post: Nyhet
+      question: Formulärsfråga
+      tag: Tag
+      user: Användare

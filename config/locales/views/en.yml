@@ -1,0 +1,84 @@
+en:
+  events:
+    change_cover:
+      delete_cover: Delete cover
+      heading: Edit cover
+      select_image: Choose cover
+    event_calendar:
+      week: Week %{week}
+    index:
+      change_cover: Edit cover
+      new_event: Create new event
+      new_event_group: Create new eventgroup
+      reset: Reset
+      search: Filter
+      webcal: Subscribe to iCal
+    show:
+      date: Date
+      desc: Description
+      end: 'To:'
+      show_all: Show all events
+      start: 'From:'
+    status:
+      has_ended: Finished
+      has_not_started_yet: Has not started
+      ongoing: Ongoing
+  contact_forms:
+    send_mail:
+      question_form_sent: An email has been sent to the contact.
+  images:
+    image_feed:
+      no_images: Could not find any images :(
+      no_images_lead: Try another filter
+    index:
+      images: Images
+      new_image: Upload new image
+  pages:
+    change_cover:
+      delete_cover: Delete cover
+      heading: Edit cover
+      select_image: Choose cover
+    contacts: Contacts
+    index:
+      hidden_pages: Hidden pages
+      page_management: Page Management
+    new_hidden_page: New hidden page
+    new_nav_item: New menu
+    new_page: New page
+    page: Page
+    show:
+      add_user: Add user
+      change_cover: Change cover
+      edit_page: Edit page
+      no_content: This page is not available in english
+  posts:
+    archive:
+      no_posts: Could not find any posts :(
+      no_posts_lead: Try another filter
+    form:
+      select_image: Choose image
+    index:
+      archive: Archive
+      lead: Teknologkåren works to ensure that the students at LTH gets the best possible experience from their time at LTH. Teknologkåren has 7500 members and a lot of our work with education, business contacts and recreational activities takes place at the 11 sections
+      rss: RSS
+      welcome: Welcome to Teknologkåren
+    show:
+      no_content: This post is not available in english
+  users:
+    user:
+      add_contact_form: Add contactform
+      contact: Contact
+      edit_contact_form: Edit contactform
+  will_paginate:
+    next_label: Next
+    previous_label: Previous
+  tags:
+    index:
+      new_tag: Create tag
+      show_images: Show images
+      show_posts: Show posts
+      title: Title
+  shared:
+    image_select_modal:
+      images: Images
+    tags: Tags
