@@ -13,18 +13,29 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   after_create do
-    #self.send_reset_password_instructions #TODO: Activate this, jag kommer glömma att starta mailcatcher
+    send_password_selection_email
   end
 
   has_and_belongs_to_many :pages
   has_many :contact_forms, dependent: :destroy
 
   dragonfly_accessor :profile_image
-  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
-                   message: I18n.t('errors.messages.image_format'), if: :image_changed?
+  validates_property :format, of: :profile_image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
+                   message: I18n.t('errors.messages.image_format')
 
   translates :title
 
   enum role: %i{admin editor events}
   enum locale: %i{sv en}
+
+  private
+
+  def send_password_selection_email
+    raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
+
+    self.reset_password_token   = enc
+    self.reset_password_sent_at = Time.now.utc
+    self.save(validate: false)
+    UserMailer.password_reset(self, raw).deliver
+  end
 end
