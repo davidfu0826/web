@@ -14,9 +14,8 @@
 <% content_for :sidebar do %>
   <% if @sidebar_nav_items %>
     <div class="row hidden-xs">
-      <h3><%= t(:navigation) %><span class="pull-right sidebar-glyph glyphicon glyphicon-align-justify"></span></h3>
-      <h4><%= @page.nav_item.parent.item_title %></h4>
-      <ul class="ul">
+      <h3><%= @page.nav_item.parent.item_title %><span class="pull-right sidebar-glyph glyphicon glyphicon-align-justify"></span></h3>
+      <ul>
         <% @sidebar_nav_items.each do |item| %>
           <li><%= link_to item.item_title, item.page %></li>
         <% end %>
