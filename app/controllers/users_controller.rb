@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     if @user.save
+      @user.send_password_selection_email
       redirect_to users_path
     else
       load_roles

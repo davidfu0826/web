@@ -72,6 +72,10 @@ sv:
       images: Bilder
     tags: Taggar
   users:
+    index:
+      users: Användare
+      new_user: Skapa ny användare
+
     user:
       add_contact_form: Lägg till kontaktformulär
       contact: Kontakta
