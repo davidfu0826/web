@@ -46,6 +46,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post.destroy
+
+    redirect_to posts_path
+  end
+
   def archive
     @archive = true #Used to determine where to redirect back from post
     @posts = @posts.order(created_at: :desc).includes(:image)
