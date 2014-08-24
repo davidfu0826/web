@@ -38,6 +38,7 @@ gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
 gem 'nokogiri'
 gem 'rails-settings-cached', '0.4.1'
+gem 'rails-settings-ui', '~> 0.3.0'
 
 group :development do
   gem 'spring'

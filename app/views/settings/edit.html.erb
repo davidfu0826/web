@@ -1,0 +1,13 @@
+<%= bootstrap_form_tag url: settings_path do |f| %>
+  <%= f.text_area :lead_sv, value: @index_leads[:sv] %>
+  <%= f.text_area :lead_en, value: @index_leads[:en] %>
+
+  <%= f.fields_for :links do |link_form| %>
+    <%= link_form.text_field :title %>
+    <%= link_form.text_field :url %>
+    <%#= link_form.link_to_remove %>
+  <% end %>
+  <%#= f.link_to_add %>
+
+  <%= f.submit %>
+<% end %>

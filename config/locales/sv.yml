@@ -140,3 +140,18 @@ sv:
       last_word_connector: " och "
       two_words_connector: " och "
       words_connector: ", "
+  settings:
+    attributes:
+      sidebar_links:
+        name: Länkar i sidebar
+      index_leads:
+        name: Sidingress
+      events_cover_image:
+        name: "Coverbild till events (ska inte ändras här, gör det i eventvyn)"
+    errors:
+      default_missing: Kunde inte hittas.
+    index:
+      title: Sidinställningar
+      description: Beskrivning
+      value: Värde
+      save_all: Spara

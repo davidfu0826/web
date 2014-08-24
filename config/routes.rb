@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsSettingsUi::Engine, at: 'settings'
   get "sitemap.xml" => "application#sitemap", format: :xml, as: :sitemap
   get "robots.txt" => "application#robots", format: :text, as: :robots
 

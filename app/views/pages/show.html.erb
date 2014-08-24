@@ -12,7 +12,7 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <% if @sidebar_nav_items %>
+  <% if @sidebar_nav_items && @sidebar_nav_items.count > 1 %>
     <div class="row hidden-xs">
       <h3><%= @page.nav_item.parent.item_title %><span class="pull-right sidebar-glyph glyphicon glyphicon-align-justify"></span></h3>
       <ul>

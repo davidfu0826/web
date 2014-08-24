@@ -143,4 +143,18 @@ en:
       last_word_connector: "! ', and '"
       two_words_connector: "! ' and '"
       words_connector: "! ', '"
-
+  settings:
+    attributes:
+      sidebar_links:
+        name: Sidebar links
+      index_leads:
+        name: Page preamble
+      events_cover_image:
+        name: "Coverimage for events (Do NOT change here, do it in the event index)"
+    errors:
+      default_missing: Default value is missing.
+    index:
+      title: Site settings
+      description: Description
+      value: Value
+      save_all: Save

@@ -121,6 +121,13 @@ GEM
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     gem_config (0.3.1)
+    haml (4.0.5)
+      tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
     http (0.6.1)
       http_parser.rb (~> 0.6.0)
@@ -189,6 +196,12 @@ GEM
       sprockets-rails (~> 2.0)
     rails-settings-cached (0.4.1)
       rails (>= 4.0.0)
+    rails-settings-ui (0.3.0)
+      bootstrap-sass (~> 3.2.0)
+      haml-rails
+      i18n
+      rails (>= 3.0)
+      sass-rails (~> 4.0.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -315,6 +328,7 @@ DEPENDENCIES
   rack-cache
   rails (= 4.1.1)
   rails-settings-cached (= 0.4.1)
+  rails-settings-ui (~> 0.3.0)
   rails_12factor
   rails_bootstrap_navbar
   rails_stdout_logging
