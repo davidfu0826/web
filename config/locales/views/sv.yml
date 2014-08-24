@@ -67,6 +67,9 @@ sv:
     show:
       no_content: Denna post finns inte på svenska
       edit_post: Redigera nyhet
+    posts_feed:
+      no_posts: "Kunde inte hitta några nyheter :("
+      no_posts_lead: Testa med en annan filtrering
   shared:
     image_select_modal:
       images: Bilder
@@ -75,7 +78,6 @@ sv:
     index:
       users: Användare
       new_user: Skapa ny användare
-
     user:
       add_contact_form: Lägg till kontaktformulär
       contact: Kontakta

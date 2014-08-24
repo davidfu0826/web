@@ -4,15 +4,15 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    can :read, :all
-    cannot :read, User
+    can :read, [Post, Event]
     can :archive, Post
+    can :show, Page
     if user.admin?
       can :manage, :all
     elsif user.editor?
       can :manage, [Post]
     elsif user.events?
-      can :manage, [Event, EventGroup]
+      can :manage, [Event]
     end
 
     if User.exists?(user)

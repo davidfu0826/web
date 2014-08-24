@@ -1,15 +1,15 @@
 <div class="guilds">
-  <%= link_to "f", "http://www.fsek.tlth.se/" %>
-  <%= link_to "e", "http://www.esek.tlth.se/" %>
-  <%= link_to "m", "http://www.msek.tlth.se/" %>
-  <%= link_to "v", "http://www.vsek.tlth.se/" %>
-  <%= link_to "a", "http://www.asek.tlth.se/" %>
-  <%= link_to "k", "http://www.ksek.tlth.se/" %>
-  <%= link_to "d", "http://www.dsek.tlth.se/" %>
+  <%= link_to "f", "http://www.fsek.tlth.se/", id: "f-sek" %>
+  <%= link_to "e", "http://www.esek.tlth.se/", id: "e-sek" %>
+  <%= link_to "m", "http://www.msek.tlth.se/", id: "m-sek" %>
+  <%= link_to "v", "http://www.vsek.tlth.se/", id: "v-sek" %>
+  <%= link_to "a", "http://www.asek.tlth.se/", id: "a-sek" %>
+  <%= link_to "k", "http://www.ksek.tlth.se/", id: "k-sek" %>
+  <%= link_to "d", "http://www.dsek.tlth.se/", id: "d-sek" %>
   <%= link_to "http://www.tlth.se/~dokt/" do %>
-    <%= image_tag "dokt.svg", id: "dokt" %>
+    <%= image_tag "dokt.svg", id: "dokt", data: {'alt-src' => "/assets/dokt_alt.svg"} %>
   <% end %>
-  <%= link_to "n", "http://www.ingsek.tlth.se/" %>
-  <%= link_to "w", "http://www.wsek.tlth.se/" %>
-  <%= link_to "i", "http://www.isek.tlth.se/" %>
+  <%= link_to "n", "http://www.ingsek.tlth.se/", id: "ing-sek" %>
+  <%= link_to "w", "http://www.wsek.tlth.se/", id: "w-sek" %>
+  <%= link_to "i", "http://www.isek.tlth.se/", id: "i-sek" %>
 </div>

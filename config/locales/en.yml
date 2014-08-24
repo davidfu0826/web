@@ -8,8 +8,8 @@ en:
   destroy: Delete
   edit: Edit
   links: Links
-  log_in: Log in
-  log_out: Log out
+  log_in: Sign in
+  log_out: Sign out
   name: Name
   read_more: Read More
   reset: Reset

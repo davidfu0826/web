@@ -29,8 +29,8 @@ sv:
         heading: Välj lösenord
         submit: Välj lösenord
       new:
-        heading: Välj lösenord
-        send_instructions: Skicka instruktioner till att återställa lösenordet
+        heading: Glömt lösenord?
+        send_instructions: Skicka instruktioner
       send_instructions: 'Du kommer få ett email med instruktioner om hur du kan återställa ditt lösenord inom några minuter.'
       updated: 'Ditt lösenord har uppdaterats. Du är nu inloggad.'
       send_paranoid_instructions: "Om din email finns i vår databas, kommer du att få en lösenordslänk till din email."

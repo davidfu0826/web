@@ -67,7 +67,13 @@ en:
     show:
       no_content: This post is not available in english
       edit_post: Edit post
+    posts_feed:
+      no_posts: "Could not find any posts :("
+      no_posts_lead: Try using another search
   users:
+    index:
+      users: Users
+      new_user: Create User
     user:
       add_contact_form: Add contactform
       contact: Contact

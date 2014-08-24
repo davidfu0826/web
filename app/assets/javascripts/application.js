@@ -28,12 +28,10 @@
 
 $(document).ready(function(){
   $("#twitter-feed").load("/tweets");
-  $('#colorpicker').minicolors({
-    theme: 'bootstrap'
-  });
-  $('#image-button').click(function() {
-    insertImageDialog(set_image);
-  });
+  $('#colorpicker').minicolors({ theme: 'bootstrap' });
+  $('#image-button').click(function() { insertImageDialog(set_image); });
+  $('#dokt', '.guilds').hover(sourceSwap, sourceSwap);
+  load_guild_color_changer();
   load_datepicker();
   load_select2();
 });
@@ -61,6 +59,41 @@ function load_select2() {
   var sel = document.querySelectorAll("#select2");
   for (index = 0; index < sel.length; ++index) {
     $(sel[index]).select2();
+  }
+}
+
+function load_guild_color_changer() {
+  $.each($("[id*='sek']", ".guilds"), function(index, element) {
+    $(this).hover(function() {
+      $(this).css('color', guild_color($(this).attr('id')));
+    }, function() {
+      $(this).css('color', '');
+    });
+  });
+}
+
+function guild_color(guild) {
+  switch(guild) {
+    case 'f-sek':
+      return "#f8931e";
+    case 'e-sek':
+      return "black";
+    case 'm-sek':
+      return "#ed2024";
+    case 'v-sek':
+      return "#3952a4";
+    case 'a-sek':
+      return "#91278f";
+    case 'k-sek':
+      return "#fff200";
+    case 'd-sek':
+      return "#f280a1";
+    case 'ing-sek':
+      return "#2b318b";
+    case 'w-sek':
+      return "#6fccdd";
+    case 'i-sek':
+      return "#971b1e";
   }
 }
 
@@ -111,3 +144,10 @@ loadImageSelection = function(e, selected_image) {
   $(selected_image).toggleClass('img-select-active');
   return $("#image-select-body").trigger("imageSelection", selected_image);
 };
+
+var sourceSwap = function () {
+  var $this = $(this);
+  var newSource = $this.data('alt-src');
+  $this.data('alt-src', $this.attr('src'));
+  $this.attr('src', newSource);
+}
