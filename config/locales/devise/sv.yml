@@ -8,6 +8,9 @@ sv:
       not_saved:
         one: "1 fel hindrade denna %{resource} från att sparas:"
         other: "%{count} fel hindrade denna %{resource} från att sparas:"
+  unauthorized:
+    manage:
+      all: "Du har inte behörighet att komma åt denna sida."
 
   devise:
     failure:
