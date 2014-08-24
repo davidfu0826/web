@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @archive = params[:archive] || false #Used to determine if we should redirect back to archive or index from post
+    @archive = params[:archive].present? || false #Used to determine if we should redirect back to archive or index from post
   end
 
   def new

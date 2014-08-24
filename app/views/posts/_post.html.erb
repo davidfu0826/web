@@ -14,7 +14,6 @@
             <div class="tag-text"><%= first_tag.title %></div>
           </div>
         <% end %>
-        <%#= image_tag post.image %>
       </div>
       <div class="media-body">
         <div class="media-heading">
@@ -25,7 +24,7 @@
           <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
           <%= link_to t(:destroy), post_path(post), method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
           <div class="pull-right">
-            <%= link_to t(:read_more), post_path(post, archive: (@archive ||= false)) %>
+            <%= link_to t(:read_more), post_path(post, archive: @archive) %>
           </div>
         </div>
       </div>

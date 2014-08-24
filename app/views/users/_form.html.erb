@@ -6,5 +6,10 @@
   <%= f.select :role,   @roles.collect   {|r| [ r.first, r.first ] }, include_blank: true if can? :manage, User %>
   <%= f.file_field :profile_image %>
 
+  <% if current_user == @user  %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
