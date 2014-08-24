@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "no-reply@tlth.se"
+  default from: "info@tlth.se"
 
   def password_reset(user, token)
     @user = user
