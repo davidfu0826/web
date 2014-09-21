@@ -1,0 +1,55 @@
+.post-preview-image {
+  width: 160px;
+  height: 160px;
+}
+
+.preview-image {
+  margin-bottom: 40px;
+}
+
+.post {
+  padding-right: 50px;
+
+  .pull-left {
+    margin-right: 20px;
+  }
+
+  .tag {
+    position: relative;
+    height: 20px;
+    bottom: 20px;
+    /* width: 160px; */
+    //background: $brand-primary;
+    background: rgba(0, 0, 0, 0.33);
+    color: white;
+    //padding-left: 30px;
+    .tag-color {
+      position: relative;
+      height: 20px;
+      width: 20px;
+      opacity: 0.8;
+      filter: alpha(opacity=80); /* For IE8 and earlier */
+    }
+    .tag-text {
+      position: relative;
+      bottom: 20px;
+      padding-left: 30px;
+    }
+  }
+}
+
+.post-links {
+  display: inherit;
+  text-align: center;
+  color: $light-gray;
+  a {
+    color: $brand-primary;
+  }
+}
+
+// Post index
+.pagination {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}

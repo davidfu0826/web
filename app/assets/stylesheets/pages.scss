@@ -1,0 +1,39 @@
+// Page form
+.nav-tabs {
+  margin-bottom: 20px;
+}
+
+// Used in Page index
+.panel-body-sm {
+  padding: 7px;
+}
+.no-padding {
+  padding: 0;
+}
+
+.contact {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+
+  img {
+    display: inherit;
+    margin-bottom: 15px;
+  }
+  .contact-name {
+    font-size: 20px;
+  }
+  .contact-title {
+    font-size: 13px;
+  }
+  .contact-phone {
+    font-size: 13px;
+  }
+}
+
+.page-header {
+  margin-top: 0;
+  border-bottom: none;
+  h1 {
+    margin-top: 0;
+  }
+}

@@ -1,6 +1,7 @@
 // Colors
 $brand-primary: #004688;
-$gray: #555;
+$dark-gray: #555;
+$gray: #888;
 $light-gray: #aaa;
 $lighter-gray: #d8d8d8;
 
@@ -9,7 +10,7 @@ $font-size-base: 16px;
 $font-size-h1: floor($font-size-base * 3.0);
 $font-family-sans-serif: "Open Sans", sans-serif;
 $headings-color: $brand-primary;
-$text-color: $gray;
+$text-color: $dark-gray;
 
 // font-family: OpenSans;
 // font-size: 48px;

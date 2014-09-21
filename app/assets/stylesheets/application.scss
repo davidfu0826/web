@@ -1,14 +1,19 @@
 @import "variables";
+@import "pages";
+@import "events";
+@import "posts";
+@import "guilds";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 @import "pagedown_bootstrap";
 @import "font-awesome";
-@import "guilds";
 @import "ekko-lightbox";
 @import "select2";
 @import "select2-bootstrap";
 @import "jquery.minicolors";
+
 
 /*  -- NAVBAR --  */
 .navbar .navbar-nav {
@@ -56,44 +61,6 @@
   }
 }
 
-/*  -- PAGE CONTENT --  */
-#content {
-  margin-top: 50px;
-  margin-bottom: 50px;
-
-  padding-left: 4%;
-  padding-right: 4%;
-
-  .lead {
-    font-size: 18px;
-  }
-
-  .post {
-    a {
-    font-style: italic;
-    color: $light-gray !important;
-    }
-
-    img {
-      height: 180px;
-      width: 180px;
-      margin-top: 22px;
-    }
-  }
-
-  .img-library {
-    padding: 15px;
-  }
-
-  .wmd-input {
-    height: 300px !important;
-  }
-  .lead a {
-    color: $light-gray;
-    font-style: italic;
-  }
-}
-
 /*  -- SIDEBAR --  */
 .sidebar {
   border-left: 2px solid #eee;
@@ -115,7 +82,7 @@
   }
 
   .sidebar-links a {
-    color: $gray;
+    color: $dark-gray;
   }
 
   .sidebar-glyph {
@@ -130,7 +97,7 @@
 
     .twitter-name {
       font-size: 12px;
-      color: $gray;
+      color: $dark-gray;
     }
   }
 
@@ -195,140 +162,43 @@
   }
 }
 
-/* Events */
-.event-weeknbr {
-  font-size: 12px;
-  color: gray;
-  text-transform: uppercase;
-}
+/*  -- PAGE CONTENT --  */
+#content {
+  margin-top: 50px;
+  margin-bottom: 50px;
 
-.event-week {
-  list-style-type: none;
-  padding-left: 0px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #d8d8d8;
+  padding-left: 4%;
+  padding-right: 4%;
 
-  li {
-    &.disabled {
-      color: #888;
-      a {
-        color: #d8d8d8;
-      }
+  .lead {
+    font-size: 18px;
+  }
+
+  .post {
+    a {
+    font-style: italic;
+    color: $light-gray !important;
+    }
+
+    img {
+      height: 180px;
+      width: 180px;
+      margin-top: 22px;
     }
   }
-}
 
-.event-weekday {
-  &.disabled {
-    color: #888;
-  }
-}
-
-.light-text {
-  color: #999;
-}
-
-
-/* Posts */
-.post-preview-image {
-  width: 160px;
-  height: 160px;
-}
-
-.preview-image {
-  margin-bottom: 40px;
-}
-
-.post {
-  padding-right: 50px;
-
-  .pull-left {
-    margin-right: 20px;
+  .img-library {
+    padding: 15px;
   }
 
-  .tag {
-    position: relative;
-    height: 20px;
-    bottom: 20px;
-    /* width: 160px; */
-    //background: $brand-primary;
-    background: rgba(0, 0, 0, 0.33);
-    color: white;
-    //padding-left: 30px;
-    .tag-color {
-      position: relative;
-      height: 20px;
-      width: 20px;
-      opacity: 0.8;
-      filter: alpha(opacity=80); /* For IE8 and earlier */
-    }
-    .tag-text {
-      position: relative;
-      bottom: 20px;
-      padding-left: 30px;
-    }
+  .wmd-input {
+    height: 300px !important;
+  }
+  .lead a {
+    color: $light-gray;
+    font-style: italic;
   }
 }
-.post-links {
-  display: inherit;
-  text-align: center;
-  color: $light-gray;
-  a {
-    color: $brand-primary;
-  }
-}
-// Post index
-.pagination {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Pages */
-// Page Edit
-.img-select-active {
-  background-color: $brand-primary;
-}
-// Page form
-.nav-tabs {
-  margin-bottom: 20px;
-}
-// Used in Page index
-.panel-body-sm {
-  padding: 7px;
-}
-.no-padding {
-  padding: 0;
-}
-
-.contact {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-
-  img {
-    display: inherit;
-    margin-bottom: 15px;
-  }
-  .contact-name {
-    font-size: 20px;
-  }
-  .contact-title {
-    font-size: 13px;
-  }
-  .contact-phone {
-    font-size: 13px;
-  }
-}
-
-.page-header {
-  margin-top: 0;
-  border-bottom: none;
-  h1 {
-    margin-top: 0;
-  }
-}
-
-/*  -- Stuff --  */
 
 #image-select-body {
   max-height: 700px;
@@ -342,3 +212,8 @@
     width: 200px;
   }
 }
+
+.img-select-active {
+  background-color: $brand-primary;
+}
+
