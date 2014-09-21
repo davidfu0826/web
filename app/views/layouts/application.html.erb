@@ -10,7 +10,7 @@
   <body>
     <%= render 'navbar' %>
     <div class="panorama-wrapper">
-      <%= image_tag 'white_stand_se.svg', id: "logo" %>
+      <%= image_tag "white_stand_#{I18n.locale}.svg", id: "logo" %>
       <%= image_tag get_cover_image_url, id: "panorama", class: "img-responsive center-block" %>
     </div>
     <div class="container" id="content">
