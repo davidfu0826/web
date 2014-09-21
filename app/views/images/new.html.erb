@@ -1,6 +1,6 @@
 <%= bootstrap_form_for @image do |f| %>
   <%= f.file_field :image %>
-  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') }, { id: 'select2', multiple: true } %>
+  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') }, { class: 'select2', multiple: true } %>
 
   <%= f.submit %>
 <% end %>

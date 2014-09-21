@@ -6,6 +6,7 @@ en:
       select_image: Choose cover
     event_calendar:
       week: Week %{week}
+      no_events: Inga Event
     index:
       change_cover: Edit cover
       new_event: Create new event

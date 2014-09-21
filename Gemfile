@@ -49,12 +49,6 @@ group :development do
   gem 'bullet'
 end
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'spring-commands-rspec'
-  gem 'capybara'
-end
-
 group :production do
   gem 'puma'
   gem 'rails_12factor'

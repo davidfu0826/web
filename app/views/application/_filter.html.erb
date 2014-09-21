@@ -3,7 +3,7 @@
   <p>
     <%= f.text_field :search, value: @search, label: t('search')  %>
     <%= f.collection_select :tag, @tags, :id, :title,
-      { include_blank: true, label: t('filter') }, { id: 'select2'} %>
+      { include_blank: true, label: t('filter') }, { class: 'select2'} %>
 
     <%= f.submit t('filter') %>
     <%= link_to t('reset'), path %>

@@ -6,6 +6,7 @@ sv:
       select_image: Välj Bild
     event_calendar:
       week: Vecka %{week}
+      no_events: Inga Event
     index:
       change_cover: "Ändra coverbild"
       new_event: Nytt Event

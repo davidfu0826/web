@@ -20,7 +20,7 @@
 
   <%= f.collection_select :tag_ids, @tags, :id, :title,
     { include_blank: true, label: t('shared.tags') },
-    { id: 'select2', multiple: true } %>
+    { class: 'select2', multiple: true } %>
 
   <%= f.submit %>
 <% end %>

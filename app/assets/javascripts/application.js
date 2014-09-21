@@ -31,9 +31,9 @@ $(document).ready(function(){
   $('#colorpicker').minicolors({ theme: 'bootstrap' });
   $('#image-button').click(function() { insertImageDialog(set_image); });
   $('#dokt', '.guilds').hover(sourceSwap, sourceSwap);
+  $('.select2').select2();
   load_guild_color_changer();
   load_datepicker();
-  load_select2();
 });
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
@@ -53,13 +53,6 @@ function load_datepicker() {
     todayHighlight: true,
     pick12HourFormat: false
   });
-}
-
-function load_select2() {
-  var sel = document.querySelectorAll("#select2");
-  for (index = 0; index < sel.length; ++index) {
-    $(sel[index]).select2();
-  }
 }
 
 function load_guild_color_changer() {
