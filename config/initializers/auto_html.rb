@@ -38,6 +38,14 @@ AutoHtml.add_filter(:strip_image_tags) do |text|
   end
 end
 
+AutoHtml.add_filter(:image_caption) do |text|
+  text.gsub(/!\[[^\]]+\]\[\d+\]/) do |match|
+    end_index = (match =~ /\]\[/)
+    desc = match[2..(end_index - 1)]
+    %{<figure>#{match}<figcaption>#{desc}</figcaption></figure>}
+  end
+end
+
 AutoHtml.add_filter(:first_paragraph) do |text|
   Nokogiri::HTML.parse(text).css('p').children.first.text
 end

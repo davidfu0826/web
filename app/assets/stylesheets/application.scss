@@ -70,7 +70,9 @@
     list-style-type: none;
     padding-left: 0;
   }
-
+  a {
+    color: #017AB3;
+  }
   .link {
     color: $light-gray;
     font-style: italic;
@@ -229,10 +231,17 @@ ul.list-no-styling {
   margin-left: auto;
   margin-right: auto;
 }
+
 .img-library {
   display: inline;
   .img-thumbnail {
     height: 160px;
     margin: 5px;
   }
+}
+
+figcaption {
+  font-size: 15px;
+  font-style: italic;
+  color: $light-gray;
 }

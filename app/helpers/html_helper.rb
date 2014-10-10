@@ -3,6 +3,7 @@ module HtmlHelper
 
   def process_into_html content
     auto_html content do
+      image_caption
       redcarpet
       indentation
       youtube(autoplay: false, class: "embed-responsive embed-responsive-16by9")
