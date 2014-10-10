@@ -1,4 +1,5 @@
 <%= bootstrap_form_for @page, layout: :horizontal do |f| %>
+  <%= f.alert_message f.error_summary  %>
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
@@ -8,5 +9,6 @@
   <%= f.hidden_field :create_nav, value: @create_nav if @create_nav %>
   <%= f.submit %>
 <% end %>
+
 
 <%= render 'shared/image_select_modal' %>
