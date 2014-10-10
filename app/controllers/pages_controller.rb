@@ -80,14 +80,10 @@ class PagesController < ApplicationController
   end
 
   def change_cover
-    @page = @pages.find_by(slug: params[:page_id])
-    authorize! :edit, @page
     @image = @page.image
   end
 
   def delete_cover
-    @page = @pages.find_by(slug: params[:page_id])
-    authorize! :edit, @page
     @page.image = nil
     @page.save
     redirect_to @page

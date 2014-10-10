@@ -12,7 +12,7 @@
       </div>
 
       <div class="modal-footer">
-        <%= bootstrap_form_tag url: images_search_path, method: 'get', layout: :inline, remote: true do |f| %>
+        <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |f| %>
           <div class="pull-left">
             <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, hide_label: true }, { class: "large-select select2"} %>
             <%= f.text_field :search, hide_label: true, icon: 'search' %>

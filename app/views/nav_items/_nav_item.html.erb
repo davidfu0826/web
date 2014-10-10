@@ -17,10 +17,10 @@
 
           <% disable_down = (nav_item.lower_items.count  > 0) ? "" : "disabled" %>
           <% disable_up   = (nav_item.higher_items.count > 0) ? "" : "disabled" %>
-          <%= link_to nav_item_higher_path(nav_item.id), class: "btn btn-default btn-xs #{disable_up}" do %>
+          <%= link_to move_higher_nav_item_path(nav_item.id), class: "btn btn-default btn-xs #{disable_up}" do %>
             <span class="glyphicon glyphicon-arrow-up"></span>
           <% end %>
-          <%= link_to nav_item_lower_path(nav_item.id), class: "btn btn-default btn-xs #{disable_down}" do %>
+          <%= link_to move_lower_nav_item_path(nav_item.id), class: "btn btn-default btn-xs #{disable_down}" do %>
             <span class="glyphicon glyphicon-arrow-down"></span>
           <% end %>
 

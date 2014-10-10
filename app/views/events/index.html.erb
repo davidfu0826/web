@@ -12,7 +12,7 @@
     <ul>
       <% if can? :manage, Event %>
         <li><%= link_to t('.new_event'), new_event_path %></li>
-        <li><%= link_to t('.change_cover'), events_change_cover_path %></li>
+        <li><%= link_to t('.change_cover'), change_cover_events_path %></li>
       <% end %>
       <li><%= link_to t('.webcal'), events_path(protocol: 'webcal', format: :ics, :only_path => false) %></li>
     </ul>

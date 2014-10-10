@@ -2,7 +2,7 @@
   <h1><%= t('.heading') %></h1>
 </div>
 
-<%= bootstrap_form_tag url: events_change_cover_update_path, layout: :horizontal do |f| %>
+<%= bootstrap_form_tag url: change_cover_update_events_path, layout: :horizontal do |f| %>
 
   <%= image_tag @image.url, id: "preview-image", class: "preview-image img-thumbnail" if @image.present? %>
   <%= image_tag "cover.jpg", id: "preview-image", class: "preview-image img-thumbnail" if @image.blank? %>

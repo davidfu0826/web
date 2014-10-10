@@ -1,4 +1,4 @@
-<%= bootstrap_form_tag url: page_add_user_path do |f| %>
+<%= bootstrap_form_tag url: add_user_page_path do |f| %>
   <%= f.collection_select :user_id, @users, :id, :email %>
   <%= f.submit %>
 <% end %>
