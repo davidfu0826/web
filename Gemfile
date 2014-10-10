@@ -32,7 +32,6 @@ gem 'icalendar'
 gem 'acts_as_list'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
 gem 'dragonfly-s3_data_store'
-gem 'will_paginate-bootstrap'
 gem 'twitter'
 gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
@@ -40,6 +39,8 @@ gem 'nokogiri'
 gem 'rails-settings-cached', '0.4.1'
 gem 'rails-settings-ui', '~> 0.3.0'
 gem 'remotipart', '~> 1.2'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :development do
   gem 'spring'

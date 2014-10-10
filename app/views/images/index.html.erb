@@ -6,8 +6,6 @@
   <%= render 'image_feed' %>
 </div>
 
-<%= will_paginate @images, renderer: BootstrapPagination::Rails %>
-
 <% content_for :sidebar do %>
   <% if can? :manage, Image %>
     <div class="row">

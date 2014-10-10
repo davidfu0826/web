@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     @archive = true #Used to determine where to redirect back from post
     @posts = @posts.order(created_at: :desc).includes(:image)
     @posts = filter_resource @posts
-    @posts = @posts.paginate(:page => params[:page], :per_page => 2)
+    @posts = @posts.page(params[:page]).per(6)
   end
 
   private

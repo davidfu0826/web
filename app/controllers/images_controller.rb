@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
 
   def index
     @images = filter_resource @images
-    @images = @images.paginate(page: params[:page], per_page: 24)
+    @images = @images.page(params[:page]).per(20)
   end
 
   def new

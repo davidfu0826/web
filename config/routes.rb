@@ -8,16 +8,20 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, except: :show
 
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+
   get 'locale_sv', to: 'locale#locale_sv', as: 'swedish_locale'
   get 'locale_en', to: 'locale#locale_en', as: 'english_locale'
   get 'tweets', to: 'tweets#tweets'
 
   resources :tags, except: [:show]
-  resources :posts do
+  resources :posts, :concerns => :paginatable do
     get 'archive', on: :collection
   end
 
-  resources :images, except: :show do
+  resources :images, except: :show, :concerns => :paginatable do
     get 'search', on: :collection
   end
 
