@@ -6,13 +6,13 @@
   <ul class="nav nav-tabs" role="tablist">
     <li class="active"><a href="#sv" role="tab" data-toggle="tab">
       <%= t('locales.sv') %>
-      <% if (@exists || false) && (resource.description_sv.blank? || resource.title_sv.blank?) %>
+      <% if !@event.new_record? && (resource.description_sv.blank? || resource.title_sv.blank?) %>
         <span class="glyphicon glyphicon-warning-sign"></span>
       <% end %>
     </a></li>
     <li><a href="#en" role="tab" data-toggle="tab">
       <%= t('locales.en') %>
-      <% if (@exists || false) && (resource.description_en.blank? || resource.title_en.blank?) %>
+      <% if !@event.new_record? && (resource.description_en.blank? || resource.title_en.blank?) %>
         <span class="glyphicon glyphicon-warning-sign"></span>
       <% end %>
     </a></li>

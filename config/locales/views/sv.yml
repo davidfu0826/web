@@ -46,6 +46,9 @@ sv:
       heading: "Ändra coverbild"
       select_image: Välj Bild
     contacts: Kontaktpersoner
+    form:
+      meny: Meny
+      make_hidden: Göm sidan
     index:
       hidden_pages: Gömda sidor
       page_management: Sidhantering

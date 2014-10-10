@@ -32,7 +32,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @exists = true
   end
 
   def update
@@ -41,7 +40,6 @@ class PostsController < ApplicationController
     else
       load_tags
       load_images
-      @exists = true
       render 'edit'
     end
   end

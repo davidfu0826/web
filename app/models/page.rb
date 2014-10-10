@@ -37,6 +37,21 @@ class Page < ActiveRecord::Base
     end
   end
 
+  def change_nav_parent(new_parent:)
+    if new_parent.present?
+      parent = NavItem.find(new_parent)
+      if nav_item
+        nav_item.parent = parent
+      else
+        add_nav_item(create: true, parent: parent)
+        nav_item.save
+      end
+    else
+      nav_item.destroy
+    end
+    save
+  end
+
   def slug_not_reserved_name
     reserved_names = %w(users events event_groups posts nav_items pages)
     if reserved_names.include? slug

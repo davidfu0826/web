@@ -2,7 +2,10 @@
   <%= f.alert_message f.error_summary  %>
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
-
+  <% parent = @page.try(:nav_item).try(:parent).try(:id) %>
+  <%= f.collection_select :nav_item, @nav_items, :id, :item_title,
+    { selected: parent, include_blank: t('.make_hidden'), label: t('.meny') },
+    { class: 'select2'} unless @page.new_record? %>
   <%= render 'shared/pagedown_content', resource: @page, f: f %>
 
   <%= f.hidden_field :parent, value: @parent if @parent %>

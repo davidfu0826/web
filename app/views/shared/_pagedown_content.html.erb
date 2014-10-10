@@ -2,13 +2,13 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a href="#sv" role="tab" data-toggle="tab">
     Svenska
-    <% if (@exists || false) && (resource.content_sv.blank? || resource.title_sv.blank?) %>
+    <% if !resource.new_record? && (resource.content_sv.blank? || resource.title_sv.blank?) %>
       <span class="glyphicon glyphicon-warning-sign"></span>
     <% end %>
   </a></li>
   <li><a href="#en" role="tab" data-toggle="tab">
     Engelska
-    <% if (@exists || false) && (resource.content_en.blank? || resource.title_en.blank?) %>
+    <% if !resource.new_record? && (resource.content_en.blank? || resource.title_en.blank?) %>
       <span class="glyphicon glyphicon-warning-sign"></span>
     <% end %>
   </a></li>

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :load_images_and_tags, only: [:new, :edit, :change_cover]
+  before_action :load_resoures, only: [:new, :edit, :change_cover]
   load_resource find_by: :slug
   authorize_resource
 
@@ -28,21 +28,20 @@ class PagesController < ApplicationController
     else
       @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
       @parent     = nav_params[:parent]     if nav_params[:parent].present?
-      load_images_and_tags
+      load_resoures
       render 'new'
     end
   end
 
   def edit
-    @exists = true
   end
 
   def update
     if @page.update(page_params)
+      @page.change_nav_parent(new_parent: params[:page][:nav_item]) if params[:page][:nav_item]
       redirect_to @page
     else
-      load_images_and_tags
-      @exists = true
+      load_resoures
       render 'edit'
     end
   end
@@ -89,9 +88,10 @@ class PagesController < ApplicationController
     params.require(:page).permit(:create_nav, :parent)
   end
 
-  def load_images_and_tags
+  def load_resoures
     @image = Image.new
     @images = Image.all
     @tags = Tag.all
+    @nav_items  = NavItem.orphans.no_page
   end
 end

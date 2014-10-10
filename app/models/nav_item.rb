@@ -4,6 +4,7 @@ class NavItem < ActiveRecord::Base
   has_many :children, -> { order("position ASC") }, class_name: "NavItem", foreign_key: "parent_id", dependent: :destroy
 
   scope :orphans, -> { where(parent: nil) }
+  scope :no_page, -> { where(page: nil) }
 
   validate :has_title_or_page
 
