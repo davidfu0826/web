@@ -90,6 +90,7 @@ class PagesController < ApplicationController
   end
 
   def load_images_and_tags
+    @image = Image.new
     @images = Image.all
     @tags = Tag.all
   end

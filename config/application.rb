@@ -20,6 +20,9 @@ module Tlth
     config.i18n.load_path += Dir[File.join(Rails.root.to_s, 'config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :sv
 
+    #Automatically embed CSRF token in AJAX forms
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
     config.generators do |g|
       g.controller_specs false
       g.view_specs false

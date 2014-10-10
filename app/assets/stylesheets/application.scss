@@ -13,6 +13,7 @@
 @import "select2";
 @import "select2-bootstrap";
 @import "jquery.minicolors";
+@import "fileinput";
 
 
 /*  -- NAVBAR --  */
@@ -187,10 +188,6 @@
     }
   }
 
-  .img-library {
-    padding: 15px;
-  }
-
   .wmd-input {
     height: 300px !important;
   }
@@ -217,3 +214,25 @@
   background-color: $brand-primary;
 }
 
+ul.list-no-styling {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.modal-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.pagination {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-library {
+  display: inline;
+  .img-thumbnail {
+    height: 160px;
+    margin: 5px;
+  }
+}

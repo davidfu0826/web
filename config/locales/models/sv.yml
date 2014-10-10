@@ -18,6 +18,8 @@ sv:
         tags: *tags
         title: *title
       image:
+        title: *title
+        description: *description
         image: *image
         tags: *tags
       nav_item:

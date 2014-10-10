@@ -1,0 +1,9 @@
+$('#image-upload-tab').trigger({
+  type: 'image_uploaded',
+  image: '<%= escape_javascript(@image.image.url) %>',
+  image_id: '<%= escape_javascript(@image.id.to_s) %>'
+});
+$("[type='file']").fileinput('clear', {
+  showUpload: false,
+  showRemove: false
+});

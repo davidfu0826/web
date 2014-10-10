@@ -30,12 +30,16 @@ en:
     send_mail:
       question_form_sent: An email has been sent to the contact.
   images:
+    create:
+      success: The image was uploaded
     image_feed:
       no_images: Could not find any images :(
       no_images_lead: Try another filter
     index:
       images: Images
       new_image: Upload new image
+    new:
+      upload_image: Upload new image
   pages:
     change_cover:
       delete_cover: Delete cover

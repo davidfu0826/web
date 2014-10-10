@@ -4,17 +4,22 @@ class ImagesController < ApplicationController
 
   def index
     @images = filter_resource @images
+    @images = @images.paginate(page: params[:page], per_page: 24)
   end
 
   def new
   end
 
   def create
-    if @image.save
-      redirect_to images_path
-    else
-      load_tags
-      render 'new'
+    respond_to do |format|
+      if @image.save
+        format.html { redirect_to images_path, notice: t('.success') }
+        format.js   { render action: 'upload_success' }
+      else
+        load_tags
+        format.html { render action: 'new' }
+        format.js   { render json: @image.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -42,7 +47,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image, :description, tag_ids: [])
+    params.require(:image).permit(:image, :title, :description, tag_ids: [])
   end
 
   def load_tags

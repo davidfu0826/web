@@ -26,13 +26,16 @@ identifyImages = (html) ->
   html.replace /<[^>]*>?/g, sanitizeImageTag
 
 indentation = (html) ->
-  console.log html
   html.replace /---/g, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 
 insertImageDialog = (callback) ->
   setTimeout ( ->
     selected_image = null
     $("#imageModal").modal "show"
+    $("#image-upload-tab").on "image_uploaded", null, (e, image) ->
+      $("#imageModal").modal "hide"
+      selected_image = null
+      callback(e.image)
     $(".img-select").click (e) ->
       loadImageSelection e, selected_image
 

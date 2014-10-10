@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap
 //= require moment
 //= require moment/sv
@@ -23,8 +24,8 @@
 //= require jquery_nested_form
 //= require pagedown_bootstrap
 //= require jquery.minicolors
+//= require fileinput
 //= require_tree .
-
 
 $(document).ready(function(){
   $("#twitter-feed").load("/tweets");
@@ -32,6 +33,10 @@ $(document).ready(function(){
   $('#image-button').click(function() { insertImageDialog(set_image); });
   $('#dokt', '.guilds').hover(sourceSwap, sourceSwap);
   $('.select2').select2();
+  $("[type='file']").fileinput({
+    showUpload: false,
+    showRemove: false
+  });
   load_guild_color_changer();
   load_datepicker();
 });
@@ -97,6 +102,15 @@ insertImageDialog = function(callback) {
     var selected_image;
     selected_image = null;
     $("#imageModal").modal("show");
+    $("#image-upload-tab").on("image_uploaded", null, function(e, image) {
+      $("#imageModal").modal("hide");
+      values = {
+        'id':     e.image_id,
+        'source': e.image
+      };
+      selected_image = null;
+      return callback(values);
+    });
     $(".img-select").click(function(e) {
       return loadImageSelection(e, selected_image);
     });

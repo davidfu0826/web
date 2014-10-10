@@ -30,12 +30,16 @@ sv:
     send_mail:
       question_form_sent: Ett mail har skickats till kontaktpersonen.
   images:
+    create:
+      success: Bilden laddades upp.
     image_feed:
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
     index:
       images: Bilder
       new_image: Ladda upp ny bild
+    new:
+      upload_image: Ladda upp ny bild
   pages:
     change_cover:
       delete_cover: Radera coverbild

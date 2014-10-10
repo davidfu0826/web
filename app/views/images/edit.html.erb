@@ -1,5 +1,5 @@
-<%= bootstrap_form_for @image do |f| %>
-  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true }, { class: 'select2', multiple: true } %>
+<div class="page-header">
+  <h1><%= t(:edit) + " " + t('activerecord.models.image').downcase %></h1>
+</div>
 
-  <%= f.submit %>
-<% end %>
+<%= render 'form', remote: false %>

@@ -19,4 +19,12 @@ class Image < ActiveRecord::Base
   scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }
 
   dragonfly_accessor :image
+
+  def title
+    if self[:title].present?
+      self[:title]
+    else
+      image_uid.split('/').last
+    end
+  end
 end

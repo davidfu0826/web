@@ -38,7 +38,7 @@ module ApplicationHelper
         toggle: "lightbox",
         gallery: "images",
         parent: ".gallery-parent",
-        title: image.image_uid.split('/').last,
+        title: image.title,
         footer: (edit_button + delete_button)
       } do
         image_tag image.image.thumb('300x300#').url, class: "img-responsive img-thumbnail"

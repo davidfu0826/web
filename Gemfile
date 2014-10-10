@@ -39,6 +39,7 @@ gem 'whenever', :require => false #Automatically generate sitemaps
 gem 'nokogiri'
 gem 'rails-settings-cached', '0.4.1'
 gem 'rails-settings-ui', '~> 0.3.0'
+gem 'remotipart', '~> 1.2'
 
 group :development do
   gem 'spring'
