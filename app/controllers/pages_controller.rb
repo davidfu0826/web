@@ -69,7 +69,7 @@ class PagesController < ApplicationController
   end
 
   def change_cover
-    @image = @page.image
+    @cover_image = @page.image
   end
 
   def delete_cover

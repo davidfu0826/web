@@ -57,7 +57,8 @@ class EventsController < ApplicationController
 
   def change_cover
     authorize! :manage, Event
-    @image = Image.find(Settings.events_cover_image) if Settings.events_cover_image.present?
+    @cover_image = Image.find(Settings.events_cover_image) if Settings.events_cover_image.present?
+    @image = Image.new
   end
 
   def change_cover_update

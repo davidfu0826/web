@@ -37,6 +37,7 @@ $(document).ready(function(){
     showUpload: false,
     showRemove: false
   });
+  modal_tab_handler();
   load_guild_color_changer();
   load_datepicker();
 });
@@ -93,6 +94,13 @@ function guild_color(guild) {
     case 'i-sek':
       return "#971b1e";
   }
+}
+
+function modal_tab_handler() {
+  var modal = $("#imageModal");
+  modal.find("a[data-toggle='tab']").on('shown.bs.tab', function (e) {
+    modal.find("#img-submit").toggleClass('disabled');
+  });
 }
 
 var insertImageDialog, loadImageSelection;

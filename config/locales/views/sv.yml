@@ -63,6 +63,7 @@ sv:
       no_posts: Kunde inte hitta några nyheter
       no_posts_lead: Testa med en annan filtrering.
     form:
+      post_image: Bild
       select_image: Välj bild
     index:
       archive: Arkiv
@@ -81,6 +82,8 @@ sv:
       no_posts: "Kunde inte hitta några nyheter :("
       no_posts_lead: Testa med en annan filtrering
   shared:
+    pagedown_content:
+      content: Innehåll
     image_select_modal:
       images: Bilder
     tags: Taggar

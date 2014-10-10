@@ -2,7 +2,7 @@
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
-  <%= f.form_group do %>
+  <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>
     <div class="col-sm-3">
       <div id="preview-image-preview">
         <%= image_tag @post.image.url, id: "preview-image", class: "post-preview-image img-thumbnail" if @post.image.present? %>

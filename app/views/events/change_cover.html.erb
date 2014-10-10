@@ -4,12 +4,12 @@
 
 <%= bootstrap_form_tag url: change_cover_update_events_path, layout: :horizontal do |f| %>
 
-  <%= image_tag @image.url, id: "preview-image", class: "preview-image img-thumbnail" if @image.present? %>
-  <%= image_tag "cover.jpg", id: "preview-image", class: "preview-image img-thumbnail" if @image.blank? %>
+  <%= image_tag @cover_image.url, id: "preview-image", class: "preview-image img-thumbnail" if @cover_image.present? %>
+  <%= image_tag "cover.jpg", id: "preview-image", class: "preview-image img-thumbnail" if @cover_image.blank? %>
   <%= f.hidden_field :image_id %>
 
   <%= button_tag t('.select_image'), type: :button, class: "btn btn-default", id: "image-button" %>
-  <%= link_to t('.delete_cover'), events_delete_cover_path, method: :delete, class: "btn btn-danger", data: {confirm: t(:confirm_delete)} if @image.present? %>
+  <%= link_to t('.delete_cover'), delete_cover_events_path, method: :delete, class: "btn btn-danger", data: {confirm: t(:confirm_delete)} if @image.present? %>
   <%= f.submit t(:save) %>
 <% end %>
 

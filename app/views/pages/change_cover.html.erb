@@ -4,8 +4,8 @@
 
 <%= bootstrap_form_for @page, layout: :horizontal do |f| %>
 
-  <%= image_tag @image.url, id: "preview-image", class: "preview-image img-thumbnail" if @image.present? %>
-  <%= image_tag "cover.jpg", id: "preview-image", class: "preview-image img-thumbnail" if @image.blank? %>
+  <%= image_tag @cover_image.url, id: "preview-image", class: "preview-image img-thumbnail" if @cover_image.present? %>
+  <%= image_tag "cover.jpg", id: "preview-image", class: "preview-image img-thumbnail" if @cover_image.blank? %>
   <%= f.hidden_field :image_id %>
 
   <%= button_tag t('.select_image'), type: :button, class: "btn btn-default", id: "image-button" %>

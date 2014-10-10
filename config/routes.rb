@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   get 'pages', to: 'pages#index'
   get ':id', to: 'pages#show', as: :page
+  patch ':id', to: 'pages#update'
   delete ':id', to: 'pages#destroy'
   resources :pages, except: [:show, :delete, :index], shallow: true do
     member do
