@@ -4,6 +4,7 @@ $ ->
     converter = new Markdown.Converter()
     converter.hooks.chain "plainLinkText", transform_urls
     converter.hooks.chain "postConversion", identifyImages
+    converter.hooks.chain "postConversion", indentation
     Markdown.Extra.init(converter)
     help =
       handler: () ->
@@ -23,6 +24,10 @@ identifyImages = (html) ->
     else
       tag
   html.replace /<[^>]*>?/g, sanitizeImageTag
+
+indentation = (html) ->
+  console.log html
+  html.replace /---/g, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 
 insertImageDialog = (callback) ->
   setTimeout ( ->

@@ -26,6 +26,12 @@ AutoHtml.add_filter(:responsive_images) do |text|
   end
 end
 
+AutoHtml.add_filter(:indentation) do |text|
+  text.gsub(/---/) do |match|
+    %{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+  end
+end
+
 AutoHtml.add_filter(:strip_image_tags) do |text|
   text.gsub(/!\[\S+\]\[\d+\]/) do |match|
     %{}

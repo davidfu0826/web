@@ -56,12 +56,6 @@ GEM
       uniform_notifier (>= 1.6.0)
     callsite (0.0.11)
     cancancan (1.9.1)
-    capybara (2.4.1)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -78,7 +72,6 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    diff-lcs (1.2.5)
     dragonfly (1.0.5)
       multi_json (~> 1.0)
       rack
@@ -218,22 +211,6 @@ GEM
     rake (10.3.2)
     redcarpet (3.1.2)
     rinku (1.5.1)
-    rspec-core (3.0.3)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.3)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.3)
-      rspec-support (~> 3.0.0)
-    rspec-rails (3.0.2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-      rspec-support (~> 3.0.0)
-    rspec-support (3.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -244,8 +221,6 @@ GEM
       thor (~> 0.14)
     simple_oauth (0.2.0)
     spring (1.1.3)
-    spring-commands-rspec (1.0.2)
-      spring (>= 0.9.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -288,8 +263,6 @@ GEM
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -305,7 +278,6 @@ DEPENDENCIES
   bootstrap_form
   bullet
   cancancan (~> 1.8)
-  capybara
   coffee-rails (~> 4.0.0)
   devise
   dragonfly (~> 1.0.5)
@@ -333,11 +305,9 @@ DEPENDENCIES
   rails_bootstrap_navbar
   rails_stdout_logging
   redcarpet
-  rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   select2-rails
   spring
-  spring-commands-rspec
   traco
   twitter
   uglifier (>= 1.3.0)
