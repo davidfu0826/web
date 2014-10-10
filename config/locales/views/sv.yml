@@ -68,6 +68,11 @@ sv:
     show:
       no_content: Denna post finns inte på svenska
       edit_post: Redigera nyhet
+      published: "Publicerad: "
+      updated_at: "Uppdaterad: "
+    post:
+      published: "Publicerad: "
+      updated_at: "Uppdaterad: "
     posts_feed:
       no_posts: "Kunde inte hitta några nyheter :("
       no_posts_lead: Testa med en annan filtrering

@@ -18,6 +18,14 @@
       <div class="media-body">
         <div class="media-heading">
           <h2><%= post.title %></h2>
+          <p class="published-date">
+            <%= t('.published') %>
+            <%= l(post.created_at, format: :short)  %>
+            <% if post.updated_at >= post.created_at + 1.hour %>
+              <%= t('.updated_at') %>
+              <%= l(post.updated_at, format: :short)  %>
+            <% end %>
+          </p>
         </div>
         <p><%= news_html truncate(post.content, length: 250) %></p>
         <div class="post-tools">

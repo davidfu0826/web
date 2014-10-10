@@ -68,6 +68,11 @@ en:
     show:
       no_content: This post is not available in english
       edit_post: Edit post
+      published: "Published: "
+      updated_at: "Updated: "
+    post:
+      published: "Published: "
+      updated_at: "Updated: "
     posts_feed:
       no_posts: "Could not find any posts :("
       no_posts_lead: Try using another search

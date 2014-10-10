@@ -1,8 +1,15 @@
 <div class="page-header">
   <h1><%= @post.title %></h1>
   <div class="lead">
+    <p class="published-date">
+      <%= t('.published') %>
+      <%= l(@post.created_at, format: :short)  %>
+      <% if @post.updated_at >= @post.created_at + 1.hour %>
+        <%= t('.updated_at') %>
+        <%= l(@post.updated_at, format: :short)  %>
+      <% end %>
+    </p>
     <% if @archive %>
-
       <%= link_to t(:back), posts_archive_path %>
     <% else %>
       <%= link_to t(:back), posts_path %>
