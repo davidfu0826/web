@@ -1,6 +1,7 @@
 sv:
   errors:
     no_special_chars: "Får bara innehålla A-Ö och siffror "
+    end_time_after_start_time: "måste sluta efter att det börjat."
     messages:
       expired: "har löpt ut, var god begär en ny"
       not_found: "hittades inte"

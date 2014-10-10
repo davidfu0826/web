@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
 
   def end_time_after_start_time
     if end_time.present? and start_time.present?
-      errors.add(:end_time, I18n.t('.end_time_after_start_time')) if end_time < start_time
+      errors.add(:end_time, I18n.t('errors.end_time_after_start_time')) if end_time < start_time
     end
   end
 
