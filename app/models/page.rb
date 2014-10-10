@@ -1,5 +1,4 @@
 class Page < ActiveRecord::Base
-  #include ApplicationHelper
   include HtmlHelper
 
   before_validation do

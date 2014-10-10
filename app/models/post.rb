@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   include HtmlHelper
 
-  validates :title, presence: true
+  validates :title_sv, presence: true
+  validates :title_en, presence: true
   validates :content, presence: true
 
   before_validation(on: [:create, :update]) do
@@ -14,6 +15,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :image
 
+  translates :title, :content
+
   scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
   scope :search, -> (search) {
     where([
@@ -25,9 +28,11 @@ class Post < ActiveRecord::Base
     ])
   }
 
-  translates :title, :content
-
   def content_html
     process_into_html self.content
+  end
+
+  def to_param
+    [id, '-' ,title_en.parameterize].join
   end
 end
