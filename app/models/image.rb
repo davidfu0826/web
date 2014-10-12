@@ -1,4 +1,6 @@
 class Image < ActiveRecord::Base
+  include Filterable
+
   before_validation(on: [:create, :update]) do
     taggings.each do |t|
       t.taggable = self
@@ -15,7 +17,7 @@ class Image < ActiveRecord::Base
   has_many :posts
   has_many :pages
 
-  scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
+  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
   scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }
 
   dragonfly_accessor :image

@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @images = filter_resource @images
+    @images = @images.filter(filtering_params)
     @images = @images.page(params[:page]).per(20)
   end
 
@@ -41,13 +41,17 @@ class ImagesController < ApplicationController
   end
 
   def search
-    @images = filter_resource @images
+    @images = @images.filter(filtering_params)
   end
 
   private
 
   def image_params
     params.require(:image).permit(:image, :title, :description, tag_ids: [])
+  end
+
+  def filtering_params
+    params.slice(:search, :tag)
   end
 
   def load_tags

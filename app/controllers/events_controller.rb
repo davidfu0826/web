@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @events = filter_resource @events
+    @events = @events.filter(filtering_params)
 
     @now = Time.now
     @offset = params[:offset].to_i || 0
@@ -84,6 +84,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time, tag_ids: [])
+  end
+
+  def filtering_params
+    params.slice(:search, :tag)
   end
 
   def load_tags

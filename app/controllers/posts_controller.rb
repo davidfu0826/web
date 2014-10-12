@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = @posts.order(created_at: :desc).includes(:image)
-    @posts = filter_resource @posts
+    @posts = @posts.filter(filtering_params)
 
     respond_to do |format|
       format.html { @posts = @posts.take(3) }
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   def archive
     @archive = true #Used to determine where to redirect back from post
     @posts = @posts.order(created_at: :desc).includes(:image)
-    @posts = filter_resource @posts
+    @posts = @posts.filter(filtering_params)
     @posts = @posts.page(params[:page]).per(6)
   end
 
@@ -61,6 +61,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :title_sv, :content_sv, :title_en, :content_en, :image_id, tag_ids: [])
+  end
+
+  def filtering_params
+    params.slice(:search, :tag)
   end
 
   def load_tags

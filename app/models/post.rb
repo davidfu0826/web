@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   include HtmlHelper
+  include Filterable
 
   validates :title_sv, presence: true
   validates :title_en, presence: true
@@ -17,7 +18,7 @@ class Post < ActiveRecord::Base
 
   translates :title, :content
 
-  scope :with_tag, -> (tag) { joins(:tags).where( 'tags.id' => tag.id ) }
+  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
   scope :search, -> (search) {
     where([
     "lower(title_sv) LIKE ? OR

@@ -31,17 +31,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def filter_resource resource
-    if params[:search]
-      resource = resource.search(params[:search])
-    end
-    if params[:tag] && !params[:tag].blank?
-      @tag = Tag.find(params[:tag])
-      resource = resource.with_tag(@tag)
-    end
-    resource
-  end
-
   def load_nav_items_and_locale
     @nav_row = NavItem.orphans.order("position ASC").includes(:page, children: :page)
     @locale = I18n.locale
