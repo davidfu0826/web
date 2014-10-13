@@ -39,9 +39,9 @@ AutoHtml.add_filter(:strip_image_tags) do |text|
 end
 
 AutoHtml.add_filter(:image_caption) do |text|
-  text.gsub(/!\[[^\]]+\]\[\d+\]/) do |match|
-    end_index = (match =~ /\]\[/)
-    desc = match[2..(end_index - 1)]
+  text.gsub(/<img[^>]+>/) do |match|
+    alt_tag = match.match(/alt="[^"]+"/).to_s
+    desc = alt_tag[5..(alt_tag.length - 2)]
     %{<figure>#{match}<figcaption>#{desc}</figcaption></figure>}
   end
 end

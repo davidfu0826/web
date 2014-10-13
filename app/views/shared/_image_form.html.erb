@@ -1,0 +1,11 @@
+<% @image = Image.new %>
+<%= bootstrap_form_for @image, layout: :horizontal, remote: remote do |f| %>
+  <%= f.file_field :image if @image.new_record? %>
+
+  <%= f.text_field :title %>
+  <%= f.text_field :description %>
+  <% @tags ||= Tag.all %>
+  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') }, { class: 'select2', multiple: true } %>
+
+  <%= f.submit %>
+<% end %>

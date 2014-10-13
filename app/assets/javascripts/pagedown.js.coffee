@@ -16,55 +16,21 @@ $ ->
     editor.run()
 
 identifyImages = (html) ->
-  sanitizeImageTag = (tag) ->
+  formatImageTag = (tag) ->
     # chops off the last char in the string ('>') and replaces it
     # with the class name we want to add
+    # Also gets the alt tag and sets it as a caption
     if tag.match(/^<img.*>$/i)
-      tag.slice(0, tag.length - 1) + " class=\"img-responsive\">"
+      tag = tag.slice(0, tag.length - 1) + " class=\"img-responsive\">"
+      alt_tag = tag.match(/alt="[^"]+"/g)
+      desc = alt_tag[0].slice(5, alt_tag.length - 2)
+      "<figure>" + tag + "<figcaption>" + desc + "</figcaption></figure>"
     else
       tag
-  html.replace /<[^>]*>?/g, sanitizeImageTag
+  html.replace /<[^>]*>?/g, formatImageTag
 
 indentation = (html) ->
   html.replace /---/g, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-
-insertImageDialog = (callback) ->
-  setTimeout ( ->
-    selected_image = null
-    $("#imageModal").modal "show"
-    $("#image-upload-tab").on "image_uploaded", null, (e, image) ->
-      $("#imageModal").modal "hide"
-      selected_image = null
-      callback(e.image)
-    $(".img-select").click (e) ->
-      loadImageSelection e, selected_image
-
-    $("#image-select-body").on "imageSelection", (e, image) ->
-      selected_image = image
-    $("#image-select-body").change (e) ->
-      $(".img-select").click (ev) ->
-        loadImageSelection ev, selected_image
-
-    $("#img-submit").click (e) ->
-      $("#imageModal").modal "hide"
-      $(".img-select-active").removeClass 'img-select-active'
-      value = selected_image.attributes['data-source'].value
-      selected_image = null
-      callback(value)
-    $("#modal-close").click (e) ->
-      $("#imageModal").modal "hide"
-      $(".img-select-active").removeClass 'img-select-active'
-      selected_image = null
-      callback(null)
-  ), 0
-  true
-
-loadImageSelection = (e, selected_image) ->
-  if selected_image != null
-    $(selected_image).toggleClass 'img-select-active'
-  selected_image = e.target
-  $(selected_image).toggleClass 'img-select-active'
-  $("#image-select-body").trigger "imageSelection", selected_image
 
 transform_urls = (url) ->
   if /^https:\/\/podio\.com\/webforms\//i.test(url)

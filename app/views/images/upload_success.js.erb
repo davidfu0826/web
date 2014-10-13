@@ -3,7 +3,7 @@ $('#image-upload-tab').trigger({
   image: '<%= escape_javascript(@image.image.url) %>',
   image_id: '<%= escape_javascript(@image.id.to_s) %>'
 });
-$("[type='file']").fileinput('clear', {
-  showUpload: false,
-  showRemove: false
-});
+$('#image-upload-tab').html("<%= escape_javascript(render('shared/image_form', remote: true)) %>");
+$('.select2').select2();
+console.log("hej");
+$("[type='file']").fileinput({ showUpload: false, showRemove: false });

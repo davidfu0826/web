@@ -3,8 +3,8 @@ module HtmlHelper
 
   def process_into_html content
     auto_html content do
-      image_caption
       redcarpet
+      image_caption
       indentation
       youtube(autoplay: false, class: "embed-responsive embed-responsive-16by9")
       podio_webforms
