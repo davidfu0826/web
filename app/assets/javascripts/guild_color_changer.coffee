@@ -19,7 +19,7 @@ guild_color = (guild) ->
     when "a-sek"
       "#91278f"
     when "k-sek"
-      "#fff200"
+      "#ffff00"
     when "d-sek"
       "#f280a1"
     when "ing-sek"
