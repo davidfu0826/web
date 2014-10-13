@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.1.3"
 
 # Core
 gem 'rails', '4.1.1'
