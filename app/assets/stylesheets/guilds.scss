@@ -7,6 +7,7 @@
   font-family: guilds;
   font-size: 48px;
   text-align: center;
+  height: 32px;
 
   a {
     color: #555555;
@@ -19,5 +20,8 @@
 
   #dokt {
     height: 32px;
+
+     /* Fix Safari disagreeing about the middle */
+    vertical-align: baseline;
   }
 }
