@@ -70,9 +70,11 @@
     list-style-type: none;
     padding-left: 0;
   }
+
   a {
-    color: #017AB3;
+    color: $light-blue;
   }
+
   .link {
     color: $light-gray;
     font-style: italic;
@@ -82,10 +84,6 @@
 
   .row {
     margin-bottom: 5px;
-  }
-
-  .sidebar-links a {
-    color: $dark-gray;
   }
 
   .sidebar-glyph {
