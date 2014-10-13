@@ -2,7 +2,8 @@ $ ->
   $('textarea.wmd-input').each (i, input) ->
     attr = $(input).attr('id').split('wmd-input')[1]
     converter = new Markdown.Converter()
-    converter.hooks.chain "plainLinkText", transform_urls
+    converter.hooks.chain "preConversion", transform_podio
+    converter.hooks.chain "preConversion", transform_google
     converter.hooks.chain "postConversion", identifyImages
     converter.hooks.chain "postConversion", indentation
     Markdown.Extra.init(converter)
@@ -32,12 +33,7 @@ identifyImages = (html) ->
 indentation = (html) ->
   html.replace /---/g, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 
-transform_urls = (url) ->
-  if /^https:\/\/podio\.com\/webforms\//i.test(url)
-    #id = url.split("/").pop()
-    #script = "<script src=#{url}.js></script>"+"<script type='text/javascript'>_podioWebForm.render(#{id})</script>"
-    "<b>Podio Webform</b>"
-  else if /^https:\/\/docs\.google\.com\/forms\//i.test(url)
-    "<b>Google Docs Form</b>"
-  else
-    url
+transform_podio = (html) ->
+  html.replace /f{https:\/\/podio\.com\/webforms\/[^}]+}/g, "<b>Podio Webform</b>"
+transform_google = (html) ->
+  html.replace /f{https:\/\/docs\.google\.com\/forms\/d\/[^}]+}/g, "<b>Google Docs Form</b>"

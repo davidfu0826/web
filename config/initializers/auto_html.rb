@@ -1,5 +1,6 @@
 AutoHtml.add_filter(:podio_webforms) do |link|
-  link.gsub(/https:\/\/podio\.com\/webforms\/([0-9]*)\/([0-9]*)(\/)?/) do |url|
+  link.gsub(/f{https:\/\/podio\.com\/webforms\/[^}]+}/) do |url|
+    url = url[2..(url.length - 2)]
     id = url.split('/').last
     %{
       <script src="#{url}.js"></script>
@@ -9,7 +10,8 @@ AutoHtml.add_filter(:podio_webforms) do |link|
 end
 
 AutoHtml.add_filter(:google_docs_forms) do |link|
-  link.gsub(/https:\/\/docs\.google\.com\/forms\/d\/\w+\//) do |url|
+  link.gsub(/f{https:\/\/docs\.google\.com\/forms\/d\/[^}]+}/) do |url|
+    url = url[2..(url.length - 2)]
     %{<iframe class="embed-responsive-item" src="#{url}viewform?embedded=true"></iframe>}
   end
 end

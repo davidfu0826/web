@@ -1,6 +1,8 @@
-<div class="col-sm-12">
-  <%= image_tag @post.image.image.url, class: "post-image" %>
-</div>
+<% if @post.image %>
+  <div class="col-sm-12">
+    <%= image_tag @post.image.image.url, class: "post-image" %>
+  </div>
+<% end %>
 <div class="page-header">
   <h1><%= @post.title %></h1>
   <div class="lead">
