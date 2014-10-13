@@ -47,7 +47,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image, :title, :description, tag_ids: [])
+    params.require(:image).permit(:image, :title, tag_ids: [])
   end
 
   def filtering_params
