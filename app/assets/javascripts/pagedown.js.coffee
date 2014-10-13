@@ -9,9 +9,9 @@ $ ->
     Markdown.Extra.init(converter)
     help =
       handler: () ->
-        window.open('http://daringfireball.net/projects/markdown/syntax')
+        window.open('/pages/markdown_explanation')
         return false
-      title: "<%= I18n.t('components.markdown_editor.help', default: 'Markdown Editing Help') %>"
+      title: "'Markdown Editing Help"
     editor = new Markdown.Editor(converter, attr, help)
     editor.hooks.set "insertImageDialog", insertImageDialog
     editor.run()

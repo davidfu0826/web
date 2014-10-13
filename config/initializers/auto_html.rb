@@ -18,7 +18,7 @@ end
 
 AutoHtml.add_filter(:responsive_iframes) do |text|
   text.gsub(/<iframe.+<\/iframe>/) do |match|
-    %{<div class="embed-responsive embed-responsive-4by3">#{match}</div>}
+    %{<div class="embed-responsive embed-responsive-16by9">#{match}</div>}
   end
 end
 
