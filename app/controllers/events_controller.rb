@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def index
     @events = @events.filter(filtering_params)
 
-    @now = Time.now
+    @now = Time.current
     @offset = params[:offset].to_i || 0
     @this_month = @now.beginning_of_month + @offset.months
 

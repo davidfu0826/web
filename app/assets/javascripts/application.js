@@ -27,8 +27,8 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
   $(this).ekkoLightbox();
 });
 
-$(document).on("page:change"), function() {
+$(document).on("page:change", function() {
   $("#twitter-feed").load("/tweets");
   $('.select2').select2();
   $('.dd').nestable({maxDepth: 2});
-};
+});

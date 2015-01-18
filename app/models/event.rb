@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
     ])
   }
 
-  scope :upcoming, -> { where(["start_time > ?", Time.now]).order(:start_time) }
+  scope :upcoming, -> { where(["start_time > ?", Time.current]).order(:start_time) }
 
   translates :title, :description
 
@@ -55,7 +55,7 @@ class Event < ActiveRecord::Base
   end
 
   def status_text
-    now = Time.now
+    now = Time.current
     if start_time > now # Event is in the future
       if end_time > now # Event is inte the past, else Event is in the present
         I18n.t('events.status.has_ended')
