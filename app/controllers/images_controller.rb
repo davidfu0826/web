@@ -57,5 +57,4 @@ class ImagesController < ApplicationController
   def load_tags
     @tags = Tag.all
   end
-
 end

@@ -1,0 +1,69 @@
+.photo {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.13);
+  margin-bottom: 20px;
+
+  &.photo-small {
+    margin-bottom: 7px;
+    display: inline-block;
+    width: 100px;
+
+    .overlay a {
+      margin-right: 0px !important;
+    }
+    .img .links { margin-top: 10px; }
+    .img:hover .links { margin-top: 26px; }
+    .img-selected .links { margin-top: 26px; }
+  }
+
+  .head {
+    padding: 10px 10px;
+    background: #FFF;
+  }
+
+  .img {
+    position: relative;
+
+    &:hover {
+      .overlay  { opacity: 0.8; }
+      .links { margin-top: 40%; }
+    }
+    &.img-selected {
+      .overlay  { opacity: 0.8; }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .overlay {
+    top: 0;
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: $brand-primary;
+    transition: opacity 300ms ease;
+    .links {
+      margin-top: 25%;
+      top: 50%;
+      text-align: center;
+      transition: margin-top 200ms ease-in-out;
+
+      a {
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: 20px;
+        color: #FFF;
+        line-height: 2.4;
+      }
+    }
+  }
+}

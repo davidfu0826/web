@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require turbolinks
 //= require bootstrap
 //= require moment
 //= require moment/sv
@@ -25,6 +26,11 @@
 //= require pagedown_bootstrap
 //= require jquery.minicolors
 //= require fileinput
+//= require codemirror
+//= require codemirror/modes/http
+//= require codemirror/modes/htmlmixed
+//= require summernote
+//= require summernote-sv-SE
 //= require_tree .
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {

@@ -1,0 +1,8 @@
+.photo.photo-small
+  .img.img-select{data: {"image-source" => image.image.url}}
+    = image_tag image.image.thumb('300x300#').url
+    .overlay
+      .links
+        = link_to '#' do
+          %i.glyphicon.glyphicon-ok
+

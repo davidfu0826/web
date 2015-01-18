@@ -1,4 +1,4 @@
-jQuery ->
+$(document).on "page:change", ->
   $.each $("[id*='sek']", ".guilds"), (index, element) ->
     $(this).hover ( ->
       $(this).css "color", guild_color($(this).attr("id"))

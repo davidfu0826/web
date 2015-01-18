@@ -8,13 +8,18 @@
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 @import "pagedown_bootstrap";
+@import "summernote";
+@import "summernote-bs3";
+@import "summernote-modifications";
+@import "codemirror";
+@import "codemirror/themes/solarized";
 @import "font-awesome";
 @import "ekko-lightbox";
 @import "select2";
 @import "select2-bootstrap";
 @import "jquery.minicolors";
 @import "fileinput";
-
+@import "images";
 
 /*  -- NAVBAR --  */
 .navbar .navbar-nav {

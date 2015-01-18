@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby "2.1.3"
 
 # Core
 gem 'rails', '4.1.1'
@@ -12,6 +11,7 @@ gem 'autoprefixer-rails'
 gem 'rack-cache', :require => 'rack/cache' #Caching images
 gem 'devise'
 gem 'cancancan', '~> 1.8'
+gem 'turbolinks'
 
 # Assets
 gem 'sass-rails', '~> 4.0.3'
@@ -42,6 +42,7 @@ gem 'rails-settings-ui', '~> 0.3.0'
 gem 'remotipart', '~> 1.2'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'codemirror-rails'
 
 group :development do
   gem 'spring'

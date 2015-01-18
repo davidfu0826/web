@@ -1,4 +1,4 @@
-jQuery ->
+$(document).on "page:change", ->
   $("#imageModal").on "show.bs.modal", (e) ->
     $("[type='file']").fileinput
       showUpload: false,

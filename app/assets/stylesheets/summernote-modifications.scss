@@ -1,0 +1,26 @@
+.note-editor {
+  border: none;
+  .note-editable {
+    outline: 1px solid #cccccc;
+    transition: border-color ease-in-out 0.15s;
+
+    &:focus {
+      border-color: #66afe9;
+    }
+  }
+  .note-toolbar {
+    background-color: #FFF !important;
+    border-bottom: none !important;
+    padding-left: 0;
+  }
+  .note-resizebar {
+    border-top: none !important;
+  }
+}
+
+.note-air-editor {
+  display: inline-block;
+  outline: 1px solid #cccccc;
+  height: 100%;
+  width: 100%;
+}

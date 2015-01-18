@@ -1,42 +1,50 @@
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div class="modal fade" id="insertImageModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal"></button>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist" id="image-modal-tabs">
-          <li class="active"><a href="#image-select-tab" role="tab" data-toggle="tab"><%= t('.image_gallery') %></a></li>
-          <li><a href="#image-upload-tab" role="tab" data-toggle="tab"><%= t('.image_uploader') %></a></li>
-        </ul>
-      </div>
+        <ul class="nav nav-pills" id="image-modal-tabs">
+          <li class="active">
+            <a href="#image-select-tab" data-toggle="tab">
+              <%= t('.image_gallery') %>
+            </a>
+          </li>
 
-      <div class="modal-body" id="image-select-body">
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane active" id="image-select-tab">
-            <%= render 'shared/image_search' %>
+          <li>
+            <a href="#image-upload-tab" data-toggle="tab">
+              <%= t('.image_uploader') %>
+            </a>
+          </li>
+        </ul>
+      </div><!-- modal-header -->
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Select Tab -->
+        <div class="tab-pane active" id="image-select-tab">
+          <div class="modal-body" id="image-select-body">
+            <%= render partial: 'images/image_small', collection: @images , as: :image %>
           </div>
-          <div class="tab-pane" id="image-upload-tab">
+
+          <div class="modal-footer">
+            <div class="pull-left">
+              <%= render 'images/image_search_footer' %>
+            </div>
+            <div class="pull-right">
+              <button id="insert-image" type="button" class="btn btn-primary pull-right">
+                <%= t(:select) %>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upload tab -->
+        <div class="tab-pane" id="image-upload-tab">
+          <div class="modal-body">
             <%= render 'shared/image_form', remote: true %>
           </div>
         </div>
-      </div>
-
-      <div class="modal-footer">
-        <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |f| %>
-          <div class="pull-left">
-            <%= f.collection_select :tag, @tags, :id, :title, { include_blank: true, hide_label: true }, { class: "large-select select2"} %>
-            <%= f.text_field :search, hide_label: true, icon: 'search' %>
-            <%= button_tag(:class => "btn btn-default") do %>
-              <i class="glyphicon glyphicon-search"></i>
-            <% end %>
-          </div>
-          <div class="pull-right">
-            <button id="modal-close" type="button" class="btn btn-default pull-right"><%= t(:close) %></button>
-            <button id="img-submit" type="button" class="btn btn-primary pull-right"><%= t(:select) %></button>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>
