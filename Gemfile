@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Core
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.0'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -38,7 +38,6 @@ gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
 gem 'nokogiri'
 gem 'rails-settings-cached', '0.4.1'
-gem 'rails-settings-ui', '~> 0.3.0'
 gem 'remotipart', '~> 1.2'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'

@@ -3,7 +3,7 @@
     <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
       <ul>
         <li><%= link_to t('.account_settings'), edit_user_path(current_user)    %></li>
-        <li><%= link_to t('.site_settings'), rails_settings_ui_path if can? :manage, Page %></li>
+        <li><%= link_to t('.site_settings'), 'settings'  if can? :manage, Page %></li>
         <li><%= link_to t('.new_post'), new_post_path    if can? :create, Post  %></li>
         <li><%= link_to t('.manage_pages'), pages_path   if can? :manage, Page  %></li>
         <li><%= link_to t('.manage_users'), users_path   if can? :manage, User  %></li>
@@ -13,23 +13,35 @@
       </ul>
   </div>
 <% end %>
+
 <div class="row">
-  <h3><%= t(:calendar) %><span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span></h3>
+  <h3>
+    <%= t(:calendar) %>
+    <span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span>
+  </h3>
   <ul class="calendar-feed">
     <%= render @events %>
   </ul>
   <%= link_to t('.all_events'), events_path, class: "link" %>
 </div>
+
 <div class="row hidden-sm hidden-xs">
-  <h3>Twitter <span class="pull-right"><%= image_tag "twitter.svg" %></span></h3>
+  <h3>
+    Twitter
+    <span class="pull-right"><%= image_tag "twitter.svg" %></span>
+  </h3>
   <ul id="twitter-feed">
     <%= render partial: 'tweet', collection: @tweets %>
   </ul>
   <%= link_to t('.twitter_link'), "https://twitter.com/Teknologkaren", class: "link" %>
 </div>
+
 <div class="row sidebar-links">
-  <h3><%= t(:links) %><span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span></h3>
-  <% @links.each_pair do |title, url| %>
-    <h4><%= link_to title, url %></h4>
+  <h3>
+    <%= t(:links) %>
+    <span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span>
+  </h3>
+  <% @links.each do |link| %>
+    <h4><%= link_to link[:title], link[:url] %></h4>
   <% end %>
 </div>

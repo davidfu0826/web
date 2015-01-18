@@ -54,4 +54,14 @@ module ApplicationHelper
       'cover.jpg'
     end
   end
+
+  def nav_item_title_link(nav_item)
+    if nav_item.page?
+      link_to nav_item.page.title, nav_item.page
+    elsif nav_item.link?
+      link_to nav_item.title, nav_item.link
+    else
+      nav_item.title
+    end
+  end
 end

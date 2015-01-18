@@ -16,4 +16,5 @@
 /tmp
 
 # Ignore uploaded images
-/public/system/dragonfly/*
+/public/system/*
+/public/assets/*

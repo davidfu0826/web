@@ -4,5 +4,5 @@ class ContactForm < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   accepts_nested_attributes_for :questions
 
-  validate :questions, presence: true
+  validates :questions, presence: true
 end

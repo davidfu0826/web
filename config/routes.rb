@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  mount RailsSettingsUi::Engine, at: 'settings'
   get "sitemap.xml" => "application#sitemap", format: :xml, as: :sitemap
   get "robots.txt" => "application#robots", format: :text, as: :robots
 
@@ -38,7 +36,11 @@ Rails.application.routes.draw do
       get 'move_higher'
       get 'move_lower'
     end
+    post :update_order, on: :collection
   end
+
+  get :settings, to: 'settings#edit'
+  post :settings, to: 'settings#update'
 
   get 'pages', to: 'pages#index'
   get ':id', to: 'pages#show', as: :page

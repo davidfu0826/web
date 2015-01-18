@@ -1,17 +1,37 @@
 <%= bootstrap_form_for @page, layout: :horizontal do |f| %>
-  <%= f.alert_message f.error_summary  %>
+  <%= f.alert_message f.error_summary %>
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
-  <% parent = @page.try(:nav_item).try(:parent).try(:id) %>
-  <%= f.collection_select :nav_item, @nav_items, :id, :item_title,
-    { selected: parent, include_blank: t('.make_hidden'), label: t('.meny') },
-    { class: 'select2'} unless @page.new_record? %>
-  <%= render 'shared/pagedown_content', resource: @page, f: f %>
 
-  <%= f.hidden_field :parent, value: @parent if @parent %>
-  <%= f.hidden_field :create_nav, value: @create_nav if @create_nav %>
+  <!-- Nav tabs -->
+  <div class="col-md-offset-2">
+    <ul class="nav nav-pills" role="tablist">
+      <li class="active"><a href="#sv" role="tab" data-toggle="tab">
+        Svenska
+        <% if !@page.new_record? && (@page.content_sv.blank? || @page.title_sv.blank?) %>
+          <span class="glyphicon glyphicon-warning-sign"></span>
+        <% end %>
+      </a></li>
+      <li><a href="#en" role="tab" data-toggle="tab">
+        Engelska
+        <% if !@page.new_record? && (@page.content_en.blank? || @page.title_en.blank?) %>
+          <span class="glyphicon glyphicon-warning-sign"></span>
+        <% end %>
+      </a></li>
+    </ul>
+  </div>
+
+  <!-- Tab Panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="sv">
+      <%= f.text_area :content_sv, class: 'summernote_editor' %>
+    </div>
+    <div class="tab-pane" id="en">
+      <%= f.text_area :content_en, class: 'summernote_editor' %>
+    </div>
+  </div>
+
   <%= f.submit %>
 <% end %>
-
 
 <%= render 'shared/image_select_modal' %>

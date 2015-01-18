@@ -1,19 +1,11 @@
 <% @nav_row.each do |nav_item| %>
-  <% if nav_item.children.count > 0 %>
-    <%= navbar_dropdown nav_item.item_title do %>
+  <% if nav_item.children? %>
+    <%= navbar_dropdown nav_item.title do %>
       <% nav_item.children.each do |child| %>
-        <% if child.has_page? %>
-          <%= navbar_item child.item_title, url_for(child.page) %>
-        <% else %>
-          <li><a href="#"><%= child.item_title %></a></li>
-        <% end %>
+        <%= navbar_item child.item_title, child.link %>
       <% end %>
     <% end %>
   <% else %>
-    <% if nav_item.has_page? %>
-      <%= navbar_item nav_item.item_title, url_for(nav_item.page) %>
-    <% else %>
-      <li><a href="#"><%= nav_item.item_title %></a></li>
-    <% end %>
+    <%= navbar_item nav_item.title, nav_item.link %>
   <% end %>
 <% end %>

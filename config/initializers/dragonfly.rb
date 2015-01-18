@@ -7,9 +7,9 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
+  secret Rails.application.secrets.dragonfly_dos_protection
   if Rails.env.production?
     protect_from_dos_attacks true
-    secret Rails.application.secrets.dragonfly_dos_protection
 
     datastore :s3,
       bucket_name: Rails.application.secrets.dragonfly_bucket,

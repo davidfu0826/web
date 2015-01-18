@@ -2,41 +2,44 @@
   <h1><%= t('.page_management') %></h1>
 </div>
 
+<h2><%= t('.navigation') %> <small>Drag n' Drop</small></h2>
 
-<div class="col-xs-12"><%= render @nav_items, level: 1 %></div>
+<div class="dd">
+  <ol class="dd-list">
+    <%= render @nav_items %>
+  </ol>
+</div>
 
 <h2><%= t('.hidden_pages') %></h2>
 
-<div class="col-xs-12">
-  <div class="col-xs-12">
-    <% @orphan_pages.each do |page| %>
-      <div class="panel panel-default">
-        <div class="panel-body-sm">
-          <%= link_to page.title, page %>
-          <% if can? :manage, page %>
-            <div class="pull-right">
-              <%= link_to edit_page_path(page), class: "btn btn-default btn-xs" do %>
-                <span class="glyphicon glyphicon-edit"></span>
-              <% end %>
-              <%= link_to page, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: t(:confirm_delete)} do %>
-                <span class="glyphicon glyphicon-remove"></span>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+<ul class="list-unstyled">
+  <% @orphan_pages.each do |page| %>
+    <li>
+      <%= link_to page.title, page %>
+      <div class="pull-right">
+        <%= link_to edit_page_path(page) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+
+        <%= link_to page, method: :delete, data: {confirm: t(:confirm_delete)} do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-</div>
+    </li>
+  <% end %>
+</ul>
 
 <% if can? :create, Page %>
   <% content_for :sidebar do %>
     <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+      <h3>
+        <%= t(:tools) %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
+      </h3>
       <ul>
+        <li><%= link_to t('.save_nav_item_order'), '#', id: 'save-nav-item-order' %></li>
         <li><%= link_to t('pages.new_nav_item'), new_nav_item_path %></li>
-        <li><%= link_to t('pages.new_page'), new_page_path(create_nav: true) %></li>
-        <li><%= link_to t('pages.new_hidden_page'), new_page_path %></li>
+        <li><%= link_to t('pages.new_page'), new_page_path %></li>
       </ul>
     </div>
   <% end %>

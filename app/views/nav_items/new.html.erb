@@ -1,1 +1,37 @@
-<%= render 'form' %>
+<ul class="nav nav-pills">
+  <% if @parent_id.blank? %>
+    <li><%= link_to 'Create Menu', '#menu-tab', 'data-toggle' => 'tab' %></li>
+  <% end %>
+  <li class="active"><%= link_to 'Select Page', '#page-tab', 'data-toggle' => 'tab' %></li>
+  <li><%= link_to 'Select Link', '#link-tab', 'data-toggle' => 'tab' %></li>
+</ul>
+<div class="tab-content">
+  <div id="menu-tab" class="tab-pane">
+    <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.text_field :title_sv %>
+      <%= f.text_field :title_en %>
+      <%= f.hidden_field :nav_item_type, value: 'menu' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div id="page-tab" class="tab-pane active">
+    <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.collection_select :page_id, Page.orphans, :id, :title, {}, {class: 'select2'} %>
+      <%= f.hidden_field :parent_id, value: @parent_id %>
+      <%= f.hidden_field :nav_item_type, value: 'page' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div id="link-tab" class="tab-pane">
+    <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.text_field :title_sv %>
+      <%= f.text_field :title_en %>
+      <%= f.text_field :link %>
+      <%= f.hidden_field :parent_id, value: @parent_id %>
+      <%= f.hidden_field :nav_item_type, value: 'link' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

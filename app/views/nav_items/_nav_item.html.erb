@@ -1,50 +1,34 @@
-<div class="col-xs-12">
-  <div class="panel panel-default">
-    <div class="panel-body-sm">
-      <% if nav_item.has_page? %>
-        <%= link_to nav_item.item_title, nav_item.page %>
-      <% else %>
-        <%= nav_item.item_title %>
+<li class="dd-item" data-id="<%= nav_item.id %>">
+  <div class="dd-handle">
+    <%= nav_item_title_link(nav_item) %>
+    <div class="pull-right">
+      <% edit_path = nav_item.page? ? edit_page_path(nav_item.page) : [:edit, nav_item] %>
+      <%= link_to edit_path do %>
+        <span class="glyphicon glyphicon-edit"></span>
       <% end %>
-      <% if can? :manage, Page %>
-        <div class="pull-right">
-
-          <% unless nav_item.has_page? %>
-            <%= link_to new_page_path(create_nav: true, parent: nav_item.id), class: "btn btn-success btn-xs" do %>
-              <span class="glyphicon glyphicon-plus"></span> <%= t('pages.page') %>
-            <% end %>
-          <% end %>
-
-          <% disable_down = (nav_item.lower_items.count  > 0) ? "" : "disabled" %>
-          <% disable_up   = (nav_item.higher_items.count > 0) ? "" : "disabled" %>
-          <%= link_to move_higher_nav_item_path(nav_item.id), class: "btn btn-default btn-xs #{disable_up}" do %>
-            <span class="glyphicon glyphicon-arrow-up"></span>
-          <% end %>
-          <%= link_to move_lower_nav_item_path(nav_item.id), class: "btn btn-default btn-xs #{disable_down}" do %>
-            <span class="glyphicon glyphicon-arrow-down"></span>
-          <% end %>
-
-          <% if nav_item.has_page? %>
-            <%= link_to edit_page_path(nav_item.page), class: "btn btn-default btn-xs" do %>
-              <span class="glyphicon glyphicon-edit"></span>
-            <% end %>
-            <%= link_to nav_item.page, method: :delete, class: "btn btn-danger btn-xs", data: {confirm: t(:confirm_delete)} do %>
-              <span class="glyphicon glyphicon-remove"></span>
-            <% end %>
-          <% else %>
-            <%= link_to edit_nav_item_path(nav_item), class: "btn btn-default btn-xs" do %>
-              <span class="glyphicon glyphicon-edit"></span>
-            <% end %>
-            <%= link_to nav_item_path(nav_item), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: t(:confirm_delete)} do %>
-              <span class="glyphicon glyphicon-remove"></span>
-            <% end %>
-          <% end %>
-        </div>
+      <%= link_to nav_item, method: :delete, data: {confirm: t(:confirm_delete)} do %>
+        <span class="glyphicon glyphicon-remove"></span>
       <% end %>
     </div>
   </div>
-</div>
-<div class="col-xs-11 pull-right no-padding">
-  <%= render nav_item.children, level: level + 1 %>
-</div>
-
+  <% if nav_item.children? %>
+    <ol class="dd-list">
+      <% nav_item.children.each do |child| %>
+        <li class="dd-item" data-id="<%= child.id %>">
+          <div class="dd-handle">
+            <%= nav_item_title_link(child) %>
+            <div class="pull-right">
+              <% edit_path = child.page? ? edit_page_path(child.page) : [:edit, child] %>
+              <%= link_to edit_path do %>
+                <i class="glyphicon glyphicon glyphicon-edit"></i>
+              <% end %>
+              <%= link_to child, method: :delete, data: {confirm: t(:confirm_delete)} do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</li>

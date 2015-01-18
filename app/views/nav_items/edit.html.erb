@@ -1,1 +1,14 @@
-<%= render 'form' %>
+<% if @nav_item.menu? %>
+  <%= bootstrap_form_for @nav_item do |f| %>
+    <%= f.text_field :title_sv %>
+    <%= f.text_field :title_en %>
+    <%= f.submit %>
+  <% end %>
+<% elsif @nav_item.link? %>
+  <%= bootstrap_form_for @nav_item do |f| %>
+    <%= f.text_field :title_sv %>
+    <%= f.text_field :title_en %>
+    <%= f.text_field :link %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

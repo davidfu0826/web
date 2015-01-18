@@ -3,10 +3,9 @@ class PagesController < ApplicationController
   load_resource find_by: :slug
   authorize_resource
 
-  #TODO Authorize stuff
   def index
     @orphan_pages = Page.orphans
-    @nav_items = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
+    @nav_items = NavItem.orphans.order("position ASC").includes(:children)
   end
 
   def show
@@ -17,17 +16,12 @@ class PagesController < ApplicationController
   end
 
   def new
-    @create_nav = params[:create_nav] if params[:create_nav]
-    @parent     = params[:parent] if params[:parent]
   end
 
   def create
-    @page.add_nav_item(create: nav_params[:create_nav], parent: nav_params[:parent])
     if @page.save
       redirect_to @page
     else
-      @create_nav = nav_params[:create_nav] if nav_params[:create_nav].present?
-      @parent     = nav_params[:parent]     if nav_params[:parent].present?
       load_resoures
       render 'new'
     end
@@ -38,7 +32,6 @@ class PagesController < ApplicationController
 
   def update
     if @page.update(page_params)
-      @page.change_nav_parent(new_parent: params[:page][:nav_item]) if params[:page][:nav_item]
       redirect_to @page
     else
       load_resoures
@@ -72,8 +65,7 @@ class PagesController < ApplicationController
   end
 
   def delete_cover
-    @page.image = nil
-    @page.save
+    @page.update(image: nil)
     redirect_to @page
   end
 
@@ -94,6 +86,5 @@ class PagesController < ApplicationController
     @image = Image.new
     @images = Image.all
     @tags = Tag.all
-    @nav_items  = NavItem.orphans.no_page
   end
 end

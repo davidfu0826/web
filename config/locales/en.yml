@@ -17,6 +17,7 @@ en:
   search: Search
   filter: Filter
   tools: Tools
+  title: Title
   confirm_delete: Are you sure you want to delete this?
   navigation: Navigation
 
@@ -46,6 +47,7 @@ en:
       manage_pages: Manage Pages
       manage_tags: Manage Tags
       manage_users: Manage Users
+      site_settings: Site settings
       new_post: Create News Post
       twitter_link: Show tweets by Teknologkåren
   errors:

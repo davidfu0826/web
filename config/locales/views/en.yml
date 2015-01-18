@@ -47,8 +47,8 @@ en:
       select_image: Choose cover
     contacts: Contacts
     index:
-      hidden_pages: Hidden pages
       page_management: Page Management
+      save_nav_item_order: Save navigation order
     new_hidden_page: New hidden page
     new_nav_item: New menu
     new_page: New page

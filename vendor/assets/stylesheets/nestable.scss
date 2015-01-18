@@ -1,0 +1,121 @@
+/**
+ * Nestable
+ */
+
+.dd {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 20px;
+  -ms-touch-action: none;
+}
+
+.dd-list {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  .dd-list {
+    padding-left: 30px;
+  }
+}
+
+.dd-collapsed .dd-list {
+  display: none;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.dd-handle {
+  cursor: default;
+  display: block;
+  margin: 5px 0;
+  padding: 7px 10px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  background: #fff;
+
+  &:hover {
+    color: #FFF;
+    background: $brand-primary;
+    a { color: #FFF; }
+  }
+}
+
+.dd-item {
+  > button {
+    color: #555;
+    font-family: FontAwesome;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 25px;
+    height: 20px;
+    margin: 8px 2px;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    font-size: 10px;
+    line-height: 1;
+    text-align: center;
+  }
+  > button:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    width: 100%; text-align: center;
+    text-indent: 0;
+  }
+  > button[data-action="collapse"]:before {
+    content: '-';
+  }
+}
+.dd-placeholder, .dd-empty {
+  margin: 5px 0;
+  padding: 0;
+  min-height: 30px;
+  background: #f2fbff;
+  border: 1px dashed #b6bcbf;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+ }
+
+.dd-empty {
+  border: 1px dashed #bbb;
+  min-height: 100px;
+  background-color: #e5e5e5;
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  > .dd-item .dd-handle {
+    margin-top: 0;
+  }
+  .dd-handle {
+      -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+              box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+  }
+}

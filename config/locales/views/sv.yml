@@ -48,10 +48,9 @@ sv:
     contacts: Kontaktpersoner
     form:
       meny: Meny
-      make_hidden: Göm sidan
     index:
-      hidden_pages: Gömda sidor
       page_management: Sidhantering
+      save_nav_item_order: Spara navigationsordning
     new_hidden_page: Ny gömd sida
     new_nav_item: Ny meny
     new_page: Ny sida

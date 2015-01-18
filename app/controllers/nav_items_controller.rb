@@ -23,6 +23,11 @@ class NavItemsController < ApplicationController
     end
   end
 
+  def update_order
+    NavItem.update_order!(JSON.parse(params[:nav_item_data]))
+    render js: 'location.reload();'
+  end
+
   def destroy
     @nav_item.destroy
     redirect_to pages_path
@@ -41,6 +46,6 @@ class NavItemsController < ApplicationController
   private
 
   def nav_item_params
-    params.require(:nav_item).permit(:title)
+    params.require(:nav_item).permit(:title, :page_id, :link, :nav_item_type)
   end
 end

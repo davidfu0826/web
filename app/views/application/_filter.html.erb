@@ -1,4 +1,8 @@
-<h3><%= t(:filter) %><span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span></h3>
+<h3>
+  <%= t(:filter) %>
+  <span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span>
+</h3>
+
 <%= bootstrap_form_tag url: path, method: 'get', remote: true do |f| %>
   <p>
     <%= f.text_field :search, value: @search, label: t('search')  %>

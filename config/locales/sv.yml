@@ -12,6 +12,7 @@ sv:
   save: Spara
   search: Sök
   tools: Verktyg
+  title: Titel
   filter: Filtrera
   links: Länkar
   log_in: Logga In
@@ -46,6 +47,7 @@ sv:
       manage_pages: Hantera sidor
       manage_tags: Hantera taggar
       manage_users: Hantera användare
+      site_settings: Sidinställningar
       new_post: Skapa nyhet
       twitter_link: Visa Teknologkårens twitter
 

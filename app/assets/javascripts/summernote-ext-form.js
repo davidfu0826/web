@@ -17,7 +17,7 @@
   var dom = $.summernote.core.dom;
 
   /**
-   * createVideoNode
+   * createFormNode
    *
    * @param {String} url
    * @return {Node}

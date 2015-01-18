@@ -1,28 +1,17 @@
 <div class="footer">
   <div class="container">
       <ul>
-        <li>
-          <p><%= t('.opening_hours') %></p>
-        </li>
-
-        <li>
-          <p><%= t('.telephone') %></p>
-        </li>
-
-        <li>
-          <p><%= t('.email') %></p>
-        </li>
-
-        <li>
-          <p>
+        <li><p><%= t('.opening_hours') %></p></li>
+        <li><p><%= t('.telephone') %></p></li>
+        <li><p><%= t('.email') %></p></li>
+        <li><p>
           <% if current_user %>
             <%= current_user.email %>
             <%= link_to t(:log_out), destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to t(:log_in),  new_user_session_path unless current_user %>
           <% end %>
-          </p>
-        </li>
+        </p></li>
       </ul>
   </div>
 </div>

@@ -1,13 +1,26 @@
-<%= bootstrap_form_tag url: settings_path do |f| %>
-  <%= f.text_area :lead_sv, value: @index_leads[:sv] %>
-  <%= f.text_area :lead_en, value: @index_leads[:en] %>
+<%= bootstrap_form_tag url: settings_path do |form| %>
+  <%= form.fields_for :settings do |f| %>
+    <h3><%= t('.lead') %></h3>
+    <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv], label: t('locales.swedish') %>
+    <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en], label: t('locales.english') %>
 
-  <%= f.fields_for :links do |link_form| %>
-    <%= link_form.text_field :title %>
-    <%= link_form.text_field :url %>
-    <%#= link_form.link_to_remove %>
+    <h3><%= t('.sidebar_links') %></h3>
+    <div id="sidebar-link-forms" data-count="<%= @settings[:sidebar_links].count %>">
+      <% @settings[:sidebar_links].each_with_index do |link, index| %>
+        <div id="link-row-<%= index %>" class="row">
+          <div class="col-md-4">
+            <%= f.text_field "sidebar_links[#{index}][title]", value: link[:title], label: t('title') %>
+          </div>
+          <div class="col-md-6">
+            <%= f.text_field "sidebar_links[#{index}][url]", value: link[:url], label: 'URL' %>
+          </div>
+          <div class="col-md-2" style="margin-top: 35px;">
+            <%= link_to "Remove", '#', class: 'remove_link_field', 'data-field' => index %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-  <%#= f.link_to_add %>
-
-  <%= f.submit %>
+  <%= link_to "Add", '#', id: 'add_link_field' %>
+  <%= form.submit %>
 <% end %>

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013153952) do
+ActiveRecord::Schema.define(version: 20150118181744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "contact_forms", force: true do |t|
+  create_table "contact_forms", force: :cascade do |t|
     t.integer  "page_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141013153952) do
     t.string   "title"
   end
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "title_sv"
     t.string   "description_sv"
     t.datetime "start_time"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141013153952) do
 
   add_index "events", ["event_group_id"], name: "index_events_on_event_group_id", using: :btree
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "image_uid"
     t.string   "image_name"
     t.datetime "created_at"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20141013153952) do
     t.string   "title"
   end
 
-  create_table "nav_items", force: true do |t|
+  create_table "nav_items", force: :cascade do |t|
     t.string   "title_sv"
     t.integer  "page_id"
     t.integer  "parent_id"
@@ -54,9 +54,11 @@ ActiveRecord::Schema.define(version: 20141013153952) do
     t.datetime "updated_at"
     t.string   "title_en"
     t.integer  "position"
+    t.integer  "nav_item_type",             default: 0, null: false
+    t.string   "link"
   end
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "title_sv"
     t.text     "content_sv"
     t.string   "slug"
@@ -71,14 +73,14 @@ ActiveRecord::Schema.define(version: 20141013153952) do
   add_index "pages", ["image_id"], name: "index_pages_on_image_id", using: :btree
   add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
-  create_table "pages_users", force: true do |t|
+  create_table "pages_users", force: :cascade do |t|
     t.integer  "page_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title_sv"
     t.text     "content_sv"
     t.datetime "created_at"
@@ -90,15 +92,15 @@ ActiveRecord::Schema.define(version: 20141013153952) do
 
   add_index "posts", ["image_id"], name: "index_posts_on_image_id", using: :btree
 
-  create_table "questions", force: true do |t|
+  create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.integer  "contact_form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "settings", force: true do |t|
-    t.string   "var",                   null: false
+  create_table "settings", force: :cascade do |t|
+    t.string   "var", null: false
     t.text     "value"
     t.integer  "thing_id"
     t.string   "thing_type", limit: 30
@@ -108,7 +110,7 @@ ActiveRecord::Schema.define(version: 20141013153952) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "taggable_id"
     t.string   "taggable_type"
     t.integer  "tag_id"
@@ -116,22 +118,22 @@ ActiveRecord::Schema.define(version: 20141013153952) do
     t.datetime "updated_at"
   end
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email", default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
