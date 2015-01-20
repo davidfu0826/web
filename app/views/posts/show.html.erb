@@ -23,12 +23,14 @@
 </div>
 
 <% if @post.content(fallback: false).present? %>
-  <%= process_into_html(@post.content) %>
+  <%#= process_into_html(@post.content) %>
+  <%= raw @post.content %>
 <% else %>
   <div class="alert alert-warning" role="alert">
     <%= t('.no_content') %>
   </div>
-  <%= process_into_html(@post.content) %>
+  <%#= process_into_html(@post.content) %>
+  <%= raw @post.content %>
 <% end %>
 
 <% if can? :edit, @post %>

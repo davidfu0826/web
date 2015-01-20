@@ -10,12 +10,12 @@ showImageLibraryDialog = ->
   $imageDialog.one("shown.bs.modal", ->
     $imageDialog.on "image_uploaded", null, (event) ->
       $imageDialog.modal "hide"
-      $('#_image_id').attr('value', event.image_id)
+      $('[id*="image_id"]').attr('value', event.image_id)
       $('#preview-image').attr('src', event.image_source)
 
     $("#insert-image").click (event) ->
       event.preventDefault()
-      $('#page_image_id').attr('value',
+      $('[id*="image_id"]').attr('value',
         $(".img-selected").data("image-id"))
       $('#preview-image').attr('src',
         $(".img-selected").data("image-source"))

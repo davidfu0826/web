@@ -2,11 +2,8 @@
   <div class="post">
     <div class="media">
       <div class="pull-left">
-        <% if post.image.present? %>
-          <%= image_tag post.image.image.thumb('300x300#').url %>
-        <% else %>
-          <%= image_tag "blue_mark.svg" %>
-        <% end %>
+        <% image_url = post.image.present? ? post.image.image.thumb('300x300#').url : "blue_mark.svg" %>
+        <%= image_tag image_url %>
         <% first_tag = post.tags.first %>
         <% if first_tag.present? %>
           <div class="tag">
@@ -17,7 +14,7 @@
       </div>
       <div class="media-body">
         <div class="media-heading">
-          <h2><%= post.title %></h2>
+          <h2 class="post-title"><%= link_to post.title, post %></h2>
           <p class="published-date">
             <%= t('.published') %>
             <%= l(post.created_at, format: :short)  %>
@@ -27,10 +24,11 @@
             <% end %>
           </p>
         </div>
-        <p><%= news_html truncate(post.content, length: 250) %></p>
+        <p><%= truncate(post.first_paragraph, length: 250) %></p>
         <div class="post-tools">
           <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
-          <%= link_to t(:destroy), post_path(post), method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
+          <%= link_to t(:destroy), post_path(post),
+            method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
           <div class="pull-right">
             <%= link_to t(:read_more), post_path(post, archive: @archive) %>
           </div>

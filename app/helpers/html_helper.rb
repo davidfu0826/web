@@ -16,12 +16,12 @@ module HtmlHelper
 
   def news_html content
     auto_html content do
-      sanitize
-      strip_image_tags
-      redcarpet
-      indentation
-      simple_format
       first_paragraph
+      #sanitize
+      #strip_image_tags
+      #redcarpet
+      #indentation
+      #simple_format
     end
   end
 end

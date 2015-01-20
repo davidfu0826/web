@@ -18,15 +18,16 @@
 
 .post {
   padding-right: 50px;
-  height: 230px;
-  overflow: hidden;
-
-  .pull-left {
-    margin-right: 20px;
-  }
+  min-height: 230px;
 
   h2 {
     margin-bottom: 5px;
+  }
+
+  img {
+    height: 180px;
+    width: 180px;
+    margin-top: 22px;
   }
 
   .published-date {
@@ -53,6 +54,12 @@
       padding-left: 30px;
     }
   }
+
+  .post-tools a {
+    font-style: italic;
+    color: $light-gray;
+  }
+
 }
 
 .post-links {

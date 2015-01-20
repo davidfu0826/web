@@ -33,6 +33,10 @@ class Post < ActiveRecord::Base
     process_into_html self.content
   end
 
+  def first_paragraph
+    content.match(/<p>([^<]+)<\/p>/)[1]
+  end
+
   def to_param
     [id, '-' ,title_en.parameterize].join
   end
