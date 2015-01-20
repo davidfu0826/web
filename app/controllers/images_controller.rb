@@ -11,8 +11,9 @@ class ImagesController < ApplicationController
   end
 
   def create
+    @image = Image.create_with_tags(image_params, params[:image][:tags])
     respond_to do |format|
-      if @image.save
+      unless @image.new_record?
         format.html { redirect_to images_path, notice: t('.success') }
         format.js   { render action: 'upload_success' }
       else
@@ -27,7 +28,7 @@ class ImagesController < ApplicationController
   end
 
   def update
-    if @image.update(image_params)
+    if @image.update_with_tags(image_params, params[:image][:tags])
       redirect_to images_path
     else
       load_tags
@@ -47,7 +48,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image, :title, tag_ids: [])
+    params.require(:image).permit(:image, :title)
   end
 
   def filtering_params

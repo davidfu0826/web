@@ -1,9 +1,9 @@
+<% @image ||= Image.new %>
+<% @tags ||= Tag.all %>
 <%= bootstrap_form_for @image, layout: :horizontal, remote: remote do |f| %>
-  <%= f.file_field :image if @image.new_record? %>
-
   <%= f.text_field :title %>
-
-  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') }, { class: 'select2', multiple: true } %>
+  <%= f.file_field :image if @image.new_record? %>
+  <%= f.text_field :tags, label: t('shared.tags'), class: 'tag_select', value: @image.tags.all.to_a.join(",") %>
 
   <%= f.submit %>
 <% end %>

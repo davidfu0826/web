@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   include Filterable
+  include Tagable
 
   before_validation(on: [:create, :update]) do
     taggings.each do |t|
@@ -34,4 +35,5 @@ class Image < ActiveRecord::Base
       image_uid.split('/').last
     end
   end
+
 end

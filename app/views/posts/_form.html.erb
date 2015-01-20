@@ -2,7 +2,7 @@
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
-  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') } , { class: 'select2', multiple: true } %>
+  <%= f.text_field :tags, label: t('shared.tags'), class: 'tag_select', value: @post.tags.all.to_a.join(",") %>
 
   <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>
     <div class="col-sm-3">

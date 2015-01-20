@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   include Filterable
+  include Tagable
 
   validates :title_sv, presence: true
   validates :title_en, presence: true

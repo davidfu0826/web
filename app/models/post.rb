@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   include HtmlHelper
   include Filterable
+  include Tagable
 
   validates :title_sv, presence: true
   validates :title_en, presence: true

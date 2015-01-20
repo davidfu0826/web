@@ -55,6 +55,8 @@ $(document).on "page:change", ->
       ['help', ['help']]
     ]
 
+
+  tag_data = select2_tags()
   # Used in image modal
   $(".img-select").click (event) ->
     $(event.currentTarget).toggleClass('img-selected')
@@ -62,6 +64,22 @@ $(document).on "page:change", ->
     $("[type='file']").fileinput
       showUpload: false,
       showRemove: false
+    select2_tags()
+
+select2_tags =  ->
+  # Inserting tags
+  tag_data = []
+  $(".tag_select").select2
+    placeholder: "Search for or input a new tag"
+    tags: ->
+      if tag_data.length == 0
+        $.ajax(url: "/tags.json").done (data) ->
+          tag_data = $.map(data, (tag) ->
+            tag.title
+        )
+      else
+        tag_data
+    tokenSeparators: [",", " "]
 
 remove_link_field = ->
   $(event.currentTarget).parent().parent().remove()
@@ -70,7 +88,6 @@ remove_link_field = ->
 post_nav_item_order = ->
   data = $('.dd').nestable 'serialize'
   json_data = JSON.stringify(data)
-  console.log json_data
   $.ajax
     type: "POST",
     url: "/nav_items/update_order",

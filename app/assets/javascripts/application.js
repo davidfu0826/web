@@ -31,4 +31,5 @@ $(document).on("page:change", function() {
   $("#twitter-feed").load("/tweets");
   $('.select2').select2();
   $('.dd').nestable({maxDepth: 2});
+  $('.dd').nestable('collapseAll');
 });

@@ -30,7 +30,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    if @event.save
+    @event = Event.create_with_tags(event_params, params[:event][:tags])
+    unless @event.new_record?
       redirect_to event_path(@event)
     else
       load_tags
@@ -42,7 +43,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(event_params)
+    if @event.update_with_tags(event_params, params[:event][:tags])
       redirect_to event_path(@event)
     else
       load_tags
@@ -83,7 +84,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time, tag_ids: [])
+    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time)
   end
 
   def filtering_params

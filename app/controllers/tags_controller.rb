@@ -2,6 +2,10 @@ class TagsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    respond_to do |format|
+      format.html
+      format.json { render json: @tags.to_json(only: [:id, :title]) }
+    end
   end
 
   def new

@@ -9,4 +9,8 @@ class Tag < ActiveRecord::Base
   scope :has_posts,  -> { where( "posts_count > 0"  ) }
   scope :has_images, -> { where( "images_count > 0" ) }
   scope :has_event,  -> { where( "events_count > 0" ) }
+
+  def to_s
+    title
+  end
 end

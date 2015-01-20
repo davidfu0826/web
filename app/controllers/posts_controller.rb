@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    if @post.save
+    @post = Post.create_with_tags(post_params, params[:post][:tags])
+    unless @event.new_record?
       redirect_to root_path
     else
       load_tags
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    if @post.update_with_tags(post_params, params[:post][:tags])
       redirect_to @post
     else
       load_tags
