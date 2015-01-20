@@ -36,7 +36,6 @@ gem 'dragonfly-s3_data_store'
 gem 'twitter'
 gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
-gem 'nokogiri'
 gem 'rails-settings-cached', '0.4.1'
 gem 'remotipart', '~> 1.2'
 gem 'kaminari'

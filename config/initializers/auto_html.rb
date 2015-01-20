@@ -47,7 +47,3 @@ AutoHtml.add_filter(:image_caption) do |text|
     %{<figure>#{match}<figcaption>#{desc}</figcaption></figure>}
   end
 end
-
-AutoHtml.add_filter(:first_paragraph) do |text|
-  Nokogiri::HTML.parse(text).css('p').children.first.text
-end

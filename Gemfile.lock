@@ -368,7 +368,6 @@ DEPENDENCIES
   meta_request
   momentjs-rails (>= 2.5.0)
   nested_form
-  nokogiri
   pagedown-bootstrap-rails
   pg
   puma
