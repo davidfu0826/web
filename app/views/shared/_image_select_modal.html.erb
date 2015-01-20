@@ -29,7 +29,17 @@
 
           <div class="modal-footer">
             <div class="pull-left">
-              <%= render 'images/image_search_footer' %>
+              <!-- Image search footer -->
+              <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |sf| %>
+                  <%= sf.collection_select :tag, @tags, :id, :title,
+                    { include_blank: true, hide_label: true },
+                    { class: "large-select select2"} %>
+                  <%= sf.text_field :search, hide_label: true %>
+
+                  <%= sf.submit 'Search', icon: 'search' do %>
+                    <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+              <% end %>
             </div>
             <div class="pull-right">
               <button id="insert-image" type="button" class="btn btn-primary pull-right">

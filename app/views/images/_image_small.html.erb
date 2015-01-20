@@ -1,0 +1,13 @@
+<div class="photo photo-small">
+  <%= content_tag(:div, class: 'img img-select',
+      data: {'image-source' => image.image.url, 'image-id' => image.id}) do %>
+    <%= image_tag image.image.thumb('300x300#').url %>
+    <div class="overlay">
+      <div class="links">
+        <%= link_to '#' do %>
+          <i class="glyphicon glyphicon-ok"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
