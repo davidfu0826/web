@@ -1,8 +1,3 @@
-<% if @post.image %>
-  <div class="col-sm-12">
-    <%= image_tag @post.image.image.url, class: "post-image" %>
-  </div>
-<% end %>
 <div class="page-header">
   <h1><%= @post.title %></h1>
   <div class="lead">
@@ -14,32 +9,25 @@
         <%= l(@post.updated_at, format: :short)  %>
       <% end %>
     </p>
-    <% if @archive %>
-      <%= link_to t(:back), archive_posts_path %>
-    <% else %>
-      <%= link_to t(:back), posts_path %>
-    <% end %>
+    <%= link_to t(:back), (@archive ? archive_posts_path : posts_path) %>
   </div>
 </div>
 
-<% if @post.content(fallback: false).present? %>
-  <%#= process_into_html(@post.content) %>
-  <%= raw @post.content %>
-<% else %>
+<% if @post.content(fallback: false).blank? %>
   <div class="alert alert-warning" role="alert">
     <%= t('.no_content') %>
   </div>
-  <%#= process_into_html(@post.content) %>
-  <%= raw @post.content %>
 <% end %>
+<%= raw @post.content %>
 
 <% if can? :edit, @post %>
   <% content_for :sidebar do %>
     <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-        <ul>
-          <li><%= link_to t('.edit_post'), edit_post_path(@post) %></li>
-        </ul>
+      <h3>
+        <%= t(:tools) %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
+      </h3>
+      <ul><li><%= link_to t('.edit_post'), edit_post_path(@post) %></li></ul>
     </div>
   <% end %>
 <% end %>
