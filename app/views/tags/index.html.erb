@@ -15,8 +15,8 @@
       <tr>
         <td><%= tag.title %></td>
         <td>
-          <%= link_to t('.show_posts'), archive_posts_path(tag: tag) %>
-          <%= link_to t('.show_images'), images_path(tag: tag) %>
+          <%= tag.posts.any? ? link_to(t('.show_posts'), archive_posts_path(tag: tag)) : t('.no_posts') %>
+          <%= tag.images.any? ? link_to(t('.show_images'), images_path(tag: tag)) : t('.no_images') %>
         </td>
         <td>
           <%= link_to t(:edit), edit_tag_path(tag) if can? :edit, tag %>

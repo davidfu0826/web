@@ -6,10 +6,8 @@
 <%= bootstrap_form_tag url: path, method: 'get', remote: true do |f| %>
   <p>
     <%= f.text_field :search, value: @search, label: t('search')  %>
-    <%= f.collection_select :tag, @tags, :id, :title,
-      { include_blank: true, label: t('filter') }, { class: 'select2'} %>
 
-    <%= f.submit t('filter') %>
+    <%= f.submit t('search') %>
     <%= link_to t('reset'), path %>
   </p>
 <% end %>

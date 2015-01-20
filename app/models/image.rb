@@ -17,8 +17,13 @@ class Image < ActiveRecord::Base
   has_many :posts
   has_many :pages
 
-  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
-  scope :search, -> (string) { where(["lower(image_name) LIKE ?", "%#{string}%"]) }
+  scope :tag,    -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
+  scope :search, -> (search_param) {
+    joins(:tags).where([
+      "lower(image_name) LIKE :search_param OR
+       tags.title        LIKE :search_param",
+       search_param: search_param])
+  }
 
   dragonfly_accessor :image
 
