@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "sitemap.xml" => "application#sitemap", format: :xml, as: :sitemap
-  get "robots.txt" => "application#robots", format: :text, as: :robots
+  get 'sitemap.xml' => 'application#sitemap', format: :xml, as: :sitemap
+  get 'robots.txt' => 'application#robots', format: :text, as: :robots
 
   root 'posts#index'
   devise_for :users
@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   resources :events do
     collection do
-      get 'change_cover'
-      post 'change_cover', to: 'events#change_cover_update', as: 'change_cover_update'
+      get    'change_cover'
+      post   'change_cover', to: 'events#change_cover_update', as: 'change_cover_update'
       delete 'delete_cover'
     end
   end
@@ -39,19 +39,19 @@ Rails.application.routes.draw do
     post :update_order, on: :collection
   end
 
-  get :settings, to: 'settings#edit'
+  get  :settings, to: 'settings#edit'
   post :settings, to: 'settings#update'
 
-  get 'pages', to: 'pages#index'
-  get ':id', to: 'pages#show', as: :page
-  patch ':id', to: 'pages#update'
+  get    'pages', to: 'pages#index'
+  get    ':id', to: 'pages#show', as: :page
+  patch  ':id', to: 'pages#update'
   delete ':id', to: 'pages#destroy'
   resources :pages, except: [:show, :delete, :index], shallow: true do
     get 'markdown_explanation', on: :collection
     member do
-      get 'add_user'
-      post 'add_user', to: 'pages#add_user_update'
-      get 'change_cover'
+      get    'add_user'
+      post   'add_user', to: 'pages#add_user_update'
+      get    'change_cover'
       delete 'delete_cover'
     end
     resources :contact_forms do

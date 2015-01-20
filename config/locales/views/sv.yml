@@ -42,9 +42,10 @@ sv:
       upload_image: Ladda upp ny bild
   pages:
     change_cover:
-      delete_cover: Radera coverbild
-      heading: "Ändra coverbild"
-      select_image: Välj Bild
+      delete_cover: Radera banner
+      heading: "Ändra banner"
+      select_image: Välj banner
+      save_cover: Spara banner
     contacts: Kontaktpersoner
     form:
       meny: Meny
@@ -57,7 +58,7 @@ sv:
     page: Sida
     show:
       add_user: Lägg till användare
-      change_cover: "Ändra coverbild"
+      change_cover: "Ändra banner"
       edit_page: Redigera sida
       no_content: Denna sida finns inte på svenska
   posts:

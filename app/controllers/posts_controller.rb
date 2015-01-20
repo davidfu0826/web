@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :load_tags, only: [:new, :edit, :archive]
-  before_action :load_events, only: :index
+  before_action :load_tags,   only: [:new, :edit, :archive]
   before_action :load_images, only: [:new, :edit]
+  before_action :load_events, only: :index
   load_and_authorize_resource
 
   def index

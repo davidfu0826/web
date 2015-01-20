@@ -45,6 +45,7 @@ en:
       delete_cover: Delete cover
       heading: Edit cover
       select_image: Choose cover
+      save_cover: Save cover
     contacts: Contacts
     index:
       page_management: Page Management

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def index
     @orphan_pages = Page.orphans
-    @nav_items = NavItem.orphans.order("position ASC").includes(:children)
+    @nav_items = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
   end
 
   def show
@@ -76,10 +76,6 @@ class PagesController < ApplicationController
 
   def page_params
     params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :image_id)
-  end
-
-  def nav_params
-    params.require(:page).permit(:create_nav, :parent)
   end
 
   def load_resoures
