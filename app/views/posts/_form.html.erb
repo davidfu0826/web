@@ -2,25 +2,24 @@
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
+  <%= f.collection_select :tag_ids, @tags, :id, :title, { include_blank: true, label: t('shared.tags') } , { class: 'select2', multiple: true } %>
+
   <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>
     <div class="col-sm-3">
       <div id="preview-image-preview">
-        <%= image_tag @post.image.url, id: "preview-image", class: "post-preview-image img-thumbnail" if @post.image.present? %>
-        <%= image_tag "http://placehold.it/160x160", id: "preview-image", class: "post-preview-image img-thumbnail" if @post.image.blank? %>
+        <% image_url = @post.image.present? ? @post.image.url : "http://placehold.it/160x160" %>
+        <%= image_tag image_url, id: "preview-image", class: "post-preview-image img-thumbnail" %>
       </div>
       <%= f.hidden_field :image_id %>
     </div>
 
     <div class="col-sm-3">
-      <%= button_tag t('.select_image'), type: :button, class: "btn btn-default", id: "image-button" %>
+      <%= link_to t('.select_image'), '#', class: "btn btn-default", id: "image-button" %>
     </div>
   <% end %>
 
-  <%= render 'shared/pagedown_content', resource: @post, f: f %>
 
-  <%= f.collection_select :tag_ids, @tags, :id, :title,
-    { include_blank: true, label: t('shared.tags') },
-    { class: 'select2', multiple: true } %>
+  <%= render 'shared/shared_fields', resource: @post, f: f %>
 
   <%= f.submit %>
 <% end %>
