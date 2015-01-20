@@ -35,7 +35,8 @@ class Post < ActiveRecord::Base
   end
 
   def first_paragraph
-    content.match(/<p>([^<]+)<\/p>/)[1]
+    match = content.match(/<p>([^<]+)<\/p>/)
+    match.present? ? match[1] : ''
   end
 
   def to_param
