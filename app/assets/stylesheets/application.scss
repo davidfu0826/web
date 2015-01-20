@@ -9,7 +9,6 @@
 @import "bootstrap-datetimepicker";
 @import "pagedown_bootstrap";
 @import "summernote";
-@import "summernote-bs3";
 @import "summernote-modifications";
 @import "codemirror";
 @import "codemirror/themes/solarized";
@@ -48,6 +47,7 @@
   margin-top: 50px;
   overflow: hidden;
   position: relative;
+  max-height: 380px;
 
   #logo {
     position: absolute;
@@ -57,7 +57,7 @@
     bottom: 0;
     right: 0;
     width: 35%;
-    max-width: 780px;
+    max-width: 500px;
     z-index: 1;
   }
 
@@ -248,4 +248,8 @@ figcaption {
   font-size: 15px;
   font-style: italic;
   color: $light-gray;
+}
+
+.page-header {
+  margin-top: 0px;
 }

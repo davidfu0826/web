@@ -46,11 +46,9 @@ module ApplicationHelper
   end
 
   def get_cover_image_url
-    if @events_cover.present?
-      @events_cover.take.url
-    elsif @page.present? && @page.image.present?
+    if @page.present? && @page.image.present?
       @page.image.url
-    else
+    elsif controller.controller_name == 'posts' && controller.action_name == 'index'
       'cover.jpg'
     end
   end
