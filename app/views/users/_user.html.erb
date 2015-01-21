@@ -15,11 +15,10 @@
     <% if can? :edit, @page %>
       <%= link_to t('.remove_contact'), remove_user_page_path(@page, user_id: user.id), method: :delete %>
     <% end %>
-    |
     <% if contact_form.blank? && can?(:edit, @page) %>
-      <%= link_to t('.add_contact_form'), new_page_contact_form_path(@page, user: user.id) %>
+      | <%= link_to t('.add_contact_form'), new_page_contact_form_path(@page, user: user.id) %>
     <% elsif can?(:edit, contact_form) %>
-      <%= link_to t('.edit_contact_form'), edit_contact_form_path(contact_form, user: user.id) %>
+      | <%= link_to t('.edit_contact_form'), edit_contact_form_path(contact_form, user: user.id) %>
     <% end %>
   </p>
 </div>

@@ -15,7 +15,7 @@ class Ability
       can :manage, [Event]
     end
 
-    if User.exists?(user)
+    if User.exists?(user.id)
       can [:update, :destroy], user
       can :manage, user.contact_forms
       can :create, ContactForm
