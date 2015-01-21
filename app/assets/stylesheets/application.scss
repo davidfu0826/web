@@ -216,3 +216,24 @@
   margin-right: auto;
 }
 
+.center-pills {
+  text-align: center;
+  .nav-pills {
+    display: inline-block;
+  }
+}
+
+#insertImageModal .modal-header {
+  text-align: center;
+  #image-modal-tabs {
+    display: inline-block;
+  }
+}
+
+.select2-choice, .select2-choices, .select2-drop, .select2-search > input {
+  border-radius: 0 !important;
+}
+
+.post-text-fields input {
+  margin-bottom: 11px;
+}

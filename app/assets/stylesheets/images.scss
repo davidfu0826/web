@@ -5,7 +5,7 @@
   &.photo-small {
     margin-bottom: 7px;
     display: inline-block;
-    width: 100px;
+    width: 138px;
 
     .overlay a {
       margin-right: 0px !important;
@@ -22,6 +22,12 @@
 
     &:hover, &.img-selected {
       .overlay  { opacity: 0.8; }
+    }
+    .img-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 22px;
+      width: 138px;
     }
   }
 
@@ -45,7 +51,7 @@
 
   .img-selected .overlay .links {
     visibility: visible;
-    margin-top: 25%;
+    margin-top: 33%;
     top: 50%;
     text-align: center;
     transition: margin-top 100ms ease-in-out;
@@ -69,10 +75,26 @@
 }
 
 .img-library {
-  display: inline;
+
+  margin: 3px;
+  margin-bottom: 6px;
   .img-thumbnail {
     height: 160px;
     margin: 5px;
+  }
+  img {
+    height: 160px;
+  }
+  position: relative;
+  .img-title {
+    position: absolute;
+    width: 160px;
+    bottom: 0px;
+    text-align: center;
+    background: white;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

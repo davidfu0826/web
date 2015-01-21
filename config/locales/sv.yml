@@ -27,7 +27,6 @@ sv:
       create: Skapa %{model}
       image:
         create: Ladda upp %{model}
-        update: Spara taggar för %{model}
       submit: Spara %{model}
       update: Uppdatera %{model}
 

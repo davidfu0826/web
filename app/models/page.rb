@@ -1,6 +1,4 @@
 class Page < ActiveRecord::Base
-  include HtmlHelper
-
   validates :title_sv, presence: true, character: true
   validates :title_en, presence: true, character: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
@@ -31,7 +29,6 @@ class Page < ActiveRecord::Base
   def to_param
     slug
   end
-
 
   private
 

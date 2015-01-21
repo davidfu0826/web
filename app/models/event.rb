@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :title_en, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validate :end_time_after_start_time
+  validate  :end_time_after_start_time
 
   before_validation(on: [:create, :update]) do
     taggings.each do |t|
@@ -17,10 +17,11 @@ class Event < ActiveRecord::Base
   has_many :tags, through: :taggings
   scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
   scope :search, -> (search) {
-    where([
-    "lower(title_sv) LIKE ? OR
-     lower(title_en) LIKE ?",
-    "%#{search}%", "%#{search}%"
+    joins(:tags).where([
+    "lower(title_sv) LIKE :search_param OR
+     lower(title_en) LIKE :search_param OR
+     tags.title LIKE :search_param",
+    search_param: search
     ])
   }
 

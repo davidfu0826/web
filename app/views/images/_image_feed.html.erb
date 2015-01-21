@@ -7,7 +7,7 @@
   <ul class="unstyled-list">
     <% @images.each do |image| %>
       <% if image.image_stored? %>
-        <li class="img-library">
+        <li class="img-library img-thumbnail">
           <%= image_link image %>
         </li>
       <% end %>

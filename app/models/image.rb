@@ -10,7 +10,6 @@ class Image < ActiveRecord::Base
   validates :image, presence: true
   validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
                    message: I18n.t('errors.messages.image_format'), if: :image_changed?
-  delegate :url, to: :image
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
@@ -23,10 +22,12 @@ class Image < ActiveRecord::Base
     joins(:tags).where([
       "lower(image_name) LIKE :search_param OR
        tags.title        LIKE :search_param",
-       search_param: search_param])
+       search_param: search_param
+    ])
   }
 
   dragonfly_accessor :image
+  delegate :url, to: :image
 
   def title
     if self[:title].present?

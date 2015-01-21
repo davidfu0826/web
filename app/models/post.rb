@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  include HtmlHelper
   include Filterable
   include Tagable
 
@@ -26,14 +25,10 @@ class Post < ActiveRecord::Base
      lower(title_en)   LIKE :search_param OR
      lower(content_sv) LIKE :search_param OR
      lower(content_sv) LIKE :search_param OR
-     tags.title LIKE :search_param
-     ", search_param: search
+     tags.title        LIKE :search_param",
+    search_param: search
     ])
   }
-
-  def content_html
-    process_into_html self.content
-  end
 
   def first_paragraph
     match = content.match(/<p>([^<]+)<\/p>/)

@@ -31,9 +31,9 @@ module ApplicationHelper
   end
 
   def image_link(image)
-    edit_button   = "<a class='btn btn-default' href='/images/#{image.id}/edit'>#{t(:edit)}</a>"
-    delete_button = "<a class='btn btn-danger' data-method='delete' href='/images/#{image.id}' rel='nofollow'>#{t(:destroy)}</a>"
-    link_to image.image.url,
+    edit_button   = "<a href='/images/#{image.id}/edit' class='btn btn-default'>#{t(:edit)}</a>"
+    delete_button = "<a href='/images/#{image.id}' class='btn btn-danger' data-method='delete' rel='nofollow'>#{t(:destroy)}</a>"
+    link_to image.url,
       data: {
         toggle: "lightbox",
         gallery: "images",
@@ -41,7 +41,8 @@ module ApplicationHelper
         title: image.title,
         footer: (edit_button + delete_button)
       } do
-        image_tag image.image.thumb('300x300#').url, class: "img-responsive img-thumbnail"
+        (image_tag image.image.thumb('300x300#').url) +
+        content_tag(:div, image.title, class: 'img-title')
     end
   end
 
