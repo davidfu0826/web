@@ -72,6 +72,11 @@
 .sidebar {
   border-left: 2px solid #eee;
 
+  @media (min-width: $screen-md-min) {
+    position: fixed;
+    right: 0;
+  }
+
   ul {
     list-style-type: none;
     padding-left: 0;
