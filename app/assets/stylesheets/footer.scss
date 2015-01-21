@@ -1,6 +1,6 @@
 /*  -- FOOTER --  */
 .footer {
-  padding-top: 30px;
+  padding-top: 20px;
   padding-bottom: 40px;
   ul {
     width: 100%;
@@ -28,14 +28,11 @@
 
 .guilds {
   padding-top: 30px;
-  margin-bottom: 51px;
-
   border-top: 2px solid #eee;
 
   font-family: guilds;
   font-size: 48px;
   text-align: center;
-  height: 32px;
 
   a {
     color: #555555;
@@ -49,7 +46,7 @@
   #dokt {
     height: 32px;
 
-     /* Fix Safari disagreeing about the middle */
+    /* Fix Safari disagreeing about the middle */
     vertical-align: baseline;
   }
 }
