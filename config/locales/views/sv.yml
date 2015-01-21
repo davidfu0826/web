@@ -6,7 +6,10 @@ sv:
       select_image: Välj Bild
     event_calendar:
       week: Vecka %{week}
+      l_week: (L.V %{week})
       no_events: Inga Event
+      next_month: Nästa månad
+      previous_month: Föregående månad
     index:
       change_cover: "Ändra coverbild"
       new_event: Nytt Event
@@ -14,6 +17,7 @@ sv:
       reset: "Återställ"
       search: Gruppera
       webcal: Prenumerera på iCal
+      event: Event
     show:
       date: Datum
       desc: Beskrivning

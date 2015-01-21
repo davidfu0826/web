@@ -63,4 +63,18 @@ module ApplicationHelper
       nav_item.title
     end
   end
+
+  def study_week(week)
+    if week.between?    36, 44 #LP 1
+      week - 35
+    elsif week.between? 45, 51 #LP 2
+      week - 44
+    elsif week.between? 4,  12 #LP 3
+      week - 3
+    elsif week.between? 13, 24 #LP 4
+      week - 12
+    else
+      false
+    end
+  end
 end
