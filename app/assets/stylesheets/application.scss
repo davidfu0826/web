@@ -2,7 +2,7 @@
 @import "pages";
 @import "events";
 @import "posts";
-@import "guilds";
+@import "footer";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -144,28 +144,6 @@
       display: inline;
       height: 40px;
     }
-  }
-}
-
-/*  -- FOOTER --  */
-.footer {
-  padding-top: 50px;
-  padding-bottom: 40px;
-  ul {
-    width: 100%;
-    padding-left: 0;
-    display: table;
-    list-style-type: none;
-    text-align:center;
-
-    li {
-      display: table-cell;
-    }
-  }
-
-  p {
-    font-size: 14px;
-    text-align: center;
   }
 }
 

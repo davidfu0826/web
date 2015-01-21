@@ -1,9 +1,37 @@
+/*  -- FOOTER --  */
+.footer {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  ul {
+    width: 100%;
+    padding-left: 0;
+    display: table;
+    list-style-type: none;
+    text-align:center;
+
+    li {
+      display: table-cell;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/*  -- GUILDS --  */
 @font-face {
   font-family: guilds;
   src: url(asset_path('LTH-SEKTIONSSYMBOLER_2011.TTF'));
 }
 
 .guilds {
+  padding-top: 30px;
+  margin-bottom: 51px;
+
+  border-top: 2px solid #eee;
+
   font-family: guilds;
   font-size: 48px;
   text-align: center;
