@@ -236,8 +236,6 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
-    pagedown-bootstrap-rails (2.1.0)
-      railties (> 3.1)
     pg (0.18.1)
     puma (2.10.2)
       rack (>= 1.1, < 2.0)
@@ -368,7 +366,6 @@ DEPENDENCIES
   meta_request
   momentjs-rails (>= 2.5.0)
   nested_form
-  pagedown-bootstrap-rails
   pg
   puma
   rack-cache
@@ -377,7 +374,6 @@ DEPENDENCIES
   rails_12factor
   rails_bootstrap_navbar
   rails_stdout_logging
-  redcarpet
   remotipart (~> 1.2)
   sass-rails (~> 4.0.3)
   select2-rails

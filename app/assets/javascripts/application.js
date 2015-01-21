@@ -11,7 +11,6 @@
 //= require select2
 //= require select2_locale_sv
 //= require jquery_nested_form
-//= require pagedown_bootstrap
 //= require jquery.minicolors
 //= require fileinput
 //= require codemirror

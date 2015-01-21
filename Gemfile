@@ -18,37 +18,35 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap_form'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
-gem 'pagedown-bootstrap-rails'
-gem 'rails_bootstrap_navbar'
-gem 'font-awesome-rails' # Used by pagedown-bootstrap
 gem 'momentjs-rails', '>= 2.5.0' #Required for datetimepicker
+gem 'rails_bootstrap_navbar'
+gem 'font-awesome-rails' # Used by summernote
 gem 'select2-rails'
 gem 'auto_html'
-gem 'redcarpet'
 gem 'jquery-minicolors-rails'
 gem 'http_accept_language' #Auto set locale
 gem 'traco' #Localization
 gem 'nested_form'
-gem 'icalendar'
+gem 'icalendar' # Export i ics calendar files
 gem 'acts_as_list'
 gem 'dragonfly', "~>1.0.5" #Image Uploading
-gem 'dragonfly-s3_data_store'
+gem 'dragonfly-s3_data_store' # Store images on s3
 gem 'twitter'
 gem 'dynamic_sitemaps'
 gem 'whenever', :require => false #Automatically generate sitemaps
 gem 'rails-settings-cached', '0.4.1'
 gem 'remotipart', '~> 1.2'
-gem 'kaminari'
+gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
-gem 'codemirror-rails'
+gem 'codemirror-rails' # Used by summernote for displaying html
 
 group :development do
   gem 'spring'
   gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
+  gem 'binding_of_caller' #Used by better errors to provide REPL
+  gem 'meta_request' # Used by chrome plugin railspanel to show request info
   gem 'faker'
-  gem 'bullet'
+  gem 'bullet' # Display N+1 problems
 end
 
 group :production do
