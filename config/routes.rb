@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   devise_for :users
-  resources :users, except: :show
+  resources  :users, except: :show
 
   concern :paginatable do
     get '(page/:page)', :action => :index, :on => :collection, :as => ''
@@ -43,14 +43,15 @@ Rails.application.routes.draw do
   post :settings, to: 'settings#update'
 
   get    'pages', to: 'pages#index'
-  get    ':id', to: 'pages#show', as: :page
-  patch  ':id', to: 'pages#update'
-  delete ':id', to: 'pages#destroy'
+  get    ':id',   to: 'pages#show', as: :page
+  patch  ':id',   to: 'pages#update'
+  delete ':id',   to: 'pages#destroy'
   resources :pages, except: [:show, :delete, :index], shallow: true do
     get 'markdown_explanation', on: :collection
     member do
       get    'add_user'
-      post   'add_user', to: 'pages#add_user_update'
+      post   'add_user',    action: :add_user_update
+      delete 'remove_user', action: :remove_user
       get    'change_cover'
       delete 'delete_cover'
     end

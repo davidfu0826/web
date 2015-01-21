@@ -1,4 +1,4 @@
 <%= bootstrap_form_tag url: add_user_page_path do |f| %>
-  <%= f.collection_select :user_id, @users, :id, :email %>
-  <%= f.submit %>
+  <%= f.collection_select :user_id, @users, :id, :name_with_email, {label: t('.contact')}, class: 'select2' %>
+  <%= f.submit t('.add_contact') %>
 <% end %>

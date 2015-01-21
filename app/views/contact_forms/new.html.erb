@@ -2,10 +2,11 @@
   <%= f.text_field :title %>
 
   <%= f.fields_for :questions %>
-  <p><%= f.link_to_add t('.add_question'), :questions %></p>
+  <p>
+    <%= f.link_to_add t('.add_question'), :questions %>
+  </p>
 
   <%= f.hidden_field :page_id, value: @page.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
-
   <%= f.submit %>
 <% end %>

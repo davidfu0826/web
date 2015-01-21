@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
     self.save(validate: false)
     UserMailer.password_reset(self, raw).deliver
   end
+
+  def name_with_email
+    "#{name} - #{email}"
+  end
 end

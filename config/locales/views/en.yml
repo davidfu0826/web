@@ -41,6 +41,9 @@ en:
     new:
       upload_image: Upload new image
   pages:
+    add_user:
+      contact: Contact
+      add_contact: Add contact
     change_cover:
       delete_cover: Delete cover
       heading: Edit cover
@@ -55,7 +58,7 @@ en:
     new_page: New page
     page: Page
     show:
-      add_user: Add user
+      add_user: Add contact
       change_cover: Change cover
       edit_page: Edit page
       no_content: This page is not available in english
@@ -89,6 +92,7 @@ en:
       add_contact_form: Add contactform
       contact: Contact
       edit_contact_form: Edit contactform
+      remove_contact: Remove contact
   will_paginate:
     next_label: Next
     previous_label: Previous

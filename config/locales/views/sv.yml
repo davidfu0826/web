@@ -41,6 +41,9 @@ sv:
     new:
       upload_image: Ladda upp ny bild
   pages:
+    add_user:
+      contact: Kontaktperson
+      add_contact: Lägg till kontaktperson
     change_cover:
       delete_cover: Radera banner
       heading: "Ändra banner"
@@ -57,7 +60,7 @@ sv:
     new_page: Ny sida
     page: Sida
     show:
-      add_user: Lägg till användare
+      add_user: Lägg till kontaktperson
       change_cover: "Ändra banner"
       edit_page: Redigera sida
       no_content: Denna sida finns inte på svenska
@@ -98,6 +101,7 @@ sv:
       add_contact_form: Lägg till kontaktformulär
       contact: Kontakta
       edit_contact_form: Redigera kontaktformulär
+      remove_contact: Ta bort kontakt
   will_paginate:
     next_label: Nästa
     previous_label: Föregående

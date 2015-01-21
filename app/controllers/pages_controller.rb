@@ -60,6 +60,14 @@ class PagesController < ApplicationController
     end
   end
 
+  def remove_user
+    @user = User.find(params[:user_id])
+    @page.contact_forms.find_by(user: @user).destroy
+    @page.contacts.delete(@user)
+
+    redirect_to @page
+  end
+
   def change_cover
     @cover_image = @page.image
   end

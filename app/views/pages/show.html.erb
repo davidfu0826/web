@@ -3,18 +3,21 @@
 </div>
 
 <% if @page.content(fallback: false).present? %>
-  <%= process_into_html(@page.content) %>
+  <%= raw @page.content %>
 <% else %>
   <div class="alert alert-warning" role="alert">
     <%= t('.no_content') %>
   </div>
-  <%= process_into_html(@page.content) %>
+  <%= raw @page.content %>
 <% end %>
 
 <% content_for :sidebar do %>
   <% if @sidebar_nav_items && @sidebar_nav_items.count > 1 %>
     <div class="row hidden-xs">
-      <h3><%= @page.nav_item.parent.item_title %><span class="pull-right sidebar-glyph glyphicon glyphicon-align-justify"></span></h3>
+      <h3>
+        <%= @page.nav_item.parent.item_title %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-align-justify"></span>
+      </h3>
       <ul>
         <% @sidebar_nav_items.each do |item| %>
           <li><%= link_to item.item_title, item.page %></li>
@@ -25,17 +28,24 @@
 
   <% if can? :update, @page %>
     <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-        <ul>
-          <li><%= link_to t('.add_user'), add_user_page_path(@page) %></li>
-          <li><%= link_to t('.edit_page'), edit_page_path(@page) if can? :edit, @page %></li>
-          <li><%= link_to t('.change_cover'), change_cover_page_path(@page) if can? :edit, @page %></li>
-        </ul>
+      <h3>
+        <%= t(:tools) %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
+      </h3>
+      <ul>
+        <li><%= link_to t('.add_user'), add_user_page_path(@page) %></li>
+        <li><%= link_to t('.edit_page'), edit_page_path(@page) if can? :edit, @page %></li>
+        <li><%= link_to t('.change_cover'), change_cover_page_path(@page) if can? :edit, @page %></li>
+      </ul>
     </div>
   <% end %>
+
   <% if @page.contacts.present? %>
     <div class="row">
-      <h3><%= t('pages.contacts') %><span class="pull-right sidebar-glyph glyphicon glyphicon-user"></span></h3>
+      <h3>
+        <%= t('pages.contacts') %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-user"></span>
+      </h3>
       <%= render @page.contacts %>
     </div>
   <% end %>

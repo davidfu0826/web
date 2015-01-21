@@ -3,10 +3,9 @@ class Page < ActiveRecord::Base
 
   validates :title_sv, presence: true, character: true
   validates :title_en, presence: true, character: true
-  validate :slug_not_reserved_name
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
-  validates_associated :nav_item
+  validate :slug_not_reserved_path
 
   translates :title
   translates :content
@@ -22,44 +21,29 @@ class Page < ActiveRecord::Base
   before_validation do
     self.slug = self.title_en.parameterize
   end
-  after_create do
-    nav_item.save if nav_item
-  end
 
-  def add_nav_item(create:, parent:)
-    if create
-      if parent
-        parent = NavItem.find(parent)
-        nav_item = NavItem.new(page: self, parent: parent)
-      else
-        nav_item = NavItem.new(page: self)
-      end
-    end
-  end
-
-  def change_nav_parent(new_parent:)
-    if new_parent.present?
-      parent = NavItem.find(new_parent)
-      if nav_item
-        nav_item.parent = parent
-      else
-        add_nav_item(create: true, parent: parent)
-        nav_item.save
-      end
-    else
-      nav_item.destroy
-    end
-    save
-  end
-
-  def slug_not_reserved_name
-    reserved_names = %w(users events event_groups posts nav_items pages)
-    if reserved_names.include? slug
+  def slug_not_reserved_path
+    if reserved_paths.include? slug
       errors.add(:slug, I18n.t('errors.slug_reserved'))
     end
   end
 
   def to_param
     slug
+  end
+
+
+  private
+
+  def reserved_paths
+    match_initial_path_segment = Proc.new do |path|
+      if match = %r{^\/([^\/\(:]+)}.match(path)
+        match[1]
+      end
+    end
+
+    routes = Rails.application.routes.routes
+    paths = routes.collect {|r| r.path.spec.to_s }
+    paths.collect {|path| match_initial_path_segment.call(path)}.compact.uniq
   end
 end

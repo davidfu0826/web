@@ -2,7 +2,9 @@
   <%= f.text_field :title %>
 
   <%= f.fields_for :questions %>
-  <p><%= f.link_to_add t('.add_question'), :questions %></p>
+  <p>
+    <%= f.link_to_add t('.add_question'), :questions %>
+  </p>
 
   <%= f.submit %>
 <% end %>
