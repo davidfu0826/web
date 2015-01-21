@@ -10,9 +10,6 @@
     .overlay a {
       margin-right: 0px !important;
     }
-    .img .links { margin-top: 10px; }
-    .img:hover .links { margin-top: 26px; }
-    .img-selected .links { margin-top: 26px; }
   }
 
   .head {
@@ -23,11 +20,7 @@
   .img {
     position: relative;
 
-    &:hover {
-      .overlay  { opacity: 0.8; }
-      .links { margin-top: 40%; }
-    }
-    &.img-selected {
+    &:hover, &.img-selected {
       .overlay  { opacity: 0.8; }
     }
   }
@@ -44,26 +37,59 @@
     width: 100%;
     background: $brand-primary;
     transition: opacity 300ms ease;
-    .links {
-      margin-top: 25%;
-      top: 50%;
-      text-align: center;
-      transition: margin-top 200ms ease-in-out;
+  }
 
-      a {
-        display: inline-block;
-        height: 50px;
-        width: 50px;
-        margin-right: 10px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-      }
+  .overlay .links {
+    visibility: hidden;
+  }
 
-      i {
-        font-size: 20px;
-        color: #FFF;
-        line-height: 2.4;
-      }
+  .img-selected .overlay .links {
+    visibility: visible;
+    margin-top: 25%;
+    top: 50%;
+    text-align: center;
+    transition: margin-top 100ms ease-in-out;
+
+    a {
+      cursor: default;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    i {
+      font-size: 20px;
+      color: #FFF;
+      line-height: 2.4;
     }
   }
 }
+
+.img-library {
+  display: inline;
+  .img-thumbnail {
+    height: 160px;
+    margin: 5px;
+  }
+}
+
+figcaption {
+  font-size: 15px;
+  font-style: italic;
+  color: $light-gray;
+}
+
+/* -- IMAGE SELECT MODAL -- */
+#image-select-body {
+  max-height: 700px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.img-select-active {
+  background-color: $brand-primary;
+}
+

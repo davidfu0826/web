@@ -71,10 +71,30 @@
 /*  -- SIDEBAR --  */
 .sidebar {
   border-left: 2px solid #eee;
+  margin-left: -26px;
+  padding-left: 26px;
 
-  @media (min-width: $screen-md-min) {
-    position: fixed;
-    right: 0;
+  width: 337px;
+  &.affix {
+    /* Affix plugin will try to set position:relative
+       Since we use that for small screens
+     */
+    position: fixed !important;
+    /* Calculating this dynamically with js would
+      make the transition to affixed look better
+      */
+    top: 96px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    &.affix {
+      top: 0;
+    }
+    position: relative;
+    border-left: none;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   ul {
@@ -95,6 +115,7 @@
 
   .row {
     margin-bottom: 5px;
+    margin-left: 8px;
   }
 
   .sidebar-glyph {
@@ -173,10 +194,8 @@
   }
 }
 
-#image-select-body {
-  max-height: 700px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.page-header {
+  margin-top: 0px;
 }
 
 .large-select {
@@ -184,15 +203,6 @@
     height: 36px;
     width: 200px;
   }
-}
-
-.img-select-active {
-  background-color: $brand-primary;
-}
-
-ul.list-no-styling {
-  list-style: none;
-  padding-left: 0px;
 }
 
 .modal-title {
@@ -206,20 +216,3 @@ ul.list-no-styling {
   margin-right: auto;
 }
 
-.img-library {
-  display: inline;
-  .img-thumbnail {
-    height: 160px;
-    margin: 5px;
-  }
-}
-
-figcaption {
-  font-size: 15px;
-  font-style: italic;
-  color: $light-gray;
-}
-
-.page-header {
-  margin-top: 0px;
-}

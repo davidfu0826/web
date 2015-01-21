@@ -33,3 +33,6 @@ $(document).on("page:change", function() {
   $('.dd').nestable({maxDepth: 2});
   $('.dd').nestable('collapseAll');
 });
+
+
+
