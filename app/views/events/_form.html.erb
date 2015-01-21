@@ -2,21 +2,23 @@
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#sv" role="tab" data-toggle="tab">
-      <%= t('locales.sv') %>
-      <% if !@event.new_record? && (@event.description_sv.blank? || @event.title_sv.blank?) %>
-        <span class="glyphicon glyphicon-warning-sign"></span>
-      <% end %>
-    </a></li>
-    <li><a href="#en" role="tab" data-toggle="tab">
-      <%= t('locales.en') %>
-      <% if !@event.new_record? && (@event.description_en.blank? || @event.title_en.blank?) %>
-        <span class="glyphicon glyphicon-warning-sign"></span>
-      <% end %>
-    </a></li>
-  </ul>
+  <div class="center-pills">
+    <!-- Nav tabs -->
+    <ul class="nav nav-pills" role="tablist">
+      <li class="active"><a href="#sv" role="tab" data-toggle="tab">
+        <%= t('locales.sv') %>
+        <% if !@event.new_record? && (@event.description_sv.blank? || @event.title_sv.blank?) %>
+          <span class="glyphicon glyphicon-warning-sign"></span>
+        <% end %>
+      </a></li>
+      <li><a href="#en" role="tab" data-toggle="tab">
+        <%= t('locales.en') %>
+        <% if !@event.new_record? && (@event.description_en.blank? || @event.title_en.blank?) %>
+          <span class="glyphicon glyphicon-warning-sign"></span>
+        <% end %>
+      </a></li>
+    </ul>
+  </div>
 
   <!-- Tab Panes -->
   <div class="tab-content">

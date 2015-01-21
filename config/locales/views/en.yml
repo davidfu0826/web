@@ -41,6 +41,11 @@ en:
       new_image: Upload new image
     new:
       upload_image: Upload new image
+  nav_items:
+    new:
+      create_menu: Create menu
+      select_link: Select link
+      select_page: Select page
   pages:
     add_user:
       contact: Contact
@@ -85,10 +90,25 @@ en:
     posts_feed:
       no_posts: "Could not find any posts :("
       no_posts_lead: Try using another search
+  settings:
+    edit:
+      add_link: Add link
+      remove_link: Remove link
+      lead: Page lead
+      sidebar_links: Sidebar links
+  shared:
+    image_select_modal:
+      images: Images
+    tags: Tags
   users:
     index:
       users: Users
       new_user: Create User
+      name: Name
+      email: Email
+      title: Title
+      role: Role
+      tools: Tools
     user:
       add_contact_form: Add contactform
       contact: Contact
@@ -103,7 +123,6 @@ en:
       show_images: Show images
       show_posts: Show posts
       title: Title
-  shared:
-    image_select_modal:
-      images: Images
-    tags: Tags
+      no_images: Inga bilder
+      no_posts: Inga nyheter
+

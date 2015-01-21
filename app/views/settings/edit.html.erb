@@ -1,8 +1,8 @@
 <%= bootstrap_form_tag url: settings_path do |form| %>
   <%= form.fields_for :settings do |f| %>
     <h3><%= t('.lead') %></h3>
-    <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv], label: t('locales.swedish') %>
-    <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en], label: t('locales.english') %>
+    <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv], label: t('locales.sv') %>
+    <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en], label: t('locales.en') %>
 
     <h3><%= t('.sidebar_links') %></h3>
     <div id="sidebar-link-forms" data-count="<%= @settings[:sidebar_links].count %>">
@@ -15,12 +15,12 @@
             <%= f.text_field "sidebar_links[#{index}][url]", value: link[:url], label: 'URL' %>
           </div>
           <div class="col-md-2" style="margin-top: 35px;">
-            <%= link_to "Remove", '#', class: 'remove_link_field', 'data-field' => index %>
+            <%= link_to t('.remove_link'), '#', class: 'remove_link_field', 'data-field' => index %>
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
-  <%= link_to "Add", '#', id: 'add_link_field' %>
+  <%= link_to t('.add_link'), '#', id: 'add_link_field' %>
   <%= form.submit %>
 <% end %>

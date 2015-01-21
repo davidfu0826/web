@@ -47,9 +47,13 @@ module ApplicationHelper
   end
 
   def get_cover_image_url
-    if controller.action_name == 'show' && @page.present? && @page.image.present?
+    a_name = controller.action_name
+    c_name = controller.controller_name
+    if a_name == 'show' && @page.present? && @page.image.present?
       @page.image.url
-    elsif controller.controller_name == 'posts'
+    elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
+      Image.find(Settings[:events_cover_image]).url
+    elsif c_name == 'posts' && a_name == 'index'
       'cover.jpg'
     end
   end
@@ -75,6 +79,14 @@ module ApplicationHelper
       week - 12
     else
       false
+    end
+  end
+
+  def form_heading(action, model)
+    content_tag :div, class: 'page-header' do
+      content_tag :h1 do
+        t("helpers.submit.#{action.to_s}", model: t("activerecord.models.#{model.to_s.underscore}").downcase)
+      end
     end
   end
 end

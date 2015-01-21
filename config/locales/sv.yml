@@ -24,11 +24,11 @@ sv:
     select:
       prompt: Välj
     submit:
-      create: Skapa %{model}
+      create: &create Skapa %{model}
       image:
         create: Ladda upp %{model}
       submit: Spara %{model}
-      update: Uppdatera %{model}
+      update: &update Uppdatera %{model}
 
 
   application:

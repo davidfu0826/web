@@ -1,10 +1,13 @@
-<ul class="nav nav-pills">
-  <% if @parent_id.blank? %>
-    <li><%= link_to 'Create Menu', '#menu-tab', 'data-toggle' => 'tab' %></li>
-  <% end %>
-  <li class="active"><%= link_to 'Select Page', '#page-tab', 'data-toggle' => 'tab' %></li>
-  <li><%= link_to 'Select Link', '#link-tab', 'data-toggle' => 'tab' %></li>
-</ul>
+<%= form_heading :create, NavItem %>
+<div class="center-pills">
+  <ul class="nav nav-pills">
+    <% if @parent_id.blank? %>
+      <li><%= link_to t('.create_menu'), '#menu-tab', 'data-toggle' => 'tab' %></li>
+    <% end %>
+    <li class="active"><%= link_to t('.select_page'), '#page-tab', 'data-toggle' => 'tab' %></li>
+    <li><%= link_to t('.select_link'), '#link-tab', 'data-toggle' => 'tab' %></li>
+  </ul>
+</div>
 <div class="tab-content">
   <div id="menu-tab" class="tab-pane">
     <%= bootstrap_form_for @nav_item do |f| %>

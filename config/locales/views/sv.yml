@@ -44,6 +44,11 @@ sv:
       new_image: Ladda upp ny bild
     new:
       upload_image: Ladda upp ny bild
+  nav_items:
+    new:
+      create_menu: Skapa meny
+      select_link: Välj länk
+      select_page: Välj sida
   pages:
     add_user:
       contact: Kontaktperson
@@ -91,9 +96,13 @@ sv:
     posts_feed:
       no_posts: "Kunde inte hitta några nyheter :("
       no_posts_lead: Testa med en annan filtrering
+  settings:
+    edit:
+      add_link: Lägg till länk
+      remove_link: Ta bort länk
+      lead: Sidingress
+      sidebar_links: Länkar i sidebar
   shared:
-    pagedown_content:
-      content: Innehåll
     image_select_modal:
       images: Bilder
     tags: Taggar
@@ -101,6 +110,11 @@ sv:
     index:
       users: Användare
       new_user: Skapa ny användare
+      name: Namn
+      email: Email
+      title: Titel
+      role: Roll
+      tools: Verktyg
     user:
       add_contact_form: Lägg till kontaktformulär
       contact: Kontakta
@@ -115,3 +129,5 @@ sv:
       show_images: Visa bilder
       show_posts: Visa nyheter
       title: Titel
+      no_images: Inga bilder
+      no_posts: Inga nyheter

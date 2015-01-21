@@ -18,11 +18,16 @@ en:
         tags: *tags
         title: *title
       image:
+        title: *title
+        description: *description
         image: *image
         tags: *tags
       nav_item:
         description: *description
         title: *title
+        page: Page
+        page_id: Page
+        link: Link
       page:
         content: *content
         slug: Slug
@@ -35,6 +40,7 @@ en:
         content: Question Content
       tag:
         title: *title
+        color: color
       user:
         email: *email
         locale: Locale
@@ -44,6 +50,7 @@ en:
         phonenumber: Phone
         role: Role
         title: *title
+        profile_image: Profile image
     models:
       contact_form: Contact form
       event: Event

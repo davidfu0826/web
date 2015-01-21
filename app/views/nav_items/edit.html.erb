@@ -1,3 +1,4 @@
+<%= form_heading :update, NavItem %>
 <% if @nav_item.menu? %>
   <%= bootstrap_form_for @nav_item do |f| %>
     <%= f.text_field :title_sv %>
