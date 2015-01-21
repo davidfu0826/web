@@ -39,6 +39,8 @@ sv:
     image_feed:
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
+    image_select_modal:
+      images: Bilder
     index:
       images: Bilder
       new_image: Ladda upp ny bild
@@ -102,10 +104,6 @@ sv:
       remove_link: Ta bort länk
       lead: Sidingress
       sidebar_links: Länkar i sidebar
-  shared:
-    image_select_modal:
-      images: Bilder
-    tags: Taggar
   users:
     index:
       users: Användare

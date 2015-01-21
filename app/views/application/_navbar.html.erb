@@ -3,7 +3,18 @@
   <%= navbar_collapse do %>
     <%= navbar_group do %>
       <li><%= navbar_item t('.start'), root_path %></li>
-      <%= render 'nav_items' %>
+      <!-- Nav items -->
+      <% @nav_row.each do |nav_item| %>
+        <% if nav_item.children? %>
+          <%= navbar_dropdown nav_item.title do %>
+            <% nav_item.children.each do |child| %>
+              <%= navbar_item child.item_title, child.link %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= navbar_item nav_item.title, nav_item.link %>
+        <% end %>
+      <% end %>
       <li><%= link_to "Svenska", swedish_locale_path(url: request.path) if @locale == :en %></li>
       <li><%= link_to "English", english_locale_path(url: request.path) if @locale != :en %></li>
     <% end %>

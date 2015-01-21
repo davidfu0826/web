@@ -47,7 +47,6 @@ Rails.application.routes.draw do
   patch  ':id',   to: 'pages#update'
   delete ':id',   to: 'pages#destroy'
   resources :pages, except: [:show, :delete, :index], shallow: true do
-    get 'markdown_explanation', on: :collection
     member do
       get    'add_user'
       post   'add_user',    action: :add_user_update

@@ -77,9 +77,6 @@ class PagesController < ApplicationController
     redirect_to @page
   end
 
-  def markdown_explanation
-  end
-
   private
 
   def page_params

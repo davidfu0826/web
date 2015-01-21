@@ -36,6 +36,8 @@ en:
     image_feed:
       no_images: Could not find any images :(
       no_images_lead: Try another filter
+    image_select_modal:
+      images: Images
     index:
       images: Images
       new_image: Upload new image
@@ -96,10 +98,6 @@ en:
       remove_link: Remove link
       lead: Page lead
       sidebar_links: Sidebar links
-  shared:
-    image_select_modal:
-      images: Images
-    tags: Tags
   users:
     index:
       users: Users
