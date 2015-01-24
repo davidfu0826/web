@@ -55,15 +55,15 @@ module ApplicationHelper
     elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
       url = Image.find(Settings[:events_cover_image]).url
     elsif c_name == 'posts' && a_name == 'index'
-      url = '/assets/cover.jpg'
+      url = 'cover.jpg'
     else
       url = nil
     end
     # Insert banner
     if url
       content_tag :div, class: 'banner-wrapper' do
-        content_tag(:img, '', src: "/assets/white_stand_#{I18n.locale}.svg", id: 'logo') +
-        content_tag(:img, '', src: url, id: 'banner', class: 'img-responsive center-block')
+        image_tag("white_stand_#{I18n.locale}.svg", id: 'logo') +
+        image_tag(url, id: 'banner', class: 'img-responsive center-block')
       end
     else
       content_tag :div, '', class: 'banner-wrapper'
