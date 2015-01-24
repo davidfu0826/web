@@ -46,15 +46,27 @@ module ApplicationHelper
     end
   end
 
-  def get_cover_image_url
+  def banner_image
+    # Get banner url
     a_name = controller.action_name
     c_name = controller.controller_name
     if a_name == 'show' && @page.present? && @page.image.present?
-      @page.image.url
+      url = @page.image.url
     elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
-      Image.find(Settings[:events_cover_image]).url
+      url = Image.find(Settings[:events_cover_image]).url
     elsif c_name == 'posts' && a_name == 'index'
-      'cover.jpg'
+      url = '/assets/cover.jpg'
+    else
+      url = nil
+    end
+    # Insert banner
+    if url
+      content_tag :div, class: 'banner-wrapper' do
+        content_tag(:img, '', src: "/assets/white_stand_#{I18n.locale}.svg", id: 'logo') +
+        content_tag(:img, '', src: url, id: 'banner', class: 'img-responsive center-block')
+      end
+    else
+      content_tag :div, '', class: 'banner-wrapper'
     end
   end
 

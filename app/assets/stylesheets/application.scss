@@ -41,8 +41,8 @@
   }
 }
 
-/*  -- PANORAMA --  */
-.panorama-wrapper {
+/*  -- banner --  */
+.banner-wrapper {
   margin-top: 50px;
   overflow: hidden;
   position: relative;
@@ -60,35 +60,32 @@
     z-index: 1;
   }
 
-  #panorama {
-    margin-top: -5px;
-    margin-bottom: -10px;
+  #banner {
     width: 100%;
   }
 }
 
 /*  -- SIDEBAR --  */
-.sidebar {
+#sidebar {
   border-left: 2px solid #eee;
   margin-left: -26px;
   padding-left: 26px;
 
   width: 337px;
-  &.affix {
-    /* Affix plugin will try to set position:relative
-       Since we use that for small screens
-     */
-    position: fixed !important;
-    /* Calculating this dynamically with js would
-      make the transition to affixed look better
-      */
-    top: 96px;
-  }
-
-  @media (max-width: $screen-sm-max) {
+  @media (min-width: $screen-sm-max) {
     &.affix {
-      top: 0;
+      /* Affix plugin will try to set position:relative
+         Since we use that for small screens
+       */
+      position: fixed !important;
+      /* Calculating this dynamically with js would
+        make the transition to affixed look better
+        */
+      top: 96px;
     }
+  }
+  @media (max-width: $screen-sm-max) {
+    &.affix { top: 0; }
     position: relative;
     border-left: none;
     margin-top: 30px;
@@ -247,7 +244,8 @@
       padding: 0px;
       a {
         padding: 0px;
-        padding-top: 13px;
+        padding-top: 14px;
+        padding-bottom: 14px;
       }
     }
   }
