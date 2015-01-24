@@ -46,6 +46,6 @@ class NavItemsController < ApplicationController
   private
 
   def nav_item_params
-    params.require(:nav_item).permit(:title, :page_id, :link, :nav_item_type)
+    params.require(:nav_item).permit(:title_sv, :title_en, :page_id, :link, :nav_item_type)
   end
 end

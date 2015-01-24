@@ -236,3 +236,20 @@
 .post-text-fields input {
   margin-bottom: 11px;
 }
+
+#navbar-container {
+  @media (max-width: $screen-sm-max) {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 14px;
+    li {
+      padding: 0px;
+      a {
+        padding: 0px;
+        padding-top: 13px;
+      }
+    }
+  }
+}
+

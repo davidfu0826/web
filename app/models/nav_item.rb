@@ -32,8 +32,8 @@ class NavItem < ActiveRecord::Base
   end
 
   def has_title_or_page
-    if nav_item_type != 'page' && title.blank?
-      errors.add(:title, I18n.t('.should_have_page_or_title'))
+    if nav_item_type != 'page' && (title_sv.blank? || title_sv.blank?)
+      errors.add(:base, I18n.t('errors.messages.should_have_page_or_title'))
     end
   end
 
