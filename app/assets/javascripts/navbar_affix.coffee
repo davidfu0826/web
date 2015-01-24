@@ -22,11 +22,14 @@ wait_to_affix = (count) ->
     affix_sidebar()
 
 affix_sidebar = ->
-  console.log "Affixing"
+  # Destroying old affix
+  $(window).off('.affix')
+  $('#sidebar').removeData('bs.affix').removeClass('affix affix-top affix-bottom')
+  # Affixing
   $("#sidebar").affix offset:
     top: ->
       if $('#banner').length
-        offset = $("#banner").outerHeight(true) - 50
+        offset = $('#sidebar').offset().top - 50
       else
         offset = 50
       @top = offset
