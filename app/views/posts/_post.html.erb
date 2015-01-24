@@ -2,7 +2,7 @@
   <div class="post">
     <div class="media">
       <div class="pull-left">
-        <%= image_tag (post.image.present? ? post.image.image.thumb('300x300#').url : "blue_mark.svg") %>
+        <%= image_tag (post.image.present? ? post.image.image.thumb('160x160#').url : "blue_mark.svg") %>
         <% first_tag = post.tags.first %>
         <% if first_tag.present? %>
           <div class="tag">

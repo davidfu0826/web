@@ -1,7 +1,7 @@
 <div class="photo photo-small">
   <%= content_tag(:div, class: 'img img-select',
       data: {'image-source' => image.url, 'image-id' => image.id}) do %>
-    <%= image_tag image.image.thumb('300x300#').url %>
+    <%= image_tag image.image.thumb('160x160#').url %>
     <div class="img-title">
       <%= image.title %>
     </div>

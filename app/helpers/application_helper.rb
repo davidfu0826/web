@@ -41,7 +41,7 @@ module ApplicationHelper
         title: image.title,
         footer: (edit_button + delete_button)
       } do
-        (image_tag image.image.thumb('300x300#').url) +
+        (image_tag image.image.thumb('160x160#').url) +
         content_tag(:div, image.title, class: 'img-title')
     end
   end
