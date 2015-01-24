@@ -51,9 +51,9 @@ module ApplicationHelper
     a_name = controller.action_name
     c_name = controller.controller_name
     if a_name == 'show' && @page.present? && @page.image.present?
-      url = @page.image.url
+      url = @page.image.image.thumb('1440x380#').url
     elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
-      url = Image.find(Settings[:events_cover_image]).url
+      url = Image.find(Settings[:events_cover_image]).image.thumb('1440x380#').url
     elsif c_name == 'posts' && a_name == 'index'
       url = 'cover.jpg'
     else
