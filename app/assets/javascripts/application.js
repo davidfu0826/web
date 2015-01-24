@@ -27,7 +27,9 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
 });
 
 $(document).on("page:change", function() {
-  $("#twitter-feed").load("/tweets");
+  $("#twitter-feed").load("/tweets", function () {
+    $("#twitter-feed").trigger('tweets_loaded');
+  });
   $('.select2').select2();
   $('.dd').nestable({maxDepth: 2});
   $('.dd').nestable('collapseAll');

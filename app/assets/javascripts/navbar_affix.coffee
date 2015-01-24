@@ -8,6 +8,8 @@ $(document).on "page:change", ->
   if $('#banner').length
     $(window).bind "resizeEnd", ->
       wait_to_affix(0)
+    $("#twitter-feed").bind 'tweets_loaded', ->
+      wait_to_affix(0)
 
 # Sometimes the banner is not loaded, so it returns the wrong height
 # probably due to turbolinks
@@ -26,15 +28,16 @@ affix_sidebar = ->
   $(window).off('.affix')
   $('#sidebar').removeData('bs.affix').removeClass('affix affix-top affix-bottom')
   # Affixing
-  $("#sidebar").affix offset:
-    top: ->
-      if $('#banner').length
-        offset = $('#sidebar').offset().top - 50
-      else
-        offset = 50
-      @top = offset
-    bottom: ->
-      @bottom = $(".guilds").outerHeight(true) + $(".footer").outerHeight(true)
+  if $('#sidebar').height() + 10 < $('#main-content').height()
+    $("#sidebar").affix offset:
+      top: ->
+        if $('#banner').length
+          offset = $('#sidebar').offset().top - 50
+        else
+          offset = 50
+        @top = offset
+      bottom: ->
+        @bottom = $(".guilds").outerHeight(true) + $(".footer").outerHeight(true) - 10
 
 # Don't spam the browser with affix events
 $(window).resize ->
