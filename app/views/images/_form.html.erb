@@ -1,4 +1,3 @@
-<% @image = Image.new %>
 <% @tags ||= Tag.all %>
 <%= bootstrap_form_for @image, layout: :horizontal, remote: remote do |f| %>
   <%= f.text_field :title %>
