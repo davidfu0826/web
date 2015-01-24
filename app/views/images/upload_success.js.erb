@@ -3,6 +3,6 @@ $('#insertImageModal').trigger({
   image_source: '<%= escape_javascript(@image.url) %>',
   image_id: '<%= escape_javascript(@image.id.to_s) %>'
 });
-$('#image-upload-tab').html("<%= escape_javascript(render('shared/image_form', remote: true)) %>");
+$('#image-upload-form').html("<%= escape_javascript(render('form', remote: true)) %>");
 $('.select2').select2();
 $("[type='file']").fileinput({ showUpload: false, showRemove: false });

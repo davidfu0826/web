@@ -8,7 +8,7 @@ class Image < ActiveRecord::Base
     end
   end
   validates :image, presence: true
-  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp], case_sensitive: false,
+  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp, :gif], case_sensitive: false,
                    message: I18n.t('errors.messages.image_format'), if: :image_changed?
 
   has_many :taggings, as: :taggable
@@ -19,11 +19,12 @@ class Image < ActiveRecord::Base
 
   scope :tag,    -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
   scope :search, -> (search_param) {
-    joins(:tags).where([
-      "lower(image_name) LIKE :search_param OR
-       tags.title        LIKE :search_param",
-       search_param: search_param
-    ])
+    joins(:tags).where(
+      "lower(image_name)   LIKE :search_param OR
+       lower(images.title) LIKE :search_param OR
+       lower(tags.title)   LIKE :search_param",
+       search_param: search_param.downcase
+    )
   }
 
   dragonfly_accessor :image

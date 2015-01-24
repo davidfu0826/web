@@ -1,1 +1,2 @@
 $('#image-select-body').html('<%= escape_javascript(render(partial: "images/image_small", collection: @images, as: :image)) %>').change();
+$(".img-select").click( function (event) { $(event.currentTarget).toggleClass('img-selected');});
