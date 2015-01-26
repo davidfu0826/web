@@ -59,9 +59,15 @@
     max-width: 500px;
     z-index: 1;
   }
-
+  .carousel #logo {
+    top: -75px;
+  }
   #banner {
     width: 100%;
+  }
+
+  a {
+    color: white;
   }
 }
 

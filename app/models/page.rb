@@ -15,6 +15,7 @@ class Page < ActiveRecord::Base
   belongs_to :image
 
   scope :orphans, -> { includes(:nav_item).where( :nav_items => { :page_id => nil } ) }
+  scope :with_image, -> { where.not(image: nil) }
 
   before_validation do
     self.slug = self.title_en.parameterize

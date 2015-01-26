@@ -104,6 +104,7 @@ sv:
       remove_link: Ta bort länk
       lead: Sidingress
       sidebar_links: Länkar i sidebar
+      promoted_page: Bannersidor
   users:
     index:
       users: Användare
