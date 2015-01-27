@@ -62,7 +62,7 @@ class PagesController < ApplicationController
 
   def remove_user
     @user = User.find(params[:user_id])
-    @page.contact_forms.find_by(user: @user).destroy
+    @page.contact_forms.where(user: @user).destroy_all
     @page.contacts.delete(@user)
 
     redirect_to @page

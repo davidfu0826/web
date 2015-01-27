@@ -33,7 +33,7 @@ class Image < ActiveRecord::Base
   def title
     if self[:title].present?
       self[:title]
-    else
+    elsif image_uid.present?
       image_uid.split('/').last
     end
   end

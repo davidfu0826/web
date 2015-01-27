@@ -7,7 +7,7 @@
     <tr>
       <th><%= t('.title') %> </th>
       <th><%= t('.resources') %></th>
-      <th><%= t(:tools) %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,8 +19,14 @@
           <%= tag.images.any? ? link_to(t('.show_images'), images_path(tag: tag)) : t('.no_images') %>
         </td>
         <td>
-          <%= link_to t(:edit), edit_tag_path(tag) if can? :edit, tag %>
-          <%= link_to t(:delete), tag_path(tag), method: :delete, data: {confirm: t(:confirm_delete)} if can? :delete, tag %>
+          <% if can? :edit, tag %>
+            <%= link_to edit_tag_path(tag) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to tag_path(tag), method: :delete, data: {confirm: t(:confirm_delete)} do %>
+              <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>

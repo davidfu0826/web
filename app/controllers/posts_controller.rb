@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create_with_tags(post_params, params[:post][:tags])
-    unless @event.new_record?
+    unless @post.new_record?
       redirect_to root_path
     else
       load_tags

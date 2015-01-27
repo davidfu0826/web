@@ -55,7 +55,7 @@ module ApplicationHelper
     elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
       url = Image.find(Settings[:events_cover_image]).image.thumb('1440x380#').url
     elsif c_name == 'posts' && a_name == 'index'
-      if Settings[:promoted_pages].any?
+      if Settings[:promoted_pages].present? && Settings[:promoted_pages].any?
         banner = render 'banner_carousel', pages: Page.includes(:image).find(Settings[:promoted_pages])
       else
         url = 'cover.jpg'

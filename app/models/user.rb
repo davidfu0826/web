@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
     raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
 
     self.reset_password_token   = enc
-    self.reset_password_sent_at = Time.now.utc
+    self.reset_password_sent_at = Time.current
     self.save(validate: false)
-    UserMailer.password_reset(self, raw).deliver
+    UserMailer.password_reset(self, raw).deliver_now
   end
 
   def name_with_email
