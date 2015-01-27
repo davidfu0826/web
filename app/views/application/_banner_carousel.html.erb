@@ -14,7 +14,7 @@
           <% active = index == 0 ? 'active' : '' %>
           <div class="item <%= active %>">
             <%= link_to page do %>
-              <%= image_tag page.image.image.thumb('1440x440#').url %>
+              <%= image_tag page.image.image.thumb('1440x440#').url, size: '1440x440' %>
             <% end %>
             <div class="carousel-caption">
               <h3><%= link_to page.title, page %></h3>
@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <%= link_to pages.first, id: 'logo-link' do %>
-      <%= image_tag("white_stand_#{I18n.locale}.svg", id: 'logo') %>
+      <%= image_tag("white_stand_#{I18n.locale}.svg", id: 'logo', size: '440x240') %>
     <% end %>
   </div>
 </div>

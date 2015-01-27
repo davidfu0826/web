@@ -66,8 +66,8 @@ module ApplicationHelper
     # Insert banner
     if url
       content_tag :div, class: 'banner-wrapper' do
-        image_tag("white_stand_#{I18n.locale}.svg", id: 'logo') +
-        image_tag(url, id: 'banner', class: 'img-responsive center-block')
+        image_tag("white_stand_#{I18n.locale}.svg", id: 'logo', size: '440x240') +
+        image_tag(url, id: 'banner', class: 'img-responsive center-block', size: '1440x380')
       end
     elsif banner
       banner
