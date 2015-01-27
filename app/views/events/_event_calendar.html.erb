@@ -1,7 +1,7 @@
 <% [@this_month.last_month, @this_month, @this_month.next_month].each do |month| %>
   <div class="col-md-4">
     <h3><%= t("date.month_names")[month.month] %></h3>
-    <% if @events[month].any? %>
+    <% if @events[month] %>
       <% @events[month].keys.sort.each do |week| %>
         <h5 class="event-weeknbr">
           <%= t('.week', week: week) %>
