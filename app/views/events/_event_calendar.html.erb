@@ -1,18 +1,22 @@
 <% [@this_month.last_month, @this_month, @this_month.next_month].each do |month| %>
   <div class="col-md-4">
-    <h3><%= t("date.month_names")[month.strftime("%-m").to_i] %></h3>
-    <% if @events[month].present? %>
+    <h3><%= t("date.month_names")[month.month] %></h3>
+    <% if @events[month].any? %>
       <% @events[month].keys.sort.each do |week| %>
         <h5 class="event-weeknbr">
           <%= t('.week', week: week) %>
           <%= t('.l_week', week: study_week(week)) if study_week(week) %>
         </h5>
+
         <ul class="event-week">
           <% @events[month][week].sort_by!(&:start_time) %>
+
           <% @events[month][week].each do |event| %>
-            <% disabled = event.end_time < @now ? "disabled" : "" %>
-            <li class="<%= disabled %>">
-              <span style="font-weight: bold;"><%= l(event.start_time, format: :week_day) %></span>
+            <li class="<%= event.end_time < @now ? "disabled" : "" %>">
+              <span class='event-start-time'>
+                <%= l(event.start_time, format: :week_day) %>
+              </span>
+
               <%= link_to event.title, event %>
             </li>
           <% end %>
@@ -25,10 +29,15 @@
 <% end %>
 
 <div class="col-xs-12">
+  <!-- Link to previous month -->
   <%= link_to events_path(offset: @offset - 1), remote: true do %>
-    <span class="glyphicon glyphicon-chevron-left"></span><%= t('.previous_month') %>
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <%= t('.previous_month') %>
   <% end %>
+
+  <!-- Link to next month -->
   <%= link_to events_path(offset: @offset + 1), remote: true, class: "pull-right" do %>
-    <span class="glyphicon glyphicon-chevron-right pull-right"></span><%= t('.next_month') %>
+    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+    <%= t('.next_month') %>
   <% end %>
 </div>

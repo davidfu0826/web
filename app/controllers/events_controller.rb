@@ -100,9 +100,9 @@ class EventsController < ApplicationController
   end
 
   def events_by_month_and_week(events)
-    events = events.group_by { |u| u.start_time.to_time.beginning_of_month }
-    events.each_key do |k|
-      events[k] = events[k].group_by { |e| e.start_time.strftime("%V").to_i }
+    events = events.group_by { |u| u.start_time.beginning_of_month }
+    events.each_key do |month|
+      events[month] = events[month].group_by { |e| e.start_time.strftime("%V").to_i }
     end
     events
   end
