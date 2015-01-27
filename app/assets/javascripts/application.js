@@ -33,7 +33,10 @@ $(document).on("page:change", function() {
   $('.select2').select2();
   $('.dd').nestable({maxDepth: 2});
   $('.dd').nestable('collapseAll');
+
+  $('#banner').on('slide.bs.carousel', function (event) {
+    var link = $(event.relatedTarget).find('a').attr('href');
+    $('#logo-link').attr('href', link);
+  });
 });
-
-
 
