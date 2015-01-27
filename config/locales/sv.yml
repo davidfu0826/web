@@ -83,6 +83,7 @@ sv:
       too_short: "är för kort (minimum är %{count} tecken)"
       wrong_length: har fel längd (ska vara %{count} tecken)
       should_have_page_or_title: ska ha titel eller en sida
+      should_have_prefix: Länken bör börja med http://
     slug_reserved: används
     template:
       body: "! 'Det var problem med följande fält:'"

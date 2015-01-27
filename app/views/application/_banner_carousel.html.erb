@@ -8,13 +8,14 @@
       <% end %>
     </ol>
 
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <% pages.each_with_index do |page, index| %>
         <% if page.image %>
           <% active = index == 0 ? 'active' : '' %>
           <div class="item <%= active %>">
-            <%= image_tag page.image.image.thumb('1440x440#').url%>
+            <%= link_to page do %>
+              <%= image_tag page.image.image.thumb('1440x440#').url%>
+            <% end %>
             <div class="carousel-caption">
               <h3><%= link_to page.title, page %></h3>
             </div>

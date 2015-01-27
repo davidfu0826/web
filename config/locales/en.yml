@@ -87,6 +87,7 @@ en:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
       should_have_page_or_title: should have page or title
+      should_have_prefix: Link should start with http://
     slug_reserved: used
     template:
       body: "! 'There were problems with the following fields:'"

@@ -7,6 +7,7 @@ class NavItem < ActiveRecord::Base
   scope :no_page, -> { where(page: nil) }
 
   validate :has_title_or_page
+  validate :has_prefix_if_link
   before_destroy :set_childrens_parent
 
   translates :title
@@ -34,6 +35,12 @@ class NavItem < ActiveRecord::Base
   def has_title_or_page
     if nav_item_type != 'page' && (title_sv.blank? || title_sv.blank?)
       errors.add(:base, I18n.t('errors.messages.should_have_page_or_title'))
+    end
+  end
+
+  def has_prefix_if_link
+    if nav_item_type == 'link' && !link.include?('http')
+      errors.add(:link, I18n.t('errors.messages.should_have_prefix'))
     end
   end
 
