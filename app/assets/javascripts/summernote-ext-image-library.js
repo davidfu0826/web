@@ -34,7 +34,7 @@
           event.preventDefault();
           $image = $('.img-selected');
 
-          if ($image.length > 1 ) {
+          if ($image.length > 1) {
             image_sources = $.map($image, function(image, i) {
               return $(image).data('image-source'); }
             );
@@ -47,8 +47,13 @@
           $imageDialog.modal("hide");
         });
       }).one('hidden.bs.modal', function() {
+        // Reset attribute fields
+        $('#image-link').val('');
+        $('#image-caption').val('');
+        // Remove event handlers
         $imageDialog.off("image_uploaded");
         $('#insert-image').off("click");
+        // Reject promise
         if (deferred.state() === "pending") {
           deferred.reject();
         }
@@ -97,6 +102,34 @@
     return $carousel[0];
   };
 
+  /**
+   * createImageNode
+   *
+   * @param {String} image_urls
+   * @param {String} link
+   * @param {String} caption
+   * @return {Node}
+   */
+  var createImageNode = function (image_src, link, caption) {
+    $node = $('<img>')
+      .attr('src', image_src)
+      .addClass('img-responsive');
+
+    if (typeof(link) != "undefined" && link.length > 0) {
+      $node = $('<a>')
+        .attr('href', link)
+        .append($node);
+    };
+
+    if (typeof(caption) != "undefined" && caption.length > 0) {
+      $node = $('<figure>')
+        .append($node)
+        .append($('<figcaption>').text(caption));
+    };
+
+    return $node[0];
+  };
+
   // add plugin
   $.summernote.addPlugin({
     name: 'image_library', // name of plugin
@@ -128,7 +161,11 @@
           if ($.isArray(url)) {
             editor.insertNode($editable, createCarouselNode(url));
           } else {
-            editor.insertImage($editable, url);
+            var link = $('#image-link').val();
+            var caption = $('#image-caption').val();
+
+            //editor.insertImage($editable, url);
+            editor.insertNode($editable, createImageNode(url, link, caption));
           };
         }).fail(function () {
           // when cancel button clicked

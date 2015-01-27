@@ -7,6 +7,9 @@ $(document).on "page:change", ->
 
 showImageLibraryDialog = ->
   $imageDialog = $("#insertImageModal")
+  # Hide link and caption fields
+  $('#image-attributes').hide()
+  # Show dialog
   $imageDialog.one("shown.bs.modal", ->
     $imageDialog.on "image_uploaded", null, (event) ->
       $imageDialog.modal "hide"
@@ -23,6 +26,7 @@ showImageLibraryDialog = ->
       $(".img-selected").removeClass "img-selected"
       $imageDialog.modal "hide"
   ).one("hidden.bs.modal", ->
+    $('#image-attributes').show()
     $imageDialog.off "image_uploaded"
     $("#insert-image").off "click"
   ).modal "show"

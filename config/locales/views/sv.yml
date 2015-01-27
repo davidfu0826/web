@@ -41,6 +41,9 @@ sv:
       no_images_lead: Testa med en annan filtrering.
     image_select_modal:
       images: Bilder
+      select: Välj bild
+      caption: Bildtext
+      link_to: Bildlänk
     index:
       images: Bilder
       new_image: Ladda upp ny bild

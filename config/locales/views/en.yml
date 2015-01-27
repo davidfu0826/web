@@ -38,6 +38,9 @@ en:
       no_images_lead: Try another filter
     image_select_modal:
       images: Images
+      select: Select image
+      caption: Caption
+      link_to: Link
     index:
       images: Images
       new_image: Upload new image

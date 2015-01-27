@@ -109,6 +109,18 @@ figcaption {
   max-height: 700px;
   overflow-y: scroll;
   overflow-x: hidden;
+
+}
+
+#image-select-tab input[type="submit"] {
+  width: 78px;
+}
+
+#image-attributes {
+  margin-bottom: 5px;
+  .form-control {
+    width: 250px;
+  }
 }
 
 .img-select-active {

@@ -28,6 +28,17 @@
           </div>
 
           <div class="modal-footer">
+
+            <form id="image-attributes" class="form-inline pull-left">
+              <div class="form-group">
+                <input type="text" class="form-control" id="image-link" placeholder="<%= t('.link_to') %>">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="image-caption" placeholder="<%= t('.caption') %>">
+              </div>
+            </form>
+
+
             <div class="pull-left">
               <!-- Image search footer -->
               <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |sf| %>
@@ -36,14 +47,14 @@
                     { class: "large-select select2"} %>
                   <%= sf.text_field :search, hide_label: true %>
 
-                  <%= sf.submit 'Search', icon: 'search' do %>
+                  <%= sf.submit t(:search), icon: 'search' do %>
                     <i class="glyphicon glyphicon-search"></i>
                   <% end %>
               <% end %>
             </div>
             <div class="pull-right">
               <button id="insert-image" type="button" class="btn btn-primary pull-right">
-                <%= t(:select) %>
+                <%= t('.select') %>
               </button>
             </div>
           </div>
