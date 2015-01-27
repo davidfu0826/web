@@ -241,7 +241,7 @@
 }
 
 #navbar-container {
-  @media (max-width: $screen-sm-max) {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
     width: 100%;
     padding-right: 0;
     padding-left: 0;
@@ -254,5 +254,12 @@
         padding-bottom: 14px;
       }
     }
+  }
+}
+
+// Show navbar on hover
+@media only screen and (min-width: $screen-sm-min) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 }

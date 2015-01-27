@@ -38,5 +38,10 @@ $(document).on("page:change", function() {
     var link = $(event.relatedTarget).find('a').attr('href');
     $('#logo-link').attr('href', link);
   });
-});
 
+  if($(window).width() > 760 && !(navigator.msMaxTouchPoints > 0)){
+    $('.navbar .dropdown > a').click( function(){
+      location.href = this.href;
+    });
+  }
+});
