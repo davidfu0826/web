@@ -59,11 +59,21 @@
     max-width: 500px;
     z-index: 1;
   }
-  .carousel #logo {
-    top: -75px;
-  }
+
   #banner {
     width: 100%;
+    .carousel-inner img {
+      width: 100%;
+    }
+
+    .carousel-caption {
+      bottom: initial;
+      top: 280px;
+    }
+    .carousel-indicators {
+      bottom: initial;
+      top: 350px;
+    }
   }
 
   a {
