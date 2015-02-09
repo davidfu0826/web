@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   include Filterable
   include Tagable
+  include FuzzySearchTitles
 
   validates :title_sv, presence: true
   validates :title_en, presence: true
@@ -15,19 +16,12 @@ class Event < ActiveRecord::Base
   end
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
-  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
-  scope :search, -> (search) {
-    joins(:tags).where([
-    "lower(title_sv) LIKE :search_param OR
-     lower(title_en) LIKE :search_param OR
-     tags.title LIKE :search_param",
-    search_param: search
-    ])
-  }
 
+  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
   scope :upcoming, -> { where(["start_time > ?", Time.current]).order(:start_time) }
 
   translates :title, :description
+  fuzzily_searchable :title_en, :title_sv
 
   def end_time_after_start_time
     if end_time.present? and start_time.present?

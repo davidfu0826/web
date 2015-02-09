@@ -41,6 +41,7 @@ gem 'remotipart', '~> 1.2'
 gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'codemirror-rails' # Used by summernote for displaying html
+gem 'fuzzily' #Fuzzy string search
 
 group :development do
   gem 'spring'

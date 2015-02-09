@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
 
   def index
     @uploads = @uploads.filter(params.slice(:search))
-    @uploads = @uploads.page(params[:page]).per(100)
+    @uploads = @uploads.page(params[:page]).per(100)# if @uploads.present?
   end
 
   def show

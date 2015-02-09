@@ -182,6 +182,8 @@ GEM
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    fuzzily (0.3.2)
+      activerecord (>= 2.3.17)
     gem_config (0.3.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -356,6 +358,7 @@ DEPENDENCIES
   dynamic_sitemaps
   faker
   font-awesome-rails
+  fuzzily
   http_accept_language
   icalendar
   jbuilder (~> 2.0)

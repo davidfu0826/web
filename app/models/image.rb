@@ -18,14 +18,14 @@ class Image < ActiveRecord::Base
   has_many :pages
 
   scope :tag,    -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
-  scope :search, -> (search_param) {
-    joins(:tags).where(
-      "lower(image_name)   LIKE :search_param OR
-       lower(images.title) LIKE :search_param OR
-       lower(tags.title)   LIKE :search_param",
-       search_param: search_param.downcase
-    )
+  scope :search, -> (search) {
+    image_ids =  find_by_fuzzy_image_name(search).map(&:id)
+    image_ids << find_by_fuzzy_title(search).map(&:id)
+    image_ids << joins(:tags).where( "lower(tags.title) LIKE :search_param", search_param: search.downcase).map(&:id)
+    where(id: image_ids.flatten)
   }
+
+  fuzzily_searchable :image_name, :title
 
   dragonfly_accessor :image
   delegate :url, to: :image
