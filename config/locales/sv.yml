@@ -156,6 +156,8 @@ sv:
         name: "Coverbild till events (ska inte ändras här, gör det i eventvyn)"
     errors:
       default_missing: Kunde inte hittas.
+    edit:
+      promoted_pages: Sidor i karusellen
     index:
       title: Sidinställningar
       description: Beskrivning

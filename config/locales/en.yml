@@ -159,6 +159,8 @@ en:
         name: "Coverimage for events (Do NOT change here, do it in the event index)"
     errors:
       default_missing: Default value is missing.
+    edit:
+      promoted_pages: Promoted pages
     index:
       title: Site settings
       description: Description
