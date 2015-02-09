@@ -41,6 +41,8 @@ sv:
       tag:
         title: *title
         color: Färg
+      upload:
+        file: Dokument
       user:
         email: *email
         locale: Språkval
@@ -60,4 +62,5 @@ sv:
       post: Nyhet
       question: Formulärsfråga
       tag: Tagg
+      upload: Dokument
       user: Användare

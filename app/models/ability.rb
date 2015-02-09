@@ -10,15 +10,17 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.editor?
-      can :manage, [Post]
+      can :manage, [Post, Upload, Page, Image]
+      can :manage, ContactForm
     elsif user.events?
-      can :manage, [Event]
+      can :manage, Event
+      can :manage, Image
     end
 
     if User.exists?(user.id)
+      can :read, Upload
       can [:update, :destroy], user
       can :manage, user.contact_forms
-      can :create, ContactForm
       can [:update, :add_user, :remove_user], user.pages
     end
   end

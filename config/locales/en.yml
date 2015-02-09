@@ -29,6 +29,8 @@ en:
       image:
         create: Upload %{model}
         update: Save tags for %{model}
+      upload:
+        create: Upload %{model}
       submit: Save %{model}
       update: Update %{model}
 

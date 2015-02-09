@@ -102,6 +102,12 @@ en:
       lead: Page lead
       sidebar_links: Sidebar links
       promoted_page: Promoted pages
+  uploads:
+    index:
+      uploads: Document
+      file_name: File name
+      type: File type
+      new_upload: Ladda upp document
   users:
     index:
       users: Users

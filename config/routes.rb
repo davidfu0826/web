@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
+  resources :uploads, except: [:edit, :update], :concerns => :paginatable do
+    get 'search', on: :collection
+  end
+
   resources :events do
     collection do
       get    'change_cover'

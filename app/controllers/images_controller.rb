@@ -41,6 +41,7 @@ class ImagesController < ApplicationController
     redirect_to images_path
   end
 
+  # Used by image modal
   def search
     @images = @images.filter(filtering_params)
   end

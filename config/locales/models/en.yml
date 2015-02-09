@@ -41,6 +41,8 @@ en:
       tag:
         title: *title
         color: color
+      upload:
+        file: document
       user:
         email: *email
         locale: Locale
@@ -60,4 +62,5 @@ en:
       post: Post
       question: Form question
       tag: Tag
+      upload: Document
       user: User

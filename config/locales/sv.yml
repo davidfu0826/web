@@ -27,6 +27,8 @@ sv:
       create: &create Skapa %{model}
       image:
         create: Ladda upp %{model}
+      upload:
+        create: Ladda upp %{model}
       submit: Spara %{model}
       update: &update Uppdatera %{model}
 

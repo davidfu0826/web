@@ -108,6 +108,12 @@ sv:
       lead: Sidingress
       sidebar_links: Länkar i sidebar
       promoted_page: Bannersidor
+  uploads:
+    index:
+      uploads: Dokument
+      file_name: Filnamn
+      type: Filtyp
+      new_upload: Ladda upp dokument
   users:
     index:
       users: Användare
