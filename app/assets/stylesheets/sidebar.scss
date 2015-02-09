@@ -13,7 +13,9 @@
         make the transition to affixed look better
         */
       top: 53px;
+      width: 330px;
     }
+    width: 330px;
   }
   @media (max-width: $screen-sm-max) {
     &.affix { top: 0; }

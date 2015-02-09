@@ -28,7 +28,7 @@ affix_sidebar = ->
   $(window).off('.affix')
   $('#sidebar').removeData('bs.affix').removeClass('affix affix-top affix-bottom')
   # Affixing
-  if $('#sidebar').height() + 10 < $('#main-content').height()
+  if $('#sidebar').height() + 30 < $('#main-content').height()
     $("#sidebar").affix offset:
       top: ->
         if $('#banner').length
@@ -37,7 +37,7 @@ affix_sidebar = ->
           offset = 50
         @top = offset
       bottom: ->
-        @bottom = $(".guilds").outerHeight(true) + $(".footer").outerHeight(true) - 10
+        @bottom = $("#guilds-container").outerHeight(true) + $(".footer").outerHeight(true)
 
 # Don't spam the browser with affix events
 $(window).resize ->
