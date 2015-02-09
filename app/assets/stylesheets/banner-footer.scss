@@ -1,3 +1,42 @@
+.banner-wrapper {
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  max-height: 380px;
+
+  #logo {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    max-width: 500px;
+    z-index: 1;
+  }
+
+  #banner {
+    width: 100%;
+    .carousel-inner img {
+      width: 100%;
+    }
+
+    .carousel-caption {
+      bottom: initial;
+      top: 280px;
+    }
+    .carousel-indicators {
+      bottom: initial;
+      top: 350px;
+    }
+  }
+
+  a {
+    color: white;
+  }
+}
+
 /*  -- FOOTER --  */
 .footer {
   padding-top: 20px;

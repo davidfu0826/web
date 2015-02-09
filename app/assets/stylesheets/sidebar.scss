@@ -1,0 +1,102 @@
+#sidebar {
+  border-left: 2px solid #eee;
+  margin-left: -26px;
+  padding-left: 26px;
+
+  @media (min-width: $screen-sm-max) {
+    &.affix {
+      /* Affix plugin will try to set position:relative
+         Since we use that for small screens
+       */
+      position: fixed !important;
+      /* Calculating this dynamically with js would
+        make the transition to affixed look better
+        */
+      top: 53px;
+    }
+  }
+  @media (max-width: $screen-sm-max) {
+    &.affix { top: 0; }
+    position: relative;
+    border-left: none;
+    margin-top: 30px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  a {
+    color: $light-blue;
+  }
+
+  .link {
+    color: $light-gray;
+    font-style: italic;
+    text-align: right;
+    display: inherit;
+  }
+
+  .row {
+    margin-bottom: 5px;
+    margin-left: 8px;
+    @media (max-width: $screen-sm-max) {
+      margin-right: 10px;
+    }
+  }
+
+  .sidebar-glyph {
+    color: $lighter-gray;
+  }
+
+  #twitter-feed {
+    h5 {
+      margin-bottom: 2px;
+      font-size: 18px;
+    }
+
+    .twitter-name {
+      font-size: 12px;
+      color: $dark-gray;
+    }
+  }
+
+  .calendar-feed {
+    .event-thumb {
+      margin-right: 20px;
+      margin-top: 2px;
+      height: 50px;
+      width: 50px;
+
+      border: 1px solid $brand-primary;
+      border-radius: 3px;
+
+      text-align: center;
+
+      .month {
+        font-size: 11px;
+        color: $brand-primary;
+      }
+
+      .day {
+        font-size: 24px;
+        margin-bottom: -2px;
+      }
+    }
+
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    li {
+      display: inline;
+      height: 40px;
+    }
+  }
+}

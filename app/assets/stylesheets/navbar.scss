@@ -1,0 +1,44 @@
+.navbar .navbar-nav {
+  .dropdown-menu {
+    min-width: 100%;
+    text-align: center;
+  }
+  @media (min-width: $screen-xs-max) {
+    width: 100%;
+    text-align: center;
+    display: table;
+
+    li {
+      float: none;
+      display: table-cell;
+    }
+    .dropdown-menu li {
+      display: block;
+    }
+  }
+}
+
+#navbar-container {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 14px;
+    li {
+      padding: 0px;
+      a {
+        padding: 0px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+    }
+  }
+}
+
+// Show navbar on hover
+@media only screen and (min-width: $screen-sm-min) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+

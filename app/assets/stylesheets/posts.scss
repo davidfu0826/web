@@ -17,7 +17,9 @@
 }
 
 .post {
-  padding-right: 50px;
+  @media (min-width: $screen-lg) {
+    padding-right: 35px;
+  }
   min-height: 230px;
 
   h2 {

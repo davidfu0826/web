@@ -1,8 +1,6 @@
 @import "variables";
 @import "pages";
 @import "events";
-@import "posts";
-@import "footer";
 @import "images";
 
 @import "bootstrap-sprockets";
@@ -20,178 +18,14 @@
 @import "fileinput";
 @import "nestable";
 
-/*  -- NAVBAR --  */
-.navbar .navbar-nav {
-  .dropdown-menu {
-    min-width: 100%;
-    text-align: center;
-  }
-  @media (min-width: $screen-xs-max) {
-    width: 100%;
-    text-align: center;
-    display: table;
-
-    li {
-      float: none;
-      display: table-cell;
-    }
-    .dropdown-menu li {
-      display: block;
-    }
-  }
-}
-
-/*  -- banner --  */
-.banner-wrapper {
-  margin-top: 50px;
-  overflow: hidden;
-  position: relative;
-  max-height: 380px;
-
-  #logo {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 35%;
-    max-width: 500px;
-    z-index: 1;
-  }
-
-  #banner {
-    width: 100%;
-    .carousel-inner img {
-      width: 100%;
-    }
-
-    .carousel-caption {
-      bottom: initial;
-      top: 280px;
-    }
-    .carousel-indicators {
-      bottom: initial;
-      top: 350px;
-    }
-  }
-
-  a {
-    color: white;
-  }
-}
-
-/*  -- SIDEBAR --  */
-#sidebar {
-  border-left: 2px solid #eee;
-  margin-left: -26px;
-  padding-left: 26px;
-
-  width: 337px;
-  @media (min-width: $screen-sm-max) {
-    &.affix {
-      /* Affix plugin will try to set position:relative
-         Since we use that for small screens
-       */
-      position: fixed !important;
-      /* Calculating this dynamically with js would
-        make the transition to affixed look better
-        */
-      top: 53px;
-    }
-  }
-  @media (max-width: $screen-sm-max) {
-    &.affix { top: 0; }
-    position: relative;
-    border-left: none;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  a {
-    color: $light-blue;
-  }
-
-  .link {
-    color: $light-gray;
-    font-style: italic;
-    text-align: right;
-    display: inherit;
-  }
-
-  .row {
-    margin-bottom: 5px;
-    margin-left: 8px;
-  }
-
-  .sidebar-glyph {
-    color: $lighter-gray;
-  }
-
-  #twitter-feed {
-    h5 {
-      margin-bottom: 2px;
-      font-size: 18px;
-    }
-
-    .twitter-name {
-      font-size: 12px;
-      color: $dark-gray;
-    }
-  }
-
-  .calendar-feed {
-    .event-thumb {
-      margin-right: 20px;
-      margin-top: 2px;
-      height: 50px;
-      width: 50px;
-
-      border: 1px solid $brand-primary;
-      border-radius: 3px;
-
-      text-align: center;
-
-      .month {
-        font-size: 11px;
-        color: $brand-primary;
-      }
-
-      .day {
-        font-size: 24px;
-        margin-bottom: -2px;
-      }
-    }
-
-    h3 {
-      margin-top: 0px;
-      margin-bottom: 2px;
-    }
-
-    p {
-      font-size: 13px;
-    }
-
-    li {
-      display: inline;
-      height: 40px;
-    }
-  }
-}
+@import "banner-footer";
+@import "navbar";
+@import "sidebar";
 
 /*  -- PAGE CONTENT --  */
 #content {
   margin-top: 50px;
   margin-bottom: 50px;
-
-  padding-left: 4%;
-  padding-right: 4%;
 
   .lead {
     font-size: 18px;
@@ -200,11 +34,14 @@
   .wmd-input {
     height: 300px !important;
   }
+
   .lead a {
     color: $light-gray;
     font-style: italic;
   }
 }
+
+/*  -- MISC --  */
 
 .page-header {
   margin-top: 0px;
@@ -217,9 +54,8 @@
   }
 }
 
-.modal-title {
-  text-overflow: ellipsis;
-  overflow: hidden;
+.select2-choice, .select2-choices, .select2-drop, .select2-search > input {
+  border-radius: 0 !important;
 }
 
 .pagination {
@@ -235,6 +71,11 @@
   }
 }
 
+.modal-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 #insertImageModal .modal-header {
   text-align: center;
   #image-modal-tabs {
@@ -242,34 +83,15 @@
   }
 }
 
-.select2-choice, .select2-choices, .select2-drop, .select2-search > input {
-  border-radius: 0 !important;
-}
-
 .post-text-fields input {
   margin-bottom: 11px;
 }
 
-#navbar-container {
-  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    font-size: 14px;
-    li {
-      padding: 0px;
-      a {
-        padding: 0px;
-        padding-top: 14px;
-        padding-bottom: 14px;
-      }
-    }
-  }
+// Fix font overflow on small screens
+.media-heading h1 {
+  font-size: 45px
 }
 
-// Show navbar on hover
-@media only screen and (min-width: $screen-sm-min) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
+.nav-tabs {
+  margin-bottom: 20px !important;
 }

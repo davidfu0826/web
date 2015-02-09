@@ -7,7 +7,7 @@
         <span class="glyphicon glyphicon-edit"></span>
       <% end %>
       <%= link_to nav_item, method: :delete, data: {confirm: t(:confirm_delete)} do %>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-<%= nav_item.page? ? 'remove' : 'trash' %>"></span>
       <% end %>
     </div>
   </div>
@@ -23,7 +23,7 @@
                 <i class="glyphicon glyphicon glyphicon-edit"></i>
               <% end %>
               <%= link_to child, method: :delete, data: {confirm: t(:confirm_delete)} do %>
-                <span class="glyphicon glyphicon-remove"></span>
+                <span class="glyphicon glyphicon-<%= nav_item.page? ? 'remove' : 'trash' %>"></span>
               <% end %>
             </div>
           </div>
