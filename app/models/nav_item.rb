@@ -25,7 +25,14 @@ class NavItem < ActiveRecord::Base
   end
 
   def link
-    nav_item_type == 'page' ? page.slug : self[:link]
+    case nav_item_type
+    when 'page'
+      "/#{page.slug}"
+    when 'menu'
+      '#'
+    else
+      self[:link]
+    end
   end
 
   def children?
