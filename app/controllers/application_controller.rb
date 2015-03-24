@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     @navbar_items = NavItem.orphans.order("position ASC").includes(:page, children: :page)
     @locale = I18n.locale
     if controller_name == 'posts' && action_name == 'index'
-      @links = Settings.sidebar_links
+      @links = Settings[:sidebar_links]
     end
   end
 end
