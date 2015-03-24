@@ -13,6 +13,7 @@ $(document).on "page:change", ->
     pick12HourFormat: false
 
   $('.summernote_editor').summernote
+    lang: 'sv-SE'
     height: 400
     codemirror:
       lineNumbers: true

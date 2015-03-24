@@ -13,6 +13,7 @@
 //= require jquery_nested_form
 //= require jquery.minicolors
 //= require fileinput
+//= require fileinput_locale_sv.js
 //= require codemirror
 //= require codemirror/modes/http
 //= require codemirror/modes/htmlmixed

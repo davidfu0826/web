@@ -57,7 +57,7 @@ sv:
       contact_form: Kontaktformulär
       event: Event
       image: *image
-      nav_item: Navigeringsmeny
+      nav_item: Menyelement
       page: Sida
       post: Nyhet
       question: Formulärsfråga

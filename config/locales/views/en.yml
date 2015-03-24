@@ -41,6 +41,8 @@ en:
       select: Select image
       caption: Caption
       link_to: Link
+      image_gallery: Images
+      image_uploader: Upload image
     index:
       images: Images
       new_image: Upload new image
@@ -64,9 +66,9 @@ en:
     index:
       page_management: Page Management
       save_nav_item_order: Save navigation order
-    new_hidden_page: New hidden page
-    new_nav_item: New menu
-    new_page: New page
+      hidden_pages: Hidden pages
+    new_nav_item: Create menu item
+    new_page: Create page
     page: Page
     show:
       add_user: Add contact

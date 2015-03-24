@@ -44,6 +44,8 @@ sv:
       select: Välj bild
       caption: Bildtext
       link_to: Bildlänk
+      image_gallery: Galleri
+      image_uploader: Ladda upp ny bild
     index:
       images: Bilder
       new_image: Ladda upp ny bild
@@ -69,9 +71,9 @@ sv:
     index:
       page_management: Sidhantering
       save_nav_item_order: Spara navigationsordning
-    new_hidden_page: Ny gömd sida
-    new_nav_item: Ny meny
-    new_page: Ny sida
+      hidden_pages: Gömda sidor
+    new_nav_item: Skapa menyelement
+    new_page: Skapa sida
     page: Sida
     show:
       add_user: Lägg till kontaktperson

@@ -57,7 +57,7 @@ en:
       contact_form: Contact form
       event: Event
       image: *image
-      nav_item: Navigation menu
+      nav_item: Menu item
       page: Page
       post: Post
       question: Form question
