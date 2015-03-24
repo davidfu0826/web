@@ -6,11 +6,17 @@ class SettingsController < ApplicationController
   end
 
   def update
-    @settings[:index_leads]    = params[:settings][:index_leads]
-    @settings[:promoted_pages] = params[:settings][:promoted_pages]
+    @settings[:index_leads] = params[:settings][:index_leads] if params[:settings][:index_leads]
+
+    if params[:settings][:promoted_pages]
+      @settings[:promoted_pages] = params[:settings][:promoted_pages]
                                   .reject { |page| page.blank? }
                                   .map { |page| page.to_i }
-    @settings[:sidebar_links]  = params[:settings][:sidebar_links].map { |key, value| value }
+    end
+
+    if params[:settings][:sidebar_links]
+      @settings[:sidebar_links] = params[:settings][:sidebar_links].map { |key, value| value }
+    end
 
     redirect_to root_path
   end

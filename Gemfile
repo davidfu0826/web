@@ -42,7 +42,6 @@ gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'codemirror-rails' # Used by summernote for displaying html
 gem 'fuzzily' #Fuzzy string search
-gem 'dalli' # Memcaching
 gem 'newrelic_rpm'
 
 group :development do
