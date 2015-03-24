@@ -117,6 +117,9 @@ en:
       title: Title
       role: Role
       tools: Tools
+    form:
+      update_password: Change password
+      save_password: Change password
     user:
       add_contact_form: Add contactform
       contact: Contact

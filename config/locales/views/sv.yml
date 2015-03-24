@@ -123,6 +123,9 @@ sv:
       title: Titel
       role: Roll
       tools: Verktyg
+    form:
+      update_password: Ändra lösenord
+      save_password: Spara lösenord
     user:
       add_contact_form: Lägg till kontaktformulär
       contact: Kontakta

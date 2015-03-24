@@ -6,10 +6,16 @@
   <%= f.select :role,   @roles.collect   {|r| [ r.first, r.first ] }, include_blank: true if can? :manage, User %>
   <%= f.file_field :profile_image %>
 
-  <% if current_user == @user  %>
+  <%= f.submit %>
+<% end %>
+
+<% if current_user == @user  %>
+  <hr>
+  <h2><%= t('.update_password') %></h2>
+  <%= bootstrap_form_for @user do |f| %>
     <%= f.password_field :password %>
     <%= f.password_field :password_confirmation %>
-  <% end %>
 
-  <%= f.submit %>
+    <%= f.submit t('.save_password') %>
+  <% end %>
 <% end %>
