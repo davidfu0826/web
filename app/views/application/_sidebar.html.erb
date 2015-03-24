@@ -48,9 +48,9 @@
         <%= t(:links) %>
         <span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span>
       </h3>
-      <%# @links.each do |link| %>
-        <h4><%#= link_to link[:title], link[:url] %></h4>
-      <%# end %>
+      <% @links.each do |link| %>
+        <h4><%= link_to link[:title], link[:url] %></h4>
+      <% end %>
     </div>
   <% end %>
 <% end %>

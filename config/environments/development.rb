@@ -13,6 +13,8 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
+  config.cache_store = :dalli_store, "localhost:11211", { namespace: 'TLTH', expires_in: 1.day, compress: true }
+
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
