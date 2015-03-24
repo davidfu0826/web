@@ -78,6 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    dalli (2.6.4)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -353,6 +354,7 @@ DEPENDENCIES
   cancancan (~> 1.8)
   codemirror-rails
   coffee-rails (~> 4.0.0)
+  dalli
   devise
   dragonfly (~> 1.0.5)
   dragonfly-s3_data_store
