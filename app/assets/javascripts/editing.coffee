@@ -3,9 +3,8 @@ $(document).on "page:change", ->
 
   # Form helpers
   $('#colorpicker').minicolors theme: 'bootstrap'
-  $("[type='file']").fileinput
-    showUpload: false,
-    showRemove: false
+
+  fileinput($("[type='file']"))
 
   $("[data-behaviour~=datepicker]").datetimepicker
     language: "sv"
@@ -30,31 +29,19 @@ $(document).on "page:change", ->
       ['help', ['help']]
     ]
 
-
-  tag_data = select2_tags()
   # Used in image modal
   $(".img-select").click (event) ->
     $(event.currentTarget).toggleClass('img-selected')
-  $("#insertImageModal").on "show.bs.modal", (e) ->
-    $("[type='file']").fileinput
-      showUpload: false,
-      showRemove: false
-    select2_tags()
 
-# Initialize Select2 for tag autocomplete
-select2_tags =  ->
-  # Inserting tags
-  tag_data = []
-  $(".tag_select").select2
-    tags: ->
-      if tag_data.length == 0
-        $.ajax(url: "/tags.json").done (data) ->
-          tag_data = $.map(data, (tag) ->
-            tag.title
-        )
-      else
-        tag_data
-    tokenSeparators: [",", " "]
+fileinput = (input) ->
+  if $(input).attr('id').indexOf('image') > -1
+    allowedFileExtensions = ['jpeg', 'jpg', 'png', 'bmp', 'gif']
+  else
+    allowedFileExtensions = null
+  input.fileinput
+    showUpload: false,
+    showRemove: false,
+    allowedFileExtensions: allowedFileExtensions
 
 post_nav_item_order = ->
   data = $('.dd').nestable 'serialize'

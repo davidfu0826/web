@@ -1,8 +1,11 @@
 $(document).on "page:change", ->
+  tag_data = select2_tags()
   $("#insertImageModal").on "show.bs.modal", (e) ->
-    $("[type='file']").fileinput
+    select2_tags()
+    $("[type='file'][id*='image']").fileinput
       showUpload: false,
-      showRemove: false
+      showRemove: false,
+      allowedFileExtensions: ['jpeg', 'jpg', 'png', 'bmp', 'gif']
   $("#image-button").click showImageLibraryDialog
 
 showImageLibraryDialog = ->
@@ -30,3 +33,18 @@ showImageLibraryDialog = ->
     $imageDialog.off "image_uploaded"
     $("#insert-image").off "click"
   ).modal "show"
+
+# Initialize Select2 for tag autocomplete
+select2_tags =  ->
+  # Inserting tags
+  tag_data = []
+  $(".tag_select").select2
+    tags: ->
+      if tag_data.length == 0
+        $.ajax(url: "/tags.json").done (data) ->
+          tag_data = $.map(data, (tag) ->
+            tag.title
+        )
+      else
+        tag_data
+    tokenSeparators: [",", " "]
