@@ -42,6 +42,11 @@ module CacheHelper
     "application/sidebar_links-#{locale}-#{updated_at}"
   end
 
+  def cache_key_sidebar_tweets
+    locale = I18n.locale
+    Random.rand(110)
+  end
+
   def cache_key_sidebar_events
     locale = I18n.locale
     count          = Event.count

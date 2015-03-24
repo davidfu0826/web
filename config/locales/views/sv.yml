@@ -145,3 +145,9 @@ sv:
       no_images: Inga bilder
       no_posts: Inga nyheter
       resources: Nyheter/Bilder
+  views:
+    pagination:
+      next: Nästa
+      first: Första
+      previous: Föregående
+      last: Sista

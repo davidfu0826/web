@@ -1,45 +1,47 @@
-<div class="lead">
-  <%= link_to t('.show_all'), events_path %>
-</div>
-
-<div class="page-header">
-  <h1>
-    <%= @event.title %>
-    <small><%= @event.tags.to_a.map(&:title).join(', ') %></small>
-  </h1>
-</div>
-
-<div class="col-sm-6">
-  <h4><%= t('.date') %></h4>
-  <p class="event-date">
-    <span class="light-text">
-      <%= t('.start') %>
-    </span>
-    <%= l(@event.start_time, format: :long_month) %><br>
-
-    <span class="light-text">
-      <%= t('.end') %>
-    </span>
-    <%= l(@event.end_time, format: :long_month) %>
-  </p>
-</div>
-<div class="col-sm-6">
-  <h4><%= t('.desc') %></h4>
-  <% if @event.description.present? %>
-    <p><%= @event.description %></p>
-  <% else %>
-    <p><%= t('.no_description') %></p>
-  <% end %>
-</div>
-
-<% content_for :sidebar do %>
-  <div class="row">
-    <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-    <ul>
-      <% if can? :edit, Event %>
-        <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
-        <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
-      <% end %>
-    </ul>
+<% cache_if !current_user, [I18n.locale, @event] do %>
+  <div class="lead">
+    <%= link_to t('.show_all'), events_path %>
   </div>
+
+  <div class="page-header">
+    <h1>
+      <%= @event.title %>
+      <small><%= @event.tags.to_a.map(&:title).join(', ') %></small>
+    </h1>
+  </div>
+
+  <div class="col-sm-6">
+    <h4><%= t('.date') %></h4>
+    <p class="event-date">
+      <span class="light-text">
+        <%= t('.start') %>
+      </span>
+      <%= l(@event.start_time, format: :long_month) %><br>
+
+      <span class="light-text">
+        <%= t('.end') %>
+      </span>
+      <%= l(@event.end_time, format: :long_month) %>
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <h4><%= t('.desc') %></h4>
+    <% if @event.description.present? %>
+      <p><%= @event.description %></p>
+    <% else %>
+      <p><%= t('.no_description') %></p>
+    <% end %>
+  </div>
+
+  <% content_for :sidebar do %>
+    <div class="row">
+      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+      <ul>
+        <% if can? :edit, Event %>
+          <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
+          <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

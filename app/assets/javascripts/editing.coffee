@@ -35,6 +35,8 @@ $(document).on "page:change", ->
     $(event.currentTarget).toggleClass('img-selected')
 
 fileinput = (input) ->
+  if input.length == 0
+    return
   if $(input).attr('id').indexOf('image') > -1
     allowedFileExtensions = ['jpeg', 'jpg', 'png', 'bmp', 'gif']
   else

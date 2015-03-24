@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :load_tweets
 
   def tweets
+    ActionController::Base.new.expire_fragment("sidebar-tweets")
     render partial: 'tweet', collection: @tweets
   end
 

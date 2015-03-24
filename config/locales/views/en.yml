@@ -141,4 +141,9 @@ en:
       title: Title
       no_images: Inga bilder
       no_posts: Inga nyheter
-
+  views:
+    pagination:
+      next: Next
+      first: First
+      previous: Previous
+      last: Last
