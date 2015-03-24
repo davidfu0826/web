@@ -4,7 +4,7 @@
       <%= f.text_field :title_sv %>
       <%= f.text_field :title_en %>
 
-      <%= f.text_field :tags, label: t('shared.tags'), class: 'tag_select', value: @post.tags.all.to_a.join(",") %>
+      <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: @post.tags.all.to_a.join(",") %>
     </div>
     <div class="col-md-4">
       <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>

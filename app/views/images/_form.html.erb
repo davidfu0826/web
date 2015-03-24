@@ -2,7 +2,7 @@
 <%= bootstrap_form_for @image, layout: :horizontal, remote: remote do |f| %>
   <%= f.text_field :title %>
   <%= f.file_field :image if @image.new_record? %>
-  <%= f.text_field :tags, label: t('shared.tags'), class: 'tag_select', value: @image.tags.all.to_a.join(",") %>
+  <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: @image.tags.all.to_a.join(",") %>
 
   <%= f.submit %>
 <% end %>

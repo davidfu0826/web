@@ -1,40 +1,42 @@
-<% if post.content(fallback: false).present? %>
-  <div class="post">
-    <div class="media">
-      <div class="row">
-        <div class="col-sm-4">
-          <%= image_tag (post.image.present? ? post.image.image.thumb('160x160#').url : "blue_mark.svg"), size: '160' %>
-          <% first_tag = post.tags.first %>
-          <% if first_tag.present? %>
-            <div class="tag">
-              <div class="tag-color" style="background: <%= first_tag.color if post %>"></div>
-              <div class="tag-text"><%= first_tag.title %></div>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-sm-8">
-          <div class="media-heading">
-            <h2 class="post-title"><%= link_to post.title, post %></h2>
-            <p class="published-date">
-              <%= t('.published') %>
-              <%= l(post.created_at, format: :short)  %>
-              <% if post.updated_at >= post.created_at + 1.hour %>
-                <%= t('.updated_at') %>
-                <%= l(post.updated_at, format: :short)  %>
-              <% end %>
-            </p>
+<% cache_if !current_user, [{locale: I18n.locale}, post ] do %>
+  <% if post.content(fallback: false).present? %>
+    <div class="post">
+      <div class="media">
+        <div class="row">
+          <div class="col-sm-4">
+            <%= image_tag (post.image.present? ? post.image.image.thumb('160x160#').url : "blue_mark.svg"), size: '160' %>
+            <% first_tag = post.tags.first %>
+            <% if first_tag.present? %>
+              <div class="tag">
+                <div class="tag-color" style="background: <%= first_tag.color if post %>"></div>
+                <div class="tag-text"><%= first_tag.title %></div>
+              </div>
+            <% end %>
           </div>
-          <p><%= truncate(post.first_paragraph, length: 250) %></p>
-          <div class="post-tools">
-            <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
-            <%= link_to t(:destroy), post_path(post),
-              method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
-            <div class="pull-right">
-              <%= link_to t(:read_more), post_path(post, archive: @archive) %>
+          <div class="col-sm-8">
+            <div class="media-heading">
+              <h2 class="post-title"><%= link_to post.title, post %></h2>
+              <p class="published-date">
+                <%= t('.published') %>
+                <%= l(post.created_at, format: :short)  %>
+                <% if post.updated_at >= post.created_at + 1.hour %>
+                  <%= t('.updated_at') %>
+                  <%= l(post.updated_at, format: :short)  %>
+                <% end %>
+              </p>
+            </div>
+            <p><%= truncate(post.first_paragraph, length: 250) %></p>
+            <div class="post-tools">
+              <%= link_to t(:edit), edit_post_path(post) if can? :edit, post %>
+              <%= link_to t(:destroy), post_path(post),
+                method: :delete, data: {confirm: t(:confirm_delete)} if can? :destroy, post %>
+              <div class="pull-right">
+                <%= link_to t(:read_more), post_path(post, archive: @archive) %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

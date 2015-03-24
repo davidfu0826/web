@@ -9,11 +9,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render 'navbar' %>
+    <%= render 'application/navbar' %>
+
+    <%# Template Dependency: application/banner_carousel  %>
     <%= banner_image %>
 
     <div class="container" id="content">
-      <%= render 'flash' %>
+      <%= render 'application/flash' %>
 
       <% if content_for?(:sidebar) %>
         <div class="row">
@@ -31,8 +33,8 @@
         <%= yield %>
       <% end %>
     </div>
-    <%= render 'guilds' %>
-    <%= render 'footer' %>
+    <%= render 'application/guilds' %>
+    <%= render 'application/footer' %>
   </body>
 </html>
 

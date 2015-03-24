@@ -31,6 +31,7 @@ sv:
         create: Ladda upp %{model}
       submit: Spara %{model}
       update: &update Uppdatera %{model}
+    tags: Taggar
 
 
   application:
@@ -40,6 +41,7 @@ sv:
       telephone: 'Telefon: 046 - 540 89 20'
     navbar:
       events: Event
+      start: Hem
     sidebar:
       account_settings: Kontoinställningar
       all_events: Visa alla evenemang

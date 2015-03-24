@@ -37,7 +37,7 @@
     <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
     <ul>
       <% if can? :edit, Event %>
-        <li><%= link_to t(:edit, subject: t('dictionary.event')), edit_event_path(@event) %></li>
+        <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
         <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
       <% end %>
     </ul>

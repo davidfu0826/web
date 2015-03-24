@@ -1,0 +1,17 @@
+<% cache [I18n.locale, nav_item ] do %>
+  <% if nav_item.children? %>
+    <li class="dropdown">
+      <% link = (nav_item.nav_item_type == 'menu' ? '#' : nav_item.link) %>
+      <a href="<%= link %>" class="dropdown-toggle" data-toggle="dropdown">
+        <%= nav_item.item_title %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% nav_item.children.each do |child| %>
+          <%= navbar_item child.item_title, child.link %>
+        <% end %>
+      </ul>
+    </li>
+  <% else %>
+    <%= navbar_item nav_item.item_title, nav_item.link %>
+  <% end %>
+<% end %>

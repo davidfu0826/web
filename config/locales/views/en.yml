@@ -8,6 +8,8 @@ en:
       week: Week %{week}
       l_week: (L.V %{week})
       no_events: Inga Event
+      next_month: Next month
+      previous_month: Previous month
     index:
       change_cover: Edit cover
       new_event: Create new event
@@ -15,6 +17,7 @@ en:
       reset: Reset
       search: Filter
       webcal: Subscribe to iCal
+      event: Event
     show:
       date: Date
       desc: Description

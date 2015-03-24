@@ -1,6 +1,6 @@
 class NavItem < ActiveRecord::Base
   belongs_to :page
-  belongs_to :parent, class_name: "NavItem"
+  belongs_to :parent, class_name: "NavItem", touch: true
   has_many :children, -> { order("position ASC") }, class_name: "NavItem", foreign_key: "parent_id"
 
   scope :orphans, -> { where(parent: nil) }

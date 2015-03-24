@@ -1,17 +1,19 @@
-<div class="footer">
-  <div class="container">
-      <ul>
-        <li class="col-xs-12 col-sm-3"><p><%= t('.opening_hours') %></p></li>
-        <li class="col-xs-12 col-sm-3"><p><%= t('.telephone') %></p></li>
-        <li class="col-xs-12 col-sm-3"><p><%= t('.email') %></p></li>
-        <li class="col-xs-12 col-sm-3"><p>
-          <% if current_user %>
-            <%= current_user.email %>
-            <%= link_to t(:log_out), destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to t(:log_in),  new_user_session_path unless current_user %>
-          <% end %>
-        </p></li>
-      </ul>
+<% cache_if(!current_user, I18n.locale) do %>
+  <div class="footer">
+    <div class="container">
+        <ul>
+          <li class="col-xs-12 col-sm-3"><p><%= t('.opening_hours') %></p></li>
+          <li class="col-xs-12 col-sm-3"><p><%= t('.telephone') %></p></li>
+          <li class="col-xs-12 col-sm-3"><p><%= t('.email') %></p></li>
+          <li class="col-xs-12 col-sm-3"><p>
+            <% if current_user %>
+              <%= current_user.email %>
+              <%= link_to t(:log_out), destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to t(:log_in), new_user_session_path unless current_user %>
+            <% end %>
+          </p></li>
+        </ul>
+    </div>
   </div>
-</div>
+<% end %>

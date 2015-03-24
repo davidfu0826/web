@@ -33,6 +33,7 @@ en:
         create: Upload %{model}
       submit: Save %{model}
       update: Update %{model}
+    tags: Tags
 
   application:
     footer:
@@ -41,6 +42,7 @@ en:
       telephone: 'Phone: 046 - 540 89 20'
     navbar:
       events: Event
+      start: Home
     sidebar:
       account_settings: Account Settings
       all_events: Show all events
@@ -49,6 +51,7 @@ en:
       manage_pages: Manage Pages
       manage_tags: Manage Tags
       manage_users: Manage Users
+      manage_uploads: Manage Uploads
       site_settings: Site settings
       new_post: Create News Post
       twitter_link: Show tweets by Teknologkåren

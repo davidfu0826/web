@@ -1,22 +1,26 @@
-<div class="news-feed">
-  <div class="media">
-    <div class="media-body">
-      <div class="media-heading">
-        <h1><%= t('.welcome') %></h1>
-      </div>
-      <div class="lead">
-        <p><%= t('.lead') %></p>
+<% cache_if(!current_user, cache_key_posts_index) do %>
+  <div class="news-feed">
+    <div class="media">
+      <div class="media-body">
+        <div class="media-heading">
+          <h1><%= t('.welcome') %></h1>
+        </div>
+        <div class="lead">
+          <p><%= t('.lead') %></p>
+        </div>
       </div>
     </div>
+    <% cache(cache_key_homepage_posts) do %>
+      <%= render partial: 'posts/post', collection: @posts %>
+    <% end %>
+    <div class="post-links">
+      <%= link_to t('.archive'), archive_posts_path %>
+      |
+      <%= link_to t('.rss'), posts_path(format: :rss) %>
+    </div>
+    <%= auto_discovery_link_tag(:rss, { action: :index }, { title: "TLTH" }) %>
   </div>
-  <%= render @posts %>
-  <div class="post-links">
-    <%= link_to t('.archive'), archive_posts_path %>
-    |
-    <%= link_to t('.rss'), posts_path(format: :rss) %>
-  </div>
-  <%= auto_discovery_link_tag(:rss, { action: :index }, { title: "TLTH" }) %>
-</div>
+<% end %>
 
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
