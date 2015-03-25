@@ -1,4 +1,4 @@
-<% cache_if !current_user, [I18n.locale, @event] do %>
+<% cache [I18n.locale, @event] do %>
   <div class="lead">
     <%= link_to t('.show_all'), events_path %>
   </div>
@@ -32,7 +32,9 @@
       <p><%= t('.no_description') %></p>
     <% end %>
   </div>
+<% end %>
 
+<% cache_if current_user.blank?, [I18n.locale, @event] do %>
   <% content_for :sidebar do %>
     <div class="row">
       <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>

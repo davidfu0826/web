@@ -5,11 +5,12 @@ sv:
       heading: "Ändra coverbild"
       select_image: Välj Bild
     event_calendar:
-      week: Vecka %{week}
-      l_week: (L.V %{week})
-      no_events: Inga Event
       next_month: Nästa månad
       previous_month: Föregående månad
+    event_calendar_month:
+      no_events: Inga Event
+      week: Vecka %{week}
+      l_week: (L.V %{week})
     index:
       change_cover: "Ändra coverbild"
       new_event: Nytt Event

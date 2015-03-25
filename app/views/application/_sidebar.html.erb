@@ -1,19 +1,21 @@
-<% cache_if !current_user, cache_key_sidebar do %>
-  <% if current_user %>
-    <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-        <ul>
-          <li><%= link_to t('.account_settings'), edit_user_path(current_user)       %></li>
-          <li><%= link_to t('.site_settings'), 'settings'    if can? :manage, Page   %></li>
-          <li><%= link_to t('.new_post'), new_post_path      if can? :create, Post   %></li>
-          <li><%= link_to t('.manage_pages'), pages_path     if can? :manage, Page   %></li>
-          <li><%= link_to t('.manage_users'), users_path     if can? :manage, User   %></li>
-          <li><%= link_to t('.manage_events'), events_path   if can? :manage, Event  %></li>
-          <li><%= link_to t('.manage_images'), images_path   if can? :manage, Image  %></li>
-          <li><%= link_to t('.manage_uploads'), uploads_path if can? :manage, Upload %></li>
-          <li><%= link_to t('.manage_tags'), tags_path       if can? :manage, Tag    %></li>
-        </ul>
-    </div>
+<% cache cache_key_sidebar do %>
+  <% cache [I18n.locale, current_user.nil?, current_user.try(:role)] do %>
+    <% if current_user %>
+      <div class="row">
+        <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+          <ul>
+            <li><%= link_to t('.account_settings'), edit_user_path(current_user)       %></li>
+            <li><%= link_to t('.site_settings'), 'settings'    if can? :manage, Page   %></li>
+            <li><%= link_to t('.new_post'), new_post_path      if can? :create, Post   %></li>
+            <li><%= link_to t('.manage_pages'), pages_path     if can? :manage, Page   %></li>
+            <li><%= link_to t('.manage_users'), users_path     if can? :manage, User   %></li>
+            <li><%= link_to t('.manage_events'), events_path   if can? :manage, Event  %></li>
+            <li><%= link_to t('.manage_images'), images_path   if can? :manage, Image  %></li>
+            <li><%= link_to t('.manage_uploads'), uploads_path if can? :manage, Upload %></li>
+            <li><%= link_to t('.manage_tags'), tags_path       if can? :manage, Tag    %></li>
+          </ul>
+      </div>
+    <% end %>
   <% end %>
 
   <% cache(cache_key_sidebar_events) do %>

@@ -5,11 +5,12 @@ en:
       heading: Edit cover
       select_image: Choose cover
     event_calendar:
-      week: Week %{week}
-      l_week: (L.V %{week})
-      no_events: Inga Event
       next_month: Next month
       previous_month: Previous month
+    event_calendar_month:
+      no_events: No events
+      week: Week %{week}
+      l_week: (L.V %{week})
     index:
       change_cover: Edit cover
       new_event: Create new event

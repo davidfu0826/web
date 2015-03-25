@@ -1,4 +1,4 @@
-<% cache_if !current_user, [{locale: I18n.locale}, post ] do %>
+<% cache [I18n.locale, current_user.try(:role), post] do %>
   <% if post.content(fallback: false).present? %>
     <div class="post">
       <div class="media">

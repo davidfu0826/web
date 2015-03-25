@@ -1,32 +1,5 @@
-<% [@this_month.last_month, @this_month, @this_month.next_month].each do |month| %>
-  <div class="col-md-4">
-    <h3><%= t("date.month_names")[month.month] %></h3>
-    <% if @events[month] %>
-      <% @events[month].keys.sort.each do |week| %>
-        <h5 class="event-weeknbr">
-          <%= t('.week', week: week) %>
-          <%= t('.l_week', week: study_week(week)) if study_week(week) %>
-        </h5>
-
-        <ul class="event-week">
-          <% @events[month][week].sort_by!(&:start_time) %>
-
-          <% @events[month][week].each do |event| %>
-            <li class="<%= event.end_time < @now ? "disabled" : "" %>">
-              <span class='event-start-time'>
-                <%= l(event.start_time, format: :week_day) %>
-              </span>
-
-              <%= link_to event.title, event %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-    <% else %>
-      <%= t('.no_events') %>
-    <% end %>
-  </div>
-<% end %>
+<% months = [@this_month.last_month, @this_month, @this_month.next_month] %>
+<%= render partial: 'events/event_calendar_month', collection: months, as: :month %>
 
 <div class="col-xs-12">
   <!-- Link to previous month -->

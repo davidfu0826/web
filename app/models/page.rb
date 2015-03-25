@@ -9,7 +9,9 @@ class Page < ActiveRecord::Base
   translates :content
 
   has_one :nav_item, dependent: :destroy
-  has_and_belongs_to_many :contacts, class_name: 'User'
+  after_save { nav_item.touch }
+
+  has_and_belongs_to_many :contacts, class_name: 'User', touch: true
   has_many :contact_forms
 
   belongs_to :image
@@ -20,6 +22,7 @@ class Page < ActiveRecord::Base
   before_validation do
     self.slug = self.title_en.parameterize
   end
+
 
   def slug_not_reserved_path
     if reserved_paths.include? slug

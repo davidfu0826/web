@@ -1,3 +1,7 @@
-<% flash.each do |name, msg| %>
-  <div class="<%= flash_class(name) %>"><%= msg %></div>
+<% cache_if flash.empty?, [I18n.locale, flash.empty?] do %>
+  <% flash.each do |name, msg| %>
+    <% cache [I18n.locale, name, msg] do %>
+      <div class="<%= flash_class(name) %>"><%= msg %></div>
+    <% end %>
+  <% end %>
 <% end %>
