@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209194547) do
+ActiveRecord::Schema.define(version: 20150924180218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20150209194547) do
     t.datetime "updated_at"
     t.string   "title",      limit: 255
   end
+
+  add_index "contact_forms", ["page_id"], name: "index_contact_forms_on_page_id", using: :btree
+  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title_sv",       limit: 255
@@ -58,6 +61,9 @@ ActiveRecord::Schema.define(version: 20150209194547) do
     t.string   "link"
   end
 
+  add_index "nav_items", ["page_id"], name: "index_nav_items_on_page_id", using: :btree
+  add_index "nav_items", ["parent_id"], name: "index_nav_items_on_parent_id", using: :btree
+
   create_table "pages", force: :cascade do |t|
     t.string   "title_sv",   limit: 255
     t.text     "content_sv"
@@ -80,6 +86,9 @@ ActiveRecord::Schema.define(version: 20150209194547) do
     t.datetime "updated_at"
   end
 
+  add_index "pages_users", ["page_id"], name: "index_pages_users_on_page_id", using: :btree
+  add_index "pages_users", ["user_id"], name: "index_pages_users_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title_sv",   limit: 255
     t.text     "content_sv"
@@ -99,6 +108,8 @@ ActiveRecord::Schema.define(version: 20150209194547) do
     t.datetime "updated_at"
   end
 
+  add_index "questions", ["contact_form_id"], name: "index_questions_on_contact_form_id", using: :btree
+
   create_table "settings", force: :cascade do |t|
     t.string   "var",        limit: 255, null: false
     t.text     "value"
@@ -117,6 +128,9 @@ ActiveRecord::Schema.define(version: 20150209194547) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "taggings", ["tag_id", "taggable_type"], name: "index_taggings_on_tag_id_and_taggable_type", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "title",      limit: 255
