@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create_with_tags(event_params, params[:event][:tags])
-    unless @event.new_record?
+    if !@event.new_record?
       redirect_to event_path(@event)
     else
       load_tags
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
 
   def change_cover_update
     authorize! :manage, Event
-    if params[:image_id] =~ /^\d+$/ #Should only contain integers
+    if params[:image_id] =~ /^\d+$/ # Should only contain integers
       Settings.events_cover_image = params[:image_id]
       redirect_to events_path
     else
@@ -102,17 +102,15 @@ class EventsController < ApplicationController
   def events_by_month_and_week(events)
     events = events.group_by { |u| u.start_time.beginning_of_month }
     events.each_key do |month|
-      events[month] = events[month].group_by { |e| e.start_time.strftime("%V").to_i }
+      events[month] = events[month].group_by { |e| e.start_time.strftime('%V').to_i }
     end
     events
   end
 
   def load_cover_image
-    if Settings.events_cover_image.present?
-      @events_cover = Image.where(id: Settings.events_cover_image)
-      if @events_cover.blank?
-        Settings.events_cover_image = nil
-      end
-    end
+    return unless Settings.events_cover_image.present?
+
+    @events_cover = Image.where(id: Settings.events_cover_image)
+    Settings.events_cover_image = nil if @events_cover.blank?
   end
 end

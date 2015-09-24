@@ -18,7 +18,6 @@ class Event < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
-  scope :with_tag, -> (tag_id) { joins(:tags).where('tags.id' => tag_id) }
   scope :upcoming, -> { where('end_time > :current', current: Time.current).order(start_time: :asc) }
 
   translates :title, :description
