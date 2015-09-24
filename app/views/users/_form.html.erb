@@ -1,18 +1,22 @@
-<%= bootstrap_form_for @user do |f| %>
+<%= bootstrap_form_for user do |f| %>
   <%= f.email_field :email, autofocus: true %>
   <%= f.text_field :name %>
   <%= f.text_field :title %>
   <%= f.text_field :phonenumber %>
-  <%= f.select :role,   @roles.collect   {|r| [ r.first, r.first ] }, include_blank: true if can? :manage, User %>
+
+  <% if can? :manage, User %>
+    <%= f.select :role, roles.collect {|r| [r.first, r.first]}, include_blank: true %>
+  <% end %>
+
   <%= f.file_field :profile_image %>
 
   <%= f.submit %>
 <% end %>
 
-<% if current_user == @user  %>
+<% if current_user == user  %>
   <hr>
   <h2><%= t('.update_password') %></h2>
-  <%= bootstrap_form_for @user do |f| %>
+  <%= bootstrap_form_for user do |f| %>
     <%= f.password_field :password %>
     <%= f.password_field :password_confirmation %>
 

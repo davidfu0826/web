@@ -1,16 +1,16 @@
-<%= bootstrap_form_for @post, layout: :horizontal do |f| %>
+<%= bootstrap_form_for post, layout: :horizontal do |f| %>
   <div class="row">
     <div class="col-md-8 post-text-fields">
       <%= f.text_field :title_sv %>
       <%= f.text_field :title_en %>
 
-      <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: @post.tags.all.to_a.join(",") %>
+      <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: post.tags.all.to_a.join(",") %>
     </div>
     <div class="col-md-4">
       <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>
         <%= f.hidden_field :image_id %>
         <div id="preview-image-preview">
-          <% image_url = @post.image.present? ? @post.image.url : "http://placehold.it/160x160" %>
+          <% image_url = post.image.present? ? post.image.url : "http://placehold.it/160x160" %>
           <%= image_tag image_url, id: "preview-image", class: "post-preview-image img-thumbnail" %>
         <%= link_to t('.select_image'), '#', class: "btn btn-default", id: "image-button" %>
         </div>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <%= render 'shared_fields', resource: @post, f: f %>
+  <%= render 'shared_fields', resource: post, f: f %>
 
   <%= f.submit %>
 <% end %>

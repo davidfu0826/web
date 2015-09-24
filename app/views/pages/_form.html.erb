@@ -1,9 +1,9 @@
-<%= bootstrap_form_for @page, layout: :horizontal do |f| %>
+<%= bootstrap_form_for page, layout: :horizontal do |f| %>
   <%= f.alert_message f.error_summary %>
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
-  <%= render 'shared_fields', resource: @page, f: f %>
+  <%= render 'shared_fields', resource: page, f: f %>
 
   <%= f.submit %>
 <% end %>

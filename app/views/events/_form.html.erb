@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @event, layout: :horizontal do |f| %>
+<%= bootstrap_form_for event, layout: :horizontal do |f| %>
   <%= f.text_field :title_sv %>
   <%= f.text_field :title_en %>
 
@@ -7,13 +7,13 @@
     <ul class="nav nav-pills" role="tablist">
       <li class="active"><a href="#sv" role="tab" data-toggle="tab">
         <%= t('locales.sv') %>
-        <% unless @event.locale_content? :sv %>
+        <% unless event.locale_content? :sv %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>
       <li><a href="#en" role="tab" data-toggle="tab">
         <%= t('locales.en') %>
-        <% unless @event.locale_content? :en %>
+        <% unless event.locale_content? :en %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>
@@ -32,7 +32,7 @@
 
   <%= f.text_field :start_time, 'data-behaviour' => 'datepicker' %>
   <%= f.text_field :end_time, 'data-behaviour' => 'datepicker' %>
-  <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: @event.tags.all.to_a.join(",") %>
+  <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: event.tags.all.to_a.join(",") %>
 
   <%= f.submit %>
 <% end %>
