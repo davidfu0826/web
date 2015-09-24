@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   validates :title_en, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validate  :end_time_after_start_time
+  validate :end_time_after_start_time
 
   before_validation(on: [:create, :update]) do
     taggings.each do |t|
@@ -17,15 +17,30 @@ class Event < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
-  scope :with_tag, -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
-  scope :upcoming, -> { where(["start_time > ?", Time.current]).order(:start_time) }
+  scope :with_tag, -> (tag_id) { joins(:tags).where('tags.id' => tag_id) }
+  scope :upcoming, -> { where('end_time > :current', current: Time.current).order(start_time: :asc) }
 
   translates :title, :description
   fuzzily_searchable :title_en, :title_sv
 
-  def end_time_after_start_time
-    if end_time.present? and start_time.present?
-      errors.add(:end_time, I18n.t('errors.end_time_after_start_time')) if end_time < start_time
+  def day
+    start_time.strftime('%e')
+  end
+
+  def short_month
+    start_time.strftime('%B')[0, 3]
+  end
+
+  def status_text
+    now = Time.current
+    if start_time > now # Event is in the future
+      if end_time > now # Event is inte the past, else Event is in the present
+        I18n.t('events.status.has_ended')
+      else
+        I18n.t('events.status.ongoing')
+      end
+    else
+      I18n.t('events.status.has_not_started_yet')
     end
   end
 
@@ -42,24 +57,13 @@ class Event < ActiveRecord::Base
     event
   end
 
-  def day
-    start_time.strftime("%e")
-  end
+  private
 
-  def short_month
-    start_time.strftime("%B")[0,3]
-  end
+  def end_time_after_start_time
+    return if end_time.blank? || start_time.blank?
 
-  def status_text
-    now = Time.current
-    if start_time > now # Event is in the future
-      if end_time > now # Event is inte the past, else Event is in the present
-        I18n.t('events.status.has_ended')
-      else
-        I18n.t('events.status.ongoing')
-      end
-    else
-      I18n.t('events.status.has_not_started_yet')
+    if end_time < start_time
+      errors.add(:end_time, I18n.t('errors.end_time_after_start_time'))
     end
   end
 end
