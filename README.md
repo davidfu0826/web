@@ -1,3 +1,40 @@
+# Teknologkåren LTH
+
+This is the repository containing the code for the Rails application acting as a CMS system for teknologkåren at LTH
+
+## Setup
+
+The site uses a number of technologies, the most important among them being rails.
+
+
+
+JS/coffee
+
+Gems/S3/JS Libraries
+
+Caching
+
+SASS
+
+Procfile
+
+Developing
+
+Important files and config
+
+## Development setup
+
+### Pre-Install
+0. Use Linux/OSX, trying to install ruby and rails on windows is an exercise in futility
+0. Install the development requirements
+0. Install Ruby
+
+### Setup
+
+0. run `bundle install` to download and install gems
+0. run `rake db:setup` to setup a database with columns
+
+
 ## Setup 
 
  1. Install Vargrant and VirtualBox.

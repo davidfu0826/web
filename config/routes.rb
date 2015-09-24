@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   get    ':id',   to: 'pages#show', as: :page
   patch  ':id',   to: 'pages#update'
   delete ':id',   to: 'pages#destroy'
-  resources :pages, except: [:show, :delete, :index], shallow: true do
+  resources :pages, shallow: true, except: [:show, :delete, :index] do
     member do
       get    'add_user'
       post   'add_user',    action: :add_user_update

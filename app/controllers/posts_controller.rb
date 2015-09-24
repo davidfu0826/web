@@ -5,17 +5,18 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = @posts.order(created_at: :desc).includes(:image)
-    @posts = @posts.filter(filtering_params)
+    @posts.includes(:image)
+      .order(created_at: :desc)
+      .filter(filtering_params)
 
     respond_to do |format|
       format.html { @posts = @posts.take(3) }
-      format.rss  { render :layout => false } #index.rss.builder
+      format.rss  { render layout: false } # index.rss.builder
     end
   end
 
   def show
-    @archive = params[:archive].present? || false #Used to determine if we should redirect back to archive or index from post
+    @archive = params[:archive].present? || false # Used to determine if we should redirect back to archive or index from post
   end
 
   def new
@@ -23,12 +24,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create_with_tags(post_params, params[:post][:tags])
-    unless @post.new_record?
-      redirect_to root_path
-    else
+
+    if @post.new_record?
       load_tags
       load_images
       render 'new'
+    else
+      redirect_to root_path
     end
   end
 
@@ -47,21 +49,30 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-
     redirect_to posts_path
   end
 
   def archive
-    @archive = true #Used to determine where to redirect back from post
-    @posts = @posts.order(created_at: :desc).includes(:image)
-    @posts = @posts.filter(filtering_params)
-    @posts = @posts.page(params[:page]).per(6)
+    @archive = true # Used to determine where to redirect back from post
+    @posts = @posts.includes(:image)
+      .order(created_at: :desc)
+      .filter(filtering_params)
+      .page(params[:page]).per(6)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :title_sv, :content_sv, :title_en, :content_en, :image_id, tag_ids: [])
+    params.require(:post).permit(
+      :title,
+      :content,
+      :title_sv,
+      :content_sv,
+      :title_en,
+      :content_en,
+      :image_id,
+      tag_ids: []
+    )
   end
 
   def filtering_params

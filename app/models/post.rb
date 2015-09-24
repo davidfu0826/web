@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   include Filterable
   include Tagable
   include FuzzySearchTitles
+  include LocaleContent
 
   validates :title_sv, presence: true
   validates :title_en, presence: true

@@ -7,13 +7,13 @@
     <ul class="nav nav-pills" role="tablist">
       <li class="active"><a href="#sv" role="tab" data-toggle="tab">
         <%= t('locales.sv') %>
-        <% if !@event.new_record? && (@event.description_sv.blank? || @event.title_sv.blank?) %>
+        <% unless @event.locale_content? :sv %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>
       <li><a href="#en" role="tab" data-toggle="tab">
         <%= t('locales.en') %>
-        <% if !@event.new_record? && (@event.description_en.blank? || @event.title_en.blank?) %>
+        <% unless @event.locale_content? :en %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>

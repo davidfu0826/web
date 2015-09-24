@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+  include LocaleContent
+
   validates :title_sv, presence: true, character: true
   validates :title_en, presence: true, character: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }

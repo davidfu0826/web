@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
 
   def index
     @images = @images.filter(filtering_params)
-    @images = @images.page(params[:page]).per(20)
+      .page(params[:page]).per(20)
   end
 
   def new
@@ -12,14 +12,15 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.create_with_tags(image_params, params[:image][:tags])
+
     respond_to do |format|
-      unless @image.new_record?
-        format.html { redirect_to images_path, notice: t('.success') }
-        format.js   { render action: 'upload_success' }
-      else
+      if @image.new_record?
         load_tags
         format.html { render action: 'new' }
         format.js   { render json: @image.errors, status: :unprocessable_entity }
+      else
+        format.html { redirect_to images_path, notice: t('.success') }
+        format.js   { render action: 'upload_success' }
       end
     end
   end

@@ -70,6 +70,7 @@ sv:
     form:
       meny: Meny
     index:
+      navigation: Navigationsordning
       page_management: Sidhantering
       save_nav_item_order: Spara navigationsordning
       hidden_pages: Gömda sidor
@@ -114,9 +115,10 @@ sv:
   uploads:
     index:
       uploads: Dokument
+      new_upload: Ladda upp dokument
+    uploads_table:
       file_name: Filnamn
       type: Filtyp
-      new_upload: Ladda upp dokument
   users:
     index:
       users: Användare

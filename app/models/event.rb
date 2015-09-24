@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   include Filterable
   include Tagable
   include FuzzySearchTitles
+  include LocaleContent
 
   validates :title_sv, presence: true
   validates :title_en, presence: true
@@ -29,19 +30,6 @@ class Event < ActiveRecord::Base
 
   def short_month
     start_time.strftime('%B')[0, 3]
-  end
-
-  def status_text
-    now = Time.current
-    if start_time > now # Event is in the future
-      if end_time > now # Event is inte the past, else Event is in the present
-        I18n.t('events.status.has_ended')
-      else
-        I18n.t('events.status.ongoing')
-      end
-    else
-      I18n.t('events.status.has_not_started_yet')
-    end
   end
 
   def to_ics

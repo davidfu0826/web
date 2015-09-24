@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def index
     @orphan_pages = Page.orphans
-    @nav_items = NavItem.orphans.order("position ASC").includes(:page, children: [:page])
+    @nav_items = NavItem.orphans.order('position ASC').includes(:page, children: [:page])
   end
 
   def show

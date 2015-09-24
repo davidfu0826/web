@@ -111,9 +111,10 @@ en:
   uploads:
     index:
       uploads: Document
+      new_upload: Upload document
+    uploads_table:
       file_name: File name
       type: File type
-      new_upload: Ladda upp document
   users:
     index:
       users: Users

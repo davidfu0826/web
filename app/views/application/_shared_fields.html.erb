@@ -4,13 +4,13 @@
     <ul class="nav nav-pills" role="tablist">
       <li class="active"><a href="#sv" role="tab" data-toggle="tab">
         <%= t('locales.sv') %>
-        <% if !resource.new_record? && (resource.content_sv.blank? || resource.title_sv.blank?) %>
+        <% unless resource.locale_content? :sv %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>
       <li><a href="#en" role="tab" data-toggle="tab">
         <%= t('locales.en') %>
-        <% if !resource.new_record? && (resource.content_en.blank? || resource.title_en.blank?) %>
+        <% unless resource.locale_content? :en %>
           <span class="glyphicon glyphicon-warning-sign"></span>
         <% end %>
       </a></li>

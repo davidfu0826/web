@@ -1,5 +1,4 @@
 module BannerHelper
-
   def banner_image
     action = decide_banner(controller.action_name, controller.controller_name)
     url = get_url(action)
@@ -17,14 +16,13 @@ module BannerHelper
       return :event_index
     end
 
-    # Posts index
     return :other unless controller == 'posts' && action == 'index'
 
-    # Use carousel if active
+    # Posts index
     if Settings[:promoted_pages].present? && Settings[:promoted_pages].any?
+      # Use carousel if active
       :homepage_carousel
-    # Or the plain cover image
-    else
+    else # Or the plain cover image
       :homepage
     end
   end
