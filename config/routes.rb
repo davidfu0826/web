@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'locale_sv', to: 'locale#locale_sv', as: 'swedish_locale'
   get 'locale_en', to: 'locale#locale_en', as: 'english_locale'
-  get 'tweets', to: 'tweets#tweets'
+  get 'tweets', to: 'tweets#index'
 
   resources :tags, except: [:show]
   resources :posts, :concerns => :paginatable do

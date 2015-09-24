@@ -4,13 +4,11 @@
       <div class="day"><%= event.day %></div>
       <div class="month"><%= event.short_month %></div>
     </div>
-    <div class="event-body">
-      <h3>
-        <%= link_to event.title, event %>
-      </h3>
-      <p>
-        <%= truncate(event.description, length: 35) %>
-      </p>
-    </div>
+    <p class="event-title">
+      <%= link_to event.title, event %>
+    </p>
+    <p>
+      <%= truncate(event.description, length: 35) %>
+    </p>
   </li>
 <% end %>

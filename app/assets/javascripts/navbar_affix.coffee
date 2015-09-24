@@ -44,4 +44,4 @@ $(window).resize ->
   clearTimeout @resizeTO if @resizeTO
   @resizeTO = setTimeout(->
     $(this).trigger "resizeEnd"
-  , 500)
+  , 300)
