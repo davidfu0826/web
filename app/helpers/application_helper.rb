@@ -1,5 +1,6 @@
 module ApplicationHelper
   include AutoHtml
+
   def flash_class(level)
     case level
       when "notice" then "alert alert-info alert-dismissable"
@@ -43,36 +44,6 @@ module ApplicationHelper
       } do
         (image_tag image.image.thumb('160x160#').url) +
         content_tag(:div, image.title, class: 'img-title')
-    end
-  end
-
-  def banner_image
-    # Get banner url
-    a_name = controller.action_name
-    c_name = controller.controller_name
-    if a_name == 'show' && @page.present? && @page.image.present?
-      url = @page.image.image.thumb('1440x380#').url
-    elsif c_name == 'events' && a_name == 'index' && Settings[:events_cover_image]
-      url = Image.find(Settings[:events_cover_image]).image.thumb('1440x380#').url
-    elsif c_name == 'posts' && a_name == 'index'
-      if Settings[:promoted_pages].present? && Settings[:promoted_pages].any?
-        banner = render 'banner_carousel', pages: Page.includes(:image).find(Settings[:promoted_pages])
-      else
-        url = 'cover.jpg'
-      end
-    else
-      url = nil
-    end
-    # Insert banner
-    if url
-      content_tag :div, class: 'banner-wrapper' do
-        image_tag("white_stand_#{I18n.locale}.svg", id: 'logo', size: '440x240') +
-        image_tag(url, id: 'banner', class: 'img-responsive center-block', size: '1440x380')
-      end
-    elsif banner
-      banner
-    else
-      content_tag :div, '', class: 'banner-wrapper'
     end
   end
 
