@@ -2,12 +2,14 @@
   <div class="banner-wrapper">
     <div id="banner" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <% pages.count.times do |index| %>
-          <% active = index == 0 ? 'active' : '' %>
-          <li data-target="#banner" class="<%= active %>" data-slide-to="<%= index %>"></li>
-        <% end %>
-      </ol>
+      <% if pages.count > 1 %>
+        <ol class="carousel-indicators">
+          <% pages.count.times do |index| %>
+            <% active = index == 0 ? 'active' : '' %>
+            <li data-target="#banner" class="<%= active %>" data-slide-to="<%= index %>"></li>
+          <% end %>
+        </ol>
+      <% end %>
 
       <div class="carousel-inner" role="listbox">
         <% pages.each_with_index do |page, index| %>

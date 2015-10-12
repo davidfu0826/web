@@ -10,8 +10,8 @@ class SettingsController < ApplicationController
 
     if params[:settings][:promoted_pages]
       @settings[:promoted_pages] = params[:settings][:promoted_pages]
-                                  .reject { |page| page.blank? }
-                                  .map { |page| page.to_i }
+                                  .reject(&:blank?)
+                                  .map(&:to_i)
     end
 
     if params[:settings][:sidebar_links]

@@ -4,7 +4,7 @@
     <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv], label: t('locales.sv') %>
     <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en], label: t('locales.en') %>
 
-    <%= f.collection_select t('.promoted_pages'), @pages, :id, :title, {selected: @settings[:promoted_pages]},{multiple: true, class: 'select2', label: t('settings.edit.promoted_page') } %>
+    <%= f.collection_select :promoted_pages, @pages, :id, :title, {selected: @settings[:promoted_pages], label: t('.promoted_pages')}, {multiple: true, class: 'select2'} %>
 
     <h3><%= t('.sidebar_links') %></h3>
     <div id="sidebar-link-forms" data-count="<%= @settings[:sidebar_links].count %>">
@@ -23,6 +23,8 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to t('.add_link'), '#', id: 'add_link_field' %>
+
+  <p><%= link_to t('.add_link'), '#', id: 'add_link_field' %></p>
+
   <%= form.submit %>
 <% end %>
