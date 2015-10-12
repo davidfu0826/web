@@ -21,6 +21,8 @@
 //= require jquery.nestable
 //= require_tree .
 
+jQuery.fn.exists = function(){ return this.length > 0; }
+
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
   event.preventDefault();
   $(this).ekkoLightbox();
