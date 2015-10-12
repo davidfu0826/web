@@ -37,26 +37,6 @@
     color: $light-gray;
   }
 
-  .tag {
-    position: relative;
-    height: 20px;
-    bottom: 20px;
-    background: rgba(0, 0, 0, 0.33);
-    color: white;
-    .tag-color {
-      position: relative;
-      height: 20px;
-      width: 20px;
-      opacity: 0.8;
-      filter: alpha(opacity=80); /* For IE8 and earlier */
-    }
-    .tag-text {
-      position: relative;
-      bottom: 20px;
-      padding-left: 30px;
-    }
-  }
-
   .post-tools a {
     font-style: italic;
     color: $light-gray;

@@ -5,13 +5,6 @@
         <div class="row">
           <div class="col-sm-4">
             <%= image_tag (post.image.present? ? post.image.image.thumb('160x160#').url : "blue_mark.svg"), size: '160' %>
-            <% first_tag = post.tags.first %>
-            <% if first_tag.present? %>
-              <div class="tag">
-                <div class="tag-color" style="background: <%= first_tag.color if post %>"></div>
-                <div class="tag-text"><%= first_tag.title %></div>
-              </div>
-            <% end %>
           </div>
           <div class="col-sm-8">
             <div class="media-heading">

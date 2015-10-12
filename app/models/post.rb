@@ -2,7 +2,6 @@ class Post < ActiveRecord::Base
   include Filterable
   include Tagable
   include FuzzySearchTitles
-  include LocaleContent
 
   validates :title_sv, presence: true
   validates :title_en, presence: true
@@ -30,5 +29,18 @@ class Post < ActiveRecord::Base
 
   def to_param
     [id, '-' ,title_en.parameterize].join
+  end
+
+  def locale_content?(locale)
+    return true if new_record?
+
+    case locale
+    when :sv
+      content_sv.blank? && title_sv.blank?
+    when :en
+      content_en.blank? && title_en.blank?
+    else
+      false
+    end
   end
 end
