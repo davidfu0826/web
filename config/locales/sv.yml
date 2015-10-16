@@ -43,15 +43,15 @@ sv:
       events: Event
       start: Hem
     sidebar:
-      account_settings: Kontoinställningar
+      account_settings: Mitt konto
       all_events: Visa alla evenemang
-      manage_events: Hantera events
-      manage_images: Hantera bilder
-      manage_pages: Hantera sidor
-      manage_tags: Hantera taggar
-      manage_uploads: Hantera dokument
-      manage_users: Hantera användare
-      site_settings: Sidinställningar
+      manage_events: Events
+      manage_pages: Sidor
+      manage_tags: Taggar
+      manage_images: Bildbibliotek
+      manage_uploads: Dokumentbibliotek
+      manage_users: Användare
+      site_settings: Inställningar för framsidan
       new_post: Skapa nyhet
       twitter_link: Visa Teknologkårens twitter
 
