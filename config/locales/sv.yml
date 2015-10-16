@@ -89,6 +89,7 @@ sv:
       wrong_length: har fel längd (ska vara %{count} tecken)
       should_have_page_or_title: ska ha titel eller en sida
       should_have_prefix: Länken bör börja med http://
+      max_nav_items: "Maximalt antal menyelement är 8, för att bevara snygg sidlayout"
     slug_reserved: används
     template:
       body: "! 'Det var problem med följande fält:'"

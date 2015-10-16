@@ -7,6 +7,7 @@ class NavItem < ActiveRecord::Base
 
   validate :title_or_page?
   validate :prefix_if_link?
+  validate :max_nav_items
   before_destroy :set_parent_of_children
 
   translates :title
@@ -60,5 +61,10 @@ class NavItem < ActiveRecord::Base
   def prefix_if_link?
     return unless nav_item_type == 'link' && !link.include?('http')
     errors.add(:link, I18n.t('errors.messages.should_have_prefix'))
+  end
+
+  def max_nav_items
+    return unless NavItem.orphans.count >= 8
+    errors.add(:base, I18n.t('errors.messages.max_nav_items'))
   end
 end

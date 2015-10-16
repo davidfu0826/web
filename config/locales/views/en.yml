@@ -57,6 +57,7 @@ en:
       create_menu: Create menu
       select_link: Select link
       select_page: Select page
+      fix_errors: The nav item could not be saved.
   pages:
     add_user:
       contact: Contact

@@ -57,6 +57,7 @@ sv:
       create_menu: Skapa meny
       select_link: Välj länk
       select_page: Välj sida
+      fix_errors: Menyelementet kunde inte sparas.
   pages:
     add_user:
       contact: Kontaktperson

@@ -1,4 +1,7 @@
 <%= form_heading :create, NavItem %>
+
+
+
 <div class="center-pills">
   <ul class="nav nav-pills">
     <% if @parent_id.blank? %>
@@ -11,6 +14,7 @@
 <div class="tab-content">
   <div id="menu-tab" class="tab-pane">
     <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.alert_message t('.fix_errors') %>
       <%= f.text_field :title_sv %>
       <%= f.text_field :title_en %>
       <%= f.hidden_field :nav_item_type, value: 'menu' %>
@@ -20,6 +24,7 @@
 
   <div id="page-tab" class="tab-pane active">
     <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.alert_message t('.fix_errors') %>
       <%= f.collection_select :page_id, Page.orphans, :id, :title, {}, {class: 'select2'} %>
       <%= f.hidden_field :parent_id, value: @parent_id %>
       <%= f.hidden_field :nav_item_type, value: 'page' %>
@@ -29,6 +34,7 @@
 
   <div id="link-tab" class="tab-pane">
     <%= bootstrap_form_for @nav_item do |f| %>
+      <%= f.alert_message t('.fix_errors') %>
       <%= f.text_field :title_sv %>
       <%= f.text_field :title_en %>
       <%= f.text_field :link %>

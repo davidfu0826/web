@@ -70,14 +70,12 @@ ActiveRecord::Schema.define(version: 20150924180218) do
     t.string   "slug",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "title_en",   limit: 255
     t.text     "content_en"
     t.integer  "image_id"
   end
 
   add_index "pages", ["image_id"], name: "index_pages_on_image_id", using: :btree
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
   create_table "pages_users", force: :cascade do |t|
     t.integer  "page_id"
