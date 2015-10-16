@@ -23,6 +23,12 @@
 @import "sidebar";
 @import "banner-footer";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+body {
+  font-weight: 300;
+}
+
 /*  -- PAGE CONTENT --  */
 #content {
   margin-top: 50px;
