@@ -1,21 +1,10 @@
 module CacheHelper
-
-  def is_homepage?
-    request.original_fullpath == '/'
-  end
-
   def cache_key_navbar
     locale = I18n.locale
     count      = NavItem.count
     updated_at = NavItem.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    [locale, "navbar", count, updated_at]
-  end
-
-  def cache_key_navbar_items
-    locale = I18n.locale
-    count      = NavItem.count
-    updated_at = NavItem.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    [locale, "nav_items/navbar_items", count, updated_at]
+    path = request.original_fullpath
+    [locale, "navbar", count, updated_at, path]
   end
 
   def cache_key_posts_index

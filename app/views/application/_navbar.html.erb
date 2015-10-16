@@ -1,15 +1,19 @@
-<% cache_if(is_homepage?, cache_key_navbar) do %>
+<% cache(cache_key_navbar) do %>
   <div class="navbar navbar-default">
     <div id="navbar-container" class="container">
       <%= navbar_header %>
       <%= navbar_collapse do %>
         <%= navbar_group do %>
           <li><%= navbar_item t('.start'), root_path %></li>
-          <% cache(cache_key_navbar_items) do %>
-            <%= render partial: 'nav_items/nav_bar_item', collection: @navbar_items, as: :nav_item %>
-          <% end %>
-          <li><%= link_to "Svenska", swedish_locale_path(url: request.path) if @locale == :en %></li>
-          <li><%= link_to "English", english_locale_path(url: request.path) if @locale != :en %></li>
+
+          <%= render partial: 'nav_items/nav_bar_item', collection: @navbar_items, as: :nav_item %>
+
+          <li>
+            <%= link_to "Svenska", swedish_locale_path(url: request.path) if @locale == :en %>
+          </li>
+          <li>
+            <%= link_to "English", english_locale_path(url: request.path) if @locale != :en %>
+          </li>
         <% end %>
       <% end %>
     </div>
