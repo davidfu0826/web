@@ -102,3 +102,9 @@ body {
 .nav-tabs {
   margin-bottom: 20px !important;
 }
+
+// Override bootstrap
+.dropdown-menu > li > a {
+  font-weight: 300;
+  color: #777777;
+}

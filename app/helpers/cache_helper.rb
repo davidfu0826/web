@@ -4,7 +4,7 @@ module CacheHelper
     count      = NavItem.count
     updated_at = NavItem.maximum(:updated_at).try(:utc).try(:to_s, :number)
     path = request.original_fullpath
-    [locale, "navbar", count, updated_at, path]
+    [locale, "navbar", path, count, updated_at]
   end
 
   def cache_key_posts_index
