@@ -6,9 +6,9 @@ module LocaleContent
 
     case locale
     when :sv
-      description_sv.blank? && title_sv.blank?
+      content_sv.blank? && title_sv.blank?
     when :en
-      description_en.blank? && title_en.blank?
+      content_en.blank? && title_en.blank?
     else
       false
     end

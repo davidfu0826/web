@@ -69,6 +69,7 @@ en:
       save_cover: Save cover
     contacts: Contacts
     index:
+      navigation: Navigation order
       page_management: Page Management
       save_nav_item_order: Save navigation order
       hidden_pages: Hidden pages

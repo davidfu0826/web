@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       .filter(filtering_params)
 
     respond_to do |format|
-      format.html { @posts = @posts.take(3) }
+      format.html { @posts = @posts.last(3) }
       format.rss  { render layout: false } # index.rss.builder
     end
   end
