@@ -2,43 +2,32 @@
 
 This is the repository containing the code for the Rails application acting as a CMS system for teknologkåren at LTH
 
-## Setup
-
-The site uses a number of technologies, the most important among them being rails.
-
-
-
-JS/coffee
-
-Gems/S3/JS Libraries
-
-Caching
-
-SASS
-
-Procfile
-
-Developing
-
-Important files and config
-
 ## Development setup
 
-### Pre-Install
-0. Use Linux/OSX, trying to install ruby and rails on windows is an exercise in futility
+### Pre-setup
+
+0. Use a Linux/OSX environment, if developing on Windows use vagrant and follow the instructions below to easily set up a vm.
 0. Install the development requirements
-0. Install Ruby
+  0. PostgreSQL (If MySQL is to be used, you have to change the rails database adapter)
+  0. ImageMagick
+  0. NodeJS, Rails uses a execjs runtime to precompile assets
+  0. Ruby, easiest way is to use rbenv
 
 ### Setup
 
 0. run `bundle install` to download and install gems
 0. run `rake db:setup` to setup a database with columns
 
+## Notes
 
-## Setup 
+Most configuration is stored in either `config/application.rb` or `config/enviroments/production.rb`
+Configuration for the mailer is located in `config/enviroments/production.rb`
+Credentials are stored in enviroment variables and accessed in the `secrets.yml` file
 
- 1. Install Vargrant and VirtualBox.
- 2. Follow Vagrant guide below.
+The pages use caching to improve page load speed.
+
+The site is currently hosted on Heroku, and is started using the Procfile. 
+CoffeeScript is used for some behavior instead of JavaScript, and SCSS is used to make CSS more organized and efficient.
 
 ### Vagrant
   
