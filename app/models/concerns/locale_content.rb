@@ -6,9 +6,9 @@ module LocaleContent
 
     case locale
     when :sv
-      description_sv.blank? && title_sv.blank?
+      self.class == Event ? description_sv.present? : content_sv.present?
     when :en
-      description_en.blank? && title_en.blank?
+      self.class == Event ? description_en.present? : content_en.present?
     else
       false
     end

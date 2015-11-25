@@ -11,7 +11,7 @@ class Page < ActiveRecord::Base
   translates :content
 
   has_one :nav_item, dependent: :destroy
-  after_save { nav_item.touch }
+  after_save { nav_item && nav_item.touch }
 
   has_and_belongs_to_many :contacts, class_name: 'User', touch: true
   has_many :contact_forms
