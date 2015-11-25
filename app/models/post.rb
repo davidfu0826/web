@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
 
   def first_paragraph
     match = content.match(/<p>([^<]+)<\/p>/)
-    match.present? ? match[1] : ''
+    match.present? ? match[1] : ActionController::Base.helpers.strip_tags(content).slice(0,140)
   end
 
   def to_param
