@@ -7,7 +7,7 @@ sv:
   delete: Radera
   destroy: Radera
   edit: Redigera
-  read_more: Läs Mer
+  read_more: Läs mer
   reset: "Återställ"
   save: Spara
   search: Sök
@@ -15,8 +15,8 @@ sv:
   title: Titel
   filter: Filtrera
   links: Länkar
-  log_in: Logga In
-  log_out: Logga Ut
+  log_in: Logga in
+  log_out: Logga ut
   confirm_delete: Är du säker på att detta verkligen ska raderas?
   navigation: Navigation
 
