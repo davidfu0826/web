@@ -48,4 +48,6 @@ Rails.application.configure do
   end
 
   PUBLIC_URL= "http://localhost:3000/"
+
+  BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
 end

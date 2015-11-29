@@ -51,6 +51,7 @@ group :development do
   gem 'meta_request' # Used by chrome plugin railspanel to show request info
   gem 'faker'
   gem 'bullet' # Display N+1 problems
+  gem 'awesome_print' # Better printing in console
 end
 
 group :production do
