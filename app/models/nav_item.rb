@@ -7,7 +7,7 @@ class NavItem < ActiveRecord::Base
 
   validate :title_or_page?
   validate :prefix_if_link?
-  validate :max_nav_items
+  # validate :max_nav_items
   before_destroy :set_parent_of_children
 
   translates :title
