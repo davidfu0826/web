@@ -32,18 +32,16 @@
       <p><%= t('.no_description') %></p>
     <% end %>
   </div>
-<% end %>
 
-<% cache_if current_user.blank?, [I18n.locale, @event] do %>
   <% content_for :sidebar do %>
-    <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-      <ul>
-        <% if can? :edit, Event %>
-          <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
-          <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
-        <% end %>
-      </ul>
-    </div>
+    <% if can? :edit, Event %>
+      <div class="row">
+        <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+        <ul>
+            <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
+            <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>    
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
