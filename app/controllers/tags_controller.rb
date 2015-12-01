@@ -30,6 +30,11 @@ class TagsController < ApplicationController
     end
   end
 
+  def destroy
+    @tag.destroy
+    redirect_to tags_path
+  end
+
   private
 
   def tag_params
