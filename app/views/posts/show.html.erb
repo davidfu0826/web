@@ -1,4 +1,4 @@
-<% cache_if !current_user, [I18n.locale, @archive, @event] do %>
+<% # cache_if !current_user, [I18n.locale, @archive, @event] do %>
   <div class="lead">
     <%= link_to t(:back), (@archive ? archive_posts_path : posts_path) %>
   </div>
@@ -35,4 +35,4 @@
       </div>
     <% end %>
   <% end %>
-<% end %>
+<% # end %>
