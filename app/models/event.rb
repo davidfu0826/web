@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :end_time_after_start_time
+  validates :description_sv, length: { maximum: 255 }
+  validates :description_en, length: { maximum: 255 }
 
   before_validation(on: [:create, :update]) do
     taggings.each do |t|
