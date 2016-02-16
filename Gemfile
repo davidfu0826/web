@@ -31,7 +31,7 @@ gem 'traco' #Localization
 gem 'nested_form'
 gem 'icalendar' # Export i ics calendar files
 gem 'acts_as_list'
-gem 'dragonfly', "~>1.0.5" #Image Uploading
+gem 'dragonfly', "~>1.0.12" #Image Uploading
 gem 'dragonfly-s3_data_store' # Store images on s3
 gem 'twitter'
 gem 'dynamic_sitemaps'
