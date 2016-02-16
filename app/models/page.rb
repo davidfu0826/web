@@ -23,7 +23,9 @@ class Page < ActiveRecord::Base
   scope :with_image, -> { where.not(image: nil) }
 
   before_validation do
-    self.slug = self.title_en.parameterize
+    if self.slug.blank?
+      self.slug = self.title_en.parameterize
+    end
   end
 
 

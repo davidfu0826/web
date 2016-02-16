@@ -80,7 +80,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :image_id)
+    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :image_id, :slug)
   end
 
   def load_resoures
