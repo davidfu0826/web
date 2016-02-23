@@ -4,6 +4,7 @@ class UploadsController < ApplicationController
   def index
     @uploads = @uploads.filter(params.slice(:search))
       .page(params[:page]).per(100) # if @uploads.present?
+      .order(updated_at: :desc)
   end
 
   def show
