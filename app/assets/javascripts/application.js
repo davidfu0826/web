@@ -19,6 +19,7 @@
 //= require summernote
 //= require summernote-sv-SE
 //= require jquery.nestable
+//= require zeroclipboard
 //= require_tree .
 
 jQuery.fn.exists = function() { return this.length > 0; };

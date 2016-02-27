@@ -43,6 +43,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'codemirror-rails' # Used by summernote for displaying html
 gem 'fuzzily' #Fuzzy string search
 gem 'newrelic_rpm'
+gem 'zeroclipboard-rails'
 
 group :development do
   gem 'spring'

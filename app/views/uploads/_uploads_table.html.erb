@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to upload.file_name, upload %></td>
         <td><%= upload.file_type %></td>
-        <td>
+        <td><%= link_to "#", href: "#", class: "copy-button", data: {'clipboard-text': request.base_url + upload.file.url} do %><span class="glyphicon glyphicon-file"></span><% end %>
           <%= link_to upload, method: :delete, data: {confirm: t(:confirm_delete)} do %>
             <i class="glyphicon glyphicon-trash"></i>
           <% end %>
@@ -21,5 +21,9 @@
     </tr>
   </tbody>
 </table>
+
+<script>
+var client = new ZeroClipboard($(".copy-button"));
+</script>
 
 <%= paginate @uploads, remote: true %>
