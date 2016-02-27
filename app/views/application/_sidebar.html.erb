@@ -22,7 +22,7 @@
   <% cache(cache_key_sidebar_events) do %>
     <div class="row">
       <h3>
-        <%= t(:calendar) %>
+        <%= link_to t(:calendar), events_path %>
         <span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span>
       </h3>
       <ul class="calendar-feed">
@@ -34,7 +34,7 @@
 
   <div class="row hidden-sm hidden-xs">
     <h3>
-      Twitter
+      <%= link_to "Twitter", "https://twitter.com/Teknologkaren" %>
       <span class="pull-right"><%= image_tag "twitter.svg", size: '37x29' %></span>
     </h3>
     <ul id="twitter-feed">
