@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       .filter(filtering_params)
 
     respond_to do |format|
-      format.html { @posts = @posts.order(updated_at: :desc).limit(3) }
+      format.html { @posts = @posts.order(updated_at: :desc).limit(10) }
       format.rss  { render layout: false } # index.rss.builder
     end
   end
