@@ -119,6 +119,7 @@ sv:
     uploads_table:
       file_name: Filnamn
       type: Filtyp
+      copy: Kopiera
   users:
     index:
       users: Användare

@@ -86,6 +86,7 @@ en:
       no_posts: Could not find any posts :(
       no_posts_lead: Try another filter
     form:
+      post_image: Image
       select_image: Choose image
     index:
       archive: Archive
@@ -117,6 +118,7 @@ en:
     uploads_table:
       file_name: File name
       type: File type
+      copy: Copy
   users:
     index:
       users: Users
