@@ -21,3 +21,6 @@
 # Ignore uploaded images
 /public/system/*
 /public/assets/*
+
+# Local environment
+.rspec

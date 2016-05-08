@@ -53,6 +53,22 @@ group :development do
   gem 'faker'
   gem 'bullet' # Display N+1 problems
   gem 'awesome_print' # Better printing in console
+  gem 'web-console'
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'poltergeist'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
 end
 
 group :production do
