@@ -32,8 +32,12 @@ sv:
       has_not_started_yet: Har inte börjat än
       ongoing: Pågående
   contact_forms:
+    new:
+      add_question: Lägg till fråga
     send_mail:
       question_form_sent: Ett mail har skickats till kontaktpersonen.
+    question_fields:
+      remove_question: Ta bort fråga
   images:
     create:
       success: Bilden laddades upp.
