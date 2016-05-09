@@ -56,6 +56,7 @@ group :development do
   gem 'faker'
   gem 'meta_request' # Used by chrome plugin railspanel to show request info
   gem 'spring'
+  gem 'quiet_assets'
 end
 
 group :production do
