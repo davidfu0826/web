@@ -42,7 +42,6 @@ gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'codemirror-rails' # Used by summernote for displaying html
 gem 'fuzzily' #Fuzzy string search
-gem 'newrelic_rpm'
 gem 'zeroclipboard-rails'
 
 group :development do
@@ -53,6 +52,7 @@ group :development do
   gem 'faker'
   gem 'bullet' # Display N+1 problems
   gem 'awesome_print' # Better printing in console
+  gem 'quiet_assets'
 end
 
 group :production do
