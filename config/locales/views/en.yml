@@ -32,8 +32,12 @@ en:
       has_not_started_yet: Has not started
       ongoing: Ongoing
   contact_forms:
+    new:
+      add_question: Add question
     send_mail:
       question_form_sent: An email has been sent to the contact.
+    question_fields:
+      remove_question: Remove question
   images:
     create:
       success: The image was uploaded

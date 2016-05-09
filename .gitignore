@@ -22,5 +22,11 @@
 /public/system/*
 /public/assets/*
 
+
 # Local environment
 .rspec
+
+# Ignore environmental setup
+.env
+.ruby-version
+
