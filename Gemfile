@@ -35,7 +35,6 @@ gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'momentjs-rails', '>= 2.5.0' #Required for datetimepicker
 gem 'nested_form'
-gem 'newrelic_rpm'
 gem 'rails-settings-cached', '0.4.1'
 gem 'rails_bootstrap_navbar'
 gem 'remotipart', '~> 1.2'
@@ -57,6 +56,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'pry-byebug'
@@ -67,7 +67,6 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
-  gem 'dotenv-rails'
   gem 'faker'
   gem 'meta_request' # Used by chrome plugin railspanel to show request info
   gem 'spring'

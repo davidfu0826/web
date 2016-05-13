@@ -190,7 +190,6 @@ GEM
     multipart-post (2.0.0)
     naught (1.0.0)
     nested_form (0.3.2)
-    newrelic_rpm (3.9.9.275)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -379,7 +378,6 @@ DEPENDENCIES
   meta_request
   momentjs-rails (>= 2.5.0)
   nested_form
-  newrelic_rpm
   pg
   poltergeist
   pry-byebug
@@ -406,9 +404,6 @@ DEPENDENCIES
   web-console
   whenever
   zeroclipboard-rails
-
-RUBY VERSION
-   ruby 2.2.3p173
 
 BUNDLED WITH
    1.12.3
