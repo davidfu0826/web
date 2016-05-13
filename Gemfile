@@ -35,7 +35,6 @@ gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'momentjs-rails', '>= 2.5.0' #Required for datetimepicker
 gem 'nested_form'
-gem 'newrelic_rpm'
 gem 'rails-settings-cached', '0.4.1'
 gem 'rails_bootstrap_navbar'
 gem 'remotipart', '~> 1.2'
