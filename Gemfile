@@ -57,6 +57,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'pry-byebug'
@@ -67,7 +68,6 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
-  gem 'dotenv-rails'
   gem 'faker'
   gem 'meta_request' # Used by chrome plugin railspanel to show request info
   gem 'spring'
