@@ -5,20 +5,17 @@ class EventsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @events = @events.filter(filtering_params)
-
-    @now = Time.current
-    @offset = params[:offset].to_i || 0
-    @this_month = @now.beginning_of_month + @offset.months
+    @events = @events.by_start.filter(filtering_params)
 
     respond_to do |format|
-      format.html { @events = events_by_month_and_week(@events) }
-      format.js   { @events = events_by_month_and_week(@events) }
+      format.html do
+        @event_presenter = EventPresenter.new(events: @events,
+                                              offset: params[:offset].try(:to_i))
+        @event_presenter.group_month_and_week 
+      end
+
       format.ics do
-        calendar = Icalendar::Calendar.new
-        @events.each { |event| calendar.add_event(event.to_ics) }
-        calendar.publish
-        render text: calendar.to_ical
+        render text: CalendarService.export(@events, locale: params[:locale]).to_ical
       end
     end
   end
@@ -35,7 +32,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       load_tags
-      render 'new'
+      render :new, status: 422
     end
   end
 
@@ -44,15 +41,15 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_with_tags(event_params, params[:event][:tags])
-      redirect_to event_path(@event)
+      redirect_to edit_event_path(@event)
     else
       load_tags
-      render 'edit'
+      render :edit, status: 422
     end
   end
 
   def destroy
-    @event.destroy
+    @event.destroy!
     redirect_to events_path
   end
 
@@ -84,7 +81,9 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title_sv, :title_en, :description_sv, :description_en, :start_time, :end_time)
+    params.require(:event).permit(:title_sv, :title_en,
+                                  :description_sv, :description_en,
+                                  :start_time, :end_time)
   end
 
   def filtering_params
@@ -97,14 +96,6 @@ class EventsController < ApplicationController
 
   def load_images
     @images = Image.all
-  end
-
-  def events_by_month_and_week(events)
-    events = events.group_by { |u| u.start_time.beginning_of_month }
-    events.each_key do |month|
-      events[month] = events[month].group_by { |e| e.start_time.strftime('%V').to_i }
-    end
-    events
   end
 
   def load_cover_image

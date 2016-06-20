@@ -31,6 +31,10 @@ en:
       has_ended: Finished
       has_not_started_yet: Has not started
       ongoing: Ongoing
+    new:
+      all_events: All events
+    edit:
+      all_events: All events
   contact_forms:
     new:
       add_question: Add question

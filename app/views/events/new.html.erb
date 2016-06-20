@@ -1,2 +1,4 @@
 <%= form_heading :create, Event %>
 <%= render 'form', event: @event %>
+<hr>
+<%= link_to(t('.all_events'), events_path, class: 'btn btn-default') %>
