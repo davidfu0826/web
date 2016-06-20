@@ -122,6 +122,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    ffaker (2.2.0)
     fog-aws (0.8.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -366,6 +367,7 @@ DEPENDENCIES
   dynamic_sitemaps
   factory_girl_rails
   faker
+  ffaker
   font-awesome-rails
   fuzzily
   http_accept_language

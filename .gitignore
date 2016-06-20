@@ -25,6 +25,7 @@
 
 # Local environment
 .rspec
+spec/examples.txt
 
 # Ignore environmental setup
 .env
