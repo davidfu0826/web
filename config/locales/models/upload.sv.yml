@@ -1,0 +1,14 @@
+sv:
+  model:
+    upload:
+      success_uploading: Filer uppladdade
+      failed_to_save_some: Några filer kunde inte laddas upp
+
+  activerecord:
+    models:
+      upload: Dokument
+
+    attributes:
+      upload:
+        file: Fil
+        files: Filer

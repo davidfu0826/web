@@ -75,17 +75,20 @@
 }
 
 .img-library {
-
   margin: 3px;
   margin-bottom: 6px;
+
   .img-thumbnail {
     height: 160px;
     margin: 5px;
   }
+
   img {
     height: 160px;
   }
+
   position: relative;
+
   .img-title {
     position: absolute;
     width: 160px;
