@@ -1,5 +1,7 @@
 <div class="contact">
-  <%= image_tag user.profile_image.url, class: "img-circle img-responsive" if user.profile_image.present? %>
+  <div class="contact-img">
+  <%= image_tag user.profile_image.url, class: "img-responsive" if user.profile_image.present? %>
+  </div>
   <span class="contact-name"><%= user.name %></span>
   <span class="contact-title"><%= user.title %></span><br>
   <%= user.email %><br>

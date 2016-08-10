@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :pages
   has_many :contact_forms, dependent: :destroy
 
-  dragonfly_accessor :profile_image
+  dragonfly_accessor :profile_image do
+    copy_to(:profile_image){|a| a.thumb('160x160#') }
+  end
+
   validates_property :format,
                       of: :profile_image,
                       in: [:jpeg, :jpg, :png, :bmp],
