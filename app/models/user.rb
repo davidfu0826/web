@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
   has_many :contact_forms, dependent: :destroy
 
   dragonfly_accessor :profile_image do
-    copy_to(:profile_image){|a| a.thumb('160x160#') }
+    copy_to(:profile_image_thumb){|a| a.thumb('160x160#') }
   end
+  dragonfly_accessor :profile_image_thumb
 
   validates_property :format,
                       of: :profile_image,

@@ -1,6 +1,6 @@
 <div class="contact">
   <div class="contact-img">
-  <%= image_tag user.profile_image.url, class: "img-responsive" if user.profile_image.present? %>
+  <%= image_tag user.profile_image_thumb.url, class: "img-responsive" if user.profile_image_thumb.present? %>
   </div>
   <span class="contact-name"><%= user.name %></span>
   <span class="contact-title"><%= user.title %></span><br>
