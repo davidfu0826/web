@@ -42,14 +42,12 @@ class ApplicationController < ActionController::Base
 
   def prepare_meta_tags(options={})
      site_name   = I18n.t('global.title')
-     title       = I18n.t('global.title')
      description = I18n.t('global.description')
      image       = options[:image] || view_context.image_url('blue_mark.svg')
      current_url = request.url
 
      defaults = {
        site:        site_name,
-       title:       title,
        image:       image,
        description: description,
        keywords:    I18n.t('global.keywords'),
@@ -63,7 +61,6 @@ class ApplicationController < ActionController::Base
        og: {
          url: current_url,
          site_name: site_name,
-         title: title,
          image: image,
          description: description,
          type: 'website'
