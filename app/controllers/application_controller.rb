@@ -42,12 +42,11 @@ class ApplicationController < ActionController::Base
 
   def prepare_meta_tags(options={})
      site_name   = I18n.t('global.title')
-     title       = [controller_name, action_name].join(" ")
+     title       = I18n.t('global.title')
      description = I18n.t('global.description')
-     image       = options[:image] || "/im"
+     image       = options[:image] || view_context.image_url('blue_mark.svg')
      current_url = request.url
 
-     # Let's prepare a nice set of defaults
      defaults = {
        site:        site_name,
        title:       title,
