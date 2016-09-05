@@ -3,18 +3,23 @@
 </div>
 
 <div id="event-calendar">
-  <%= render 'event_calendar' %>
+  <%= render 'event_calendar', presenter: @event_presenter %>
 </div>
 
 <% content_for :sidebar do %>
   <div class="row">
-    <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+    <h3>
+      <%= t(:tools) %>
+      <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench">
+      </span>
+    </h3>
     <ul>
       <% if can? :manage, Event %>
         <li><%= link_to t('.new_event'), new_event_path %></li>
         <li><%= link_to t('.change_cover'), change_cover_events_path %></li>
       <% end %>
-      <li><%= link_to t('.webcal'), events_path(protocol: 'webcal', format: :ics, :only_path => false) %></li>
+      <li><%= link_to t('.webcal'), events_url(protocol: 'webcal',
+                                               format: :ics, params: { locale: I18n.locale }) %></li>
     </ul>
   </div>
 

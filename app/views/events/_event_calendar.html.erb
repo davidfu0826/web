@@ -1,15 +1,17 @@
-<% months = [@this_month.last_month, @this_month, @this_month.next_month] %>
-<%= render partial: 'events/event_calendar_month', collection: months, as: :month %>
+<% presenter.months.each do |month| %>
+  <%= render 'events/event_calendar_month', presenter: presenter,
+                                            month: month %>
+<% end %>
 
 <div class="col-xs-12">
   <!-- Link to previous month -->
-  <%= link_to events_path(offset: @offset - 1), remote: true do %>
+  <%= link_to events_path(offset: presenter.offset - 1) do %>
     <span class="glyphicon glyphicon-chevron-left"></span>
     <%= t('.previous_month') %>
   <% end %>
 
   <!-- Link to next month -->
-  <%= link_to events_path(offset: @offset + 1), remote: true, class: "pull-right" do %>
+  <%= link_to events_path(offset: presenter.offset + 1), class: "pull-right" do %>
     <span class="glyphicon glyphicon-chevron-right pull-right"></span>
     <%= t('.next_month') %>
   <% end %>

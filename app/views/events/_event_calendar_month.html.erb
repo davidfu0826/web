@@ -1,18 +1,16 @@
 <% cache_if params.slice(:search, :tag).blank?, cache_key_events_calendar(month) do %>
   <div class="col-md-4">
     <h3><%= t("date.month_names")[month.month] %></h3>
-    <% if @events[month] %>
-      <% @events[month].keys.sort.each do |week| %>
+    <% if presenter.events[month] %>
+      <% presenter.events[month].keys.each do |week| %>
         <h5 class="event-weeknbr">
           <%= t('.week', week: week) %>
           <%= t('.l_week', week: study_week(week)) if study_week(week) %>
         </h5>
 
         <ul class="event-week">
-          <% @events[month][week].sort_by!(&:start_time) %>
-
-          <% @events[month][week].each do |event| %>
-            <li class="<%= event.end_time < @now ? "disabled" : "" %>">
+          <% presenter.events[month][week].each do |event| %>
+            <li class="<%= event.end_time < presenter.now ? "disabled" : "" %>">
               <span class='event-start-time'>
                 <%= l(event.start_time, format: :week_day) %>
               </span>

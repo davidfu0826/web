@@ -31,6 +31,10 @@ sv:
       has_ended: Har avslutats
       has_not_started_yet: Har inte börjat än
       ongoing: Pågående
+    new:
+      all_events: Alla events
+    edit:
+      all_events: Alla events
   contact_forms:
     new:
       add_question: Lägg till fråga

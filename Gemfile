@@ -52,12 +52,14 @@ group :development do
   gem 'binding_of_caller' #Used by better errors to provide REPL
   gem 'bullet' # Display N+1 problems
   gem 'web-console'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
+  gem 'ffaker'
   gem 'poltergeist'
   gem 'pry-byebug'
   gem 'pry-rails'
