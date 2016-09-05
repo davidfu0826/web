@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_locale
   before_filter :load_nav_items_and_locale
+  before_action :prepare_meta_tags, if: 'request.get?'
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
@@ -38,4 +39,39 @@ class ApplicationController < ActionController::Base
       @links = Settings[:sidebar_links]
     end
   end
+
+  def prepare_meta_tags(options={})
+     site_name   = I18n.t('global.title')
+     title       = [controller_name, action_name].join(" ")
+     description = I18n.t('global.description')
+     image       = options[:image] || "/im"
+     current_url = request.url
+
+     # Let's prepare a nice set of defaults
+     defaults = {
+       site:        site_name,
+       title:       title,
+       image:       image,
+       description: description,
+       keywords:    I18n.t('global.keywords'),
+       twitter: {
+         site_name: site_name,
+         site: '@Teknologkaren',
+         card: 'summary',
+         description: description,
+         image: image
+       },
+       og: {
+         url: current_url,
+         site_name: site_name,
+         title: title,
+         image: image,
+         description: description,
+         type: 'website'
+       }
+     }
+
+     options.reverse_merge!(defaults)
+     set_meta_tags options
+   end
 end
