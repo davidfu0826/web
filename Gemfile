@@ -45,7 +45,6 @@ gem 'traco' #Localization
 gem 'twitter'
 gem 'whenever', :require => false #Automatically generate sitemaps
 gem 'zeroclipboard-rails'
-gem 'meta-tags'
 
 group :development do
   gem 'awesome_print' # Better printing in console
