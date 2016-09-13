@@ -30,4 +30,3 @@
 # Ignore environmental setup
 .env
 .ruby-version
-

@@ -11,38 +11,44 @@ sv:
     attributes:
       contact_form:
         title: *title
+
       event:
         description: *description
         end_time: Slutar
         start_time: Börjar
         tags: *tags
         title: *title
+
       image:
         title: *title
         description: *description
         image: *image
         tags: *tags
+
       nav_item:
         description: *description
         title: *title
         page: Sida
         page_id: Sida
         link: Länk
+
       page:
         content: *content
         slug: Permalänk
         title: *title
+
       post:
         content: *content
         tags: *tags
         title: *title
+
       question:
         content: Frågeinnehåll
+
       tag:
         title: *title
         color: Färg
-      upload:
-        file: Dokument
+
       user:
         email: *email
         locale: Språkval
@@ -53,6 +59,7 @@ sv:
         role: Roll
         title: *title
         profile_image: Profilbild
+
     models:
       contact_form: Kontaktformulär
       event: Event
@@ -62,5 +69,4 @@ sv:
       post: Nyhet
       question: Formulärsfråga
       tag: Tagg
-      upload: Dokument
       user: Användare

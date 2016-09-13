@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :uploads, except: [:edit, :update], :concerns => :paginatable do
-    get 'search', on: :collection
+    get :search, on: :collection
   end
 
   resources :events do

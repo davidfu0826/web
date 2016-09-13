@@ -11,7 +11,10 @@
       <tr>
         <td><%= link_to upload.file_name, upload %></td>
         <td><%= upload.file_type %></td>
-        <td><%= link_to "#", href: "#", class: "copy-button", data: {'clipboard-text': request.base_url + upload.file.url} do %><span class="glyphicon glyphicon-file"></span><% end %>
+        <td>
+          <%= link_to "#", href: "#", class: "copy-button", data: {'clipboard-text': upload_url(upload)} do %>
+            <span class="glyphicon glyphicon-file"></span>
+          <% end %>
           <%= link_to upload, method: :delete, data: {confirm: t(:confirm_delete)} do %>
             <i class="glyphicon glyphicon-trash"></i>
           <% end %>

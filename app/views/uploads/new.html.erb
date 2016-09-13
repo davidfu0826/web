@@ -1,6 +1,6 @@
 <%= form_heading :create, Upload %>
 
-<%= bootstrap_form_for @upload do |f| %>
-  <%= f.file_field :file %>
+<%= bootstrap_form_for(@upload) do |f| %>
+  <%= f.file_field :files, multiple: true %>
   <%= f.submit %>
 <% end %>
