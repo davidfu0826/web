@@ -16,13 +16,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    img = @post.image.present? ? @post.image.image.thumb('160x160#').url : view_context.image_url("blue_mark.svg")
-      prepare_meta_tags(title: @post.title,
-                      description: @post.content,
-                      image: img,
-                      twitter: { title: @post.title, description: @post.content, image: img},
-                      og: { title: @post.title, description: @post.content, image: img})
     @archive = params[:archive].present? || false # Used to determine if we should redirect back to archive or index from post
   end
 
