@@ -25,4 +25,11 @@ RSpec.describe PagesController, type: :controller do
       expect(assigns(:orphan_pages).map(&:title_sv)).to eq(['Första', 'Andra'])
     end
   end
+  describe "GET show" do
+    it "render show " do
+        page = create(:page)
+        get :show, id: page.to_param
+        expect(response).to render_template :show
+    end
+  end
 end

@@ -9,6 +9,10 @@ class PagesController < ApplicationController
   end
 
   def show
+    @page = Page.find_by_slug(params[:id])
+    prepare_meta_tags(title: @page.title,
+                    twitter: { title: @page.title },
+                    og: { title: @page.title })
     @contact_forms = @page.contact_forms.includes(:pages, :users)
     if @page.try(:nav_item).try(:parent)
       @sidebar_nav_items = @page.nav_item.parent.children.includes(:page)
@@ -40,7 +44,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page.destroy
+    @page.destroy!
     redirect_to pages_path
   end
 

@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  before_action :prepare_meta_tags, if: 'request.get?'
+
   def sitemap
     path = Rails.root.join("public", "sitemaps", "sitemap.xml")
     if File.exists?(path)
@@ -19,6 +21,37 @@ class ApplicationController < ActionController::Base
   end
 
   def robots
+  end
+
+  def prepare_meta_tags(options={})
+       site_name   = I18n.t('global.title')
+       description = I18n.t('global.description')
+       image       = options[:image] || view_context.image_url('blue_mark.svg')
+       current_url = request.url
+
+       defaults = {
+         site:        site_name,
+         image:       image,
+         description: description,
+         keywords:    I18n.t('global.keywords'),
+         twitter: {
+           site_name: site_name,
+           site: '@Teknologkaren',
+           card: 'summary',
+           description: description,
+           image: image
+         },
+         og: {
+           url: current_url,
+           site_name: site_name,
+           image: image,
+           description: description,
+           type: 'website'
+         }
+       }
+
+       options.reverse_merge!(defaults)
+       set_meta_tags options
   end
 
   private
