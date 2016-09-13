@@ -177,6 +177,8 @@ GEM
       mime-types (>= 1.16, < 3)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -377,6 +379,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-bootstrap (~> 3.0.1)
+  meta-tags
   meta_request
   momentjs-rails (>= 2.5.0)
   nested_form

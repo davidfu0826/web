@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Teknologkåren vid LTH · The Student Union at Lund University, Faculty of Engineering</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= favicon_link_tag 'favicon.png' %>
+    <%= display_meta_tags %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -38,4 +38,3 @@
     <%= render 'application/google_analytics' %>
   </body>
 </html>
-
