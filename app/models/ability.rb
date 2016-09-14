@@ -7,6 +7,8 @@ class Ability
     can :read, [Post, Event]
     can :archive, Post
     can :show, Page
+    can :show, Upload
+
     if user.admin?
       can :manage, :all
     elsif user.editor?
