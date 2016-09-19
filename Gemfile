@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # Assets
 gem 'acts_as_list'
 gem 'bootstrap-sass'
-gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
 gem 'bootstrap_form'
 gem 'codemirror-rails' # Used by summernote for displaying html
@@ -63,7 +62,6 @@ group :development, :test do
   gem 'poltergeist'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'quiet_assets'
   gem 'rspec-rails'
 end
 

@@ -221,8 +221,6 @@ GEM
       pry (>= 0.9.10)
     public_suffix (2.0.4)
     puma (3.6.2)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
     rack (1.6.5)
     rack-cache (1.6.1)
       rack (>= 0.4)
@@ -397,7 +395,6 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
-  quiet_assets
   rack-cache
   rails (= 4.2.7.1)
   rails-settings-cached (= 0.4.1)
