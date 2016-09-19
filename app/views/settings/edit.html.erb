@@ -1,23 +1,46 @@
 <%= bootstrap_form_tag url: settings_path do |form| %>
   <%= form.fields_for :settings do |f| %>
     <h3><%= t('.lead') %></h3>
-    <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv], label: t('locales.sv') %>
-    <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en], label: t('locales.en') %>
+    <%= f.text_area 'index_leads[sv]', value: @settings[:index_leads][:sv],
+                                       label: t('locales.sv') %>
+    <%= f.text_area 'index_leads[en]', value: @settings[:index_leads][:en],
+                                       label: t('locales.en') %>
+    <h3><%= t('.cover_images') %></h3>
+    <% @cover_images.each do |img| %>
+      <%= image_tag(img.image.thumb('100x100#').url) %>
+    <% end %>
+    <br>
 
-    <%= f.collection_select :promoted_pages, @pages, :id, :title, {selected: @settings[:promoted_pages], label: t('.promoted_pages')}, {multiple: true, class: 'select2'} %>
+    <%= button_tag t('.select_cover_images'), type: :button,
+                                              class: "btn btn-default",
+                                              id: "image-button" %>
+    <%= link_to(t('.new_upload'), new_image_path, class: 'btn btn-default') %>
+    <br>
+    <br>
+    <%= f.collection_select(:cover_image_ids, @images, :id, :id,
+                                              {selected: Settings.cover_image_ids,
+                                               label: t('.cover_images')},
+                                              {multiple: true, class: ''}) %>
 
     <h3><%= t('.sidebar_links') %></h3>
-    <div id="sidebar-link-forms" data-count="<%= @settings[:sidebar_links].count %>">
+    <div id="sidebar-link-forms"
+         data-count="<%= @settings[:sidebar_links].count %>">
       <% @settings[:sidebar_links].each_with_index do |link, index| %>
         <div id="link-row-<%= index %>" class="row">
           <div class="col-md-4">
-            <%= f.text_field "sidebar_links[#{index}][title]", value: link[:title], label: t('title') %>
+            <%= f.text_field "sidebar_links[#{index}][title]",
+                             value: link[:title],
+                             label: t('title') %>
           </div>
           <div class="col-md-6">
-            <%= f.text_field "sidebar_links[#{index}][url]", value: link[:url], label: 'URL' %>
+            <%= f.text_field "sidebar_links[#{index}][url]",
+                             value: link[:url],
+                             label: 'URL' %>
           </div>
           <div class="col-md-2" style="margin-top: 35px;">
-            <%= link_to t('.remove_link'), '#', class: 'remove_link_field', 'data-field' => index %>
+            <%= link_to t('.remove_link'), '#',
+                                           class: 'remove_link_field',
+                                           'data-field' => index %>
           </div>
         </div>
       <% end %>
@@ -28,3 +51,5 @@
 
   <%= form.submit %>
 <% end %>
+
+<%= render 'images/cover_image_modal' %>

@@ -1,3 +1,8 @@
+<% content_for :banner do %>
+  <%= render('/application/banner',
+             images: @images) %>
+<% end %>
+
 <div class="news-feed">
   <div class="media">
     <div class="media-body">
@@ -21,3 +26,4 @@
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
 <% end %>
+
