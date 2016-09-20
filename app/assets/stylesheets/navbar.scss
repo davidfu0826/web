@@ -1,39 +1,40 @@
 .navbar {
-  margin-bottom: 0px;
-}
+  margin-bottom: 0;
 
-.navbar .navbar-nav {
-  .dropdown-menu {
-    min-width: 100%;
-    text-align: left;
-  }
-  @media (min-width: $screen-xs-max) {
-    width: 100%;
-    text-align: center;
-    display: table;
-
-    li {
-      float: none;
-      display: table-cell;
+  .navbar-nav {
+    .dropdown-menu {
+      min-width: 100%;
+      text-align: left;
     }
-    .dropdown-menu li {
-      display: block;
+
+    @media (min-width: $screen-xs-max) {
+      display: table;
+      text-align: center;
+      width: 100%;
+
+      li {
+        display: table-cell;
+        float: none;
+      }
+
+      .dropdown-menu li {
+        display: block;
+      }
     }
   }
 }
 
 #navbar-container {
   @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
     font-size: 14px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
     li {
-      padding: 0px;
+
       a {
-        padding: 0px;
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding: 10px;
       }
     }
   }
