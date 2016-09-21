@@ -1,10 +1,11 @@
+<% meta_image(@post.image_thumb) %>
 <% # cache_if !current_user, [I18n.locale, @archive, @event] do %>
   <div class="lead">
     <%= link_to t(:back), (@archive ? archive_posts_path : posts_path) %>
   </div>
 
   <div class="page-header">
-    <h1><%= @post.title %></h1>
+    <h1><%= title(@post.title) %></h1>
     <div class="lead">
       <p class="published-date">
         <%= t('.published') %>
@@ -22,7 +23,8 @@
       <%= t('.no_content') %>
     </div>
   <% end %>
-  <%= raw @post.content %>
+
+  <%= raw description(@post.content) %>
 
   <% if can? :edit, @post %>
     <% content_for :sidebar do %>

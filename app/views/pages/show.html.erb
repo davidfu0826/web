@@ -1,16 +1,14 @@
 <% cache [I18n.locale, "page-content", @page] do %>
   <div class="page-header">
-    <h1><%= @page.title %></h1>
+    <h1><%= title(@page.title) %></h1>
   </div>
 
-  <% if @page.content(fallback: false).present? %>
-    <%= raw @page.content %>
-  <% else %>
+  <% unless @page.content(fallback: false).present? %>
     <div class="alert alert-warning" role="alert">
       <%= t('.no_content') %>
     </div>
-    <%= raw @page.content %>
   <% end %>
+    <%= raw description(@page.content) %>
 <% end %>
 
 <% cache_if current_user.blank?, [I18n.locale, "page-sidebar", @page] do %>
