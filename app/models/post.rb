@@ -31,4 +31,8 @@ class Post < ActiveRecord::Base
   def to_param
     [id, '-' ,title_en.parameterize].join
   end
+
+  def image_thumb
+    image.thumb_url if image.present?
+  end
 end
