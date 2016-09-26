@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts.includes(:image)
-      .order(created_at: :desc)
-      .filter(filtering_params)
+    @posts = @posts.includes(:image)
+             .order(created_at: :desc)
+             .filter(filtering_params)
 
     respond_to do |format|
       format.html { @posts = @posts.order(updated_at: :desc).limit(10) }
