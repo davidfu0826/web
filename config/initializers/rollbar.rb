@@ -9,6 +9,7 @@ Rollbar.configure do |config|
   end
 
   config.exception_level_filters['ActionController::RoutingError'] = 'ignore'
+  config.exception_level_filters['ActiveRecord::RecordNotFound'] = 'ignore'
 
   # By default, Rollbar will try to call the `current_user` controller method
   # to fetch the logged-in user object, and then call that object's `id`,
