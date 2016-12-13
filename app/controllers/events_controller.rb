@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       format.html do
         @event_presenter = EventPresenter.new(events: @events,
                                               offset: params[:offset].try(:to_i))
-        @event_presenter.group_month_and_week 
+        @event_presenter.group_month_and_week
       end
 
       format.ics do

@@ -110,4 +110,5 @@ en:
         long_month: "%e %B %R"
         short: "! '%d %b %H:%M'"
         week_day: "%a %e"
+        event_format: "%F %H:%M"
       pm: pm

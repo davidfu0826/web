@@ -110,4 +110,5 @@ sv:
       long_month: "%e %B %R"
       short: "%e %b %H:%M"
       week_day: "%a %e"
+      event_format: "%F %H:%M"
     pm: ''
