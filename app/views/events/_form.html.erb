@@ -30,9 +30,15 @@
     </div>
   </div>
 
-  <%= f.text_field :start_time, value: l(@event.start_time, format: :event_format), 'data-behaviour' => 'datepicker' %>
-  <%= f.text_field :end_time, value: l(@event.end_time, format: :event_format), 'data-behaviour' => 'datepicker' %>
-  <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: event.tags.all.to_a.join(",") %>
+  <%= f.text_field :start_time, value: localized(event.start_time,
+                                                 format: :event_format),
+                                'data-behaviour' => 'datepicker' %>
+  <%= f.text_field :end_time, value: localized(event.end_time,
+                                               format: :event_format),
+                              'data-behaviour' => 'datepicker' %>
+  <%= f.text_field :tags, label: t('helpers.tags'),
+                          class: 'tag_select',
+                          value: event.tags.all.to_a.join(",") %>
 
   <%= f.submit %>
 <% end %>

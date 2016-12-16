@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe EventsController do
   allow_user_to(:manage, Event)
 
+  render_views
   describe 'GET #index' do
     it 'sets instance_variables' do
       create(:event, title: 'Second', start_time: 5.days.ago)
