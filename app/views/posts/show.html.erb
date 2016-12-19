@@ -1,43 +1,41 @@
 <% meta_image(@post.image_thumb) %>
-<% # cache_if !current_user, [I18n.locale, @archive, @event] do %>
+<div class="lead">
+  <%= link_to t(:back), (@archive ? archive_posts_path : posts_path) %>
+</div>
+
+<div class="page-header">
+  <h1><%= title(@post.title) %></h1>
   <div class="lead">
-    <%= link_to t(:back), (@archive ? archive_posts_path : posts_path) %>
+    <p class="published-date">
+      <%= t('.published') %>
+      <%= l(@post.created_at, format: :short)  %>
+      <% if @post.updated_at >= @post.created_at + 1.hour %>
+        <%= t('.updated_at') %>
+        <%= l(@post.updated_at, format: :short)  %>
+      <% end %>
+    </p>
   </div>
+</div>
 
-  <div class="page-header">
-    <h1><%= title(@post.title) %></h1>
-    <div class="lead">
-      <p class="published-date">
-        <%= t('.published') %>
-        <%= l(@post.created_at, format: :short)  %>
-        <% if @post.updated_at >= @post.created_at + 1.hour %>
-          <%= t('.updated_at') %>
-          <%= l(@post.updated_at, format: :short)  %>
-        <% end %>
-      </p>
-    </div>
+<% if @post.content(fallback: false).blank? %>
+  <div class="alert alert-warning" role="alert">
+    <%= t('.no_content') %>
   </div>
+<% end %>
 
-  <% if @post.content(fallback: false).blank? %>
-    <div class="alert alert-warning" role="alert">
-      <%= t('.no_content') %>
+<%= raw description(@post.content) %>
+
+<% if can? :edit, @post %>
+  <% content_for :sidebar do %>
+    <div class="row">
+      <h3>
+        <%= t(:tools) %>
+        <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
+      </h3>
+      <ul>
+        <li><%= link_to t('.edit_post'), edit_post_path(@post) %></li>
+        <li><%= link_to t('.remove_post'), post_path(@post), method: :delete %> </li>
+      </ul>
     </div>
   <% end %>
-
-  <%= raw description(@post.content) %>
-
-  <% if can? :edit, @post %>
-    <% content_for :sidebar do %>
-      <div class="row">
-        <h3>
-          <%= t(:tools) %>
-          <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
-        </h3>
-        <ul>
-          <li><%= link_to t('.edit_post'), edit_post_path(@post) %></li>
-          <li><%= link_to t('.remove_post'), post_path(@post), method: :delete %> </li>
-        </ul>
-      </div>
-    <% end %>
-  <% end %>
-<% # end %>
+<% end %>

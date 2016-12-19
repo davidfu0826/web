@@ -1,19 +1,17 @@
-<% cache do %>
-  <div class="container" id="guilds-container">
-    <div class="guilds">
-      <%= link_to "f", "https://fsektionen.se/", id: "f-sek" %>
-      <%= link_to "e", "https://eee.esek.se/", id: "e-sek" %>
-      <%= link_to "m", "http://www.maskinsektionen.com/", id: "m-sek" %>
-      <%= link_to "v", "http://www.v-sektionen.se/", id: "v-sek" %>
-      <%= link_to "a", "http://asektionen.se/", id: "a-sek" %>
-      <%= link_to "k", "http://www.ksek.se/", id: "k-sek" %>
-      <%= link_to "d", "http://www.dsek.se/", id: "d-sek" %>
-      <%= link_to "http://dokt.tlth.se/" do %>
-        <%= image_tag "dokt.png", id: "dokt", data: {'alt-src' => asset_path("dokt_alt.png")}, size: '84x32' %>
-      <% end %>
-      <%= link_to "n", "http://ingsekt.se/", id: "ing-sek" %>
-      <%= link_to "w", "http://www.wsek.se/", id: "w-sek" %>
-      <%= link_to "i", "http://isek.se/", id: "i-sek" %>
-    </div>
+<div class="container" id="guilds-container">
+  <div class="guilds">
+    <%= link_to "f", "https://fsektionen.se/", id: "f-sek" %>
+    <%= link_to "e", "https://eee.esek.se/", id: "e-sek" %>
+    <%= link_to "m", "http://www.maskinsektionen.com/", id: "m-sek" %>
+    <%= link_to "v", "http://www.v-sektionen.se/", id: "v-sek" %>
+    <%= link_to "a", "http://asektionen.se/", id: "a-sek" %>
+    <%= link_to "k", "http://www.ksek.se/", id: "k-sek" %>
+    <%= link_to "d", "http://www.dsek.se/", id: "d-sek" %>
+    <%= link_to "http://dokt.tlth.se/" do %>
+      <%= image_tag "dokt.png", id: "dokt", data: {'alt-src' => asset_path("dokt_alt.png")}, size: '84x32' %>
+    <% end %>
+    <%= link_to "n", "http://ingsekt.se/", id: "ing-sek" %>
+    <%= link_to "w", "http://www.wsek.se/", id: "w-sek" %>
+    <%= link_to "i", "http://isek.se/", id: "i-sek" %>
   </div>
-<% end %>
+</div>
