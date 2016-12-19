@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   # We don't have to affix if viewport is to small
   if $(window).width() > 1000
     wait_to_affix(0)

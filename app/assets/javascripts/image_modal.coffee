@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   tag_data = select2_tags()
   $("#insertImageModal").on "show.bs.modal", (e) ->
     select2_tags()
