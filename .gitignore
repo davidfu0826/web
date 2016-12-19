@@ -21,6 +21,7 @@
 # Ignore uploaded images
 /public/system/*
 /public/assets/*
+/public/uploads/*
 
 
 # Local environment

@@ -21,6 +21,8 @@ gem 'acts_as_list'
 gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
 gem 'bootstrap_form'
+gem 'carrierwave' # File uploads
+gem 'carrierwave-aws'
 gem 'codemirror-rails' # Used by summernote for displaying html
 gem 'dragonfly', '~>1.0.12' # Image Uploading
 gem 'dragonfly-s3_data_store' # Store images on s3
