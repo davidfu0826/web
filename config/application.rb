@@ -28,6 +28,9 @@ module Tlth
     #Automatically embed CSRF token in AJAX forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
+    # Opt into transactional callbacks
+    config.active_record.raise_in_transactional_callbacks = true
+
     config.generators do |g|
       g.controller_specs false
       g.view_specs false
