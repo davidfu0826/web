@@ -52,7 +52,7 @@ RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
 
   # Allow use of Devise test helpers
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   # Allow use of ControllerMacros defined in support/controller_macros.rb
   config.extend ControllerMacros, type: :controller
