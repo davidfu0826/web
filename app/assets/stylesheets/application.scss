@@ -1,13 +1,14 @@
 // Use the SCSS import mechanism instead of Rails sprockets, as is done below.
 
 @import "variables";
-@import "pages";
-@import "events";
-@import "images";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "views/*";
+
 @import "bootstrap-datetimepicker";
+@import "fileinput";
 @import "summernote";
 @import "summernote-modifications";
 @import "codemirror";
@@ -17,16 +18,6 @@
 @import "select2";
 @import "select2-bootstrap";
 @import "jquery.minicolors";
-@import "fileinput";
-@import "nestable";
-
-@import "posts";
-@import "navbar";
-@import "sidebar";
-@import "banner";
-@import "footer";
-@import "guilds";
-
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 
@@ -46,7 +37,7 @@ body {
   .lead {
     font-size: 18px;
 
-    & a {
+    & a {
       color: $light-gray;
       font-style: italic;
     }

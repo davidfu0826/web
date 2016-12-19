@@ -35,26 +35,6 @@ en:
       update: Update %{model}
     tags: Tags
 
-  application:
-    footer:
-      email: 'Email: expen@tlth.se'
-      opening_hours: 'Opening Hours: Monday-Friday 11-14'
-      telephone: 'Phone: 046 - 540 89 20'
-    navbar:
-      events: Event
-      start: Home
-    sidebar:
-      account_settings: Account Settings
-      all_events: Show all events
-      manage_events: Manage Events
-      manage_images: Manage Images
-      manage_pages: Manage Pages
-      manage_tags: Manage Tags
-      manage_users: Manage Users
-      manage_uploads: Manage Uploads
-      site_settings: Site settings
-      new_post: Create News Post
-      twitter_link: Show tweets by Teknologkåren
   errors:
     format: "! '%{attribute} %{message}'"
     messages:
