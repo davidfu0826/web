@@ -1,0 +1,18 @@
+<%= bootstrap_form_for(document, layout: :horizontal) do |f| %>
+  <%= f.text_field(:title_sv) %>
+  <%= f.text_field(:title_en) %>
+  <%= f.text_area(:description_sv) %>
+  <%= f.text_area(:description_en) %>
+  <%= f.file_field(:file_sv) %>
+  <div class="col-sm-10 col-sm-offset-2">
+    <%= simple_format(document.filename) %>
+  </div>
+  <%= f.file_field(:file_en) %>
+  <div class="col-sm-10 col-sm-offset-2">
+    <%= simple_format(document.filename(locale: 'en')) %>
+  </div>
+  <%= f.date_field(:revision_date) %>
+  <%= f.select(:category, options_for_select(document_categories,
+                                             document.category)) %>
+  <%= f.submit %>
+<% end %>

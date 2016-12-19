@@ -1,0 +1,54 @@
+<% if can?(:manage, Document) %>
+  <% content_for(:sidebar) do %>
+    <div class="row">
+      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+      <ul>
+        <li><%= link_to(t('.new_document'), new_document_path) %></li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h1><%= title(t('.title')) %></h1>
+</div>
+
+<div class="col-md-12">
+  <%= simple_format(description(t('.description'))) %>
+  <%= render(@presenter.vision) %>
+  <%= render(@presenter.bylaws) %>
+  <%= render(@presenter.regulation) %>
+
+  <hr>
+  <h2><%= t('.policies') %></h2>
+  <%= simple_format(t('.policy_description')) %>
+  <%= render('documents/document_table', documents: @presenter.policy) %>
+  <hr>
+
+  <h2><%= t('.guidelines') %></h2>
+  <%= simple_format(t('.guideline_description')) %>
+  <%= render('documents/document_table', documents: @presenter.guideline) %>
+  <hr>
+
+  <h2><%= t('.directives') %></h2>
+  <%= simple_format(t('.directive_description')) %>
+  <%= render('documents/document_table', documents: @presenter.directive) %>
+  <hr>
+
+  <h2><%= t('.opinions') %></h2>
+  <%= simple_format(t('.opinion_description')) %>
+  <%= render(@presenter.opinion, headline: :h3) %>
+  <hr>
+
+  <h2><%= t('.annual_plans') %></h2>
+  <%= simple_format(t('.annual_plan_description')) %>
+  <%= render('documents/document_table', documents: @presenter.annual_plan) %>
+
+  <h2><%= t('.budgets') %></h2>
+  <%= simple_format(t('.budget_description')) %>
+  <%= render('documents/document_table', documents: @presenter.budget) %>
+
+  <h2><%= t('.annual_reports') %></h2>
+  <%= simple_format(t('.annual_report_description')) %>
+  <%= render('documents/document_table', documents: @presenter.annual_report) %>
+</div>

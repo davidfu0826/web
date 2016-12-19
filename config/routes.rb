@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
+  resources :documents
+
   resources :events do
     collection do
       get    'change_cover'

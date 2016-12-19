@@ -1,0 +1,33 @@
+sv:
+  model:
+    document:
+      categories:
+        annual_plan: Annual plan
+        annual_report: Annual report
+        budget: Budget
+        bylaws: By-laws
+        directive: Delegation of Authority
+        guideline: Guideline
+        opinion: Document of Opinion
+        policy: Policy
+        regulation: Regulations
+        uncategorized: uncategorized
+        vision: Vision and objective
+
+  activerecord:
+    models:
+      document: Document
+
+    attributes:
+      document:
+        description: Description
+        description_sv: Description - swedish
+        description_en: Description - english
+        category: Category
+        file: File
+        file_sv: File - swedish
+        file_en: File - english
+        revision_date: Latest revision
+        title: Title
+        title_sv: Title - swedish
+        title_en: Title - english
