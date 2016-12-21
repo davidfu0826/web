@@ -1,3 +1,4 @@
+# Describes an event planned by the Union.
 class Event < ActiveRecord::Base
   TZID = 'Europe/Stockholm'.freeze
   include Filterable
@@ -20,7 +21,9 @@ class Event < ActiveRecord::Base
   end
 
   scope :by_start, -> { order(start_time: :asc) }
-  scope :upcoming, -> { where('end_time > :current', current: Time.current).by_start }
+  scope :upcoming, (lambda do
+    where('end_time > :current', current: Time.current).by_start
+  end)
 
   def day
     start_time.strftime('%e')
@@ -41,10 +44,7 @@ class Event < ActiveRecord::Base
   private
 
   def end_time_after_start_time
-    return if end_time.blank? || start_time.blank?
-
-    if end_time < start_time
-      errors.add(:end_time, I18n.t('errors.end_time_after_start_time'))
-    end
+    return if end_time.blank? || start_time.blank? || start_time < end_time
+    errors.add(:end_time, I18n.t('errors.end_time_after_start_time'))
   end
 end
