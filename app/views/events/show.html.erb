@@ -27,7 +27,7 @@
   <div class="col-sm-6">
     <h4><%= t('.desc') %></h4>
     <% if @event.description.present? %>
-      <p><%= @event.description %></p>
+      <%= simple_format(@event.description) %>
     <% else %>
       <p><%= t('.no_description') %></p>
     <% end %>
@@ -39,7 +39,7 @@
         <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
         <ul>
             <li><%= link_to t(:edit, subject: t('activerecord.models.event')), edit_event_path(@event) %></li>
-            <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>    
+            <li><%= link_to t(:destroy), event_path(@event), method: :delete, data: {confirm: t(:confirm_delete)} %></li>
         </ul>
       </div>
     <% end %>
