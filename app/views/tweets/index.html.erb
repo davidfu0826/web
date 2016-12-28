@@ -1,3 +1,5 @@
 <% cache ["v1", "tweets_index"], skip_digest: true, expires_in: 1.hour do %>
-  <%= render partial: 'tweet', collection: @tweets %>
+  <% @tweets.each do |t| %>
+    <%= t.html.html_safe %>
+  <% end %>
 <% end %>

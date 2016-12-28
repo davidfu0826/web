@@ -1,14 +1,12 @@
-<% cache [I18n.locale, event] do %>
-  <li>
-    <div class="event-thumb pull-left">
-      <div class="day"><%= event.day %></div>
-      <div class="month"><%= event.short_month %></div>
-    </div>
-    <p class="event-title">
-      <%= link_to event.title, event %>
-    </p>
-    <p>
-      <%= truncate(event.description, length: 35) %>
-    </p>
-  </li>
-<% end %>
+<li>
+  <div class="event-thumb pull-left">
+    <div class="day"><%= event.day %></div>
+    <div class="month"><%= event.short_month %></div>
+  </div>
+  <p class="event-title">
+    <%= link_to event.title, event %>
+  </p>
+  <p>
+    <%= truncate(event.description, length: 35) %>
+  </p>
+</li>

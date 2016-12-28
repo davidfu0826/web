@@ -1,57 +1,48 @@
-<% # Expires every hour to reload with new tweets %>
-<% cache cache_key_sidebar, expires_in: 1.hour do %>
-  <% cache [I18n.locale, current_user.nil?, current_user.try(:role)] do %>
-    <% if current_user %>
-      <div class="row">
-        <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
-          <ul>
-            <li><%= link_to t('.new_post'), new_post_path      if can? :create, Post   %></li>
-            <li><%= link_to t('.manage_pages'), pages_path     if can? :manage, Page   %></li>
-            <li><%= link_to t('.manage_events'), events_path   if can? :manage, Event  %></li>
-            <li><%= link_to t('.manage_images'), images_path   if can? :manage, Image  %></li>
-            <li><%= link_to t('.manage_uploads'), uploads_path if can? :manage, Upload %></li>
-            <li><%= link_to t('.manage_tags'), tags_path       if can? :manage, Tag    %></li>
-            <li><%= link_to t('.manage_users'), users_path     if can? :manage, User   %></li>
-            <li><%= link_to t('.site_settings'), 'settings'    if can? :manage, Page   %></li>
-            <li><%= link_to t('.account_settings'), edit_user_path(current_user)       %></li>
-          </ul>
-      </div>
-    <% end %>
-  <% end %>
-
-  <% cache(cache_key_sidebar_events) do %>
-    <div class="row">
-      <h3>
-        <%= link_to t(:calendar), events_path %>
-        <span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span>
-      </h3>
-      <ul class="calendar-feed">
-          <%= render partial: 'events/event', collection: @events %>
+<% if current_user %>
+  <div class="row">
+    <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+      <ul>
+        <li><%= link_to t('.new_post'), new_post_path      if can? :create, Post   %></li>
+        <li><%= link_to t('.manage_pages'), pages_path     if can? :manage, Page   %></li>
+        <li><%= link_to t('.manage_events'), events_path   if can? :manage, Event  %></li>
+        <li><%= link_to t('.manage_images'), images_path   if can? :manage, Image  %></li>
+        <li><%= link_to t('.manage_uploads'), uploads_path if can? :manage, Upload %></li>
+        <li><%= link_to t('.manage_tags'), tags_path       if can? :manage, Tag    %></li>
+        <li><%= link_to t('.manage_users'), users_path     if can? :manage, User   %></li>
+        <li><%= link_to t('.site_settings'), 'settings'    if can? :manage, Page   %></li>
+        <li><%= link_to t('.account_settings'), edit_user_path(current_user)       %></li>
       </ul>
-      <%= link_to t('.all_events'), events_path, class: "link" %>
-    </div>
-  <% end %>
-
-  <div class="row hidden-sm hidden-xs">
-    <h3>
-      <%= link_to "Twitter", "https://twitter.com/Teknologkaren" %>
-      <span class="pull-right"><%= image_tag "twitter.svg", size: '37x29' %></span>
-    </h3>
-    <ul id="twitter-feed">
-      <%= Rails.cache.read(["views", "v1", "tweets_index"]).try(:html_safe) %>
-    </ul>
-    <%= link_to t('.twitter_link'), "https://twitter.com/Teknologkaren", class: "link" %>
   </div>
-
-  <% cache(cache_key_sidebar_links) do %>
-    <div class="row sidebar-links">
-      <h3>
-        <%= t(:links) %>
-        <span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span>
-      </h3>
-      <% @links.each do |link| %>
-        <h4><%= link_to link[:title], link[:url] %></h4>
-      <% end %>
-    </div>
-  <% end %>
 <% end %>
+
+<div class="row">
+  <h3>
+    <%= link_to t(:calendar), events_path %>
+    <span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span>
+  </h3>
+  <ul class="calendar-feed">
+      <%= render partial: 'events/event', collection: @events %>
+  </ul>
+  <%= link_to t('.all_events'), events_path, class: "link" %>
+</div>
+
+<div class="row hidden-sm hidden-xs">
+  <h3>
+    <%= link_to "Twitter", "https://twitter.com/Teknologkaren" %>
+    <span class="pull-right"><%= image_tag "twitter.svg", size: '37x29' %></span>
+  </h3>
+  <ul id="twitter-feed">
+    <%= Rails.cache.read(["views", "v1", "tweets_index"]).try(:html_safe) %>
+  </ul>
+  <%= link_to t('.twitter_link'), "https://twitter.com/Teknologkaren", class: "link" %>
+</div>
+
+<div class="row sidebar-links">
+  <h3>
+    <%= t(:links) %>
+    <span class="pull-right sidebar-glyph glyphicon glyphicon-link"></span>
+  </h3>
+  <% @links.each do |link| %>
+    <h4><%= link_to link[:title], link[:url] %></h4>
+  <% end %>
+</div>
