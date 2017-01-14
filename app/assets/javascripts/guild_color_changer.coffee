@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   $.each $("[id*='sek']", ".guilds"), (index, element) ->
     $(this).hover ( ->
       $(this).css "color", guild_color($(this).attr("id"))

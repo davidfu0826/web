@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   $('.remove_link_field').click remove_link_field
   $('#add_link_field').click ->
     count = $('#sidebar-link-forms').attr 'data-count'

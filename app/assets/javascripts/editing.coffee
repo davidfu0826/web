@@ -1,4 +1,4 @@
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   $('#save-nav-item-order').click post_nav_item_order
 
   # Form helpers

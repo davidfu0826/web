@@ -29,7 +29,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
   $(this).ekkoLightbox();
 });
 
-$(document).on("page:change", function() {
+$(document).on("turbolinks:load", function() {
   $("#twitter-feed").load("/tweets", function () {
     $("#twitter-feed").trigger('tweets_loaded');
   });
