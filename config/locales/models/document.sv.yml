@@ -1,0 +1,33 @@
+sv:
+  model:
+    document:
+      categories:
+        annual_plan: Verksamhetsplan
+        annual_report: Verksamhetsberättelse
+        budget: Budget
+        bylaws: Stadgar
+        directive: Utskottsdirektiv
+        guideline: Riktlinje
+        opinion: Åsiktsprogram
+        policy: Policy
+        regulation: Reglemente
+        uncategorized: Okategoriserat
+        vision: Mål och vision
+
+  activerecord:
+    models:
+      document: Dokument
+
+    attributes:
+      document:
+        description: Beskrivning
+        description_sv: Beskrivning - svensk
+        description_en: Beskrivning - engelsk
+        category: Kategori
+        file: Fil
+        file_sv: Fil - svensk
+        file_en: Fil - engelsk
+        revision_date: Reviderat
+        title: Titel
+        title_sv: Titel - svensk
+        title_en: Titel - engelsk

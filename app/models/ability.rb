@@ -5,6 +5,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     can :read, [Post, Event]
+    can [:show, :index], Document
     can :archive, Post
     can :show, Page
     can :show, Upload

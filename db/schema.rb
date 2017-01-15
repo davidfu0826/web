@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20161207205416) do
   add_index "contact_forms", ["page_id"], name: "index_contact_forms_on_page_id", using: :btree
   add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
 
+  create_table "documents", force: :cascade do |t|
+    t.string   "title_sv"
+    t.string   "title_en"
+    t.text     "description_sv"
+    t.text     "description_en"
+    t.integer  "category",       default: -1, null: false
+    t.text     "file_sv"
+    t.text     "file_en"
+    t.date     "revision_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "documents", ["category"], name: "index_documents_on_category", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "title_sv"
     t.string   "description_sv"

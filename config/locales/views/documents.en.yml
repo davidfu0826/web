@@ -1,0 +1,39 @@
+en:
+  documents:
+    index:
+      annual_plan_description: "The annual plan is a tool for the members to affect which questions and areas the Union should work with during the year."
+      annual_plans: Annual plan
+      annual_report_description: "Verksamhetsberättelsen är Teknologkårens kanske längsta dokument och upprättas av Styrelsen vid slutet av verksamhetsåret. I verksamhetsberättelsen presenterar Styrelsen hur det gångna året förslutit, både sett till verksamhet och ekonomiskt utfall."
+      annual_reports: Annual report
+      budget_description: "Budget är det främsta ramverket för Teknologkårens ekonomi. Detta dokument ligger till grund för Kårens verksamhet och att medlemmarnas pengar används på ett ansvarsfullt sätt. Rambudgeten beslutas av Fullmäktige och den konkretiserade budgeten beslutas av Kårstyrelsen."
+      budgets: Budget
+      description: "The Student Union is controlled by a number of regulatory documents, which are passed by the Council or the Board. They are primarily passed in Swedish, but are being translated right now. If there is one that you need especially, send an email to info@tlth.se, and we might prioritize that document. The complete list of Swedish versions is available on the Swedish version of this page."
+      directive_description: "Utskottsdirektiv och arbetsbeskrivningar är direktiv för hur utskotten och heltidarna ska arbeta. Dessa beslutas av Kårstyrelsen, och listas här nedan:"
+      directives: Utskottsdirektiv
+      guideline_description: "The Guidelines direct how things are done. They are often clarifications of a certain policy. They are passed by the Board."
+      guidelines: Guidelines
+      new_document: New document
+      opinion_description: "The Student Union has two documents that stipulate what the Union as an organisation thinks on various subjects. They are supposed to be used by the student representatives, so that the Union keeps a consistent and clear line. They are also used as basis in our public debate on education."
+      opinions: Documents of Opinions
+      policies: Policies
+      policy_description: "Policies are documents that direct certain aspects of the Union's operations. They are passed by the Representative Council."
+      title: Regulatory documents
+
+    edit:
+      all_documents: All documents
+      show: Show document
+      title: Edit document
+
+    new:
+      title: New document
+
+    document_table:
+      edit: Edit
+
+    document:
+      edit: Edit
+      show: Show
+      last_revision: "Latest revision:"
+
+    sidebar:
+      new_document: New document

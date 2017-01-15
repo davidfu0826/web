@@ -1,0 +1,39 @@
+sv:
+  documents:
+    index:
+      annual_plan_description: "Verksamhetsplanen är medlemmarnas verktyg att påverka de fokusområden som Teknologkåren vid LTH (TLTH) ska arbeta med under verksamhetsåret. Grundtanken med verksamhetsplanen är att ha konkreta mål att arbeta med under året utan att detaljstyra verksamheten. Målen har tagits fram som strategiska satsningar för verksamheten där vi idag har problem, har stora vinningar att göra eller förväntas få problem."
+      annual_plans: Verksamhetsplan
+      annual_report_description: "Verksamhetsberättelsen är Teknologkårens kanske längsta dokument och upprättas av Styrelsen vid slutet av verksamhetsåret. I verksamhetsberättelsen presenterar Styrelsen hur det gångna året förslutit, både sett till verksamhet och ekonomiskt utfall."
+      annual_reports: Verksamhetsberättelse
+      budget_description: "Budget är det främsta ramverket för Teknologkårens ekonomi. Detta dokument ligger till grund för Kårens verksamhet och att medlemmarnas pengar används på ett ansvarsfullt sätt. Rambudgeten beslutas av Fullmäktige och den konkretiserade budgeten beslutas av Kårstyrelsen."
+      budgets: Budget
+      description: Kårens arbete styrs genom ett antal styrdokument, som i sin tur regleras genom Fullmäktige eller Kårstyrelsen.
+      directive_description: "Utskottsdirektiv och arbetsbeskrivningar är direktiv för hur utskotten och heltidarna ska arbeta. Dessa beslutas av Kårstyrelsen, och listas här nedan:"
+      directives: Utskottsdirektiv
+      guideline_description: "Riktlinjerna är direktiv för hur saker ska genomföras. De utgör ofta konkretiseringar av policyerna. Dessa beslutas av Kårstyrelsen, och listas här nedan:"
+      guidelines: Riktlinjer
+      new_document: Nytt dokument
+      opinion_description: "Kåren har två dokument som stipulerar vad vi tycker i olika frågor. De är Studiesociala- och Utbildningspolitiska Programmet (SOUP) och Forsknings- och Forskarutbildningspolitiska Programmet (FFUP). De ska följas av våra externa representanter så att kårens röst blir enad och tydlig. De ska också skapa en debatt kring utbildningens form och innehåll med målet att uppnå en högre kvalitet."
+      opinions: Åsiktsprogram
+      policies: Policyer
+      policy_description: "Policyer är dokument som styr vissa aspekter av Kårens arbete. Dessa antas av Fullmäktige, och listas här nedan:"
+      title: Styrdokument
+
+    edit:
+      all_documents: Alla dokument
+      show: Visa dokument
+      title: Redigera styrdokument
+
+    new:
+      title: Nytt styrdokument
+
+    document_table:
+      edit: Redigera
+
+    document:
+      edit: Redigera
+      show: Visa
+      last_revision: "Senast reviderat:"
+
+    sidebar:
+      new_document: Nytt dokument
