@@ -1,3 +1,8 @@
+<% content_for :banner do %>
+  <%= render('/application/banner',
+             url: asset_url('assets/document_cover.jpg')) %>
+<% end %>
+
 <% if can?(:manage, Document) %>
   <% content_for(:sidebar) do %>
     <div class="row">
