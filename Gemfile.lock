@@ -39,6 +39,7 @@ GEM
       activerecord (>= 3.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    angularjs-rails (1.6.2)
     arel (6.0.4)
     autoprefixer-rails (6.7.7.2)
       execjs
@@ -66,6 +67,7 @@ GEM
     bootstrap3-datetimepicker-rails (4.17.47)
       momentjs-rails (>= 2.8.1)
     bootstrap_form (2.7.0)
+    bower-rails (0.11.0)
     buftok (0.2.0)
     builder (3.2.3)
     bullet (5.5.1)
@@ -375,6 +377,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  angularjs-rails
   autoprefixer-rails
   awesome_print
   better_errors
@@ -382,6 +385,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap3-datetimepicker-rails
   bootstrap_form
+  bower-rails
   bullet
   cancancan (~> 1.8)
   capybara

@@ -47,6 +47,8 @@ gem 'sitemap_generator'
 gem 'traco' # Localization
 gem 'twitter'
 gem 'zeroclipboard-rails'
+gem 'angularjs-rails'
+gem 'bower-rails'
 
 group :development do
   gem 'awesome_print' # Better printing in console
