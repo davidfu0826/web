@@ -2,7 +2,7 @@ sv:
   application:
     footer:
       email: 'E-Post: expen@tlth.se'
-      opening_hours: 'Expeditionens öppettider: Måndag-Fredag 11-15'
+      opening_hours: 'Expeditionens öppettider: Måndag-Fredag 11.00-14.15'
       telephone: 'Telefon: 046 - 540 89 20'
 
     navbar:
