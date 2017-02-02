@@ -5,7 +5,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @import "views/*";
 
@@ -113,4 +114,20 @@ body {
 .dropdown-menu > li > a {
   font-weight: 300;
   color: #777777;
+}
+
+.twitter-color {
+	color: #55acee;
+}
+
+.facebook-color {
+	color: #3b5998;
+}
+
+.instagram-color {
+	color: #e95950;
+}
+
+.linkedin-color {
+  color: #0e76a8;
 }

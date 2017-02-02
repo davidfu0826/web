@@ -21,35 +21,4 @@
                                               {selected: Settings.cover_image_ids,
                                                label: t('.cover_images')},
                                               {multiple: true, class: ''}) %>
-
-    <h3><%= t('.sidebar_links') %></h3>
-    <div id="sidebar-link-forms"
-         data-count="<%= @settings[:sidebar_links].count %>">
-      <% @settings[:sidebar_links].each_with_index do |link, index| %>
-        <div id="link-row-<%= index %>" class="row">
-          <div class="col-md-4">
-            <%= f.text_field "sidebar_links[#{index}][title]",
-                             value: link[:title],
-                             label: t('title') %>
-          </div>
-          <div class="col-md-6">
-            <%= f.text_field "sidebar_links[#{index}][url]",
-                             value: link[:url],
-                             label: 'URL' %>
-          </div>
-          <div class="col-md-2" style="margin-top: 35px;">
-            <%= link_to t('.remove_link'), '#',
-                                           class: 'remove_link_field',
-                                           'data-field' => index %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
-  <p><%= link_to t('.add_link'), '#', id: 'add_link_field' %></p>
-
-  <%= form.submit %>
-<% end %>
-
 <%= render 'images/cover_image_modal' %>

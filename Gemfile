@@ -47,6 +47,7 @@ gem 'traco' # Localization
 gem 'twitter'
 gem 'whenever', require: false # Automatically generate sitemaps
 gem 'zeroclipboard-rails'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'awesome_print' # Better printing in console
