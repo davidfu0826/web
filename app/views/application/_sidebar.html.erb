@@ -17,6 +17,21 @@
 <% end %>
 
 <div class="row">
+	<div class="row sidebar-links">
+		<h3>Följ oss</h3>
+		<span class="fa-stack fa-2x">
+		  <i class="fa fa-square fa-stack-2x twitter-color"></i>
+		  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+		</span>
+		<span class="fa-stack fa-2x">
+		  <i class="fa fa-square fa-stack-2x facebook-color"></i>
+		  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</span>
+		<span class="fa-stack fa-2x">
+		  <i class="fa fa-square fa-stack-2x instagram-color"></i>
+		  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+		</span>
+	</div>
   <h3>
     <%= link_to t(:calendar), events_path %>
     <span class="pull-right sidebar-glyph glyphicon glyphicon-calendar"></span>
@@ -36,14 +51,4 @@
     <%= Rails.cache.read(["views", "v1", "tweets_index"]).try(:html_safe) %>
   </ul>
   <%= link_to t('.twitter_link'), "https://twitter.com/Teknologkaren", class: "link" %>
-</div>
-
-<div class="row sidebar-links">
-	<a href="http://facebook.com">
-			<i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="color: rgb(85, 85, 85)"></i>
-	</a>
-
-	<a href="http://facebook.com">
-		<i class="fa fa-instagram fa-3x" aria-hidden="true" style="color: rgb(85, 85, 85)"></i>
-	</a>
 </div>
