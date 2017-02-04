@@ -4,7 +4,7 @@ class DocumentPresenter
               :bylaws, :regulation, :directive)
 
   def initialize(documents)
-    by_title = documents.by_title(locale: I18n.locale.to_s).group_by(&:category)
+    by_title = documents.by_title(I18n.locale).group_by(&:category)
     by_revision = documents.by_revision.group_by(&:category)
     @annual_plan = by_revision['annual_plan'] || []
     @annual_report = by_revision['annual_report'] || []
