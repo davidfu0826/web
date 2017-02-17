@@ -14,8 +14,7 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def new
-  end
+  def new; end
 
   def update
     if @document.update(document_params)
@@ -25,17 +24,12 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def show
+    @document.locale = I18n.locale
     if @document.file.present?
-      send_file(open(@document.view),
-                filename: @document.filename(locale: I18n.locale.to_s),
-                type: 'application/pdf',
-                disposition: 'inline',
-                x_sendfile: true,
-                stream: true)
+      send_document(@document)
     else
       redirect_to(documents_path, notice: 'No file')
     end
@@ -48,5 +42,14 @@ class DocumentsController < ApplicationController
                                      :description_sv, :description_en,
                                      :file_sv, :file_en, :category,
                                      :revision_date)
+  end
+
+  def send_document(document)
+    send_file(open(document.view),
+              filename: document.filename,
+              type: 'application/pdf',
+              disposition: 'inline',
+              x_sendfile: true,
+              stream: true)
   end
 end
