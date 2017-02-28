@@ -106,6 +106,7 @@ sv:
       file_name: Filnamn
       type: Filtyp
       copy: Kopiera
+      copy_to_clipboard: Kopiera till urklipp
   users:
     index:
       users: Användare

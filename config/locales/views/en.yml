@@ -130,6 +130,7 @@ en:
       file_name: File name
       type: File type
       copy: Copy
+      copy_to_clipboard: Copy to clipboard
   users:
     index:
       users: Users
