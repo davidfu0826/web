@@ -18,7 +18,8 @@ RSpec.describe(DocumentsController) do
     it('renders file') do
       document = create(:document)
       get(:show, id: document.to_param)
-      expect(response).to have_http_status(200)
+      expect(response).to redirect_to(document.view)
+      expect(response).to have_http_status(302)
     end
   end
 
