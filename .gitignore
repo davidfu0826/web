@@ -22,6 +22,7 @@
 /public/system/*
 /public/assets/*
 /public/uploads/*
+/public/documents/*
 
 
 # Local environment

@@ -14,16 +14,4 @@ RSpec.describe(Document, type: :model) do
       expect(document.file).to eq(document.file_sv)
     end
   end
-
-  describe 'view' do
-    it 'returns path unless AWS' do
-      document = build_stubbed(:document)
-      allow(document.file).to receive(:path).and_return('PATH')
-      allow(document.file).to receive(:url).and_return('URL')
-      expect(document.view).to eq('PATH')
-
-      allow(ENV).to receive(:[]).with('AWS').and_return(true)
-      expect(document.view).to eq('URL')
-    end
-  end
 end

@@ -41,12 +41,7 @@ class Document < ActiveRecord::Base
   def view(locale: self.locale)
     f = file(locale: locale)
     return if f.nil?
-
-    if ENV['AWS']
-      f.url
-    else
-      f.path
-    end
+    f.url
   end
 
   def file(locale: self.locale)
