@@ -2,9 +2,12 @@ class Image < ActiveRecord::Base
   include Filterable
   include Tagable
 
+  mount_uploader(:file, ImageUploader)
+
   before_validation(on: [:create, :update]) do
     taggings.each { |t| t.taggable = self }
   end
+
   validates :image, presence: true
   validates_property(:format, of: :image,
                      in: [:jpeg, :jpg, :png, :bmp, :gif],
