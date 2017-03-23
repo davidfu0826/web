@@ -42,7 +42,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_with_tags(event_params, params[:event][:tags])
-      redirect_to edit_event_path(@event)
+      redirect_to event_path(@event)
     else
       load_tags
       render :edit, status: 422

@@ -23,12 +23,10 @@
     <%= l(@event.end_time, format: :long_month) %>
   </p>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-6 wrap">
   <h4><%= t('.desc') %></h4>
   <% if @event.description.present? %>
     <p><%= @event.description %></p>
-  <% else %>
-    <p><%= t('.no_description') %></p>
   <% end %>
 </div>
 
