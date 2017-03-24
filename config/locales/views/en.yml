@@ -26,7 +26,6 @@ en:
       show_all: Show all events
       start: 'From:'
       tags: 'Tags: '
-      no_description: "No description is present :("
     status:
       has_ended: Finished
       has_not_started_yet: Has not started

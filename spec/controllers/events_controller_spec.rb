@@ -91,7 +91,7 @@ RSpec.describe EventsController do
       patch(:update, id: event.to_param, event: attributes)
       event.reload
       expect(event.title_sv).to eq('Ett annat evenemang')
-      expect(response).to redirect_to(edit_event_path(event))
+      expect(response).to redirect_to(event_path(event))
     end
 
     it 'renders with errors with invalid parameters' do
