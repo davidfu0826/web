@@ -121,15 +121,6 @@ en:
       lead: Page lead
       sidebar_links: Sidebar links
       promoted_page: Promoted pages
-  uploads:
-    index:
-      uploads: Document
-      new_upload: Upload document
-    uploads_table:
-      file_name: File name
-      type: File type
-      copy: Copy
-      copy_to_clipboard: Copy to clipboard
   users:
     index:
       users: Users

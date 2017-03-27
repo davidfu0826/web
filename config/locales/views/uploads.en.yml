@@ -1,0 +1,12 @@
+en:
+  uploads:
+    index:
+      new_upload: Upload file
+      uploads: File uploads
+
+    uploads_table:
+      copy_to_clipboard: Copy to clipboard
+      copy: Copy
+      delete: Delete
+      file_name: File name
+      type: File type

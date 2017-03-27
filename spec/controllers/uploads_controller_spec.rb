@@ -8,7 +8,7 @@ RSpec.describe UploadsController, type: :controller do
       upload = create(:upload)
 
       get(:show, id: upload.to_param)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(302)
     end
   end
 
