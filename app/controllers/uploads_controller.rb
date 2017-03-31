@@ -8,15 +8,10 @@ class UploadsController < ApplicationController
   end
 
   def show
-    send_file(@upload.file.path,
-              filename: @upload.file_name,
-              type: @upload.file.mime_type,
-              disposition: 'inline',
-              x_sendfile: true)
+    redirect_to(@upload.view)
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @uploads = Upload.create(files)
@@ -24,9 +19,7 @@ class UploadsController < ApplicationController
       notice = I18n.t('model.upload.success_uploading')
     else
       errors = @uploads.map do |upload|
-        unless upload.errors.full_messages.empty?
-          upload.errors.full_messages
-        end
+        upload.errors.full_messages unless upload.errors.full_messages.empty?
       end.compact.join('<br/>')
 
       notice = "#{I18n.t('model.upload.failed_to_save_some')}: #{errors}"

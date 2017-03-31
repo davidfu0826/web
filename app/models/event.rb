@@ -11,7 +11,6 @@ class Event < ActiveRecord::Base
   translates :title, :description
 
   validates :title_sv, :title_en, :start_time, :end_time, presence: true
-  validates :description_sv, :description_en, length: { maximum: 255 }
   validate :end_time_after_start_time
 
   before_validation(on: [:create, :update]) do

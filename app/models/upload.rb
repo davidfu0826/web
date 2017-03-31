@@ -7,7 +7,7 @@ class Upload < ActiveRecord::Base
 
   fuzzily_searchable :file_name
 
-  scope :search, -> (search) { self.find_by_fuzzy_file_name(search) }
+  scope :search, ->(search) { find_by_fuzzy_file_name(search) }
   scope :by_updated, -> { order(updated_at: :desc) }
 
   before_validation do
@@ -29,7 +29,7 @@ class Upload < ActiveRecord::Base
     fn.map! { |s| s.gsub(/[^a-z0-9\-]+/i, '_') }
 
     # Finally, join the parts with a period and return the result
-    return fn.join('.')
+    fn.join('.')
   end
 
   def file_type
@@ -38,5 +38,13 @@ class Upload < ActiveRecord::Base
 
   def to_param
     "#{id}-#{file_name.parameterize}"
+  end
+
+  def view
+    if ENV['AWS']
+      file.remote_url(scheme: 'https')
+    else
+      file.path
+    end
   end
 end

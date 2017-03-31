@@ -1,9 +1,13 @@
+<div class="col-md-12 <%= flash_class('notice') %> copy-status" style="display: none;">
+</div>
+<br />
 <table class="table table-hover table-condensed">
   <thead>
     <tr>
       <th><%= t('.file_name') %></th>
       <th><%= t('.type') %></th>
-      <th></th>
+      <th><%= t('.copy') %></th>
+      <th><%= t('.delete') %></th>
     </tr>
   </thead>
   <tbody>
@@ -12,9 +16,11 @@
         <td><%= link_to upload.file_name, upload %></td>
         <td><%= upload.file_type %></td>
         <td>
-          <%= link_to "#", href: "#", class: "copy-button", data: {'clipboard-text':upload_url(upload)}, title: t('.copy_to_clipboard') do %>
+          <%= button_tag("#copy", class: "copy-button", data: {'clipboard-text': upload_url(upload)}, title: t('.copy_to_clipboard')) do %>
             <span class="glyphicon glyphicon-file"></span>
           <% end %>
+        </td>
+        <td>
           <%= link_to upload, method: :delete, data: {confirm: t(:confirm_delete)} do %>
             <i class="glyphicon glyphicon-trash"></i>
           <% end %>
@@ -26,7 +32,11 @@
 </table>
 
 <script>
-var client = new ZeroClipboard($(".copy-button"));
+  var client = new ZeroClipboard($(".copy-button"));
+  client.on('aftercopy', function(event) {
+    $('.copy-status').html("Kopierade: \n" + event.data["text/plain"]);
+    $('.copy-status').show();
+  });
 </script>
 
-<%= paginate @uploads, remote: true %>
+<%= paginate @uploads %>

@@ -26,7 +26,6 @@ en:
       show_all: Show all events
       start: 'From:'
       tags: 'Tags: '
-      no_description: "No description is present :("
     status:
       has_ended: Finished
       has_not_started_yet: Has not started
@@ -122,15 +121,6 @@ en:
       lead: Page lead
       sidebar_links: Sidebar links
       promoted_page: Promoted pages
-  uploads:
-    index:
-      uploads: Document
-      new_upload: Upload document
-    uploads_table:
-      file_name: File name
-      type: File type
-      copy: Copy
-      copy_to_clipboard: Copy to clipboard
   users:
     index:
       users: Users

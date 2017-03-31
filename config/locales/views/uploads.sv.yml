@@ -1,0 +1,12 @@
+sv:
+  uploads:
+    index:
+      new_upload: Ladda upp fil
+      uploads: Filuppladdning
+
+    uploads_table:
+      copy_to_clipboard: Kopiera till urklipp
+      copy: Kopiera
+      delete: Radera
+      file_name: Filnamn
+      type: Filtyp

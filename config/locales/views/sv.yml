@@ -98,15 +98,6 @@ sv:
     posts_feed:
       no_posts: "Kunde inte hitta några nyheter :("
       no_posts_lead: Testa med en annan filtrering
-  uploads:
-    index:
-      uploads: Dokument
-      new_upload: Ladda upp dokument
-    uploads_table:
-      file_name: Filnamn
-      type: Filtyp
-      copy: Kopiera
-      copy_to_clipboard: Kopiera till urklipp
   users:
     index:
       users: Användare
