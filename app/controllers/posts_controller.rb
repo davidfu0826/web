@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = @posts.includes(:image)
-             .order(created_at: :desc)
-             .filter(filtering_params)
+    @posts = @posts.includes(:image, :tags)
+                   .order(created_at: :desc)
+                   .filter(filtering_params)
     @images = Image.where(id: Settings.cover_image_ids)
 
     respond_to do |format|
@@ -29,31 +29,34 @@ class PostsController < ApplicationController
     # Used to determine if we should redirect back to archive or index from post
   end
 
-  def new
-  end
+  def new; end
 
   def create
-    @post = Post.create_with_tags(post_params, params[:post][:tags])
+    # Tags cannot be added before the Post exists.
+    @post = Post.new(post_params.except(:tag_ids))
 
-    if @post.new_record?
+    if @post.save && @post.update(tag_ids: post_params.fetch(:tag_ids, []))
+      notice = "Post was created."
+      notice = "Post was created, new image was uploaded" if upload_image(@post)
+      redirect_to edit_post_path(@post), notice: notice
+    else
       load_tags
       load_images
-      render 'new'
-    else
-      redirect_to root_path
+      render :new, status: 422
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @post.update_with_tags(post_params, params[:post][:tags])
-      redirect_to @post
+    if @post.update(post_params)
+      notice = "Post was updated."
+      notice = "Post was updated, new image was uploaded" if upload_image(@post)
+      redirect_to edit_post_path(@post), notice: notice
     else
       load_tags
       load_images
-      render 'edit'
+      render :edit, status: 422
     end
   end
 
@@ -65,24 +68,18 @@ class PostsController < ApplicationController
   def archive
     @archive = true # Used to determine where to redirect back from post
     @posts = @posts.includes(:image)
-      .order(created_at: :desc)
-      .filter(filtering_params)
-      .page(params[:page]).per(6)
+                   .order(created_at: :desc)
+                   .filter(filtering_params)
+                   .page(params[:page]).per(6)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(
-      :title,
-      :content,
-      :title_sv,
-      :content_sv,
-      :title_en,
-      :content_en,
-      :image_id,
-      tag_ids: []
-    )
+    params.require(:post).permit(:title_sv, :content_sv,
+                                 :title_en, :content_en,
+                                 :image_id, :image_file,
+                                 tag_ids: [])
   end
 
   def filtering_params
@@ -90,15 +87,23 @@ class PostsController < ApplicationController
   end
 
   def load_tags
-    @tags = Tag.all
+    @tags = Tag.order(:title)
   end
 
   def load_events
-    @events = Event.upcoming.take(3)
+    @events = Event.upcoming.limit(3)
   end
 
   def load_images
     @image = Image.new
-    @images = Image.all
+    @images = Image.order(created_at: :desc)
+  end
+
+  def upload_image(post)
+    return false if post.image_file.nil?
+
+    img = Image.new(image: post.image_file)
+
+    img.save && post.update(image: img)
   end
 end
