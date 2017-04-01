@@ -79,7 +79,7 @@ sv:
       no_posts: Kunde inte hitta några nyheter
       no_posts_lead: Testa med en annan filtrering.
     edit:
-      remove_post: Ta Bort
+      remove_post: Ta bort
     form:
       post_image: Bild
       select_image: Välj bild
