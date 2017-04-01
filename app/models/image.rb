@@ -3,13 +3,14 @@ class Image < ActiveRecord::Base
   include Tagable
 
   before_validation(on: [:create, :update]) do
-    taggings.each do |t|
-      t.taggable = self
-    end
+    taggings.each { |t| t.taggable = self }
   end
   validates :image, presence: true
-  validates_property :format, of: :image, in: [:jpeg, :jpg, :png, :bmp, :gif], case_sensitive: false,
-                   message: I18n.t('errors.messages.image_format'), if: :image_changed?
+  validates_property(:format, of: :image,
+                     in: [:jpeg, :jpg, :png, :bmp, :gif],
+                     case_sensitive: false,
+                     message: I18n.t('errors.messages.image_format'),
+                     if: :image_changed?)
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
@@ -17,11 +18,13 @@ class Image < ActiveRecord::Base
   has_many :posts
   has_many :pages
 
-  scope :tag,    -> (tag_id) { joins(:tags).where( 'tags.id' => tag_id ) }
-  scope :search, -> (search) {
+  scope :tag, ->(tag_id) { joins(:tags).where(tags: { id: tag_id }) }
+  scope :search, ->(search) {
     image_ids =  find_by_fuzzy_image_name(search).map(&:id)
     image_ids << find_by_fuzzy_title(search).map(&:id)
-    image_ids << joins(:tags).where( "lower(tags.title) LIKE :search_param", search_param: search.downcase).map(&:id)
+    image_ids << joins(:tags).where("lower(tags.title) LIKE :search_param",
+                                    search_param: search.downcase)
+                 .map(&:id)
     where(id: image_ids.flatten)
   }
 
