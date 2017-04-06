@@ -41,6 +41,7 @@ sv:
         content: *content
         tags: *tags
         title: *title
+        image_file: Ny bild
 
       question:
         content: Frågeinnehåll

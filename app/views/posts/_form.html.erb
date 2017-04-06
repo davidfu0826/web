@@ -3,18 +3,28 @@
     <div class="col-md-8 post-text-fields">
       <%= f.text_field :title_sv %>
       <%= f.text_field :title_en %>
-
-      <%= f.text_field :tags, label: t('helpers.tags'), class: 'tag_select', value: post.tags.all.to_a.join(",") %>
+      <%= f.select :tag_ids, @tags.collect { |t| [t.title, t.id] }, { label: t('helpers.tags'), include_blank: false }, { multiple: true, class: 'select2' } %>
     </div>
     <div class="col-md-4">
       <%= f.form_group :cover_image, label: { text: t('.post_image') } do %>
-        <%= f.hidden_field :image_id %>
         <div id="preview-image-preview">
-          <% image_url = post.image.present? ? post.image.url : "http://placehold.it/160x160" %>
+          <% image_url = post.image.present? ? post.image.thumb_url : asset_path('placeholder160x160.png') %>
           <%= image_tag image_url, id: "preview-image", class: "post-preview-image img-thumbnail" %>
-        <%= link_to t('.select_image'), '#', class: "btn btn-default", id: "image-button" %>
+        <%= button_tag t('.select_image'), class: "btn btn-default", data: { toggle: 'collapse', target: '#image-row' }, aria: { expanded: false, controls: 'image-row' }, type: :button %>
         </div>
       <% end %>
+    </div>
+  </div>
+  <div class="row collapse" id="image-row">
+    <div class="col-md-8">
+      <%= f.file_field(:image_file) %>
+    </div>
+    <div class="col-md-12">
+      <div class="modal-body" id="image-select-body">
+        <%= collection_radio_buttons(:post, :image_id, @images, :id, :thumb_url) do |b| %>
+          <%= b.label { b.radio_button + image_tag(b.object.thumb_url)} %>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -22,5 +32,3 @@
 
   <%= f.submit %>
 <% end %>
-
-<%= render 'images/image_select_modal' %>

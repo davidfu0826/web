@@ -1,0 +1,28 @@
+en:
+  posts:
+    archive:
+      no_posts: Could not find any posts :(
+      no_posts_lead: Try another filter
+    edit:
+      remove_post: Remove
+    form:
+      post_image: Image
+      select_image: Choose image
+      upload_new_image: Upload new image
+    index:
+      archive: Archive
+      lead: Teknologkåren works to ensure that the students at LTH gets the best possible experience from their time at LTH. Teknologkåren has 7500 members and a lot of our work with education, business contacts and recreational activities takes place at the 11 sections
+      rss: RSS
+      welcome: Welcome to Teknologkåren
+    show:
+      no_content: This post is not available in english
+      edit_post: Edit post
+      published: "Published: "
+      updated_at: "Updated: "
+      remove_post: Remove post
+    post:
+      published: "Published: "
+      updated_at: "Updated: "
+    posts_feed:
+      no_posts: "Could not find any posts :("
+      no_posts_lead: Try using another search
