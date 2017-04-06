@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Assets
 gem 'acts_as_list'
 gem 'bootstrap-sass'
-gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
+gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap_form'
 gem 'carrierwave' # File uploads
 gem 'carrierwave-aws'
