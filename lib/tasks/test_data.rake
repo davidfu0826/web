@@ -7,7 +7,7 @@ namespace :db do
                                     role: 'admin')
 
     # So we force reset
-    admin.reset_password!('testtest','testtest')
+    admin.reset_password('testtest','testtest')
     puts "=== Sign in to Admin User with: ==="
     puts "=== email: administrator@tlth.se ==="
     puts "=== pass: testtest ==="

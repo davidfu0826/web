@@ -1,0 +1,27 @@
+sv:
+  posts:
+    archive:
+      no_posts: Kunde inte hitta några nyheter
+      no_posts_lead: Testa med en annan filtrering.
+    edit:
+      remove_post: Ta Bort
+    form:
+      post_image: Bild
+      select_image: Välj bild
+      new_upload: Ladda upp ny bild
+    index:
+      archive: Arkiv
+      rss: RSS
+      welcome: Välkommen till Teknologkåren
+    show:
+      no_content: Denna post finns inte på svenska
+      edit_post: Redigera nyhet
+      published: "Publicerad: "
+      updated_at: "Uppdaterad: "
+      remove_post: Ta bort nyhet
+    post:
+      published: "Publicerad: "
+      updated_at: "Uppdaterad: "
+    posts_feed:
+      no_posts: "Kunde inte hitta några nyheter :("
+      no_posts_lead: Testa med en annan filtrering
