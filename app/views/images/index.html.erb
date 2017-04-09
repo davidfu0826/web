@@ -18,6 +18,6 @@
   <% end %>
 
   <div class="row">
-    <%= render 'filter', path: images_path %>
+    <%= render 'filter', tags: @tags, path: images_path, search: @search %>
   </div>
 <% end %>

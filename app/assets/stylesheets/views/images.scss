@@ -1,10 +1,10 @@
 .photo {
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.13);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .13);
   margin-bottom: 20px;
 
   &.photo-small {
-    margin-bottom: 7px;
     display: inline-block;
+    margin-bottom: 7px;
     width: 138px;
 
     .overlay a {
@@ -20,13 +20,14 @@
   .img {
     position: relative;
 
-    &:hover, &.img-selected {
-      .overlay  { opacity: 0.8; }
+    &:hover,
+    &.img-selected {
+      .overlay  { opacity: .8; }
     }
     .img-title {
+      height: 22px;
       overflow: hidden;
       text-overflow: ellipsis;
-      height: 22px;
       width: 138px;
     }
   }
@@ -36,13 +37,13 @@
   }
 
   .overlay {
-    top: 0;
+    background: $brand-primary;
+    height: 100%;
     opacity: 0;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background: $brand-primary;
+    top: 0;
     transition: opacity 300ms ease;
+    width: 100%;
   }
 
   .overlay .links {
@@ -50,25 +51,25 @@
   }
 
   .img-selected .overlay .links {
-    visibility: visible;
     margin-top: 33%;
-    top: 50%;
     text-align: center;
+    top: 50%;
     transition: margin-top 100ms ease-in-out;
+    visibility: visible;
 
     a {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
       cursor: default;
       display: inline-block;
       height: 50px;
-      width: 50px;
       margin-right: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
+      width: 50px;
     }
 
     i {
-      font-size: 20px;
       color: #FFF;
+      font-size: 20px;
       line-height: 2.4;
     }
   }
@@ -77,6 +78,7 @@
 .img-library {
   margin: 3px;
   margin-bottom: 6px;
+  position: relative;
 
   .img-thumbnail {
     height: 160px;
@@ -87,32 +89,27 @@
     height: 160px;
   }
 
-  position: relative;
-
   .img-title {
-    position: absolute;
-    width: 160px;
-    bottom: 0px;
-    text-align: center;
     background: white;
-
+    bottom: 0px;
     overflow: hidden;
+    position: absolute;
+    text-align: center;
     text-overflow: ellipsis;
+    width: 160px;
   }
 }
 
 figcaption {
+  color: $light-gray;
   font-size: 15px;
   font-style: italic;
-  color: $light-gray;
 }
 
-/* -- IMAGE SELECT MODAL -- */
 #image-select-body {
   max-height: 700px;
-  overflow-y: scroll;
   overflow-x: hidden;
-
+  overflow-y: scroll;
 }
 
 #image-select-tab input[type="submit"] {
@@ -121,12 +118,18 @@ figcaption {
 
 #image-attributes {
   margin-bottom: 5px;
+
   .form-control {
     width: 250px;
+  }
+}
+
+.img-search {
+  .form-control {
+    min-width: 150px;
   }
 }
 
 .img-select-active {
   background-color: $brand-primary;
 }
-
