@@ -1,37 +1,32 @@
 sv:
   events:
-    change_cover:
-      delete_cover: Radera coverbild
-      heading: "Ändra coverbild"
-      select_image: Välj Bild
     event_calendar:
       next_month: Nästa månad
       previous_month: Föregående månad
+
     event_calendar_month:
+      l_week: (L.V %{week})
       no_events: Inga Event
       week: Vecka %{week}
-      l_week: (L.V %{week})
+
     index:
-      change_cover: "Ändra coverbild"
-      new_event: Nytt Event
-      new_event_group: Ny Eventgrupp
-      reset: "Återställ"
-      search: Gruppera
-      webcal: Prenumerera på iCal
       event: Event
+      new_event_group: Ny Eventgrupp
+      new_event: Nytt Event
+      webcal: Prenumerera på iCal
+
     show:
       date: Datum
       desc: Beskrivning
       end: 'Till: '
+      no_description: "Det finns ingen beskrivning :("
       show_all: Visa alla event
       start: 'Från: '
       tags: 'Taggar: '
-      no_description: "Det finns ingen beskrivning :("
-    status:
-      has_ended: Har avslutats
-      has_not_started_yet: Har inte börjat än
-      ongoing: Pågående
+
     new:
       all_events: Alla events
+
     edit:
       all_events: Alla events
+      destroy: Radera event

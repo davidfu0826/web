@@ -1,7 +1,7 @@
 <li>
   <div class="event-thumb pull-left">
-    <div class="day"><%= event.day %></div>
-    <div class="month"><%= event.short_month %></div>
+    <div class="day"><%= event.start_time.day %></div>
+    <div class="month"><%= t(:abbr_month_names, scope: :date)[event.start_time.month] %></div>
   </div>
   <p class="event-title">
     <%= link_to event.title, event %>

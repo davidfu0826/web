@@ -1,6 +1,6 @@
 <% content_for(:banner) do %>
   <%= render('/application/banner',
-             url: @cover_image.try(:cover_image)) %>
+             url: asset_url('cover.jpg')) %>
 <% end %>
 
 <div class="page-header">
@@ -15,20 +15,20 @@
   <div class="row">
     <h3>
       <%= t(:tools) %>
-      <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench">
-      </span>
+      <%= fa_icon('wrench', class: 'pull-right') %>
     </h3>
     <ul>
       <% if can? :manage, Event %>
         <li><%= link_to t('.new_event'), new_event_path %></li>
-        <li><%= link_to t('.change_cover'), change_cover_events_path %></li>
       <% end %>
-      <li><%= link_to t('.webcal'), events_url(protocol: 'webcal',
-                                               format: :ics, params: { locale: I18n.locale }) %></li>
+      <li><%= link_to t('.webcal'),
+                      events_url(protocol: 'webcal',
+                                 format: :ics,
+                                 params: { locale: I18n.locale }) %></li>
     </ul>
   </div>
 
   <div class="row">
-    <%= render 'filter', path: events_path %>
+    <%= render 'filter', path: events_path, tags: @tags, search: @search %>
   </div>
 <% end %>

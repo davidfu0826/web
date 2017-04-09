@@ -1,4 +1,8 @@
 <%= form_heading :update, Event %>
 <%= render 'form', event: @event %>
+<%= link_to(t('.destroy'), event_path(@event),
+                           method: :delete,
+                           class: 'btn btn-danger pull-right') %>
+<br />
 <hr>
 <%= link_to(t('.all_events'), events_path, class: 'btn btn-default') %>
