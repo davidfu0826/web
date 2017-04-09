@@ -10,7 +10,7 @@
         <h1><%= t('.welcome') %></h1>
       </div>
       <div class="lead">
-        <p><%= Settings[:index_leads][I18n.locale] %></p>
+        <%= simple_format(t('.lead')) %>
       </div>
     </div>
   </div>
@@ -26,4 +26,3 @@
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
 <% end %>
-
