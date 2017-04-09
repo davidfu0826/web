@@ -10,16 +10,16 @@ class ImagesController < ApplicationController
   def new; end
 
   def create
-    @image = Image.create_with_tags(image_params, params[:image][:tags])
+    @image = Image.new(image_params.except(:tag_ids))
 
     respond_to do |format|
-      if @image.new_record?
+      if @image.save && @image.update(tag_ids: image_params.fetch(:tag_ids, []))
+        format.html { redirect_to images_path, notice: t('.success') }
+        format.js { render action: 'upload_success' }
+      else
         load_tags
         format.html { render :new }
         format.js { render json: @image.errors, status: :unprocessable_entity }
-      else
-        format.html { redirect_to images_path, notice: t('.success') }
-        format.js { render action: 'upload_success' }
       end
     end
   end
@@ -27,8 +27,8 @@ class ImagesController < ApplicationController
   def edit; end
 
   def update
-    if @image.update_with_tags(image_params, image_tag_params)
-      redirect_to images_path
+    if @image.update(image_params)
+      redirect_to images_path, notice: t('.success')
     else
       load_tags
       render 'edit'
