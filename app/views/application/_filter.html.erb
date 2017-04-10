@@ -1,13 +1,20 @@
+<% path ||= root_path %>
+<% tags ||= [] %>
+<% search ||= "" %>
+
 <h3>
   <%= t(:filter) %>
-  <span class="pull-right sidebar-glyph glyphicon glyphicon-search"></span>
+  <%= fa_icon('search', class: 'pull-right') %>
 </h3>
 
 <%= bootstrap_form_tag url: path, method: 'get', remote: true do |f| %>
   <p>
-    <%= f.text_field :search, value: @search, label: t('search')  %>
+    <%= f.text_field :search, value: search, label: t('search')  %>
+    <% if tags.present? %>
+      <%= f.select :tags, tags.collect { |t| [t.title, t.id] }, { label: t('helpers.tags'), include_blank: false }, { multiple: true, class: 'select2' } %>
+    <% end %>
 
     <%= f.submit t('search') %>
-    <%= link_to t('reset'), path %>
+    <%= link_to t('reset'), path, class: 'btn btn-default pull-right' %>
   </p>
 <% end %>

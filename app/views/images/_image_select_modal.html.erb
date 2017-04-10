@@ -39,17 +39,14 @@
             </form>
 
 
-            <div class="pull-left">
+            <div class="pull-left img-search">
               <!-- Image search footer -->
               <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |sf| %>
-                  <%= sf.collection_select :tag, @tags, :id, :title,
-                    { include_blank: true, hide_label: true },
-                    { class: "large-select select2"} %>
+                  <%= fa_icon('search') %>
+                  <%= sf.select :tags, @tags.collect { |t| [t.title, t.id] }, { hide_label: true, include_blank: false }, { multiple: true, class: 'select2 wide' } %>
                   <%= sf.text_field :search, hide_label: true %>
 
-                  <%= sf.submit t(:search), icon: 'search' do %>
-                    <i class="glyphicon glyphicon-search"></i>
-                  <% end %>
+                  <%= sf.submit t(:search) %>
               <% end %>
             </div>
             <div class="pull-right">
