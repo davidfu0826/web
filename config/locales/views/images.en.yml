@@ -1,14 +1,14 @@
 en:
   images:
     create:
-      success: The images was uploaded.
+      success: The images was uploaded
 
     edit:
       all_images: All images
 
     image_feed:
-      no_images: Could not find any images.
-      no_images_lead: Try with different filtering.
+      no_images: Could not find any images
+      no_images_lead: Try with different filtering
 
     image_select_modal:
       caption: Caption
