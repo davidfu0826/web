@@ -23,7 +23,9 @@
   </div>
 <% end %>
 
-<%= raw description(@post.content) %>
+<div class="post-content">
+  <%= raw description(@post.content) %>
+</div>
 
 <% if can? :edit, @post %>
   <% content_for :sidebar do %>
