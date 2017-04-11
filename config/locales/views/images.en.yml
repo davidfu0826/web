@@ -1,0 +1,32 @@
+en:
+  images:
+    create:
+      success: The images was uploaded
+
+    edit:
+      all_images: All images
+
+    image_feed:
+      no_images: Could not find any images
+      no_images_lead: Try with different filtering
+
+    image_select_modal:
+      caption: Caption
+      images: Images
+      image_gallery: Gallery
+      image_uploader: Upload a new image
+      link_to: Image link
+      select: Select image
+
+    cover_image_modal:
+      image_gallery: Gallery
+      image_uploader: Uploader
+
+    index:
+      edit_cover_images: Edit cover image on landing page
+      images: Images
+      new_image: Upload a new image
+
+    new:
+      upload_image: Upload a new image
+      all_images: All images
