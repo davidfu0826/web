@@ -1,6 +1,6 @@
 <% content_for :banner do %>
   <%= render('/application/banner',
-             url: asset_url('document_cover.jpg')) %>
+             url: asset_url('document_cover.jpg', host: PUBLIC_URL)) %>
 <% end %>
 
 <% if can?(:manage, Document) %>
