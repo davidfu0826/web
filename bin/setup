@@ -10,19 +10,16 @@ Dir.chdir APP_ROOT do
 
   puts '== Installing dependencies =='
   system 'gem install bundler --conservative'
-  system 'bundle check || bundle install'
+  system 'bundle check || bundle install > /dev/null'
 
   puts '== Preparing database =='
   system 'bin/rake db:setup db:seed db:test_data'
 
-  puts '== Removing old logs and tempfiles =='
   system 'rm -f log/*'
   system 'rm -rf tmp/cache'
-
-  puts '== Restarting application server =='
   system 'touch tmp/restart.txt'
 
   puts '==================================='
-  puts 'Start webserver with "rails s"'
+  puts 'Start webserver with \'rails s\''
   puts '==================================='
 end

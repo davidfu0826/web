@@ -23,6 +23,7 @@
 /public/assets/*
 /public/uploads/*
 /public/documents/*
+/public/sitemaps/*
 
 
 # Local environment
