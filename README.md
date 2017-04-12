@@ -1,6 +1,6 @@
 # Teknologkåren LTH
 
-This is the repository containing the code for the Rails application acting as a CMS system for teknologkåren at LTH
+This is the repository containing the code for the Rails application acting as a CMS system for Teknologkåren at LTH
 
 ## Development setup
 
@@ -8,29 +8,31 @@ This is the repository containing the code for the Rails application acting as a
 
 0. Use a Linux/OSX environment, if developing on Windows use vagrant and follow the instructions below to easily set up a vm.
 0. Install the development requirements
-  0. PostgreSQL (If MySQL is to be used, you have to change the rails database adapter)
+  0. PostgreSQL as Database manager
   0. ImageMagick
   0. NodeJS, Rails uses a execjs runtime to precompile assets
-  0. Ruby, easiest way is to use rbenv
+  0. Ruby
+    - It is good to use an environment manager to handle different versions,
+    - [`rbenv`](https://github.com/rbenv/rbenv) works good,
+    - [`ruby build`](https://github.com/rbenv/ruby-build) allows installing of different ruby versions.
 
 ### Setup
 
-0. run `bundle install` to download and install gems
-0. run `rake db:setup` to setup a database with columns
+- run `bin/setup` to download and install gems, setup database and add some development data,
+- run `rails s` to start the server,
+- `rails c` gives access to the rails console.
 
 ## Notes
 
 Most configuration is stored in either `config/application.rb` or `config/enviroments/production.rb`
 Configuration for the mailer is located in `config/enviroments/production.rb`
-Credentials are stored in enviroment variables and accessed in the `secrets.yml` file
+Credentials are stored in environment variables and accessed in the `secrets.yml` file
 
-The pages use caching to improve page load speed.
-
-The site is currently hosted on Heroku, and is started using the Procfile. 
+The site is currently hosted on Heroku, and is started using the Procfile.
 CoffeeScript is used for some behavior instead of JavaScript, and SCSS is used to make CSS more organized and efficient.
 
-### Vagrant
-  
+### Vagrant (for Windows)
+
 ```
 #!sh
   vagrant up
