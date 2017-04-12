@@ -6,9 +6,10 @@ class Post < ActiveRecord::Base
   attr_accessor :image_file
   validates :title_sv, :title_en, :content, presence: true
 
+  belongs_to :image
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
-  belongs_to :image
+
 
   translates :title, :content
   fuzzily_searchable :title_en, :title_sv

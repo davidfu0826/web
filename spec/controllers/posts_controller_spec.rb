@@ -9,6 +9,7 @@ RSpec.describe PostsController, type: :controller do
       get :show, id: post.to_param
       expect(response).to render_template :show
       expect(response).to have_http_status(200)
+
     end
   end
 

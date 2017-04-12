@@ -1,16 +1,14 @@
 class Image < ActiveRecord::Base
   include Filterable
-  include Tagable
 
-  before_validation(on: [:create, :update]) do
-    taggings.each { |t| t.taggable = self }
-  end
+  mount_uploader(:file, ImageUploader)
+
   validates :image, presence: true
   validates_property(:format, of: :image,
-                     in: [:jpeg, :jpg, :png, :bmp, :gif],
-                     case_sensitive: false,
-                     message: I18n.t('errors.messages.image_format'),
-                     if: :image_changed?)
+                              in: [:jpeg, :jpg, :png, :bmp, :gif],
+                              case_sensitive: false,
+                              message: I18n.t('errors.messages.image_format'),
+                              if: :image_changed?)
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
@@ -24,12 +22,11 @@ class Image < ActiveRecord::Base
     image_ids << find_by_fuzzy_title(search).map(&:id)
     image_ids << joins(:tags).where("lower(tags.title) LIKE :search_param",
                                     search_param: search.downcase)
-                 .map(&:id)
+                 .pluck(:id)
     where(id: image_ids.flatten)
   }
 
   fuzzily_searchable :image_name, :title
-
   dragonfly_accessor :image
   delegate :url, to: :image
 
