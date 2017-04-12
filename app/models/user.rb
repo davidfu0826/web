@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   include PasswordHelper
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable, :registrable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable,
+         :validatable
 
   before_validation(on: :create) do
     this_password = secure_password
@@ -16,15 +17,15 @@ class User < ActiveRecord::Base
   has_many :contact_forms, dependent: :destroy
 
   dragonfly_accessor :profile_image do
-    copy_to(:profile_image_thumb){|a| a.thumb('160x160#') }
+    copy_to(:profile_image_thumb) { |a| a.thumb('160x160#') }
   end
   dragonfly_accessor :profile_image_thumb
 
   validates_property :format,
-                      of: :profile_image,
-                      in: [:jpeg, :jpg, :png, :bmp],
-                      case_sensitive: false,
-                      message: I18n.t('errors.messages.image_format')
+                     of: :profile_image,
+                     in: [:jpeg, :jpg, :png, :bmp],
+                     case_sensitive: false,
+                     message: I18n.t('errors.messages.image_format')
 
   translates :title
 
@@ -32,7 +33,8 @@ class User < ActiveRecord::Base
   enum locale: %i(sv en)
 
   def send_password_selection_email
-    raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
+    raw, enc = Devise.token_generator.generate(self.class,
+                                               :reset_password_token)
 
     self.reset_password_token   = enc
     self.reset_password_sent_at = Time.current
