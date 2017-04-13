@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4.1'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.8'
 
 # Core
 gem 'autoprefixer-rails'
@@ -24,7 +24,7 @@ gem 'bootstrap_form'
 gem 'carrierwave' # File uploads
 gem 'carrierwave-aws'
 gem 'codemirror-rails' # Used by summernote for displaying html
-gem 'dragonfly', '~>1.0.12' # Image Uploading
+gem 'dragonfly' # Image Uploading
 gem 'dragonfly-s3_data_store' # Store images on s3
 gem 'dynamic_sitemaps'
 gem 'font-awesome-rails' # Used by summernote
