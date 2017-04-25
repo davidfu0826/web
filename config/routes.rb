@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources  :users, except: :show
 
   concern :paginatable do
-    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+    get '(page/:page)', action: :index, on: :collection, as: ''
   end
 
   get 'locale_sv', to: 'locale#locale_sv', as: 'swedish_locale'
@@ -15,24 +15,26 @@ Rails.application.routes.draw do
   get 'tweets', to: 'tweets#index'
 
   resources :tags, except: [:show]
-  resources :posts, :concerns => :paginatable do
+  resources :posts, concerns: :paginatable do
     get 'archive', on: :collection
   end
 
-  resources :images, except: :show, :concerns => :paginatable do
+  resources :images, except: :show, concerns: :paginatable do
     get 'search', on: :collection
   end
 
-  resources :uploads, except: [:edit, :update], :concerns => :paginatable do
+  resources :uploads, except: [:edit, :update], concerns: :paginatable do
     get :search, on: :collection
   end
 
   resources :documents
+  get :styrdokument, controller: :documents, action: :index
 
   resources :events do
     collection do
-      get    'change_cover'
-      post   'change_cover', to: 'events#change_cover_update', as: 'change_cover_update'
+      get 'change_cover'
+      post 'change_cover', to: 'events#change_cover_update',
+                           as: 'change_cover_update'
       delete 'delete_cover'
     end
   end
