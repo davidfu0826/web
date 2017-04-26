@@ -1,39 +1,4 @@
 en:
-  events:
-    change_cover:
-      delete_cover: Delete cover
-      heading: Edit cover
-      select_image: Choose cover
-    event_calendar:
-      next_month: Next month
-      previous_month: Previous month
-    event_calendar_month:
-      no_events: No events
-      week: Week %{week}
-      l_week: (L.V %{week})
-    index:
-      change_cover: Edit cover
-      new_event: Create new event
-      new_event_group: Create new eventgroup
-      reset: Reset
-      search: Filter
-      webcal: Subscribe to iCal
-      event: Event
-    show:
-      date: Date
-      desc: Description
-      end: 'To:'
-      show_all: Show all events
-      start: 'From:'
-      tags: 'Tags: '
-    status:
-      has_ended: Finished
-      has_not_started_yet: Has not started
-      ongoing: Ongoing
-    new:
-      all_events: All events
-    edit:
-      all_events: All events
   contact_forms:
     new:
       add_question: Add question
