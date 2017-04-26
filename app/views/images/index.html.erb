@@ -9,7 +9,10 @@
 <% content_for :sidebar do %>
   <% if can? :manage, Image %>
     <div class="row">
-      <h3><%= t(:tools) %><span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span></h3>
+      <h3>
+        <%= t(:tools) %>
+        <%= fa_icon('wrench', class: 'pull-right') %>
+      </h3>
       <ul>
         <li><%= link_to t('.new_image'), new_image_path %></li>
         <li><%= link_to t('.edit_cover_images'), settings_path %></li>
@@ -18,6 +21,6 @@
   <% end %>
 
   <div class="row">
-    <%= render 'filter', path: images_path %>
+    <%= render 'filter', tags: @tags, path: images_path, search: @search %>
   </div>
 <% end %>

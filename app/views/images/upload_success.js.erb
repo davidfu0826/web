@@ -4,5 +4,4 @@ $('#insertImageModal').trigger({
   image_id: '<%= escape_javascript(@image.id.to_s) %>'
 });
 $('#image-upload-form').html("<%= escape_javascript(render('modal_form', remote: true)) %>");
-$('.select2').select2();
 $("[type='file']").fileinput({ showUpload: false, showRemove: false, allowedFileExtensions: ['jpeg', 'jpg', 'png', 'bmp', 'gif']});

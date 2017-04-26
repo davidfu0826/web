@@ -1,8 +1,8 @@
 class Image < ActiveRecord::Base
   include Filterable
+  include Tagable # includes relationsships and tags-scope
 
   mount_uploader(:file, ImageUploader)
-
   validates :image, presence: true
   validates_property(:format, of: :image,
                               in: [:jpeg, :jpg, :png, :bmp, :gif],
@@ -10,21 +10,17 @@ class Image < ActiveRecord::Base
                               message: I18n.t('errors.messages.image_format'),
                               if: :image_changed?)
 
-  has_many :taggings, as: :taggable
-  has_many :tags, through: :taggings
-
   has_many :posts
   has_many :pages
 
   scope :tag, ->(tag_id) { joins(:tags).where(tags: { id: tag_id }) }
-  scope :search, ->(search) {
-    image_ids =  find_by_fuzzy_image_name(search).map(&:id)
-    image_ids << find_by_fuzzy_title(search).map(&:id)
-    image_ids << joins(:tags).where("lower(tags.title) LIKE :search_param",
-                                    search_param: search.downcase)
-                 .pluck(:id)
-    where(id: image_ids.flatten)
-  }
+  scope :search, (lambda do |search|
+    unless search.empty?
+      image_ids = find_by_fuzzy_image_name(search).map(&:id)
+      image_ids << find_by_fuzzy_title(search).map(&:id)
+      where(id: image_ids.flatten)
+    end
+  end)
 
   fuzzily_searchable :image_name, :title
   dragonfly_accessor :image

@@ -4,7 +4,6 @@
     <% presenter.events[month].keys.each do |week| %>
       <h5 class="event-weeknbr">
         <%= t('.week', week: week) %>
-        <%= t('.l_week', week: study_week(week)) if study_week(week) %>
       </h5>
 
       <ul class="event-week">

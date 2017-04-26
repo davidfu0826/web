@@ -1,15 +1,9 @@
 class TagsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    respond_to do |format|
-      format.html
-      format.json { render json: @tags.to_json(only: [:id, :title]) }
-    end
-  end
+  def index; end
 
-  def new
-  end
+  def new; end
 
   def create
     if @tag.save
@@ -19,8 +13,7 @@ class TagsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @tag.update(tag_params)
@@ -31,7 +24,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag.destroy
+    @tag.destroy!
     redirect_to tags_path
   end
 

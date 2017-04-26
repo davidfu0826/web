@@ -7,15 +7,11 @@
     <ul class="nav nav-pills" role="tablist">
       <li class="active"><a href="#sv" role="tab" data-toggle="tab">
         <%= t('locales.sv') %>
-        <% unless event.locale_content? :sv %>
-          <span class="glyphicon glyphicon-warning-sign"></span>
-        <% end %>
+        <%= fa_icon('warning') unless event.locale_content? :sv %>
       </a></li>
       <li><a href="#en" role="tab" data-toggle="tab">
         <%= t('locales.en') %>
-        <% unless event.locale_content? :en %>
-          <span class="glyphicon glyphicon-warning-sign"></span>
-        <% end %>
+        <%= fa_icon('warning') unless event.locale_content? :en %>
       </a></li>
     </ul>
   </div>
@@ -36,9 +32,9 @@
   <%= f.text_field :end_time, value: localized(event.end_time,
                                                format: :event_format),
                               'data-behaviour' => 'datepicker' %>
-  <%= f.text_field :tags, label: t('helpers.tags'),
-                          class: 'tag_select',
-                          value: event.tags.all.to_a.join(",") %>
+  <%= f.select :tag_ids, @tags.collect { |t| [t.title, t.id] },
+                         { label: t('helpers.tags'), include_blank: false },
+                         { multiple: true, class: 'select2' } %>
 
   <%= f.submit %>
 <% end %>

@@ -32,14 +32,8 @@ $(document).on("turbolinks:load", function() {
   $("#twitter-feed").load("/tweets", function () {
     $("#twitter-feed").trigger('tweets_loaded');
   });
-  $('.select2').select2();
   $('.dd').nestable({maxDepth: 2});
   $('.dd').nestable('collapseAll');
-
-  $('#banner').on('slide.bs.carousel', function (event) {
-    var link = $(event.relatedTarget).find('a').attr('href');
-    $('#logo-link').attr('href', link);
-  });
 
   if($(window).width() > 760 && !(navigator.msMaxTouchPoints > 0)){
     $('.navbar .dropdown > a').click( function(){

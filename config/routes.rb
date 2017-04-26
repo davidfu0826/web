@@ -30,14 +30,7 @@ Rails.application.routes.draw do
   resources :documents
   get :styrdokument, controller: :documents, action: :index
 
-  resources :events do
-    collection do
-      get 'change_cover'
-      post 'change_cover', to: 'events#change_cover_update',
-                           as: 'change_cover_update'
-      delete 'delete_cover'
-    end
-  end
+  resources :events
 
   resources :nav_items, except: [:index, :show] do
     member do

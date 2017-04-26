@@ -10,15 +10,8 @@ RSpec.describe EventsController do
       create(:event, title: 'First', start_time: 10.days.ago)
 
       get(:index)
-      expect(assigns(:events).map(&:title)).to eq(['First', 'Second'])
+      expect(assigns(:events).map(&:title)).to eq(%w(First Second))
       expect(response).to have_http_status(200)
-    end
-
-    it 'renders with cover_photo' do
-      image = create(:image)
-      Settings.events_cover_image = image.id
-
-      get(:index)
     end
 
     it 'renders .ics format' do
@@ -49,21 +42,23 @@ RSpec.describe EventsController do
 
   describe 'POST #create' do
     it 'creates with valid parameters' do
+      tag = create(:tag)
       attributes = { start_time: 1.day.from_now,
                      end_time: 2.days.from_now,
                      title_sv: 'Ett evenemang',
                      title_en: 'An event',
-                     tags: [] }
+                     tag_ids: [tag.id] }
 
       expect do
         post(:create, event: attributes)
       end.to change(Event, :count).by(1)
 
       expect(response).to redirect_to(event_path(Event.last))
+      expect(Event.last.tags.map(&:id)).to eq([tag.id])
     end
 
     it 'renders with errors if invalid parameters' do
-      attributes = { start_time: nil, tags: [] }
+      attributes = { start_time: nil, tag_ids: [] }
 
       expect do
         post(:create, event: attributes)
@@ -86,18 +81,20 @@ RSpec.describe EventsController do
   describe 'PATCH #update' do
     it 'updates event with valid parameters' do
       event = create(:event, title_sv: 'Ett evenemang')
-      attributes = { title_sv: 'Ett annat evenemang', tags: [] }
+      tag = create(:tag)
+      attributes = { title_sv: 'Ett annat evenemang', tag_ids: [tag.id] }
 
       patch(:update, id: event.to_param, event: attributes)
       event.reload
       expect(event.title_sv).to eq('Ett annat evenemang')
       expect(response).to redirect_to(event_path(event))
+      expect(event.tags.map(&:id)).to include(tag.id)
     end
 
     it 'renders with errors with invalid parameters' do
       event = create(:event, title_sv: 'Ett evenemang')
       create(:tag, title: 'First tag')
-      attributes = { title_sv: '', tags: [] }
+      attributes = { title_sv: '', tag_ids: [] }
 
       patch(:update, id: event.to_param, event: attributes)
 

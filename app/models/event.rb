@@ -2,31 +2,18 @@
 class Event < ActiveRecord::Base
   TZID = 'Europe/Stockholm'.freeze
   include Filterable
-  include Tagable
   include LocaleContent
-
-  has_many :taggings, as: :taggable
-  has_many :tags, through: :taggings
+  include Tagable # includes relationsships and tags-scope
 
   translates :title, :description
 
   validates :title_sv, :title_en, :start_time, :end_time, presence: true
   validate :end_time_after_start_time
 
-  before_validation(on: [:create, :update]) do
-    taggings.each do |t|
-      t.taggable = self
-    end
-  end
-
   scope :by_start, -> { order(start_time: :asc) }
   scope :upcoming, (lambda do
     where('end_time > :current', current: Time.current).by_start
   end)
-
-  def day
-    start_time.strftime('%e')
-  end
 
   def week
     start_time.to_date.cweek
@@ -34,10 +21,6 @@ class Event < ActiveRecord::Base
 
   def month
     start_time.beginning_of_month
-  end
-
-  def short_month
-    start_time.strftime('%B')[0, 3]
   end
 
   private

@@ -1,35 +1,14 @@
+# Includes relationships to tags and taggins as well as a scope used for filtering.
 module Tagable
   extend ActiveSupport::Concern
 
-  module ClassMethods
-    def create_with_tags(resource_params, tag_params)
-      resource = self.new
-      begin
-        resource.update(resource_params)
-        self.transaction do
-          resource.tags = tag_params.split(",").map do |tag_title|
-            Tag.find_or_create_by(title: tag_title)
-          end
-          resource.save!
-        end
-      rescue ActiveRecord::RecordInvalid
-        # Could not save resource
-      end
-      resource
-    end
-  end
+  included do
+    has_many :taggings, as: :taggable
+    has_many :tags, through: :taggings
 
-  def update_with_tags(resource_params, tag_params)
-    begin
-      self.transaction do
-        self.update(resource_params)
-        self.tags = tag_params.split(",").map do |tag_title|
-          Tag.find_or_create_by(title: tag_title)
-        end
-        self.save!
-      end
-    rescue ActiveRecord::RecordInvalid
-      false
-    end
+    scope :tags, (lambda do |tag_ids|
+      tag_ids.reject!(&:empty?)
+      joins(:tags).where(tags: { id: tag_ids }) unless tag_ids.empty?
+    end)
   end
 end

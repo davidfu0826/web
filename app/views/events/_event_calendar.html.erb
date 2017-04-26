@@ -6,13 +6,13 @@
 <div class="col-xs-12">
   <!-- Link to previous month -->
   <%= link_to events_path(offset: presenter.offset - 1) do %>
-    <span class="glyphicon glyphicon-chevron-left"></span>
+    <%= fa_icon('arrow-left') %>
     <%= t('.previous_month') %>
   <% end %>
 
   <!-- Link to next month -->
   <%= link_to events_path(offset: presenter.offset + 1), class: "pull-right" do %>
-    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+    <%= fa_icon('arrow-right', class: 'pull-right') %>
     <%= t('.next_month') %>
   <% end %>
 </div>
