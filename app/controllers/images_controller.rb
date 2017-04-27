@@ -10,6 +10,14 @@ class ImagesController < ApplicationController
 
   def new; end
 
+  def show
+    if @image.url.present?
+      redirect_to(@image.url)
+    else
+      redirect_to(images_path, notice: 'No file')
+    end
+  end
+
   def create
     @image = Image.new(image_params.except(:tag_ids))
 

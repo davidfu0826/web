@@ -24,6 +24,16 @@ RSpec.describe ImagesController, type: :controller do
     end
   end
 
+  describe "GET # show" do
+    it "redirects to image" do
+      image = create(:image)
+      allow_any_instance_of(Image).to \
+        receive(:url).and_return('localhost:3000/good_url')
+      get :show, id: image.to_param
+      expect(response).to redirect_to('localhost:3000/good_url')
+    end
+  end
+
   describe "GET edit" do
     it "render edit " do
       image = create(:image)

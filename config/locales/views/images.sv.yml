@@ -7,6 +7,7 @@ sv:
       all_images: Alla bilder
 
     image_feed:
+      copy_to_clipboard: Kopiera länk
       no_images: Kunde inte hitta några bilder.
       no_images_lead: Testa med en annan filtrering.
 

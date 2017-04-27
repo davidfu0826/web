@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'archive', on: :collection
   end
 
-  resources :images, except: :show, concerns: :paginatable do
+  resources :images, concerns: :paginatable do
     get 'search', on: :collection
   end
 

@@ -1,0 +1,6 @@
+sv:
+  model:
+    image:
+      title: Titel
+      copy: Kopiera länk
+      delete: Radera
