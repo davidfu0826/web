@@ -34,6 +34,10 @@ class Image < ActiveRecord::Base
     end
   end
 
+  def url
+    image.try(:remote_url)
+  end
+
   def thumb_url
     image.thumb('160x160#').url
   end

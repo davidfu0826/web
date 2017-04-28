@@ -7,6 +7,7 @@ en:
       all_images: All images
 
     image_feed:
+      copy_to_clipboard: Kopiera länk
       no_images: Could not find any images
       no_images_lead: Try with different filtering
 

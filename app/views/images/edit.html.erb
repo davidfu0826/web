@@ -3,5 +3,7 @@
 </div>
 
 <%= render 'form', remote: false %>
+<br />
+<%= image_tag(@image.url, style: 'max-width: 600px; margin: auto;', class: 'img-responsive') %>
 <hr>
 <%= link_to(t('.all_images'), images_path, class: 'btn btn-default') %>

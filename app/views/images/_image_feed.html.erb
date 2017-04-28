@@ -1,18 +1,41 @@
-<% if @images.blank? %>
-  <h3><%= t('.no_images') %></h3>
-  <%= t('.no_images_lead') %>
-<% end %>
-
-<div class="row gallery-parent">
-  <ul class="unstyled-list">
-    <% @images.each do |image| %>
-      <% if image.image_stored? %>
-        <li class="img-library img-thumbnail">
-          <%= image_link image %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
+<div class="col-md-12 <%= flash_class('notice') %> copy-status" style="display: none;">
 </div>
+<br />
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th><%= t('model.image.title') %></th>
+      <th><%= t('model.image.copy') %></th>
+      <th><%= t('model.image.delete') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= link_to fa_icon('wrench', text: image.title), edit_image_path(image) %></td>
+        <td>
+          <%= link_to fa_icon('link', text: t('.copy_to_clipboard')), '#copy', class: 'copy-link', data: { 'clipboard-text': image_url(image)} %>
+        </td>
+        <td>
+          <%= link_to fa_icon('trash-o', text: t(:destroy)), image, method: :delete,
+                             data: { confirm: t(:confirm_delete) } %>
+        </td>
+      </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  var client = new ZeroClipboard($(".copy-link"));
+  client.on('aftercopy', function(event) {
+    $('.copy-status').html("Kopierade: \n" + event.data["text/plain"]);
+    $('.copy-status').show();
+  });
+
+  $(".copy-link").click( function() {
+    return false;
+  });
+</script>
 
 <%= paginate @images %>
