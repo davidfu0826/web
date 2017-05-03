@@ -49,7 +49,7 @@ RSpec.describe ImagesController, type: :controller do
       attributes = {
         title: 'Svensk',
         tag_ids: [tag.id],
-        image: test_file
+        file: test_file
       }
 
       expect do
@@ -64,7 +64,7 @@ RSpec.describe ImagesController, type: :controller do
     end
 
     it 'invalid parameters' do
-      attributes = { image: nil }
+      attributes = { file: nil }
 
       expect do
         post(:create, image: attributes)
@@ -95,7 +95,7 @@ RSpec.describe ImagesController, type: :controller do
 
     it "invalid params" do
       resource = create(:image, title: "Gammal")
-      attributes = { image: nil }
+      attributes = { file: nil }
 
       patch :update, id: resource.id, image: attributes
       resource.reload

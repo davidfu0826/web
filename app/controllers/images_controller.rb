@@ -60,7 +60,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image, :title, tag_ids: [])
+    params.require(:image).permit(:file, :title, tag_ids: [])
   end
 
   def search_params
