@@ -19,12 +19,12 @@
 /tmp
 
 # Ignore uploaded images
-/public/system/*
 /public/assets/*
-/public/uploads/*
 /public/documents/*
+/public/images/*
 /public/sitemaps/*
-
+/public/system/*
+/public/uploads/*
 
 # Local environment
 .rspec
