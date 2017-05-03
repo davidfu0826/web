@@ -2,7 +2,7 @@
   <%= form.fields_for :settings do |f| %>
     <h3><%= t('.cover_images') %></h3>
     <% @cover_images.each do |img| %>
-      <%= image_tag(img.image.thumb('100x100#').url) %>
+      <%= image_tag(img.image.thumb_url) %>
     <% end %>
     <br>
 
