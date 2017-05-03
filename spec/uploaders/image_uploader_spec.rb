@@ -18,8 +18,8 @@ RSpec.describe ImageUploader do
   end
 
   context 'the thumb version' do
-    it 'should scale down a landscape image to be exactly 350 by 350 pixels' do
-      expect(uploader.thumb).to have_dimensions(350, 350)
+    it 'should scale down a landscape image to be exactly 160 by 160 pixels' do
+      expect(uploader.thumb).to have_dimensions(160, 160)
     end
   end
 
