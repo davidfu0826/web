@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{Rails.root}/tmp/images"
   end
 
-  process :fix_exif_rotation
+  process :fix_exif_rotation, :save_filename
 
   # Resizes to width 1680px (if the image is larger)
   version :large do
@@ -23,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Creates a thumbnail version
   version :thumb do
-    process resize_to_fill: [350, 350]
+    process resize_to_fill: [160, 160]
   end
 
   def fix_exif_rotation
@@ -37,5 +37,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  def save_filename
+    return unless file.respond_to?(:original_filename)
+    model.file_name ||= file.original_filename
   end
 end

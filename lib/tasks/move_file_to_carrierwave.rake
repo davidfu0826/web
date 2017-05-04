@@ -9,7 +9,12 @@ namespace :images do
           failed << i.id
           next
         end
-        i.remote_file_url = i.image.remote_url
+        if ENV['AWS']
+          i.remote_file_url = i.image.remote_url
+        else
+          i.file = File.open(i.image.path)
+        end
+        i.file_name = i.image_name
         i.save!
       rescue => error
         failed << i.id

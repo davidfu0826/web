@@ -64,7 +64,7 @@ RSpec.describe PostsController, type: :controller do
       created = Post.last
       expect(response).to redirect_to(edit_post_path(created))
       expect(response).to have_http_status(302)
-      expect(created.image.image.name).to eq('cover.jpg')
+      expect(created.image.file_identifier).to eq('cover.jpg')
     end
 
     it "invalid params" do
@@ -94,7 +94,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to(edit_post_path(resource))
       expect(response).to have_http_status(302)
       expect(resource.title_sv).to eq("Ny")
-      expect(resource.image.image.name).to eq('cover.jpg')
+      expect(resource.image.file_identifier).to eq('cover.jpg')
       expect(resource.tags.map(&:id)).to include(tag.id)
     end
 

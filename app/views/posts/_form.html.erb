@@ -22,7 +22,7 @@
     <div class="col-md-12">
       <div class="modal-body" id="image-select-body">
         <%= collection_radio_buttons(:post, :image_id, @images, :id, :thumb_url) do |b| %>
-          <%= b.label { b.radio_button + image_tag(b.object.thumb_url)} %>
+          <%= b.label { b.radio_button + image_tag(b.object.thumb_url, class: 'img-responsive', style: 'max-width: 160px')} %>
         <% end %>
       </div>
     </div>

@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     if @post.image.present?
-      img = @post.image.image.thumb('160x160#').url
+      img = @post.image.thumb_url
       prepare_meta_tags(image: img,
                         twitter: { image: img },
                         og: { image: img })
@@ -102,7 +102,7 @@ class PostsController < ApplicationController
   def upload_image(post)
     return false if post.image_file.nil?
 
-    img = Image.new(image: post.image_file)
+    img = Image.new(file: post.image_file)
 
     img.save && post.update(image: img)
   end

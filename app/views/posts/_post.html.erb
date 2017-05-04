@@ -3,7 +3,7 @@
     <div class="media">
       <div class="row">
         <div class="col-sm-4">
-          <%= image_tag (post.image.present? ? post.image.image.thumb('160x160#').url : "blue_mark.svg"), size: '160' %>
+          <%= image_tag (post.image.present? ? post.image.thumb_url : "blue_mark.svg"), size: '160' %>
         </div>
         <div class="col-sm-8">
           <div class="media-heading">
