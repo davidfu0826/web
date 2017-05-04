@@ -13,7 +13,7 @@ Dir.chdir APP_ROOT do
   system 'bundle check || bundle install > /dev/null'
 
   puts '== Preparing database =='
-  system 'bin/rake db:setup db:seed db:test_data'
+  system 'bin/rake db:setup db:seed db:test_data db:test:prepare'
 
   system 'rm -f log/*'
   system 'rm -rf tmp/cache'
