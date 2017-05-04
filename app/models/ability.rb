@@ -6,22 +6,20 @@ class Ability
 
     can :read, [Document, Event, Post]
     can :archive, Post
-    can :show, [Page, Upload]
+    can :show, [Image, Page, Upload]
 
     if user.admin?
       can :manage, :all
     elsif user.editor?
-      can :manage, [ContactForm, Document, Image, Page, Post, Upload]
+      can :manage, [ContactForm, Document, Image, Page, Post, Upload, Tags]
     elsif user.events?
-      can :manage, Event
-      can :manage, Image
+      can :manage, [Event, Image]
     end
 
-    if User.exists?(user.id)
-      can :read, Upload
-      can [:update, :destroy], user
-      can :manage, user.contact_forms
-      can [:update, :add_user, :remove_user], user.pages
-    end
+    return unless User.exists?(user.id)
+    can :read, Upload
+    can [:update, :destroy], user
+    can :manage, user.contact_forms
+    can [:update, :add_user, :remove_user], user.pages
   end
 end
