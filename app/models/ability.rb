@@ -11,7 +11,8 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.editor?
-      can :manage, [ContactForm, Document, Image, Page, Post, Upload, Tag]
+      can :manage, [ContactForm, Document, Image, Meeting,
+                    Page, Post, Upload, Tag]
     elsif user.events?
       can :manage, [Event, Image]
     end

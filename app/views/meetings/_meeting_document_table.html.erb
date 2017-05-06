@@ -1,0 +1,43 @@
+<h3><%= t('.meeting_documents') %></h3>
+<div class="col-md-12 <%= flash_class('notice') %> copy-status" style="display: none;"></div>
+<br />
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th><%= Meeting.human_attribute_name(:kind) %></th>
+      <th><%= Meeting.human_attribute_name(:document) %></th>
+      <th><%= t('global.copy_to_clipboard') %></th>
+      <th><%= t('global.delete') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% meeting_documents.each do |m_doc| %>
+      <% next if m_doc.new_record? %>
+      <tr>
+        <td><%= meeting_document_kind(m_doc.kind) %></td>
+        <td><%= link_to fa_icon('file-o', text: t('global.edit')), edit_document_path(m_doc.document) %></td>
+        <td>
+          <%= link_to fa_icon('clipboard', text: t('model.meeting.link')), '#copy', class: 'copy-link', data: { 'clipboard-text': m_doc.document.view } %>
+        </td>
+        <td>
+          <%= link_to fa_icon('trash-o', text: t('global.delete')), meeting_meeting_document_path(@meeting, m_doc),
+                      method: :delete,
+                      data: { confirm: t('.confirm_delete') } %>
+        </td>
+      </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  var client = new ZeroClipboard($(".copy-link"));
+  client.on('aftercopy', function(event) {
+    $('.copy-status').html("Kopierade: \n" + event.data["text/plain"]);
+    $('.copy-status').show();
+  });
+
+  $(".copy-link").click( function() {
+    return false;
+  });
+</script>

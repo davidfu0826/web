@@ -1,0 +1,21 @@
+sv:
+  model:
+    meeting_document:
+      kinds:
+        agenda: Dagordning
+        convocation: Kallelse
+        meeting_document: Handlingar
+        minute: Protokoll
+        other: Annat
+
+  activerecord:
+    models:
+      meeting_document:
+        one: Möteshandling
+        other: Möteshandlingar
+
+    attributes:
+      meeting_document:
+        document: Dokument
+        meeting: Möte
+        kind: Typ

@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   resources :documents
   get :styrdokument, controller: :documents, action: :index
 
+  resources :meetings, except: [:show], path_names: { edit: '' } do
+    resources :meeting_documents, only: [:destroy, :update]
+  end
+
   resources :events
 
   resources :nav_items, except: [:index, :show] do

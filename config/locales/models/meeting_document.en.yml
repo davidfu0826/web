@@ -1,0 +1,21 @@
+en:
+  model:
+    meeting_document:
+      kinds:
+        agenda: Agenda
+        convocation: Convocation
+        meeting_document: Meeting documents
+        minute: Minute
+        other: Other
+
+  activerecord:
+    models:
+      meeting_document:
+        one: Meeting document
+        other: Meeting documents
+
+    attributes:
+      meeting_document:
+        document: Document
+        meeting: Meeting
+        kind: Kind

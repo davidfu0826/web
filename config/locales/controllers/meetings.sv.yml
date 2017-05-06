@@ -1,0 +1,10 @@
+sv:
+  meetings:
+    create:
+      success: Mötet skapades
+
+    update:
+      success: Mötet uppdaterades
+
+    service:
+      invalid: 'Dokumentet kunde inte skapas:'

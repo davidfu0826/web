@@ -1,0 +1,15 @@
+<%= bootstrap_form_for(meeting, layout: :horizontal) do |f| %>
+  <%= f.text_field(:title, autofocus: true, placeholder: 'S16, FM5') %>
+  <%= f.text_field(:year, placeholder: '16/17, 2016') %>
+  <%= f.select(:kind, options_for_select(meeting_kinds,
+                                         meeting.kind),
+                      {}, { class: 'select2' }) %>
+  <%= f.number_field(:ranking) %>
+
+  <% if meeting.persisted? %>
+    <%= render('meeting_document_form', f: f, meeting: meeting) %>
+  <% end %>
+  
+  <%= f.submit %>
+  <%= link_to(t('global.delete'), meeting, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: t('.confirm_delete') }) %>
+<% end %>

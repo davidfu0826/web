@@ -1,0 +1,27 @@
+en:
+  model:
+    meeting:
+      kinds:
+        board: Board meeting
+        council: Council meeting
+        other: Other
+      link: Link
+
+  activerecord:
+    models:
+      meeting:
+        one: Meeting
+        other: Meetings
+
+    attributes:
+      meeting:
+        document_kind: Document kind
+        document: Document
+        file_en_url: File url - english
+        file_en: File - english
+        file_sv_url: File url - swedish
+        file_sv: File - swedish
+        kind: Kind
+        ranking: Ordering
+        title: Title
+        year: Year

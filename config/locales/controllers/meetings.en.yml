@@ -1,0 +1,10 @@
+en:
+  meetings:
+    create:
+      success: Meeting was created
+
+    service:
+      invalid: The document could not be created.
+
+    update:
+      success: Meeting was updated

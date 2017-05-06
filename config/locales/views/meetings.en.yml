@@ -1,0 +1,29 @@
+en:
+  meetings:
+    index:
+      description: The Union have meetings with the Union council and the Board. Their meetings are shown here together with meeting documents.
+      new_meeting: New meeting
+      title: Meetings
+
+    edit:
+      all_meetings: All meetings
+      show: Show meetings
+      title: Edit meeting
+
+    show:
+      all_meetings: All meetings
+      show: Show meetings
+      title: Edit meeting
+
+    new:
+      title: New meeting
+
+    form:
+      confirm_delete: "Detta raderar mötet och alla kopplade dokument.\nÄr du säker på att du vill göra detta?"
+
+    meeting_document_table:
+      confirm_delete: "This deletes the connection to the meeting and deletes the document.\nAre you sure you wanna do this?"
+      meeting_documents: Meeting documents
+
+    meeting_document_form:
+      new_document: New document
