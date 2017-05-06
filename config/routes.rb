@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'sitemap.xml' => 'application#sitemap', format: :xml, as: :sitemap
-  get 'robots.txt' => 'application#robots', format: :text, as: :robots
+  get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
 
   root 'posts#index'
   devise_for :users

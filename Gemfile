@@ -9,7 +9,6 @@ gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.8'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
-gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rack-cache', require: 'rack/cache' # Caching images
@@ -26,13 +25,11 @@ gem 'carrierwave-aws'
 gem 'codemirror-rails' # Used by summernote for displaying html
 gem 'dragonfly' # Image Uploading
 gem 'dragonfly-s3_data_store' # Store images on s3
-gem 'dynamic_sitemaps'
 gem 'font-awesome-rails' # Used by summernote
 gem 'font-awesome-sass'
 gem 'fuzzily' # Fuzzy string search
 gem 'http_accept_language' # Auto set locale
 gem 'icalendar' # Export i ics calendar files
-gem 'jquery-minicolors-rails'
 gem 'kaminari' # Pagination
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'meta-tags'
@@ -45,9 +42,9 @@ gem 'remotipart', '~> 1.2'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'select2-rails'
+gem 'sitemap_generator'
 gem 'traco' # Localization
 gem 'twitter'
-gem 'whenever', require: false # Automatically generate sitemaps
 gem 'zeroclipboard-rails'
 
 group :development do
