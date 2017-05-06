@@ -21,6 +21,7 @@ sv:
 
     edit:
       all_documents: Alla dokument
+      meetings: Kopplat till möten
       show: Visa dokument
       title: Redigera styrdokument
 

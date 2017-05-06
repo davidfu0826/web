@@ -5,6 +5,17 @@
 <div class="col-md-12">
   <%= render('form', document: @document) %>
   <hr>
+  <% if @document.meetings.any? %>
+    <h3><%= t('.meetings') %></h3>
+    <ul>
+      <% @document.meetings.each do |meeting| %>
+        <li>
+          <%= link_to(meeting, edit_meeting_path(meeting), target: :blank_p) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <hr>
   <%= link_to(t('.show'), document_path(@document),
                           class: 'btn btn-default') %>
   <%= link_to(t('.all_documents'), documents_path,

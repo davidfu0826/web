@@ -19,10 +19,10 @@ en:
       title: New meeting
 
     form:
-      confirm_delete: "Detta raderar mötet och alla kopplade dokument.\nÄr du säker på att du vill göra detta?"
+      confirm_delete: "This deletes the meeting and all connected documents.\nAre you sure you want to do this?"
 
     meeting_document_table:
-      confirm_delete: "This deletes the connection to the meeting and deletes the document.\nAre you sure you wanna do this?"
+      confirm_delete: "This deletes the connection to the meeting and deletes the document.\nAre you sure you want to do this?"
       meeting_documents: Meeting documents
 
     meeting_document_form:
