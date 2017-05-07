@@ -2,10 +2,11 @@ class Upload < ApplicationRecord
   include Filterable
 
   dragonfly_accessor :file
-  delegate  :url, to: :file
-  validates :file, presence: true
+  belongs_to :image
+  validates :file, presence: true,
+                   if: proc { |u| u.image_id.nil? }
 
-  scope :by_updated, (-> { order(updated_at: :desc) })
+  scope(:by_updated, -> { order(updated_at: :desc) })
 
   before_validation do
     self.file_name = sanitize_filename(file_name)
@@ -30,6 +31,7 @@ class Upload < ApplicationRecord
   end
 
   def file_type
+    return 'IMG' if image.present?
     file_name.split('.').last.upcase
   end
 
@@ -38,6 +40,7 @@ class Upload < ApplicationRecord
   end
 
   def view
+    return image.url if image.present?
     if ENV['AWS']
       file.remote_url(scheme: 'https')
     else
