@@ -13,17 +13,15 @@
   <tbody>
     <% @uploads.each do |upload| %>
       <tr>
-        <td><%= link_to upload.file_name, upload %></td>
+        <% link = (upload.image.present?) ? edit_image_path(upload.image) : upload_url(upload) %>
+        <td><%= link_to upload.file_name, link %></td>
         <td><%= upload.file_type %></td>
         <td>
-          <%= button_tag("#copy", class: "copy-button", data: {'clipboard-text': upload_url(upload)}, title: t('.copy_to_clipboard')) do %>
-            <span class="glyphicon glyphicon-file"></span>
-          <% end %>
+          <% link = (upload.image.present?) ? image_url(upload.image) : upload_url(upload) %>
+          <%= link_to fa_icon('link', text: t('.copy_to_clipboard')), '#copy', class: 'copy-link', data: { 'clipboard-text': link } %>
         </td>
         <td>
-          <%= link_to upload, method: :delete, data: {confirm: t(:confirm_delete)} do %>
-            <i class="glyphicon glyphicon-trash"></i>
-          <% end %>
+          <%= link_to fa_icon('trash-o', text: t(:destroy)), upload, method: :delete, data: { confirm: t(:confirm_delete) } %>
         </td>
       </tr>
     <% end %>
@@ -32,10 +30,14 @@
 </table>
 
 <script>
-  var client = new ZeroClipboard($(".copy-button"));
+  var client = new ZeroClipboard($(".copy-link"));
   client.on('aftercopy', function(event) {
     $('.copy-status').html("Kopierade: \n" + event.data["text/plain"]);
     $('.copy-status').show();
+  });
+
+  $(".copy-link").click( function() {
+    return false;
   });
 </script>
 
