@@ -1,9 +1,6 @@
 $(document).on "turbolinks:load", ->
   $('#save-nav-item-order').click post_nav_item_order
 
-  # Form helpers
-  $('#colorpicker').minicolors theme: 'bootstrap'
-
   fileinput($("[type='file']"))
 
   $("[data-behaviour~=datepicker]").datetimepicker

@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Tlth
   class Application < Rails::Application
+    # Custom configuration
+    config.x.aws_url = "https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com/".freeze
+    config.x.sitemap_url = "#{config.x.aws_url}sitemaps/sitemap.xml.gz".freeze
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

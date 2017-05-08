@@ -6,22 +6,10 @@ class ApplicationController < ActionController::Base
   before_filter :load_nav_items_and_locale
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, alert: exception.message
   end
 
   before_action :prepare_meta_tags, if: 'request.get?'
-
-  def sitemap
-    path = Rails.root.join("public", "sitemaps", "sitemap.xml")
-    if File.exists?(path)
-      render xml: open(path).read
-    else
-      render text: "Sitemap not found.", status: :not_found
-    end
-  end
-
-  def robots
-  end
 
   def prepare_meta_tags(options={})
        site_name   = I18n.t('global.title')

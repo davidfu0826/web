@@ -88,7 +88,6 @@ GEM
     carrierwave-aws (1.1.0)
       aws-sdk (~> 2.0)
       carrierwave (>= 0.7, < 2.0)
-    chronic (0.10.2)
     cliver (0.3.2)
     codemirror-rails (5.16.0)
       railties (>= 3.0, < 6.0)
@@ -123,7 +122,6 @@ GEM
     dragonfly-s3_data_store (1.2)
       dragonfly (~> 1.0)
       fog-aws
-    dynamic_sitemaps (2.0.0)
     equalizer (0.0.11)
     erubis (2.7.0)
     excon (0.55.0)
@@ -177,13 +175,7 @@ GEM
     i18n (0.8.1)
     icalendar (2.4.1)
     ipaddress (0.8.3)
-    jbuilder (2.6.3)
-      activesupport (>= 3.0.0, < 5.2)
-      multi_json (~> 1.2)
     jmespath (1.3.1)
-    jquery-minicolors-rails (2.2.3.1)
-      jquery-rails
-      rails (>= 3.2.8)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -325,6 +317,8 @@ GEM
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_oauth (0.3.1)
+    sitemap_generator (5.3.1)
+      builder (~> 3.0)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -370,8 +364,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    whenever (0.9.7)
-      chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     zeroclipboard-rails (0.1.2)
@@ -401,7 +393,6 @@ DEPENDENCIES
   dotenv-rails
   dragonfly
   dragonfly-s3_data_store
-  dynamic_sitemaps
   factory_girl_rails
   faker
   ffaker
@@ -410,8 +401,6 @@ DEPENDENCIES
   fuzzily
   http_accept_language
   icalendar
-  jbuilder (~> 2.0)
-  jquery-minicolors-rails
   jquery-rails
   kaminari
   kaminari-bootstrap (~> 3.0.1)
@@ -437,13 +426,13 @@ DEPENDENCIES
   sass-rails
   select2-rails
   shoulda-matchers
+  sitemap_generator
   spring
   traco
   turbolinks
   twitter
   uglifier (>= 1.3.0)
   web-console
-  whenever
   zeroclipboard-rails
 
 RUBY VERSION
