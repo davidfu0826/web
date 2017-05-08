@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sitemap.xml.gz', to: redirect(Rails.configuration.x.sitemap_url),
+                        as: :sitemap
   get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
 
   root 'posts#index'
