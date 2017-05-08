@@ -2,13 +2,15 @@ class Document < ActiveRecord::Base
   attr_writer(:locale)
   mount_uploader(:file_sv, DocumentUploader)
   mount_uploader(:file_en, DocumentUploader)
+
+  has_many(:meeting_documents)
+  has_many(:meetings, through: :meeting_documents)
   validates(:title_sv, :title_en,
-            :description_sv, :description_en,
             presence: true)
   translates(:title, :description, :file, fallback: :any)
   enum(category: { uncategorized: -1, vision: 0, bylaws: 1, regulation: 2,
                    policy: 3, guideline: 4, opinion: 5, budget: 6,
-                   annual_report: 7, annual_plan: 8, directive: 9 })
+                   annual_report: 7, annual_plan: 8, directive: 9, meeting: 10})
   scope(:by_revision, -> { order(revision_date: :desc) })
   scope(:by_title, ->(locale) do
     if locale == :sv

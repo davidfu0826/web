@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1><%= title(t('.title')) %></h1>
+</div>
+
+<div class="col-md-12">
+  <%= render('form', meeting: @meeting) %>
+  <hr>
+  <%= render('meeting_document_table',
+             meeting_documents: @meeting.meeting_documents) %>
+  <hr />
+  <%= link_to(t('.all_meetings'), meetings_path,
+                                   class: 'btn btn-default') %>
+</div>

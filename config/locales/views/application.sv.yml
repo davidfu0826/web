@@ -12,9 +12,11 @@ sv:
     sidebar:
       account_settings: Mitt konto
       all_events: Visa alla evenemang
+      follow_us: Följ oss
       manage_documents: Dokument
       manage_events: Events
       manage_images: Bildbibliotek
+      manage_meetings: Möten
       manage_pages: Sidor
       manage_tags: Taggar
       manage_uploads: Filuppladdning
@@ -22,4 +24,3 @@ sv:
       new_post: Skapa nyhet
       site_settings: Inställningar för framsidan
       twitter_link: Visa Teknologkårens twitter
-      follow_us: Följ oss

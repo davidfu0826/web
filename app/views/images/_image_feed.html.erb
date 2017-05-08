@@ -14,11 +14,13 @@
       <tr>
         <td><%= link_to fa_icon('wrench', text: image.title), edit_image_path(image) %></td>
         <td>
-          <%= link_to fa_icon('link', text: t('.copy_to_clipboard')), '#copy', class: 'copy-link', data: { 'clipboard-text': image_url(image)} %>
+          <%= link_to fa_icon('link', text: t('global.copy_to_clipboard')),
+                      '#copy', class: 'copy-link',
+                      data: { 'clipboard-text': image_url(image)} %>
         </td>
         <td>
-          <%= link_to fa_icon('trash-o', text: t(:destroy)), image, method: :delete,
-                             data: { confirm: t(:confirm_delete) } %>
+          <%= link_to fa_icon('trash-o', text: t(:destroy)), image,
+                      method: :delete, data: { confirm: t(:confirm_delete) } %>
         </td>
       </tr>
     <% end %>

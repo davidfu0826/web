@@ -66,6 +66,29 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.string   "file_name"
   end
 
+  create_table "meeting_documents", force: :cascade do |t|
+    t.integer  "meeting_id",              null: false
+    t.integer  "document_id",             null: false
+    t.integer  "kind",        default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "meeting_documents", ["document_id"], name: "index_meeting_documents_on_document_id", using: :btree
+  add_index "meeting_documents", ["kind"], name: "index_meeting_documents_on_kind", using: :btree
+  add_index "meeting_documents", ["meeting_id"], name: "index_meeting_documents_on_meeting_id", using: :btree
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "title",                  null: false
+    t.string   "year",                   null: false
+    t.integer  "ranking",    default: 0, null: false
+    t.integer  "kind",       default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "meetings", ["kind"], name: "index_meetings_on_kind", using: :btree
+
   create_table "nav_items", force: :cascade do |t|
     t.string   "title_sv"
     t.integer  "page_id"
@@ -198,4 +221,6 @@ ActiveRecord::Schema.define(version: 20170503054835) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "meeting_documents", "documents"
+  add_foreign_key "meeting_documents", "meetings"
 end

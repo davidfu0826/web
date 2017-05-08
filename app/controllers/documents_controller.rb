@@ -24,7 +24,9 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @document = Document.includes(:meetings).find(params[:id])
+  end
 
   def show
     @document.locale = I18n.locale

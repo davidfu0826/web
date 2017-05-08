@@ -1,0 +1,15 @@
+<hr />
+<h3><%= t('.new_document') %></h3>
+<% if meeting.errors[:document].present? %>
+  <div class="col-sm-offset-2 col-sm-10 error">
+    <%= simple_format(meeting.errors[:document].first) %>
+  </div>
+<% end %>
+<%= f.select(:document_kind, options_for_select(meeting_document_kinds, selected: meeting.document_kind), {} , class: 'select2') %>
+<hr />
+<%= f.file_field(:file_sv) %>
+<%= f.url_field(:file_sv_url) %>
+<hr />
+<%= f.file_field(:file_en) %>
+<%= f.url_field(:file_en_url) %>
+<hr />

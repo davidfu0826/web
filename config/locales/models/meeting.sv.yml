@@ -1,0 +1,27 @@
+sv:
+  model:
+    meeting:
+      kinds:
+        board: Styrelsemöte
+        council: Fullmäktigemöte
+        other: Annat
+      link: Länk
+
+  activerecord:
+    models:
+      meeting:
+        one: Möte
+        other: Möten
+
+    attributes:
+      meeting:
+        document_kind: Dokumenttyp
+        document: Dokument
+        file_en_url: Fil-url - engelsk
+        file_en: Fil - engelsk
+        file_sv_url: Fil-url - svensk
+        file_sv: Fil - svensk
+        kind: Typ
+        ranking: Ordning
+        title: Titel
+        year: År
