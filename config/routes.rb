@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get :karnytt, to: redirect('http://karnytt.dsgdev.com/'), status: 301
+  get :fmval, to: redirect('http://fmval.tlth.se/'), status: 301
   get 'sitemap.xml.gz', to: redirect(Rails.configuration.x.sitemap_url),
                         as: :sitemap
   get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
