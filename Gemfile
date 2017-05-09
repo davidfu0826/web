@@ -41,6 +41,7 @@ gem 'rails_bootstrap_navbar'
 gem 'remotipart', '~> 1.2'
 gem 'rollbar'
 gem 'sass-rails'
+gem 'scout_apm' # Monitoring: memory and queries
 gem 'select2-rails'
 gem 'sitemap_generator'
 gem 'traco' # Localization
