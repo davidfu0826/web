@@ -2,12 +2,6 @@
 <div class="document">
   <%= content_tag(headline, document.title) %>
   <%= simple_format(document.description) %>
-  <% if document.revision_date.present? %>
-    <span class="revision">
-      <%= t('.last_revision') %>
-      <%= l(document.revision_date) %>
-    </span>
-  <% end %>
   <div class="buttons">
     <%= link_to(t('.show'), document_path(document),
                             target: :blank_p,
@@ -18,4 +12,10 @@
                               class: 'btn btn-default') %>
     <% end %>
   </div>
+  <% if document.revision_date.present? %>
+    <span class="revision">
+      <%= t('.last_revision') %>
+      <%= l(document.revision_date) %>
+    </span>
+  <% end %>
 </div>

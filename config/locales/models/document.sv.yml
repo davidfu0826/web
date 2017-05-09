@@ -1,6 +1,9 @@
 sv:
   model:
     document:
+      created: Dokument skapat
+      updated: Dokument uppdaterat
+      no_file: Inget dokument finns  
       categories:
         annual_plan: Verksamhetsplan
         annual_report: Verksamhetsberättelse

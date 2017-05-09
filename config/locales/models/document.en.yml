@@ -1,6 +1,9 @@
 sv:
   model:
     document:
+      created: Document created  
+      updated: Document updated
+      no_file: No document exists
       categories:
         annual_plan: Annual plan
         annual_report: Annual report

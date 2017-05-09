@@ -8,7 +8,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      redirect_to(edit_document_path(@document), notice: 'Created')
+      redirect_to(edit_document_path(@document),
+                  notice: I18n.t('model.document.created'))
     else
       render(:new, status: 422)
     end
@@ -18,7 +19,8 @@ class DocumentsController < ApplicationController
 
   def update
     if @document.update(document_params)
-      redirect_to(edit_document_path(@document), notice: 'Updated')
+      redirect_to(edit_document_path(@document),
+                  notice: I18n.t('model.document.updated'))
     else
       render(:edit, status: 422)
     end
@@ -33,7 +35,7 @@ class DocumentsController < ApplicationController
     if @document.view.present?
       redirect_to(@document.view)
     else
-      redirect_to(documents_path, notice: 'No file')
+      redirect_to(documents_path, notice: I18n.t('model.document.no_file'))
     end
   end
 
