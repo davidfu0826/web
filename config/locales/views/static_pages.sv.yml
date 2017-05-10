@@ -1,0 +1,14 @@
+sv:
+  static_pages:
+    board:
+      board_member: Styrelseledamot
+      chairman: Styrelseordförande
+      contact: "Kontakta oss gärna om du har åsikter eller frågor om Kårens verksamhet:"
+      first_paragraph: "Kårstyrelsen är Kårens högsta verkställande organ och är ytterst ansvarig för Kårens verksamhet. Kårstyrelsen består av Kårordförande och sju ledamöter, varav en väljs till styrelsen ordförande. Styrelsens främsta uppgifter är att konkretisera fullmäktiges beslut, vara ansvariga för den löpande verksamheten och att utveckla verksamheten. Till sin hjälp att utföra sitt uppdrag har Kårstyrelsen Kårens utskott och de heltidsarvoderade."
+      meeting_documents: Handlingar och protokoll
+      members_description: "Styrelsen 2016/2017 består av"
+      members: Styrelsens ledamöter
+      president: Kårordförande
+      second_paragraph: "Som ledamot i Kårstyrelsen är man med och bestämmer var kårens resurser ska satsas och vad som bör prioriteras. Till skillnad från att sitta i fullmäktige är man som styrelseledamot också med och beslutar om hur de strategiska besluten ska genomföras. Man får vara med och jobba med de operativa frågorna, samtidigt som man är med och utvecklar Kåren på ett strategiskt och mer långsiktigt plan."
+      send_meeting_documents: "Skicka gärna in motioner eller diskussionspunkter så kommer vi behandla ärendet på nästkommande styrelsemöte:"
+      title: Styrelse

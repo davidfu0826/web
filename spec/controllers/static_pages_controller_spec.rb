@@ -7,4 +7,28 @@ RSpec.describe(StaticPagesController, type: :controller) do
       expect(response).to render_template('robots')
     end
   end
+
+  describe('GET # board') do
+    it('renders proper meeting documents') do
+      meeting = create(:meeting, kind: :board)
+      create(:meeting_document,
+             kind: :convocation,
+             meeting: meeting,
+             document: create(:document, file_en: nil))
+      create(:meeting_document,
+             kind: :agenda,
+             meeting: meeting,
+             document: create(:document, file_sv: nil))
+
+      allow(I18n).to receive(:locale).and_return(:sv)
+      get(:board)
+      m = assigns(:meetings).first.second.first
+      expect(m.meeting_documents.map(&:kind)).to eq(['convocation'])
+
+      allow(I18n).to receive(:locale).and_return(:en)
+      get(:board)
+      m = assigns(:meetings).first.second.first
+      expect(m.meeting_documents.map(&:kind)).to eq(['agenda'])
+    end
+  end
 end
