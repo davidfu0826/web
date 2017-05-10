@@ -1,11 +1,14 @@
 .document {
   .buttons {
-    display: block;
+    display: inline-block;
   }
 
   .revision {
-    display: block;
     font-style: italic;
     margin-bottom: 10px;
   }
+}
+
+.table-documents {
+	margin-bottom: 0px;
 }
