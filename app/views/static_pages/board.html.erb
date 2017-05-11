@@ -1,0 +1,68 @@
+<% content_for(:banner) do %>
+  <%= render('/application/banner',
+             url: asset_url('board.jpg')) %>
+<% end %>
+
+<div class="page-header">
+  <h1><%= title(t('.title')) %></h1>
+</div>
+
+<div class="col-md-12">
+  <%= simple_format(description(t('.first_paragraph'))) %>
+  <%= simple_format(t('.second_paragraph')) %>
+  <p>
+    <%= t('.contact') %> <%= link_to('styrelsen@tlth.se', 'mailto:styrelsen@tlth.se') %>
+  </p>
+
+  <p>
+    <%= t('.send_meeting_documents') %> <%= link_to('s-handling@tlth.se', 'mailto:s-handling@tlth.se') %>
+  </p>
+
+  <%= image_tag('board.jpg', class: 'img-responsive') %>
+  <br />
+</div>
+
+<h2><%= t('.members') %></h2>
+<div class="col-md-12">
+  <table class="board member-table">
+    <tbody>
+      <tr>
+        <td><strong>Karin Dammer</strong><br />Styrelseordförande</td>
+        <td><strong>Linus Hammarlund</strong><br />Kårordförande </td>
+      </tr>
+      <tr>
+        <td><strong>David Wessman</strong><br />Styrelseledamot</td>
+        <td><strong>Emil Thorselius</strong><br />Styrelseledamot</td>
+      </tr>
+      <tr>
+        <td><strong>Jacob Karlsson</strong><br />Styrelseledamot</td>
+        <td><strong>Oskar Jönsson</strong><br />Styrelseledamot</td>
+      </tr>
+      <tr>
+        <td><strong>Erik Alstersjö</strong><br />Styrelseledamot</td>
+        <td><strong>Desirée Ohlsson</strong><br />Styrelseledamot</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2><%= t('.meeting_documents') %></h2>
+<div class="col-md-12">
+  <% @meetings.each do |year, meetings| %>
+    <h3><%= year %></h3>
+    <table class="meeting-document-table">
+      <tbody>
+        <% meetings.each do |m| %>
+          <tr>
+            <td class="title"><strong><%= m.title %></strong></td>
+            <% m.meeting_documents.each do |md| %>
+              <td>
+                <%= link_to(meeting_document_kind(md.kind), document_path(md.document_id), target: :blank) %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

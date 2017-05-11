@@ -1,0 +1,19 @@
+.board {
+  &.member-table {
+    td {
+      padding-bottom: 10px;
+      padding-right: 20px;
+      width: 200px;
+    }
+  }
+}
+
+.meeting-document-table {
+  margin-left: 20px;
+  .title {
+    padding-right: 20px;
+  }
+  td {
+    padding-right: 15px;
+  }
+}
