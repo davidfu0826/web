@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20170503054835) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -147,6 +146,18 @@ ActiveRecord::Schema.define(version: 20170503054835) do
   end
 
   add_index "questions", ["contact_form_id"], name: "index_questions_on_contact_form_id", using: :btree
+
+  create_table "sabbaticals", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "description"
+    t.string   "tel"
+    t.string   "email"
+    t.string   "img"
+    t.integer  "order"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false

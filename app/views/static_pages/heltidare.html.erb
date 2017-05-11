@@ -1,0 +1,91 @@
+<div ng-controller="sabbaticalCtrl">
+		<div class="page-header">
+			<h1>Heltidare</h1>
+		</div>
+		<% if can?(:page_post_heltidare, :static_pages) %>
+			<div class="row">
+				<div class="col-md-6 wrap2 sabbatical-view" ng-repeat="person in heltidare">
+					<form class="{{(personForm.$visible?'form-open':'form-closed')}}" editable-form name="personForm" style="position:relative;" onaftersave="post(person, '<%=form_authenticity_token%>')">
+
+						<span class="fa fa-pencil-square-o fa-2x closed top-left-button"
+						ng-click="personForm.$show()"></span>
+
+						<span class="fa fa-close fa-2x open top-left-button"
+						 ng-click="delete(person,
+						 '<%=form_authenticity_token%>');
+						 personForm.$cancel();"></span>
+
+						<p class="closed">
+							<img ng-src="{{person.img}}" ng-show="person.img" width="200px" height="200px" align="middle" class="img-circle">
+						</p>
+						<p class="open form-title">
+							<b>Bild:</b>
+							<br>
+							<span editable-text="person.img">{{person.img}}</span>
+						</p>
+						<p class="open form-title">
+							<b>Namn:</b>
+						</p>
+						<b>
+							<div editable-text="person.name">{{person.name}}</div>
+						</b>
+						<p class="open form-title">
+							<b>Titel:</b>
+						</p>
+						<b>
+							<div editable-text="person.title">{{person.title}}</div>
+						</b>
+						<p class="open form-title">
+							<b>Beskrivning:</b>
+						</p>
+						<div editable-textarea="person.description" rows="3">{{person.description}}</div>
+						<b class="closed" ng-show="person.tel">Tel: </b>
+						<p class="open form-title">
+							<b>Tel:</b>
+						</p>
+						<span editable-text="person.tel">{{person.tel}}</span>
+						<br class="closed" ng-show="person.tel">
+						<b class="closed" ng-show="person.email">Mail: </b>
+						<p class="open form-title">
+							<b>E-post:</b>
+						</p>
+						<span editable-text="person.email">{{person.email}}</span>
+
+						</p>
+						<p class="open">
+							<b>Ordning: </b><select ng-model="person.order" ng-options="1*i+1 as 1*i+1 for (i, p) in heltidare">
+							</select>
+						</p>
+						<button type="submit" class="open btn btn-primary">Submit</button>
+						<button type="button" class="open btn btn-default" ng-click="personForm.$cancel()">Cancel</button>
+					</form>
+				</div>
+				<div class="col-md-6 wrap2 sabbatical-add" style="height:336px; text-align:center;" ng-click="new('<%=form_authenticity_token%>');">
+					<span class="fa fa-plus center-button">
+				</div>
+			</div>
+		<% else %>
+			<div class="row">
+				<div class="col-md-6 wrap2 sabbatical-view" ng-repeat="person in heltidare">
+					<img ng-src="{{person.img || ''}}" width="200px" height="200px" align="middle" class="img-circle">
+					<p style="padding-top: 15px;">
+					<b>
+						<span>{{person.name||"empty"}}</span>
+					</b>
+					<br>
+					<b>
+						<span>{{person.title||"empty"}}</span>
+					</b>
+					<br>
+					<span>{{person.description||"empty"}}</span>
+					<br>
+					<b>Tel: </b>
+					<span>{{person.tel||"empty"}}</span>
+					<br>
+					<b>Mail: </b>
+					<span>{{person.email||"empty"}}</span>
+					</p>
+				</div>
+			</div>
+		<% end %>
+	</div>

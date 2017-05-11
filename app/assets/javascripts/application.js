@@ -18,9 +18,15 @@
 //= require summernote-sv-SE
 //= require jquery.nestable
 //= require zeroclipboard
-//= require_tree .
+//= require_tree
+//= require angular/angular
+//= require angular-xeditable/dist/js/xeditable
 
-jQuery.fn.exists = function() { return this.length > 0; };
+var module = angular.module('tlth', ['xeditable']);
+module.run(function(editableOptions){
+  editableOptions.theme = 'bs3';
+});
+jQuery.fn.exi = function() { return this.length > 0; };
 
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
   event.preventDefault();

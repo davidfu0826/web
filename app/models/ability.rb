@@ -7,6 +7,7 @@ class Ability
     can :read, [Document, Event, Post]
     can :archive, Post
     can :show, [Image, Page, Upload]
+    can [:heltidare, :page_get_heltidare], :static_pages
 
     if user.admin?
       can :manage, :all

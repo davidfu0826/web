@@ -10,6 +10,7 @@ gem 'cancancan', '~> 1.8'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'jquery-rails'
+gem 'bower-rails'
 gem 'pg'
 gem 'rack-cache', require: 'rack/cache' # Caching images
 gem 'turbolinks'
@@ -47,8 +48,6 @@ gem 'sitemap_generator'
 gem 'traco' # Localization
 gem 'twitter'
 gem 'zeroclipboard-rails'
-gem 'angularjs-rails'
-gem 'bower-rails'
 
 group :development do
   gem 'awesome_print' # Better printing in console

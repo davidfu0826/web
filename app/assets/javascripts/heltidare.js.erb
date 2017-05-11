@@ -1,0 +1,81 @@
+//= require angular/angular
+//= require application
+var module = angular.module('tlth')
+
+sabbaticalCtrl = function($scope, $http){
+	$scope.heltidare = [];
+
+	$scope.update = function(){
+		var req = {
+			method: 'GET',
+			url: 'heltidare/getHeltidare',
+			headers: {
+				'Accept': 'application/json'
+			}
+		}
+		$http(req).then(function(response){
+			$scope.heltidare = response.data;
+		}, function(reponse){
+			$scope.heltidare = [{name: 'Det gick inte att ladda sidan! Försök igen!'}];
+		});
+	};
+
+	$scope.delete = function(person, auth_token) {
+		var req = {
+			method: 'DELETE',
+			url: 'heltidare/deleteHeltidare',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': auth_token
+			},
+			data: person
+		};
+		$http(req).then(function(){
+			$scope.update();
+		}, function(){
+			$scope.update();
+		});
+
+	}
+
+	$scope.alert = function(){
+		alert("works");
+	}
+
+	$scope.post = function(person, auth_token){
+		var req = {
+			method: 'POST',
+			url: 'heltidare/postHeltidare',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'X-CSRF-Token': auth_token
+			},
+			data: {"sabbatical":person}
+		};
+		$http(req).then(function(){
+			$scope.update();
+		}, function(){
+			$scope.update();
+		});
+	};
+
+	$scope.new = function(auth_token){
+		var req = {
+			method: 'PUT',
+			url: 'heltidare/putHeltidare',
+			headers: {
+				'X-CSRF-Token': auth_token
+			}
+		}
+		$http(req).then(function(){
+			$scope.update();
+		}, function(){
+			$scope.update();
+		});
+	}
+
+	$scope.update();
+}
+
+module.controller('sabbaticalCtrl',["$scope", "$http", sabbaticalCtrl])
