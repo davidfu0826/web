@@ -7,6 +7,7 @@ sv:
         meeting_document: Handlingar
         minute: Protokoll
         other: Annat
+        summary: Sammanfattning
 
   activerecord:
     models:
