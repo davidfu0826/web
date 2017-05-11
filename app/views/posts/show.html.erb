@@ -5,7 +5,7 @@
 
 <div class="page-header">
   <h1><%= title(@post.title) %></h1>
-  <div class="lead">
+  <div class="media-heading">
     <p class="published-date">
       <%= t('.published') %>
       <%= l(@post.created_at, format: :short)  %>
@@ -14,7 +14,14 @@
         <%= l(@post.updated_at, format: :short)  %>
       <% end %>
     </p>
-  </div>
+		<div class="tags">
+			<p class="text-uppercase">
+				<% @post.tags.each do |t| %>
+					<span style="background-color: <%=t.color %>;"><%= t.title.upcase %></span>
+				<% end %>
+			</p>
+		</div>
+	</div>
 </div>
 
 <% if @post.content(fallback: false).blank? %>

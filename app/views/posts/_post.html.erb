@@ -16,6 +16,13 @@
                 <%= l(post.updated_at, format: :short)  %>
               <% end %>
             </p>
+						<div class="tags">
+							<p class="text-uppercase">
+								<% post.tags.each do |t| %>
+									<span style="background-color: <%=t.color %>;"><%= t.title.upcase %></span>
+								<% end %>
+							</p>
+						</div>
           </div>
           <p><%= truncate(post.first_paragraph, length: 250) %></p>
           <div class="post-tools">
