@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:tags).find(params[:id])
     if @post.image.present?
       img = @post.image.thumb_url
       prepare_meta_tags(image: img,
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
 
   def archive
     @archive = true # Used to determine where to redirect back from post
-    @posts = @posts.includes(:image)
+    @posts = @posts.includes(:image, :tags)
                    .order(created_at: :desc)
                    .filter(filtering_params)
                    .page(params[:page]).per(6)
