@@ -5,7 +5,10 @@ class MeetingsController < ApplicationController
   def new; end
 
   def edit
-    @meeting = Meeting.includes(meeting_documents: :document).find(params[:id])
+    @meeting = Meeting.with_documents
+                      .by_order
+                      .order_documents
+                      .find(params[:id])
   end
 
   def index
