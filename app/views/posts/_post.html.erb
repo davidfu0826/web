@@ -19,7 +19,11 @@
 						<div class="tags">
 							<p class="text-uppercase">
 								<% post.tags.each do |t| %>
-									<span style="background-color: <%=t.color %>;"><%= t.title.upcase %></span>
+									<% if t.color.nil? %>
+										<span><%= t.title.upcase %></span>
+									<% else %>
+										<span style="background-color: <%=t.color %>;"><%= t.title.upcase %></span>
+									<% end %>
 								<% end %>
 							</p>
 						</div>
