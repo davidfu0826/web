@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607132254) do
+ActiveRecord::Schema.define(version: 20170512184743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20170607132254) do
     t.integer  "category",       default: -1, null: false
     t.text     "file_sv"
     t.text     "file_en"
-    t.date     "revision_date"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "meeting_id"
     t.index ["category"], name: "index_documents_on_category", using: :btree
   end
 
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170607132254) do
     t.integer  "kind",       default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.date     "meeting_date"
     t.index ["kind"], name: "index_meetings_on_kind", using: :btree
   end
 
@@ -197,6 +198,7 @@ ActiveRecord::Schema.define(version: 20170607132254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "documents", "meetings"
   add_foreign_key "meeting_documents", "documents"
   add_foreign_key "meeting_documents", "meetings"
 end

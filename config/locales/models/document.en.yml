@@ -1,7 +1,7 @@
-sv:
+en:
   model:
     document:
-      created: Document created  
+      created: Document created
       updated: Document updated
       no_file: No document exists
       categories:
@@ -31,6 +31,7 @@ sv:
         file: File
         file_sv: File - swedish
         file_en: File - english
+        meeting_id: Meeting - revision
         revision_date: Latest revision
         title: Title
         title_sv: Title - swedish

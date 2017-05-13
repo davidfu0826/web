@@ -15,7 +15,7 @@
   <% if document.revision_date.present? %>
     <span class="revision">
       <%= t('.last_revision') %>
-      <%= l(document.revision_date) %>
+      <%= document.meeting %>
     </span>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 module MeetingHelper
   def meeting_kinds
-    Meeting.kinds.keys.sort.map { |c| [meeting_kind(c), c] }
+    Meeting.kinds.keys.map { |c| [meeting_kind(c), c] }
   end
 
   def meeting_kind(k)

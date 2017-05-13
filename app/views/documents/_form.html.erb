@@ -11,8 +11,11 @@
   <div class="col-sm-10 col-sm-offset-2">
     <%= simple_format(document.filename(locale: 'en')) %>
   </div>
-  <%= f.date_field(:revision_date) %>
-  <%= f.select(:category, options_for_select(document_categories,
-                                             document.category)) %>
+  <%= f.select(:meeting_id,
+               options_from_collection_for_select(Meeting.by_order, :id, :to_s, selected: document.meeting_id),
+               { include_blank: true }, { class: 'select2' }) %>
+  <%= f.select(:category,
+               options_for_select(document_categories, document.category),
+               {}, { class: 'select2' }) %>
   <%= f.submit %>
 <% end %>
