@@ -5,6 +5,14 @@ Rails.application.routes.draw do
                         as: :sitemap
   get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
   get :board, controller: :static_pages, as: :board
+  get :heltidare, controller: :static_pages
+
+  resources :static_pages, only: [] do
+    get :show_sabbatical, path: :heltidare, on: :collection
+    put :update_sabbatical, path: :heltidare, on: :collection
+    post :create_sabbatical, path: :heltidare, on: :collection
+    delete :delete_sabbatical, path: :heltidare, on: :collection
+  end
 
   root 'posts#index'
   devise_for :users

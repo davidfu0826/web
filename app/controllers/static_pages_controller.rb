@@ -10,43 +10,37 @@ class StaticPagesController < ApplicationController
                        .group_by(&:year)
   end
 
-	def page_get_heltidare
+	def show_sabbatical
 		@sabbatical = Sabbatical.all.order(:order)
 		render json: @sabbatical.to_json
 	end
 
-	def page_post_heltidare
+	def update_sabbatical
 		s1 = Sabbatical.find(sabbatical_id[:id])
 		puts s1
 		if s1[:order] != sabbatical_params[:order]
 			s2 = Sabbatical.where(order: sabbatical_params[:order]).take
 			if s2 then
-				s2.update_attribute(:order, s1[:order])
-				s2.save()
+				s2.update(order: s1[:order])
 			end
 		end
 		s1.update!(sabbatical_params)
 		render json: s1
 	end
 
-	def page_put_heltidare
-		name = "Hilbert"
-		title = "DimensionsÖvermäktige"
-		description = "Ser till att det finns tillräckligt många egenfunktionärer"
-		tel = "046-445 23 78"
-		email = "elg@tlth.se"
-		img = "https://tlth.s3-eu-west-1.amazonaws.com/images/54/thumb_bl_C3_A5_m_C3_A4rke.png"
+	def create_sabbatical
+		name = "John Doe"
 		order = Sabbatical.maximum("order")
 		if !order then
 			order = 0
 		end
 		order = order + 1
-		s = Sabbatical.new(:name => name, :title => title, :description => description, :tel => tel, :email => email, :img => img, :order => order)
-		s.save()
+		s = Sabbatical.new(name: name, order: order)
+		s.save
 		render json: s
 	end
 
-	def page_delete_heltidare
+	def delete_sabbatical
 		s = Sabbatical.delete(params[:id])
 		sall = Sabbatical.all.order(:order)
 		i = 0;

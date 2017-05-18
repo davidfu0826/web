@@ -8,7 +8,7 @@ sabbaticalCtrl = function($scope, $http){
 	$scope.update = function(){
 		var req = {
 			method: 'GET',
-			url: 'heltidare/getHeltidare',
+			url: 'static_pages/heltidare',
 			headers: {
 				'Accept': 'application/json'
 			}
@@ -23,7 +23,7 @@ sabbaticalCtrl = function($scope, $http){
 	$scope.delete = function(person, auth_token) {
 		var req = {
 			method: 'DELETE',
-			url: 'heltidare/deleteHeltidare',
+			url: 'static_pages/heltidare',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-CSRF-Token': auth_token
@@ -44,8 +44,8 @@ sabbaticalCtrl = function($scope, $http){
 
 	$scope.post = function(person, auth_token){
 		var req = {
-			method: 'POST',
-			url: 'heltidare/postHeltidare',
+			method: 'PUT',
+			url: 'static_pages/heltidare',
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
@@ -62,8 +62,8 @@ sabbaticalCtrl = function($scope, $http){
 
 	$scope.new = function(auth_token){
 		var req = {
-			method: 'PUT',
-			url: 'heltidare/putHeltidare',
+			method: 'POST',
+			url: 'static_pages/heltidare',
 			headers: {
 				'X-CSRF-Token': auth_token
 			}
