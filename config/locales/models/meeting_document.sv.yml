@@ -8,6 +8,7 @@ sv:
         minute: Protokoll
         other: Annat
         summary: Sammanfattning
+        late_meeting_documents: Sena handlingar
 
   activerecord:
     models:

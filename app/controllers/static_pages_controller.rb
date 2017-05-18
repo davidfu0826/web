@@ -8,6 +8,9 @@ class StaticPagesController < ApplicationController
                        .group_by(&:year)
   end
 
+	def council
+	end
+
   def robots
     render(:robots, content_type: 'text/plain')
   end
