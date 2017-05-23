@@ -1,6 +1,11 @@
+.note-editor.note-frame {
+  border:none;
+}
+
+
 .note-editor {
   border: none;
-  .note-editable {
+  .note-editing-area {
     outline: 1px solid #cccccc;
     transition: border-color ease-in-out 0.15s;
 
@@ -25,7 +30,7 @@
   width: 100%;
 }
 
-.note-modal-form .form-group {
+.modal-body .form-group {
   margin-left: 0px;
   margin-right: 0px;
 }
