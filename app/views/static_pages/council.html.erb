@@ -2,3 +2,39 @@
   <%= render('/application/banner',
              url: asset_url('council2.jpg')) %>
 <% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= title(t('.title')) %></h1>
+    </div>
+
+		<div class="col-md-12">
+			<%= simple_format(description(t('.first_paragraph'))) %>
+	    <%= simple_format(t('.second_paragraph')) %>
+			<%= simple_format(t('.third_paragraph')) %>
+	    <%= simple_format(t('.fourth_paragraph')) %>
+			<p>
+				<%= t('.fifth_paragraph') %>
+				<%= link_to 'talman@tlth.se', 'mailto: talman@tlth.se' %>
+		    <%= t('.sixth_paragraph') %>
+				<%= link_to 'fm-sekreterare@tlth.se', 'mailto: fm-sekreterare@tlth.se' %>
+		    <%= t('.seventh_paragraph') %>
+			</p>
+			<p>
+				<%= t('.eighth_paragraph') %>
+				<%= link_to 'fm-uppskrivna-subscribe@tlth.se', 'mailto: fm-uppskrivna-subscribe@tlth.se'  %>
+			</p>
+		</div>
+
+		<%= image_tag('council1.jpg', class: 'img-responsive') %>
+
+		<div class="col-md-12">
+			<div class="col-md-12">
+			    <h2><%= t('.meeting_documents') %></h2>
+						<% @meetings.each do |year, meetings| %>
+							<%= render partial: "meetings/meeting", locals: {year: year, meetings: meetings} %>
+						<% end %>
+			</div>
+	</div>
+</div>

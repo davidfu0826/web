@@ -9,6 +9,12 @@ class StaticPagesController < ApplicationController
   end
 
 	def council
+		@meetings = Meeting.board
+                       .with_documents
+                       .by_order
+                       .order_documents
+                       .document_locale(I18n.locale)
+                       .group_by(&:year)
 	end
 
   def robots

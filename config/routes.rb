@@ -5,6 +5,7 @@ Rails.application.routes.draw do
                         as: :sitemap
   get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
   get :board, controller: :static_pages, as: :board
+	get :council, controller: :static_pages, path: 'the-representative-council'
 
   root 'posts#index'
   devise_for :users
