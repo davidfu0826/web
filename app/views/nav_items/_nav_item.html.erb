@@ -1,13 +1,16 @@
 <li class="dd-item" data-id="<%= nav_item.id %>">
   <div class="dd-handle">
+    <%= fa_icon('bars') if nav_item.menu? %>
+    <%= fa_icon('link') if nav_item.link? %>
+    <%= fa_icon('file') if nav_item.page? %>
     <%= nav_item_title_link(nav_item) %>
     <div class="pull-right">
       <% edit_path = nav_item.page? ? edit_page_path(nav_item.page) : [:edit, nav_item] %>
       <%= link_to edit_path do %>
-        <span class="glyphicon glyphicon-edit"></span>
+        <%= fa_icon('pencil-square-o') %> 
       <% end %>
       <%= link_to nav_item, method: :delete, data: {confirm: t(:confirm_delete)} do %>
-        <span class="glyphicon glyphicon-<%= nav_item.page? ? 'remove' : 'trash' %>"></span>
+        <%= nav_item.page? ? fa_icon('external-link') : fa_icon('trash') %>
       <% end %>
     </div>
   </div>
@@ -16,14 +19,15 @@
       <% nav_item.children.each do |child| %>
         <li class="dd-item" data-id="<%= child.id %>">
           <div class="dd-handle">
+          <%= child.page? ? fa_icon('file') : fa_icon('link')  %>
             <%= nav_item_title_link(child) %>
             <div class="pull-right">
               <% edit_path = child.page? ? edit_page_path(child.page) : [:edit, child] %>
               <%= link_to edit_path do %>
-                <i class="glyphicon glyphicon glyphicon-edit"></i>
+                <%= fa_icon('pencil-square-o') %> 
               <% end %>
               <%= link_to child, method: :delete, data: {confirm: t(:confirm_delete)} do %>
-                <span class="glyphicon glyphicon-<%= nav_item.page? ? 'remove' : 'trash' %>"></span>
+                <%= child.page? ? fa_icon('external-link') : fa_icon('trash') %>                
               <% end %>
             </div>
           </div>
