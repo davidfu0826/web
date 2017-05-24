@@ -44,6 +44,7 @@ gem 'sass-rails'
 gem 'scout_apm' # Monitoring: memory and queries
 gem 'select2-rails'
 gem 'sitemap_generator'
+gem 'summernote-rails'
 gem 'traco' # Localization
 gem 'twitter'
 gem 'zeroclipboard-rails'

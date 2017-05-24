@@ -19,9 +19,8 @@ $(document).on "turbolinks:load", ->
     toolbar: [
       ['style', [ 'style',]],
       ['format', [ 'bold', 'italic', 'underline', 'strikethrough', 'clear']],
-      ['layout', ['ul', 'ol']],
       ['para', ['ul', 'ol', 'paragraph']],
-      ['insert', ['link', 'image_library', 'table', 'hr', 'form']],
+      ['insert', ['link', 'picture', 'hr', 'table']],
       ['controls', ['undo', 'redo']],
       ['misc', ['fullscreen', 'codeview']],
       ['help', ['help']]
