@@ -197,7 +197,7 @@ GEM
     kaminari-core (1.0.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.5)
+    mail (2.6.6.rc1)
       mime-types (>= 1.16, < 4)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -220,7 +220,7 @@ GEM
     multipart-post (2.0.0)
     naught (1.1.0)
     nested_form (0.3.2)
-    nokogiri (1.7.1)
+    nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.20.0)
@@ -407,11 +407,13 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-bootstrap (~> 3.0.1)
+  mail (= 2.6.6.rc1)
   meta-tags
   meta_request
   mini_magick
   momentjs-rails (>= 2.5.0)
   nested_form
+  nokogiri
   pg
   poltergeist
   pry-byebug
