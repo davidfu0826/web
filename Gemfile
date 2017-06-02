@@ -4,6 +4,18 @@ ruby '2.4.1'
 
 gem 'rails', '4.2.8'
 
+# Temporary update mail gem
+# to fix vulnerability; see
+# https://github.com/mikel/mail/pull/1097
+# Remove this explicit dependency when
+# implicit dependency resolution in Gemfile.lock
+# resolves mail to a fixed version (2.5.5.rc1, 2.6.6.rc1, 2.7.0.rc1
+# or higher)
+gem 'mail', '2.6.6.rc1'
+
+# Temporary update nokogiri gem
+gem 'nokogiri'
+
 # Core
 gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.8'
