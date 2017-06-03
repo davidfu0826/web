@@ -5,7 +5,8 @@ class PagesController < ApplicationController
 
   def index
     @orphan_pages = Page.orphans
-    @nav_items = NavItem.orphans.order('position ASC').includes(:page, children: [:page])
+    @nav_items = NavItem.orphans.order(position: :asc)
+                        .includes(:page, children: [:page])
   end
 
   def show
@@ -17,8 +18,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def new
-  end
+  def new; end
 
   def create
     if @page.save
@@ -29,8 +29,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @page.update(page_params)
@@ -82,7 +81,9 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title_sv, :content_sv, :title_en, :content_en, :image_id, :slug)
+    params.require(:page).permit(:title_sv, :content_sv,
+                                 :title_en, :content_en,
+                                 :image_id, :slug)
   end
 
   def load_resoures
