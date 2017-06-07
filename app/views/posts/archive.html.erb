@@ -4,6 +4,6 @@
 
 <% content_for :sidebar do %>
   <div class="row">
-    <%= render 'filter', path: archive_posts_path %>
+    <%= render 'filter', path: archive_posts_path, tags: @tags %>
   </div>
 <% end %>

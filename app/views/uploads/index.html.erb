@@ -11,15 +11,11 @@
     <div class="row">
       <h3>
         <%= t(:tools) %>
-        <span class="pull-right sidebar-glyph glyphicon glyphicon-wrench"></span>
+        <%= fa_icon('wrench', class: 'pull-right') %>
       </h3>
       <ul>
         <li><%= link_to t('.new_upload'), new_upload_path %></li>
       </ul>
-    </div>
-
-    <div class="row">
-      <%= render 'filter', path: uploads_path %>
     </div>
   <% end %>
 <% end %>
