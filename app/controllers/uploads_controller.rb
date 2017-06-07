@@ -2,8 +2,7 @@ class UploadsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @uploads = @uploads.filter(params.slice(:search))
-                       .page(params[:page]).per(100)
+    @uploads = @uploads.page(params[:page]).per(100)
                        .order(updated_at: :desc)
   end
 
@@ -40,11 +39,11 @@ class UploadsController < ApplicationController
   end
 
   def files
-    files_params = params.require(:upload).fetch(:files, [])
-    files = []
+    files_params = params.require(:upload).fetch(:files, []).reject(&:blank?)
+    fs = []
     files_params.each do |param|
-      files << { file: param }
+      fs << { file: param }
     end
-    files
+    fs
   end
 end

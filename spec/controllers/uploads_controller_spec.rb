@@ -7,7 +7,7 @@ RSpec.describe UploadsController, type: :controller do
     it 'sends file' do
       upload = create(:upload)
 
-      get(:show, id: upload.to_param)
+      get(:show, params: { id: upload.to_param })
       expect(response).to have_http_status(302)
     end
   end
@@ -38,7 +38,7 @@ RSpec.describe UploadsController, type: :controller do
       attributes = { files: [test_file, test_file, test_file] }
 
       expect do
-        post(:create, upload: attributes)
+        post(:create, params: { upload: attributes })
       end.to change(Upload, :count).by(3)
 
       expect(response).to redirect_to(uploads_path)
@@ -49,11 +49,10 @@ RSpec.describe UploadsController, type: :controller do
       attributes = { files: [nil, nil, nil] }
 
       expect do
-        post(:create, upload: attributes)
+        post(:create, params: { upload: attributes })
       end.to change(Upload, :count).by(0)
 
       expect(response).to redirect_to(uploads_path)
-      expect(flash[:notice]).to include(I18n.t('model.upload.failed_to_save_some'))
     end
   end
 
@@ -62,13 +61,12 @@ RSpec.describe UploadsController, type: :controller do
       upload = create(:upload)
 
       expect do
-        delete(:destroy, id: upload.to_param)
+        delete(:destroy, params: { id: upload.to_param })
       end.to change(Upload, :count).by(-1)
 
       expect(response).to redirect_to(uploads_path)
     end
   end
-
 
   def test_file
     Rack::Test::UploadedFile.new(File.open('spec/support/image.png'))

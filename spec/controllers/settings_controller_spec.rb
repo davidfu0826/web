@@ -14,7 +14,8 @@ RSpec.describe(SettingsController) do
   describe('PATCH # update') do
     it('renders properly') do
       Settings.cover_image_ids = [1, 4, 5]
-      patch(:update, settings: { cover_image_ids: ['1', '2', '3', ''] })
+      params = { settings: { cover_image_ids: ['1', '2', '3', ''] } }
+      patch(:update, params: params)
       expect(response).to redirect_to(settings_path)
       expect(Settings.cover_image_ids).to eq([1, 2, 3])
     end
