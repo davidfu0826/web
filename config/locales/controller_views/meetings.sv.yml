@@ -20,10 +20,3 @@ sv:
 
     form:
       confirm_delete: "Detta raderar mötet och alla kopplade dokument.\nÄr du säker på att du vill göra detta?"
-
-    meeting_document_table:
-      confirm_delete: "Detta raderar kopplingen till mötet och raderar dokumentet i sig.\nÄr du säker på att du vill göra detta?"
-      meeting_documents: Mötesdokument
-
-    meeting_document_form:
-      new_document: Nytt dokument

@@ -1,0 +1,17 @@
+sv:
+  meeting_documents:
+    table:
+      confirm_delete: "Detta raderar kopplingen till mötet och raderar dokumentet i sig.\nÄr du säker på att du vill göra detta?"
+      title: Mötesdokument
+      save: Spara
+      show: Visa
+
+    form:
+      title: Nytt dokument
+
+    update:
+      success: "Kategorin uppdaterades till %{kind}"
+      failed: Det gick ej att uppdatera kategorin
+
+    destroy:
+      destroyed: Dokumentet raderades

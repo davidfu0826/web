@@ -4,6 +4,7 @@ sv:
       kinds:
         agenda: Dagordning
         convocation: Kallelse
+        late_meeting_documents: Sena handlingar
         meeting_document: Handlingar
         late_meeting_documents: Sena handlingar
         minute: Protokoll

@@ -4,18 +4,29 @@ class MeetingDocumentsController < ApplicationController
   def update
     meeting_doc = @meeting.meeting_documents.find(params[:id])
     notice = if meeting_doc.update(meeting_document_params)
-               "Document was updated"
+               t('.success', kind: view_context
+                                   .meeting_document_kind(meeting_doc.kind))
              else
-               "Document couldn't be updated"
+               t('.failed')
              end
-    redirect_to(edit_meeting_path(@meeting), notice: notice)
+    redirect_to(edit_meeting_path(@meeting, anchor: :document), notice: notice)
   end
 
   def destroy
     meeting_doc = @meeting.meeting_documents.find(params[:id])
     meeting_doc.destroy!
 
-    redirect_to(edit_meeting_path(@meeting), notice: "Document was destroyed")
+    redirect_to(edit_meeting_path(@meeting), notice: t('.destroyed'))
+  end
+
+  def show
+    meeting_document = MeetingDocument.find(params[:id])
+    meeting_document.locale = I18n.locale
+    if meeting_document.view.present?
+      redirect_to(meeting_document.view)
+    else
+      redirect_to(meetings_path, notice: I18n.t('model.document.no_file'))
+    end
   end
 
   private

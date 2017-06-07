@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512184743) do
+ActiveRecord::Schema.define(version: 20170620200759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,22 +64,24 @@ ActiveRecord::Schema.define(version: 20170512184743) do
 
   create_table "meeting_documents", force: :cascade do |t|
     t.integer  "meeting_id",              null: false
-    t.integer  "document_id",             null: false
+    t.integer  "document_id"
     t.integer  "kind",        default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "file_en"
+    t.string   "file_sv"
     t.index ["document_id"], name: "index_meeting_documents_on_document_id", using: :btree
     t.index ["kind"], name: "index_meeting_documents_on_kind", using: :btree
     t.index ["meeting_id"], name: "index_meeting_documents_on_meeting_id", using: :btree
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.string   "title",                  null: false
-    t.string   "year",                   null: false
-    t.integer  "ranking",    default: 0, null: false
-    t.integer  "kind",       default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",                    null: false
+    t.string   "year",                     null: false
+    t.integer  "ranking",      default: 0, null: false
+    t.integer  "kind",         default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.date     "meeting_date"
     t.index ["kind"], name: "index_meetings_on_kind", using: :btree
   end

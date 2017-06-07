@@ -15,7 +15,8 @@ RSpec.describe(MeetingDocumentsController) do
                                meeting_id: meeting.to_param,
                                meeting_document: attributes })
       meeting_document.reload
-      expect(response).to redirect_to(edit_meeting_path(meeting))
+      expect(response).to redirect_to(edit_meeting_path(meeting,
+                                                        anchor: :document))
       expect(meeting_document.kind).to eq(:convocation.to_s)
     end
 
@@ -29,7 +30,8 @@ RSpec.describe(MeetingDocumentsController) do
                                meeting_id: meeting.to_param,
                                meeting_document: attributes })
       meeting_document.reload
-      expect(response).to redirect_to(edit_meeting_path(meeting))
+      expect(response).to redirect_to(edit_meeting_path(meeting,
+                                                        anchor: :document))
       expect(meeting_document.kind).to eq(:minute.to_s)
     end
   end

@@ -11,10 +11,6 @@ RSpec.describe MeetingDocumentService do
       expect do
         MeetingDocumentService.upload_document(meeting)
       end.to change(MeetingDocument, :count).by(1)
-
-      doc = Document.last
-      expect(doc.title_sv).to eq("16/17 S15 - #{I18n.t('model.meeting_document.kinds.agenda', locale: :sv)}")
-      expect(doc.title_en).to eq("16/17 S15 - #{I18n.t('model.meeting_document.kinds.agenda', locale: :en)}")
     end
 
     it 'creates a document and defaults to file' do
@@ -27,8 +23,8 @@ RSpec.describe MeetingDocumentService do
         MeetingDocumentService.upload_document(meeting)
       end.to change(MeetingDocument, :count).by(1)
 
-      doc = Document.last
-      expect(doc.file_sv_identifier).to eq("file.pdf")
+      mdoc = MeetingDocument.last
+      expect(mdoc.file_sv_identifier).to eq("file.pdf")
     end
 
     it 'does not create meeting document with faulty url' do
@@ -40,9 +36,8 @@ RSpec.describe MeetingDocumentService do
 
       expect do
         result = MeetingDocumentService.upload_document(meeting)
-      end.to change(MeetingDocument, :count).by(0) and change(Document, :count).by(0)
+      end.to change(MeetingDocument, :count).by(0)
 
-      doc = Document.last
       expect(result).to be_falsey
       expect(meeting.errors[:document_kind]).to_not be_nil
     end

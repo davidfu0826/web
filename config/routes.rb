@@ -39,6 +39,8 @@ Rails.application.routes.draw do
     resources :meeting_documents, only: [:destroy, :update]
   end
 
+  resources :meeting_documents, only: :show
+
   resources :events
 
   resources :nav_items, except: [:index, :show] do

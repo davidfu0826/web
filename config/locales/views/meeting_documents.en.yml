@@ -1,0 +1,10 @@
+en:
+  meeting_documents:
+    table:
+      confirm_delete: "This deletes the file(s) and the connection to the meeting.\nAre you sure you want to do this?"
+      meeting_documents: Meeting documents
+      save: Save
+      show: Show
+
+    form:
+      new_document: New document
