@@ -1,13 +1,13 @@
-class NavItem < ActiveRecord::Base
-  belongs_to :page
-  belongs_to :parent, class_name: 'NavItem', touch: true
-  has_many :children, -> { order('position ASC') }, class_name: 'NavItem', foreign_key: 'parent_id'
+class NavItem < ApplicationRecord
+  belongs_to :page, optional: true
+  belongs_to :parent, class_name: 'NavItem', touch: true, optional: true
+  has_many :children, -> { order('position ASC') }, class_name: 'NavItem',
+                                                    foreign_key: 'parent_id'
 
-  scope :orphans, -> { where(parent: nil) }
+  scope :orphans, (-> { where(parent: nil) })
 
   validate :title_or_page?
   validate :prefix_if_link?
-  # validate :max_nav_items
   before_destroy :set_parent_of_children
 
   translates :title
@@ -20,7 +20,7 @@ class NavItem < ActiveRecord::Base
   end
 
   def item_title
-    nav_item_type == 'page' ? page.title : title
+    page? ? page.title : title
   end
 
   def link
@@ -42,7 +42,8 @@ class NavItem < ActiveRecord::Base
 
   def self.update_order(nav_items, parent_id = nil)
     nav_items.each_with_index do |child_element, index|
-      NavItem.update(child_element['id'], parent_id: parent_id, position: index + 1)
+      NavItem.update(child_element['id'], parent_id: parent_id,
+                                          position: index + 1)
       if child_element['children']
         update_order(child_element['children'], child_element['id'])
       end
@@ -54,17 +55,12 @@ class NavItem < ActiveRecord::Base
   end
 
   def title_or_page?
-    return unless nav_item_type != 'page' && (title_sv.blank? || title_sv.blank?)
+    return if page? || (title_sv.present? && title_en.present?)
     errors.add(:base, I18n.t('errors.messages.should_have_page_or_title'))
   end
 
   def prefix_if_link?
-    return unless nav_item_type == 'link' && !link.include?('http')
+    return unless link? && !link.include?('http')
     errors.add(:link, I18n.t('errors.messages.should_have_prefix'))
-  end
-
-  def max_nav_items
-    return unless NavItem.orphans.count >= 8
-    errors.add(:base, I18n.t('errors.messages.max_nav_items'))
   end
 end

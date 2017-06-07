@@ -1,4 +1,4 @@
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   include LocaleContent
 
   validates(:title_sv, :title_en, presence: true, character: true)
@@ -18,21 +18,20 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :contacts, class_name: 'User', touch: true
   has_many :contact_forms
 
-  belongs_to :image
+  belongs_to :image, optional: true
 
-  scope :orphans, (-> { includes(:nav_item).where(nav_items: { page_id: nil }) })
+  scope :orphans, (lambda do
+    includes(:nav_item).where(nav_items: { page_id: nil })
+  end)
   scope :with_image, (-> { where.not(image: nil) })
 
   before_validation do
-    if self.slug.blank?
-      self.slug = self.title_en.parameterize
-    end
+    self.slug ||= title_en.parameterize
   end
 
   def slug_not_reserved_path
-    if reserved_paths.include? slug
-      errors.add(:slug, I18n.t('errors.slug_reserved'))
-    end
+    return unless reserved_paths.include?(slug)
+    errors.add(:slug, I18n.t('errors.slug_reserved'))
   end
 
   def to_param
@@ -40,22 +39,20 @@ class Page < ActiveRecord::Base
   end
 
   def cover_image
-    if image.present?
-      image.cover_image
-    end
+    image.cover_image if image.present?
   end
 
   private
 
   def reserved_paths
-    match_initial_path_segment = Proc.new do |path|
-      if match = %r{^\/([^\/\(:]+)}.match(path)
+    match_initial_path_segment = proc do |path|
+      if (match = %r{^\/([^\/\(:]+)}.match(path))
         match[1]
       end
     end
 
     routes = Rails.application.routes.routes
-    paths = routes.collect {|r| r.path.spec.to_s }
-    paths.collect {|path| match_initial_path_segment.call(path)}.compact.uniq
+    paths = routes.collect { |r| r.path.spec.to_s }
+    paths.collect { |path| match_initial_path_segment.call(path) }.compact.uniq
   end
 end

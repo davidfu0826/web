@@ -1,20 +1,17 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   include Filterable
-  include FuzzySearchTitles
   include LocaleContent
 
   attr_accessor :image_file
   validates :title_sv, :title_en, :content, presence: true
 
-  belongs_to :image
+  belongs_to :image, optional: true
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
-
   translates :title, :content
-  fuzzily_searchable :title_en, :title_sv
 
-  scope :tag, ->(tag_id) { joins(:tags).where(tags: { id: tag_id }) }
+  scope :tags, (->(tag_id) { joins(:tags).where(tags: { id: tag_id }) })
 
   def first_paragraph
     match = content.match(/<p>([^<]+)<\/p>/)

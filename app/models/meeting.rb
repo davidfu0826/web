@@ -1,5 +1,5 @@
 # A meeting by the board our council, connects a meeting with documents
-class Meeting < ActiveRecord::Base
+class Meeting < ApplicationRecord
   enum(kind: { board: 0, council: 1, other: 2 })
   validates(:title, :year, :kind, presence: true)
   validates(:ranking, uniqueness: { scope: [:year, :kind] })

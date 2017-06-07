@@ -1,4 +1,4 @@
-class Document < ActiveRecord::Base
+class Document < ApplicationRecord
   attr_writer(:locale)
   mount_uploader(:file_sv, DocumentUploader)
   mount_uploader(:file_en, DocumentUploader)
@@ -12,7 +12,7 @@ class Document < ActiveRecord::Base
                    policy: 3, guideline: 4, opinion: 5, budget: 6,
                    annual_report: 7, annual_plan: 8, directive: 9, meeting: 10})
   scope(:by_revision, -> { order(revision_date: :desc) })
-  scope(:by_title, ->(locale) do
+  scope(:by_title, lambda do |locale|
     if locale == :sv
       order(:title_sv)
     else
@@ -20,7 +20,7 @@ class Document < ActiveRecord::Base
     end
   end)
 
-  scope(:locale, ->(locale) do
+  scope(:locale, lambda do |locale|
     if locale == :sv
       where.not(file_sv: ['', nil])
     else
