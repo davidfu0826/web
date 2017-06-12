@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :load_tags, only: [:edit, :index, :new]
+  before_action :load_tags, only: [:edit, :index, :new]
   load_and_authorize_resource
 
   def index
@@ -12,9 +12,9 @@ class EventsController < ApplicationController
         @event_presenter.group_month_and_week
       end
       format.ics do
-        render text: \
+        render plain: \
           CalendarService.export(@events, locale: params.fetch(:locale, 'sv'))
-            .to_ical
+                         .to_ical
       end
     end
   end

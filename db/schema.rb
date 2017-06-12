@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503054835) do
+ActiveRecord::Schema.define(version: 20170607132254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +21,9 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.index ["page_id"], name: "index_contact_forms_on_page_id", using: :btree
+    t.index ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
   end
-
-  add_index "contact_forms", ["page_id"], name: "index_contact_forms_on_page_id", using: :btree
-  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "title_sv"
@@ -38,9 +36,8 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.date     "revision_date"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["category"], name: "index_documents_on_category", using: :btree
   end
-
-  add_index "documents", ["category"], name: "index_documents_on_category", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title_sv"
@@ -52,9 +49,8 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "event_group_id"
     t.string   "title_en"
     t.string   "description_en"
+    t.index ["event_group_id"], name: "index_events_on_event_group_id", using: :btree
   end
-
-  add_index "events", ["event_group_id"], name: "index_events_on_event_group_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "image_uid"
@@ -72,11 +68,10 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "kind",        default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["document_id"], name: "index_meeting_documents_on_document_id", using: :btree
+    t.index ["kind"], name: "index_meeting_documents_on_kind", using: :btree
+    t.index ["meeting_id"], name: "index_meeting_documents_on_meeting_id", using: :btree
   end
-
-  add_index "meeting_documents", ["document_id"], name: "index_meeting_documents_on_document_id", using: :btree
-  add_index "meeting_documents", ["kind"], name: "index_meeting_documents_on_kind", using: :btree
-  add_index "meeting_documents", ["meeting_id"], name: "index_meeting_documents_on_meeting_id", using: :btree
 
   create_table "meetings", force: :cascade do |t|
     t.string   "title",                  null: false
@@ -85,9 +80,8 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "kind",       default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.index ["kind"], name: "index_meetings_on_kind", using: :btree
   end
-
-  add_index "meetings", ["kind"], name: "index_meetings_on_kind", using: :btree
 
   create_table "nav_items", force: :cascade do |t|
     t.string   "title_sv"
@@ -99,10 +93,9 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "position"
     t.integer  "nav_item_type", default: 0, null: false
     t.string   "link"
+    t.index ["page_id"], name: "index_nav_items_on_page_id", using: :btree
+    t.index ["parent_id"], name: "index_nav_items_on_parent_id", using: :btree
   end
-
-  add_index "nav_items", ["page_id"], name: "index_nav_items_on_page_id", using: :btree
-  add_index "nav_items", ["parent_id"], name: "index_nav_items_on_parent_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title_sv"
@@ -113,19 +106,17 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.string   "title_en"
     t.text     "content_en"
     t.integer  "image_id"
+    t.index ["image_id"], name: "index_pages_on_image_id", using: :btree
   end
-
-  add_index "pages", ["image_id"], name: "index_pages_on_image_id", using: :btree
 
   create_table "pages_users", force: :cascade do |t|
     t.integer  "page_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["page_id"], name: "index_pages_users_on_page_id", using: :btree
+    t.index ["user_id"], name: "index_pages_users_on_user_id", using: :btree
   end
-
-  add_index "pages_users", ["page_id"], name: "index_pages_users_on_page_id", using: :btree
-  add_index "pages_users", ["user_id"], name: "index_pages_users_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title_sv"
@@ -135,18 +126,16 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.string   "title_en"
     t.text     "content_en"
     t.integer  "image_id"
+    t.index ["image_id"], name: "index_posts_on_image_id", using: :btree
   end
-
-  add_index "posts", ["image_id"], name: "index_posts_on_image_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.integer  "contact_form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["contact_form_id"], name: "index_questions_on_contact_form_id", using: :btree
   end
-
-  add_index "questions", ["contact_form_id"], name: "index_questions_on_contact_form_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
@@ -155,9 +144,8 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.string   "thing_type", limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
   end
-
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "taggable_id"
@@ -165,10 +153,9 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["tag_id", "taggable_type"], name: "index_taggings_on_tag_id_and_taggable_type", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   end
-
-  add_index "taggings", ["tag_id", "taggable_type"], name: "index_taggings_on_tag_id_and_taggable_type", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "title"
@@ -176,17 +163,6 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.datetime "updated_at"
     t.string   "color"
   end
-
-  create_table "trigrams", force: :cascade do |t|
-    t.string  "trigram",     limit: 3
-    t.integer "score",       limit: 2
-    t.integer "owner_id"
-    t.string  "owner_type"
-    t.string  "fuzzy_field"
-  end
-
-  add_index "trigrams", ["owner_id", "owner_type", "fuzzy_field", "trigram", "score"], name: "index_for_match", using: :btree
-  add_index "trigrams", ["owner_id", "owner_type"], name: "index_by_owner", using: :btree
 
   create_table "uploads", force: :cascade do |t|
     t.string   "file_name"
@@ -216,10 +192,9 @@ ActiveRecord::Schema.define(version: 20170503054835) do
     t.integer  "locale"
     t.string   "profile_image_uid"
     t.string   "profile_image_thumb_uid"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "meeting_documents", "documents"
   add_foreign_key "meeting_documents", "meetings"

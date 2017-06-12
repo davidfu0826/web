@@ -1,4 +1,4 @@
-class Image < ActiveRecord::Base
+class Image < ApplicationRecord
   include Filterable
   include Tagable # includes relationsships and tags-scope
 
@@ -7,16 +7,6 @@ class Image < ActiveRecord::Base
 
   has_many :posts
   has_many :pages
-
-  scope :search, (lambda do |search|
-    unless search.empty?
-      image_ids = find_by_fuzzy_image_name(search).map(&:id)
-      image_ids << find_by_fuzzy_title(search).map(&:id)
-      where(id: image_ids.flatten)
-    end
-  end)
-
-  fuzzily_searchable :image_name, :title
   dragonfly_accessor :image
 
   def title

@@ -1,14 +1,11 @@
-class Upload < ActiveRecord::Base
+class Upload < ApplicationRecord
   include Filterable
 
   dragonfly_accessor :file
   delegate  :url, to: :file
   validates :file, presence: true
 
-  fuzzily_searchable :file_name
-
-  scope :search, ->(search) { where(id: find_by_fuzzy_file_name(search)) }
-  scope :by_updated, -> { order(updated_at: :desc) }
+  scope :by_updated, (-> { order(updated_at: :desc) })
 
   before_validation do
     self.file_name = sanitize_filename(file_name)

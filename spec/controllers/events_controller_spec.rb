@@ -24,7 +24,7 @@ RSpec.describe EventsController do
   describe 'GET #show' do
     it 'sets event and returns 200' do
       event = create(:event)
-      get(:show, id: event.to_param)
+      get(:show, params: { id: event.to_param })
 
       expect(assigns(:event)).to eq(event)
       expect(response).to have_http_status(200)
@@ -50,7 +50,7 @@ RSpec.describe EventsController do
                      tag_ids: [tag.id] }
 
       expect do
-        post(:create, event: attributes)
+        post(:create, params: { event: attributes })
       end.to change(Event, :count).by(1)
 
       expect(response).to redirect_to(event_path(Event.last))
@@ -61,7 +61,7 @@ RSpec.describe EventsController do
       attributes = { start_time: nil, tag_ids: [] }
 
       expect do
-        post(:create, event: attributes)
+        post(:create, params: { event: attributes })
       end.to change(Event, :count).by(0)
 
       expect(response).to have_http_status(422)
@@ -72,7 +72,7 @@ RSpec.describe EventsController do
   describe 'GET #edit' do
     it 'sets event and returns 200' do
       event = create(:event)
-      get(:edit, id: event.to_param)
+      get(:edit, params: { id: event.to_param })
       expect(assigns(:event)).to eq(event)
       expect(response).to have_http_status(200)
     end
@@ -84,7 +84,7 @@ RSpec.describe EventsController do
       tag = create(:tag)
       attributes = { title_sv: 'Ett annat evenemang', tag_ids: [tag.id] }
 
-      patch(:update, id: event.to_param, event: attributes)
+      patch(:update, params: { id: event.to_param, event: attributes })
       event.reload
       expect(event.title_sv).to eq('Ett annat evenemang')
       expect(response).to redirect_to(event_path(event))
@@ -96,7 +96,7 @@ RSpec.describe EventsController do
       create(:tag, title: 'First tag')
       attributes = { title_sv: '', tag_ids: [] }
 
-      patch(:update, id: event.to_param, event: attributes)
+      patch(:update, params: { id: event.to_param, event: attributes })
 
       event.reload
       expect(event.title_sv).to eq('Ett evenemang')
@@ -111,7 +111,7 @@ RSpec.describe EventsController do
       event = create(:event)
 
       expect do
-        delete(:destroy, id: event.to_param)
+        delete(:destroy, params: { id: event.to_param })
       end.to change(Event, :count).by(-1)
 
       expect(response).to redirect_to(events_path)

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
-gem 'rails', '4.2.8'
+gem 'rails', '5.0.3'
 
 # Temporary update mail gem
 # to fix vulnerability; see
@@ -13,13 +13,10 @@ gem 'rails', '4.2.8'
 # or higher)
 gem 'mail', '2.6.6.rc1'
 
-# Temporary update nokogiri gem
-gem 'nokogiri'
-
 # Core
 gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.8'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
@@ -77,6 +74,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 

@@ -83,7 +83,7 @@ class PostsController < ApplicationController
   end
 
   def filtering_params
-    params.slice(:search, :tag)
+    params.slice(:tags)
   end
 
   def load_tags

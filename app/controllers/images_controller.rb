@@ -64,7 +64,7 @@ class ImagesController < ApplicationController
   end
 
   def search_params
-    params.slice(:search, :tags)
+    params.slice(:tags)
   end
 
   def load_tags

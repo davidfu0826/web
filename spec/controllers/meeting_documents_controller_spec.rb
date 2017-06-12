@@ -11,9 +11,9 @@ RSpec.describe(MeetingDocumentsController) do
                                                    kind: :minute)
       attributes = { kind: :convocation }
 
-      patch(:update, id: meeting_document.to_param,
-                     meeting_id: meeting.to_param,
-                     meeting_document: attributes)
+      patch(:update, params: { id: meeting_document.to_param,
+                               meeting_id: meeting.to_param,
+                               meeting_document: attributes })
       meeting_document.reload
       expect(response).to redirect_to(edit_meeting_path(meeting))
       expect(meeting_document.kind).to eq(:convocation.to_s)
@@ -25,9 +25,9 @@ RSpec.describe(MeetingDocumentsController) do
                                                    kind: :minute)
       attributes = { kind: nil }
 
-      patch(:update, id: meeting_document.to_param,
-                     meeting_id: meeting.to_param,
-                     meeting_document: attributes)
+      patch(:update, params: { id: meeting_document.to_param,
+                               meeting_id: meeting.to_param,
+                               meeting_document: attributes })
       meeting_document.reload
       expect(response).to redirect_to(edit_meeting_path(meeting))
       expect(meeting_document.kind).to eq(:minute.to_s)
@@ -40,8 +40,8 @@ RSpec.describe(MeetingDocumentsController) do
       meeting_document = create(:meeting_document, meeting: meeting)
 
       expect do
-        delete(:destroy, meeting_id: meeting.to_param,
-                         id: meeting_document.to_param)
+        delete(:destroy, params: { meeting_id: meeting.to_param,
+                                   id: meeting_document.to_param })
       end.to change(MeetingDocument, :count).by(-1)
       expect(response).to redirect_to(edit_meeting_path(meeting))
     end

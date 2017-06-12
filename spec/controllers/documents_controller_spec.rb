@@ -17,7 +17,7 @@ RSpec.describe(DocumentsController) do
   describe('GET #show') do
     it('renders file') do
       document = create(:document)
-      get(:show, id: document.to_param)
+      get(:show, params: { id: document.to_param })
       expect(response).to redirect_to(document.view)
       expect(response).to have_http_status(302)
     end
@@ -34,7 +34,7 @@ RSpec.describe(DocumentsController) do
   describe('GET #edit') do
     it('renders the edit document page') do
       document = create(:document)
-      get(:edit, id: document.to_param)
+      get(:edit, params: { id: document.to_param })
       expect(response).to have_http_status(200)
       expect(assigns(:document)).to eq(document)
     end
@@ -47,7 +47,7 @@ RSpec.describe(DocumentsController) do
                      description_en: 'This is the by-laws' }
 
       expect do
-        post(:create, document: attributes)
+        post(:create, params: { document: attributes })
       end.to change(Document, :count).by(1)
 
       expect(response).to redirect_to(edit_document_path(Document.last))
@@ -58,7 +58,7 @@ RSpec.describe(DocumentsController) do
                      description_en: 'This is the by-laws' }
 
       expect do
-        post(:create, document: attributes)
+        post(:create, params: { document: attributes })
       end.to change(Document, :count).by(0)
 
       expect(response).to have_http_status(422)
@@ -71,7 +71,8 @@ RSpec.describe(DocumentsController) do
       document = create(:document, title_sv: 'Stadgar')
       attributes = { title_sv: 'Reglemente' }
 
-      post(:update, id: document.to_param, document: attributes)
+      post(:update, params: { id: document.to_param,
+                              document: attributes })
       document.reload
       expect(response).to redirect_to(edit_document_path(document))
       expect(document.title_sv).to eq('Reglemente')
@@ -81,7 +82,8 @@ RSpec.describe(DocumentsController) do
       document = create(:document, title_sv: 'Stadgar')
       attributes = { title_sv: nil }
 
-      post(:update, id: document.to_param, document: attributes)
+      post(:update, params: { id: document.to_param,
+                              document: attributes })
 
       expect(response).to have_http_status(422)
       expect(response).to render_template(:edit)

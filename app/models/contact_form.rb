@@ -1,4 +1,4 @@
-class ContactForm < ActiveRecord::Base
+class ContactForm < ApplicationRecord
   belongs_to :page, touch: true
   belongs_to :user
   has_many :questions, dependent: :destroy

@@ -6,8 +6,8 @@ RSpec.describe PostsController, type: :controller do
   describe "GET show" do
     it "render show " do
       post = create(:post)
-      get :show, id: post.to_param
-      expect(response).to render_template :show
+      get(:show, params: { id: post.to_param })
+      expect(response).to render_template(:show)
       expect(response).to have_http_status(200)
 
     end
@@ -16,16 +16,16 @@ RSpec.describe PostsController, type: :controller do
   describe "GET#index" do
     it "renders properly" do
       3.times { create(:post) }
-      get :index
-      expect(response).to render_template :index
+      get(:index)
+      expect(response).to render_template(:index)
       expect(response).to have_http_status(200)
     end
   end
 
   describe "GET#new" do
     it "renders properly" do
-      get :new
-      expect(response).to render_template :new
+      get(:new)
+      expect(response).to render_template(:new)
       expect(response).to have_http_status(200)
       expect(assigns(:post)).to be_a_new(Post)
     end
@@ -42,7 +42,7 @@ RSpec.describe PostsController, type: :controller do
       }
 
       expect do
-        post :create, post: attributes
+        post(:create, params: { post: attributes })
       end.to change(Post, :count).by(1)
       created = Post.last
       expect(response).to redirect_to(edit_post_path(created))
@@ -59,7 +59,7 @@ RSpec.describe PostsController, type: :controller do
       }
 
       expect do
-        post :create, post: attributes
+        post(:create, params: { post: attributes })
       end.to change(Post, :count).by(1)
       created = Post.last
       expect(response).to redirect_to(edit_post_path(created))
@@ -71,7 +71,7 @@ RSpec.describe PostsController, type: :controller do
       attributes = { title_sv: nil }
 
       expect do
-        post :create, post: attributes
+        post(:create, params: { post: attributes })
       end.to change(Post, :count).by(0)
       expect(response).to render_template(:new)
       expect(response).to have_http_status(422)
@@ -89,7 +89,7 @@ RSpec.describe PostsController, type: :controller do
         tag_ids: [tag.id]
       }
 
-      patch :update, id: resource.id, post: attributes
+      patch(:update, params: { id: resource.id, post: attributes })
       resource.reload
       expect(response).to redirect_to(edit_post_path(resource))
       expect(response).to have_http_status(302)
@@ -102,7 +102,7 @@ RSpec.describe PostsController, type: :controller do
       resource = create(:post, title_sv: "Gammal")
       attributes = { title_sv: nil }
 
-      patch :update, id: resource.id, post: attributes
+      patch(:update, params: { id: resource.id, post: attributes })
       resource.reload
       expect(response).to render_template(:edit)
       expect(response).to have_http_status(422)

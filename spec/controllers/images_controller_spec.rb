@@ -29,7 +29,7 @@ RSpec.describe ImagesController, type: :controller do
       image = create(:image)
       allow_any_instance_of(Image).to \
         receive(:url).and_return('localhost:3000/good_url')
-      get :show, id: image.to_param
+      get(:show, params: { id: image.to_param })
       expect(response).to redirect_to('localhost:3000/good_url')
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe ImagesController, type: :controller do
   describe "GET edit" do
     it "render edit " do
       image = create(:image)
-      get :edit, id: image.to_param
+      get(:edit, params: { id: image.to_param })
       expect(response).to render_template :edit
       expect(response).to have_http_status(200)
     end
@@ -53,7 +53,7 @@ RSpec.describe ImagesController, type: :controller do
       }
 
       expect do
-        post :create, image: attributes
+        post(:create, params: { image: attributes })
       end.to change(Image, :count).by(1)
 
       created = Image.last
@@ -67,7 +67,7 @@ RSpec.describe ImagesController, type: :controller do
       attributes = { file: nil }
 
       expect do
-        post(:create, image: attributes)
+        post(:create, params: { image: attributes })
       end.to change(Image, :count).by(0)
 
       expect(response).to render_template(:new)
@@ -85,7 +85,7 @@ RSpec.describe ImagesController, type: :controller do
         tag_ids: [tag.id]
       }
 
-      patch :update, id: resource.id, image: attributes
+      patch(:update, params: { id: resource.id, image: attributes })
       resource.reload
       expect(response).to redirect_to(edit_image_path(resource))
       expect(response).to have_http_status(302)
@@ -97,7 +97,7 @@ RSpec.describe ImagesController, type: :controller do
       resource = create(:image, title: "Gammal")
       attributes = { file: nil }
 
-      patch :update, id: resource.id, image: attributes
+      patch(:update, params: { id: resource.id, image: attributes })
       resource.reload
       expect(response).to render_template(:edit)
       expect(response).to have_http_status(422)
@@ -110,7 +110,7 @@ RSpec.describe ImagesController, type: :controller do
       image = create(:image)
 
       expect do
-        delete(:destroy, id: image.to_param)
+        delete(:destroy, params: { id: image.to_param })
       end.to change(Image, :count).by(-1)
 
       expect(response).to redirect_to(images_path)
