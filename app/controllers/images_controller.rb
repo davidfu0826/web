@@ -40,7 +40,7 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
-      redirect_to edit_image_path(@image), notice: 'Image updated'
+      redirect_to edit_image_path(@image), notice: t('.success')
     else
       load_tags
       render :edit, status: 422

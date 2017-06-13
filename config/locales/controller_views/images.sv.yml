@@ -31,3 +31,6 @@ sv:
     new:
       upload_image: Ladda upp ny bild
       all_images: Alla bilder
+
+    update:
+      success: Bilden uppdaterades.

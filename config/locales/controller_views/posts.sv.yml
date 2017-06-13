@@ -26,3 +26,7 @@ sv:
     posts_feed:
       no_posts: "Kunde inte hitta några nyheter :("
       no_posts_lead: Testa med en annan filtrering
+
+    update:
+      only_update: Nyheten uppdaterades.
+      update_and_image: Nyheten uppdaterades och bilden laddades upp.
