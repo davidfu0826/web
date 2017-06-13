@@ -12,3 +12,14 @@ en:
       second_paragraph: ""
       send_meeting_documents: "If you want to address a specific issue at a board meeting, please send in a drafted proposal to this e-mail adress:"
       title: The Board
+
+    council:
+      contact_speaker: If you want to bring a matter to the Council, write a motion or discussion materials and send them, atleast 12 study days before the meeting, to
+      convocation: All members are welcome to the Council meetings! If you want to be summoned, send an empty e-mail to
+      first_paragraph: The Representative Council is the highest authority at the Union. The council consists of 27 members, elected by the Union's members.
+      fourth_paragraph: ""
+      second_paragraph: The Council members are elected during the autumn in an open election. Any member of the Student Union can stand for election, and any member can vote. The election is overseen by the Election Board, and the tally is done together with the Union's Inspector.
+      send_meeting_documents: Questions regarding minutes and summaries can be sent to
+      third_paragraph: The Council decide what the Union is supposed to do, by yearly passing a Plan of Operations and a budget. The Council pass the most important regulatory documents, and elect Sabbatical Officers, Volunteers and Student Representatives.
+      title: The Representative Council
+      meeting_documents: Agendas and summaries
