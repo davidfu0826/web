@@ -1,7 +1,11 @@
 sv:
   uploads:
     index:
-      new_upload: Ladda upp fil
+      new_upload: Ladda upp pdf
+      new_document: Ladda upp dokument
+      documents: Dokument
+      new_image: Ladda upp bild
+      images: Bilder
       uploads: Filuppladdning
 
     uploads_table:

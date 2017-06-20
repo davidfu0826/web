@@ -1,5 +1,6 @@
 <%= form_heading :create, Upload %>
 
+<h3>Använd dessa endast till PDF, bilder laddas upp via <%= link_to('/images', images_path) %>.</h3>
 <%= bootstrap_form_for(@upload) do |f| %>
   <%= f.file_field :files, multiple: true %>
   <%= f.submit %>

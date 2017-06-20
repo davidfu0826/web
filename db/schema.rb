@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20170607132254) do
     t.string   "file_uid",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "image_id"
   end
 
   create_table "users", force: :cascade do |t|
