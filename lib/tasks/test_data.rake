@@ -12,7 +12,7 @@ namespace :db do
     puts "=== email: administrator@tlth.se ==="
     puts "=== pass: testtest ==="
 
-    image = Image.create(image: File.open('spec/support/cover.jpg'))
+    image = FactoryGirl.create(:image)
 
     # Page
     page = Page.find_or_create_by!(title_sv: 'Heltidare',
