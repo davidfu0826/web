@@ -3,13 +3,13 @@
              url: asset_url('council_header.jpg')) %>
 <% end %>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 representative-council">
     <div class="page-header">
       <h1><%= title(t('.title')) %></h1>
     </div>
+    <%= simple_format(description(t('.first_paragraph'))) %>
     <%= image_tag('council.jpg', class: 'img-responsive') %>
     <br />
-    <%= simple_format(description(t('.first_paragraph'))) %>
     <%= simple_format(t('.second_paragraph')) %>
     <%= simple_format(t('.third_paragraph')) %>
     <%= simple_format(t('.fourth_paragraph')) %>
@@ -28,6 +28,8 @@
       <%= t('.convocation') %>
       <%= link_to('fm-uppskrivna-subscribe@tlth.se', 'mailto:fm-uppskrivna-subscribe@tlth.se') %>.
     </p>
+
+    <%= image_tag('council_second.jpg', class: 'img-responsive') %>
   </div>
 
   <div class="col-md-12">
