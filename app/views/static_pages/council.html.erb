@@ -1,6 +1,6 @@
 <% content_for(:banner) do %>
   <%= render('/application/banner',
-             url: asset_url('council_header.jpg')) %>
+             url: asset_url('council_header.jpg', host: PUBLIC_URL)) %>
 <% end %>
 <div class="row">
   <div class="col-md-12 representative-council">
