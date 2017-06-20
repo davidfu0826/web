@@ -3,7 +3,7 @@
       data: {'image-source': image.url, 'image-id': image.id}) do %>
     <%= image_tag image.thumb_url %>
     <div class="img-title">
-      <%= image.title %>
+      <%= image.to_s %>
     </div>
     <div class="overlay">
       <div class="links">

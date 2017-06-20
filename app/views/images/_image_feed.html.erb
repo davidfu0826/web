@@ -12,7 +12,7 @@
   <tbody>
     <% @images.each do |image| %>
       <tr>
-        <td><%= link_to fa_icon('wrench', text: image.title), edit_image_path(image) %></td>
+        <td><%= link_to fa_icon('wrench', text: image.to_s), edit_image_path(image) %></td>
         <td>
           <%= link_to fa_icon('link', text: t('global.copy_to_clipboard')),
                       '#copy', class: 'copy-link',
