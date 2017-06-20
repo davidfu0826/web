@@ -12,3 +12,14 @@ sv:
       second_paragraph: "Som ledamot i Kårstyrelsen är man med och bestämmer var kårens resurser ska satsas och vad som bör prioriteras. Till skillnad från att sitta i fullmäktige är man som styrelseledamot också med och beslutar om hur de strategiska besluten ska genomföras. Man får vara med och jobba med de operativa frågorna, samtidigt som man är med och utvecklar Kåren på ett strategiskt och mer långsiktigt plan."
       send_meeting_documents: "Skicka gärna in motioner eller diskussionspunkter så kommer vi behandla ärendet på nästkommande styrelsemöte:"
       title: Styrelse
+
+    council:
+      contact_speaker: De frågor som behandlas av FM bereds huvudsakligen av Kårens styrelse. Vill man ta upp en fråga i FM skriver man en motion eller ett diskussionsunderlag och mejlar det senast 12 läsdagar innan sammanträdet till
+      convocation: Vill du få kallelser till fullmäktige? Skicka ett tomt mail till
+      first_paragraph: Fullmäktige, FM, är Teknologkårens högsta beslutande organ. FM består av 27 ledamöter som är personvalda vilket innebär att de enbart företräder sina egna åsikter.
+      fourth_paragraph: Vidare väljer FM alla representanter i LTH:s beslutande och beredande organ. Dessa representanter har till uppgift att föra fram Kårens åsikter i studentfackliga frågor. Tror du att du skulle passa i Fullmäktige ska du kandidera hos valnämnden
+      meeting_documents: Handlingar och protokoll
+      second_paragraph: FM:s ledamöter väljs på hösten av Teknologkårens medlemmar i ett öppet och allmänt val. Alla Kårens medlemmar som studerar på LTH har rätt att kandidera i FM-valet. Valet sköts av valnämnden och rösterna räknas under överinseende av Kårens inspektor. FM beslutar vad Teknologkåren ska ha för verksamhet genom att årligen fastställa en verksamhetsplan och en budget. FM har också till uppgift att revidera Kårens stadgar och reglemente vid behov.
+      send_meeting_documents: Frågor rörande protokoll och sammanfattningar mejlas lämpligen
+      third_paragraph: Det är också FM som väljer de funktionärer som ansvarar för att den fastslagna verksamheten genomförs. Val av funktionärer bereds av Kårens valberedning (notera skillnaden mellan valnämnden och valberedningen).
+      title: Fullmäktige

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'sitemap.xml.gz', to: redirect(Rails.configuration.x.sitemap_url),
                         as: :sitemap
   get 'robots.:format', controller: :static_pages, action: :robots, as: :robots
-  get :board, controller: :static_pages, as: :board
+  get :board, controller: :static_pages
+  get :council, controller: :static_pages, path: 'the-representative-council'
 
   root 'posts#index'
   devise_for :users

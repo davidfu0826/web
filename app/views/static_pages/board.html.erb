@@ -47,27 +47,6 @@
 
   <div class="col-md-12">
     <h2><%= t('.meeting_documents') %></h2>
-    <% @meetings.each do |year, meetings| %>
-      <h3><%= year %></h3>
-      <table class="meeting-document-table">
-        <tbody>
-          <% meetings.each do |m| %>
-            <tr>
-              <td class="title"><strong><%= m.title %></strong></td>
-              <% mds = m.meeting_documents.group_by(&:kind) %>
-              <% MeetingDocument.kinds.keys.each do |key| %>
-                <td>
-                  <% if mds[key].present? %>
-                    <% mds[key].each do |md| %>
-                      <%= link_to(meeting_document_kind(md.kind), document_path(md.document_id), target: :blank) %><br />
-                    <% end %>
-                  <% end %>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+    <%= render('meeting_documents/meeting_table', meetings: @meetings) %>
   </div>
 </div>

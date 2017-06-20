@@ -1,0 +1,37 @@
+<% content_for(:banner) do %>
+  <%= render('/application/banner',
+             url: asset_url('council_header.jpg')) %>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= title(t('.title')) %></h1>
+    </div>
+    <%= image_tag('council.jpg', class: 'img-responsive') %>
+    <br />
+    <%= simple_format(description(t('.first_paragraph'))) %>
+    <%= simple_format(t('.second_paragraph')) %>
+    <%= simple_format(t('.third_paragraph')) %>
+    <%= simple_format(t('.fourth_paragraph')) %>
+
+    <p>
+      <%= t('.contact_speaker') %>
+      <%= link_to('talman@tlth.se', 'mailto:talman@tlth.se') %>.
+    </p>
+
+    <p>
+      <%= t('.send_meeting_documents') %>
+      <%= link_to('fm-sekreterare@tlth.se', 'mailto:fm-sekreterare@tlth.se') %>.
+    </p>
+
+    <p>
+      <%= t('.convocation') %>
+      <%= link_to('fm-uppskrivna-subscribe@tlth.se', 'mailto:fm-uppskrivna-subscribe@tlth.se') %>.
+    </p>
+  </div>
+
+  <div class="col-md-12">
+    <h2><%= t('.meeting_documents') %></h2>
+    <%= render('meeting_documents/meeting_table', meetings: @meetings) %>
+  </div>
+</div>

@@ -5,6 +5,7 @@ sv:
         agenda: Dagordning
         convocation: Kallelse
         meeting_document: Handlingar
+        late_meeting_documents: Sena handlingar
         minute: Protokoll
         other: Annat
         summary: Sammanfattning
