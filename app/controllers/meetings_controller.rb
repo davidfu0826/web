@@ -44,6 +44,6 @@ class MeetingsController < ApplicationController
                                     :document_kind,
                                     :file_sv, :file_en,
                                     :file_sv_url, :file_en_url,
-                                    :ranking)
+                                    :ranking, :meeting_date)
   end
 end

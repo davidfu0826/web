@@ -14,11 +14,11 @@ RSpec.describe(StaticPagesController, type: :controller) do
       create(:meeting_document,
              kind: :convocation,
              meeting: meeting,
-             document: create(:document, file_en: nil))
+             file_en: nil)
       create(:meeting_document,
              kind: :agenda,
              meeting: meeting,
-             document: create(:document, file_sv: nil))
+             file_sv: nil)
 
       allow(I18n).to receive(:locale).and_return(:sv)
       get(:board)
