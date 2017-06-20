@@ -31,3 +31,6 @@ en:
     new:
       upload_image: Upload a new image
       all_images: All images
+
+    update:
+      success: Image was updated.

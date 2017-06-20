@@ -50,8 +50,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      notice = "Post was updated."
-      notice = "Post was updated, new image was uploaded" if upload_image(@post)
+      notice = upload_image(@post) ? t('.update_and_image') : t('.only_update')
       redirect_to edit_post_path(@post), notice: notice
     else
       load_tags
