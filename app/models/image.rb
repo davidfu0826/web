@@ -7,14 +7,9 @@ class Image < ApplicationRecord
 
   has_many :posts
   has_many :pages
-  dragonfly_accessor :image
 
-  def title
-    if self[:title].present?
-      self[:title]
-    elsif file_name.present?
-      file_name
-    end
+  def to_s
+    title || file_name
   end
 
   def url

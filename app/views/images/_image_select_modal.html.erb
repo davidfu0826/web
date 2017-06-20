@@ -43,7 +43,9 @@
               <!-- Image search footer -->
               <%= bootstrap_form_tag url: search_images_path, method: 'get', layout: :inline, remote: true do |sf| %>
                   <%= fa_icon('search') %>
-                  <%= sf.select :tags, @tags.collect { |t| [t.title, t.id] }, { hide_label: true, include_blank: false }, { multiple: true, class: 'select2 wide' } %>
+                  <%= sf.select :tags, @tags.collect { |t| [t.to_s, t.id] },
+                                       { hide_label: true, include_blank: false },
+                                       { multiple: true, class: 'select2 wide' } %>
                   <%= sf.text_field :search, hide_label: true %>
 
                   <%= sf.submit t(:search) %>
