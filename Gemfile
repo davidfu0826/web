@@ -4,15 +4,6 @@ ruby '2.4.1'
 
 gem 'rails', '5.0.3'
 
-# Temporary update mail gem
-# to fix vulnerability; see
-# https://github.com/mikel/mail/pull/1097
-# Remove this explicit dependency when
-# implicit dependency resolution in Gemfile.lock
-# resolves mail to a fixed version (2.5.5.rc1, 2.6.6.rc1, 2.7.0.rc1
-# or higher)
-gem 'mail', '2.6.6.rc1'
-
 # Core
 gem 'autoprefixer-rails'
 gem 'cancancan', '~> 1.8'
@@ -20,7 +11,6 @@ gem 'coffee-rails'
 gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
-gem 'rack-cache', require: 'rack/cache' # Caching images
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
