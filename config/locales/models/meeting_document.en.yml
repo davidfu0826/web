@@ -4,6 +4,7 @@ en:
       kinds:
         agenda: Agenda
         convocation: Convocation
+        late_meeting_documents: Late meeting documents
         meeting_document: Meeting documents
         late_meeting_documents: Late meeting documents
         minute: Minute

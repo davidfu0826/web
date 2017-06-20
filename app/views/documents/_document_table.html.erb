@@ -20,9 +20,7 @@
                                        target: :blank_p) %>
             </td>
             <td>
-              <% if doc.revision_date.present? %>
-                <%= l(doc.revision_date) %></td>
-              <% end %>
+              <%= doc.meeting if doc.meeting.present? %>
             </td>
             <% if can?(:manage, doc) %>
               <td><%= link_to(t('.edit'), edit_document_path(doc)) %></td>

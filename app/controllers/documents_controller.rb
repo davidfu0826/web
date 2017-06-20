@@ -45,6 +45,6 @@ class DocumentsController < ApplicationController
     params.require(:document).permit(:title_sv, :title_en,
                                      :description_sv, :description_en,
                                      :file_sv, :file_en, :category,
-                                     :revision_date)
+                                     :meeting_id)
   end
 end

@@ -25,6 +25,7 @@
 /public/sitemaps/*
 /public/system/*
 /public/uploads/*
+/public/meetingdocuments/*
 
 # Local environment
 .rspec

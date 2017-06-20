@@ -10,7 +10,7 @@
             <td>
               <% if mds[key].present? %>
                 <% mds[key].each do |md| %>
-                  <%= link_to(meeting_document_kind(md.kind), document_path(md.document_id), target: :blank) %><br />
+                  <%= link_to(meeting_document_kind(md.kind), md, target: :blank) %><br />
                 <% end %>
               <% end %>
             </td>

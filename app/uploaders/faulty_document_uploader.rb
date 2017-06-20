@@ -1,4 +1,4 @@
-class DocumentUploader < CarrierWave::Uploader::Base
+class FaultyDocumentUploader < CarrierWave::Uploader::Base
   if ENV['AWS']
     storage :aws
 
@@ -10,7 +10,7 @@ class DocumentUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "#{model.class.name.pluralize.downcase}/#{model.id}/#{mounted_as}"
+    "#{model.class.name.pluralize.downcase}/#{model.id}"
   end
 
   def extension_white_list

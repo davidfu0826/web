@@ -5,9 +5,12 @@
 <div class="col-md-12">
   <%= render('form', meeting: @meeting) %>
   <hr>
-  <%= render('meeting_document_table',
-             meeting_documents: @meeting.meeting_documents) %>
-  <hr />
+  <div class="meeting-document-table">
+    <%= render('/meeting_documents/table',
+               meeting_documents: @meeting.meeting_documents,
+               meeting: @meeting) %>
+    <hr />
+  </div>
   <%= link_to(t('.all_meetings'), meetings_path,
                                    class: 'btn btn-default') %>
 </div>

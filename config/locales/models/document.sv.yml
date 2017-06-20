@@ -3,7 +3,7 @@ sv:
     document:
       created: Dokument skapat
       updated: Dokument uppdaterat
-      no_file: Inget dokument finns  
+      no_file: Inget dokument finns
       categories:
         annual_plan: Verksamhetsplan
         annual_report: Verksamhetsberättelse
@@ -31,6 +31,7 @@ sv:
         file: Fil
         file_sv: Fil - svensk
         file_en: Fil - engelsk
+        meeting_id: Möte - revidering
         revision_date: Reviderat
         title: Titel
         title_sv: Titel - svensk

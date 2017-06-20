@@ -1,5 +1,5 @@
 <hr />
-<h3><%= t('.new_document') %></h3>
+<h3><%= t('.title') %></h3>
 <% if meeting.errors[:document].present? %>
   <div class="col-sm-offset-2 col-sm-10 error">
     <%= simple_format(meeting.errors[:document].first) %>

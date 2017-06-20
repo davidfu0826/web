@@ -1,0 +1,59 @@
+<h3><%= link_to(t('.title'), '#document', name: :document) %></h3>
+<div class="col-md-12 <%= flash_class('notice') %> copy-status" style="display: none;"></div>
+<br />
+<table class="table table-hover table-condensed meeting-documents">
+  <thead>
+    <tr>
+      <th><%= Meeting.human_attribute_name(:document) %></th>
+      <th></th>
+      <th></th>
+      <th><%= t('global.copy_to_clipboard') %></th>
+      <th><%= t('global.delete') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% meeting_documents.each do |m_doc| %>
+      <% next if m_doc.new_record? %>
+      <tr>
+        <%= form_for([meeting, m_doc]) do |f| %>
+          <td>
+            <%= f.select(:kind, options_for_select(meeting_document_kinds, selected: m_doc.kind), {}) %>
+          </td>
+          <td>
+            <%= f.submit t('.save'), class: 'btn btn-default' %>
+          </td>
+        <% end %>
+        <td class="text-align">
+          <% url_sv = m_doc.view(locale: :sv) %>
+          <% url_en = m_doc.view(locale: :en) %>
+          <%= link_to fa_icon('file-o', text: 'Sv'), url_sv, target: :blank if url_sv %>
+          <%= link_to fa_icon('file-o', text: 'En'), url_en, target: :blank if url_en %>
+        </td>
+        <td class="text-align">
+          <%= link_to fa_icon('clipboard', text: t('model.meeting.link')), '#copy',
+                      class: 'copy-link',
+                      data: { 'clipboard-text': meeting_document_url(m_doc) } %>
+        </td>
+        <td class="text-align">
+          <%= link_to fa_icon('trash-o', text: t('global.delete')),
+                      meeting_meeting_document_path(meeting, m_doc),
+                      method: :delete,
+                      data: { confirm: t('.confirm_delete') } %>
+        </td>
+      </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  var client = new ZeroClipboard($(".copy-link"));
+  client.on('aftercopy', function(event) {
+    $('.copy-status').html("Kopierade: \n" + event.data["text/plain"]);
+    $('.copy-status').show();
+  });
+
+  $(".copy-link").click( function() {
+    return false;
+  });
+</script>

@@ -7,9 +7,9 @@
   <%= f.number_field(:ranking) %>
 
   <% if meeting.persisted? %>
-    <%= render('meeting_document_form', f: f, meeting: meeting) %>
+    <%= render('/meeting_documents/form', f: f, meeting: meeting) %>
   <% end %>
-  
+
   <%= f.submit %>
-  <%= link_to(t('global.delete'), meeting, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: t('.confirm_delete') }) %>
+  <%= link_to(t('global.delete'), meeting, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: t('.confirm_delete') }) if meeting.persisted? %>
 <% end %>
