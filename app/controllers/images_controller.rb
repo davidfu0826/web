@@ -24,7 +24,10 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save && @image.update(tag_ids: image_params.fetch(:tag_ids, []))
         format.html { redirect_to images_path, notice: t('.success') }
-        format.js   { render action: 'upload_success' }
+        format.js do
+          load_tags
+          render :upload_success
+        end
       else
         load_tags
         format.html { render :new, status: 422 }

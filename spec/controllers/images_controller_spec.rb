@@ -73,6 +73,24 @@ RSpec.describe ImagesController, type: :controller do
       expect(response).to render_template(:new)
       expect(response).to have_http_status(422)
     end
+
+    it 'sets tags when creating remotely' do
+      tag = create(:tag)
+      attributes = {
+        title: 'Svensk',
+        tag_ids: [tag.id],
+        file: test_file
+      }
+
+      expect do
+        post(:create, xhr: true, params: { image: attributes })
+      end.to change(Image, :count).by(1)
+
+      created = Image.last
+      expect(response).to render_template('upload_success')
+      expect(created.tags.map(&:id)).to include(tag.id)
+      expect(assigns(:tags)).to_not be_nil
+    end
   end
 
   describe "patch#update" do
