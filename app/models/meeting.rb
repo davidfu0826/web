@@ -7,14 +7,14 @@ class Meeting < ApplicationRecord
   has_many(:documents, through: :meeting_documents)
   has_many(:meeting_documents, dependent: :destroy)
 
-  scope(:with_documents, -> { includes(meeting_documents: :document) })
+  scope(:with_documents, -> { includes(:meeting_documents) })
   scope(:by_order, -> { order(:kind, year: :desc, ranking: :desc) })
   scope(:order_documents, -> { order('meeting_documents.kind') })
   scope(:document_locale, lambda do |locale|
     if locale == :sv
-      where.not(documents: { file_sv: ['', nil] })
+      where.not(meeting_documents: { file_sv: ['', nil] })
     else
-      where.not(documents: { file_en: ['', nil] })
+      where.not(meeting_documents: { file_en: ['', nil] })
     end
   end)
 

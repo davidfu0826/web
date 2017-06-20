@@ -22,6 +22,7 @@ en:
         file_sv_url: File url - swedish
         file_sv: File - swedish
         kind: Kind
+        meeting_date: Date
         ranking: Ordering
         title: Title
         year: Year

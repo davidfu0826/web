@@ -10,10 +10,19 @@
 
 .meeting-document-table {
   margin-left: 20px;
+
+  td {
+    padding-right: 15px;
+  }
+
   .title {
     padding-right: 20px;
   }
-  td {
-    padding-right: 15px;
+}
+
+.representative-council {
+  .img-responsive {
+    margin: auto;
+    max-height: 600px;
   }
 }

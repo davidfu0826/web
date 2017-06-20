@@ -5,11 +5,18 @@
                                          meeting.kind),
                       {}, { class: 'select2' }) %>
   <%= f.number_field(:ranking) %>
+  <%= f.text_field :meeting_date, class: 'datepicker',
+                                  data: { behaviour: 'datepicker' } %>
 
   <% if meeting.persisted? %>
     <%= render('/meeting_documents/form', f: f, meeting: meeting) %>
   <% end %>
 
   <%= f.submit %>
-  <%= link_to(t('global.delete'), meeting, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: t('.confirm_delete') }) if meeting.persisted? %>
+  <% if meeting.persisted? %>
+    <%= link_to(t('global.delete'), meeting,
+                                    class: 'btn btn-danger pull-right',
+                                    method: :delete,
+                                    data: { confirm: t('.confirm_delete') }) %>
+  <% end %>
 <% end %>
