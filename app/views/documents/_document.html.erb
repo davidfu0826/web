@@ -12,7 +12,7 @@
                               class: 'btn btn-default') %>
     <% end %>
   </div>
-  <% if document.revision_date.present? %>
+  <% if document.meeting.present? %>
     <span class="revision">
       <%= t('.last_revision') %>
       <%= document.meeting %>
