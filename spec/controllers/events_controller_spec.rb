@@ -47,7 +47,9 @@ RSpec.describe EventsController do
                      end_time: 2.days.from_now,
                      title_sv: 'Ett evenemang',
                      title_en: 'An event',
-                     tag_ids: [tag.id] }
+                     tag_ids: [tag.id],
+                     facebook: 'https://facebook.com',
+                     place: 'Kårhuset' }
 
       expect do
         post(:create, params: { event: attributes })
