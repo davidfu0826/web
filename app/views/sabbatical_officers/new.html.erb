@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1><%= title(t('.title')) %></h1>
+</div>
+
+<div class="col-md-12">
+  <%= render('form', sabbatical_officer: @sabbatical_officer) %>
+</div>
+
+<% content_for(:sidebar) do %>
+  <div class="row">
+    <h3>
+      <%= t(:tools) %>
+      <%= fa_icon('wrench', class: 'pull-right') %>
+    </h3>
+    <ul>
+      <li>
+        <%= link_to(t('.all_sabbatical_officers'),
+                      sabbatical_officers_path) %>
+      </li>
+    </ul>
+  </div>
+<% end %>

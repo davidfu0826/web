@@ -40,7 +40,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def save_filename
-    return unless file.respond_to?(:original_filename)
+    return unless file.respond_to?(:original_filename) &&
+                  model.respond_to?(:file_name)
     model.file_name ||= file.original_filename
   end
 end

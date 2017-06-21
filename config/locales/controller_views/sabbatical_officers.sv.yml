@@ -1,0 +1,23 @@
+sv:
+  sabbatical_officers:
+    new:
+      all_sabbatical_officers: Alla heltidare
+      title: Ny heltidare
+
+    edit:
+      all_sabbatical_officers: Alla heltidare
+      title: Redigera heltidare
+
+    index:
+      description: Teknologkårens heltidare driver verksamheten och kan hjälpa er med väldigt mycket. Nedan finner ni vilka heltidarna är samt deras kontaktuppgifter.
+      new_sabbatical: Lägg till heltidare
+      title: Heltidare
+
+    create:
+      success: Heltidaren skapades
+
+    update:
+      success: Heltidaren uppdaterades
+
+    destroy:
+      success: Heltidaren raderades

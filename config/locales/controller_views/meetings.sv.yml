@@ -20,3 +20,12 @@ sv:
 
     form:
       confirm_delete: "Detta raderar mötet och alla kopplade dokument.\nÄr du säker på att du vill göra detta?"
+      
+    create:
+      success: Mötet skapades
+
+    update:
+      success: Mötet uppdaterades
+
+    service:
+      invalid: 'Dokumentet kunde inte skapas:'

@@ -1,0 +1,21 @@
+sv:
+  activerecord:
+    models:
+      sabbatical_officer:
+        one: Sabbatical officer
+        other: Sabbatical officers
+
+    attributes:
+      sabbatical_officer:
+        description_en: Description - English
+        description_sv: Description - Swedish
+        description: Description
+        email: Email
+        image: Image
+        name: Name
+        phone: Phone
+        position: Order
+        remove_image: Remove image
+        role_en: Role - English
+        role_sv: Role - Swedish
+        role: Role

@@ -1,0 +1,19 @@
+sv:
+  activerecord:
+    models:
+      sabbatical_officer: Heltidare
+
+    attributes:
+      sabbatical_officer:
+        description_en: Beskrivning - Engelska
+        description_sv: Beskrivning - Svenska
+        description: Beskrivning
+        email: Epost
+        image: Bild
+        name: Namn
+        phone: Telefon
+        position: Rangordning
+        remove_image: Ta bort bild
+        role_en: Post - Engelska
+        role_sv: Post - Svenska
+        role: Post
