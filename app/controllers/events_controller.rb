@@ -57,6 +57,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title_sv, :title_en,
                                   :description_sv, :description_en,
                                   :start_time, :end_time,
+                                  :place, :facebook,
                                   tag_ids: [])
   end
 

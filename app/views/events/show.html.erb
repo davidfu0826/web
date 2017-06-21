@@ -22,10 +22,22 @@
     </span>
     <%= l(@event.end_time, format: :long_month) %>
   </p>
+
+  <% if @event.place.present? %>
+    <h4><%= Event.human_attribute_name(:place) %></h4>
+    <%= simple_format(@event.place) %>
+  <% end %>
 </div>
 <div class="col-sm-6 wrap">
-  <h4><%= t('.desc') %></h4>
+
+  <h4><%= Event.human_attribute_name(:description) %></h4>
   <%= simple_format(@event.description) %>
+
+  <% if @event.facebook.present? %>
+    <%= link_to(@event.facebook, target: :blank_p) do %>
+      <%= fa_icon('facebook-square 2x', class: 'facebook-color') %>
+    <% end %>
+  <% end %>
 </div>
 
 <% content_for :sidebar do %>

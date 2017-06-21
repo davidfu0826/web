@@ -17,7 +17,6 @@ sv:
 
     show:
       date: Datum
-      desc: Beskrivning
       end: 'Till: '
       no_description: "Det finns ingen beskrivning :("
       show_all: Visa alla event

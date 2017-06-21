@@ -26,6 +26,8 @@
     </div>
   </div>
 
+  <%= f.text_field(:place) %>
+  <%= f.text_field(:facebook) %>
   <%= f.text_field :start_time, value: localized(event.start_time,
                                                  format: :event_format),
                                 'data-behaviour' => 'datepicker' %>

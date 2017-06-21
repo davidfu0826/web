@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    models:
+      event:
+        one: Event
+        other: Events
+
+    attributes:
+      event:
+        description_en: Description - English
+        description_sv: Description - Swedish
+        description: Description
+        end_time: End time
+        facebook: Facebook-link
+        place: Place
+        start_time: Start time
+        tag_ids: Tags
+        tags: Tags
+        title_en: Title - English
+        title_sv: Title - Swedish
+        title: Title

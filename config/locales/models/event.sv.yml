@@ -1,0 +1,19 @@
+sv:
+  activerecord:
+    models:
+      event: Evenemang
+
+    attributes:
+      event:
+        description_en: Beskrivning - Engelsk
+        description_sv: Beskrivning - Svensk
+        description: Beskrivning
+        end_time: Sluttid
+        facebook: Facebook-länk
+        place: Plats
+        start_time: Starttid
+        tag_ids: Taggar
+        tags: Taggar
+        title_en: Titel - Engelsk
+        title_sv: Titel - Svensk
+        title: Titel
