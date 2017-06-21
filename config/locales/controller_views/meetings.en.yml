@@ -20,3 +20,12 @@ en:
 
     form:
       confirm_delete: "This deletes the meeting and all connected documents.\nAre you sure you want to do this?"
+      
+    create:
+      success: Meeting was created
+
+    service:
+      invalid: The document could not be created.
+
+    update:
+      success: Meeting was updated
