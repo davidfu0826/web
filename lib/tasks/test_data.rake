@@ -15,11 +15,11 @@ namespace :db do
     image = FactoryGirl.create(:image)
 
     # Page
-    page = Page.find_or_create_by!(title_sv: 'Heltidare',
-                                   title_en: 'Sabbatical office',
+    page = Page.find_or_create_by!(title_sv: 'Vad vi gör',
+                                   title_en: 'What we do office',
                                    content_sv: 'Detta är den svenska sidan',
                                    content_en: 'This is an english page',
-                                   slug: 'sabbatical-officers')
+                                   slug: 'what-we-do')
     page.update(image: image)
 
     # Contact form

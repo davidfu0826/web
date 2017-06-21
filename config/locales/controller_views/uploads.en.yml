@@ -3,6 +3,10 @@ en:
     index:
       new_upload: Upload file
       uploads: File uploads
+      new_document: Upload document
+      documents: Documents
+      new_image: Upload image
+      images: Images
 
     uploads_table:
       copy_to_clipboard: Copy to clipboard

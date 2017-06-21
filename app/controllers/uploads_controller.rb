@@ -42,7 +42,7 @@ class UploadsController < ApplicationController
     files_params = params.require(:upload).fetch(:files, []).reject(&:blank?)
     fs = []
     files_params.each do |param|
-      fs << { file: param }
+      fs << { pdf: param }
     end
     fs
   end

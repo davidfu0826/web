@@ -59,4 +59,36 @@ namespace :carrierwave do
     end
     puts failed
   end
+
+  task(add_to_upload: :environment) do
+    already_moved = []
+    failed = []
+    Upload.all.each do |u|
+      begin
+        if u.pdf.present?
+          already_moved << u.id
+          next
+        end
+        if ENV['AWS']
+          u.remote_pdf_url = u.file.remote_url
+        else
+          u.pdf = File.open(u.file.path)
+        end
+        u.save!
+      rescue => error
+        failed << u.id
+        puts "#{u.id} : #{error}"
+      end
+    end
+
+    if failed.any?
+      puts "These id's failed: "
+      puts failed
+    end
+
+    if already_moved.any?
+      puts "These id's already moved: "
+      puts already_moved
+    end
+  end
 end
