@@ -51,6 +51,11 @@ Rails.application.routes.draw do
     post :update_order, on: :collection
   end
 
+  resources :sabbatical_officers, only: [:new, :index, :create,
+                                         :edit, :update, :destroy],
+                                  path: 'sabbatical-officers'
+  get :heltidare, controller: :sabbatical_officers, action: :index
+
   get  :settings, to: 'settings#edit'
   post :settings, to: 'settings#update'
 

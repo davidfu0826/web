@@ -56,6 +56,7 @@ RSpec.configure do |config|
 
   # Allow use of ControllerMacros defined in support/controller_macros.rb
   config.extend ControllerMacros, type: :controller
+  config.include RequestSpecHelper, type: :request
 end
 
 Shoulda::Matchers.configure do |config|

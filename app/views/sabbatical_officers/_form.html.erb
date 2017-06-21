@@ -1,0 +1,20 @@
+<%= bootstrap_form_for(sabbatical_officer, layout: :horizontal) do |f| %>
+  <%= f.text_field(:name) %>
+  <%= f.text_field(:role_sv) %>
+  <%= f.text_field(:role_en) %>
+  <%= f.text_field(:email) %>
+  <%= f.text_field(:phone) %>
+  <%= f.text_field(:position) %>
+  <%= f.text_area(:description_sv) %>
+  <%= f.text_area(:description_en) %>
+  <%= f.file_field(:image) %>
+  <% if sabbatical_officer.thumb.present? %>
+    <%= f.form_group(:remove_image) do %>
+      <%= f.check_box(:remove_image) %>
+    <% end %>
+    <%= image_tag(sabbatical_officer.thumb, class: 'img-circle',
+                                            style: 'height: 200px') %>
+  <% end %>
+  <hr />
+  <%= f.submit %>
+<% end %>

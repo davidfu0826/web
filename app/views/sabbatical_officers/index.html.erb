@@ -1,0 +1,71 @@
+<% content_for :banner do %>
+  <%= render('/application/banner',
+             url: asset_url('sabbatical_header.jpg', host: PUBLIC_URL)) %>
+<% end %>
+
+<% if can?(:manage, SabbaticalOfficer) %>
+  <% content_for(:sidebar) do %>
+    <div class="row">
+      <h3>
+        <%= t(:tools) %>
+        <%= fa_icon('wrench', class: 'pull-right') %>
+      </h3>
+      <ul>
+        <li>
+          <%= link_to(t('.new_sabbatical'),
+                        new_sabbatical_officer_path) %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="col-md-12">
+  <div class="page-header">
+    <h1><%= title(t('.title')) %></h1>
+  </div>
+  <%= simple_format(description(t('.description'))) %>
+  <div class="col-md-12 <%= flash_class('notice') %> global-copy-status" style="display: none;">
+  </div>
+
+  <% @sabbatical_officers.in_groups_of(2, false) do |group| %>
+    <div class="row sabbatical-officers">
+      <% group.each do |so| %>
+        <div class="col-md-6 col-sm-12 sabbatical-officer">
+          <% img = so.thumb %>
+          <% img ||= 'blue_mark.svg' %>
+          <%= image_tag(img, class: 'img-circle') %>
+          <span class="name">
+            <%= so.name %>
+          </span>
+          <span class="role">
+            <%= so.role %>
+          </span>
+          <span class="description">
+            <%= so.description %>
+          </span>
+          <span class="phone">
+            <%= link_to('#copy', class: 'copy-link', data: { 'clipboard-text': so.phone }) do %>
+              <%= fa_icon('phone', text: so.phone) %>
+            <% end %>
+            <span class="copy-status" style="display: none;"></span>
+          </span>
+          <span class="email">
+            <%= link_to('#copy', class: 'copy-link', data: { 'clipboard-text': so.email }) do %>
+              <%= fa_icon('envelope', text: so.email) %>
+            <% end %>
+            <span class="copy-status" style="display: none;"></span>
+          </span>
+
+          <% if can?(:manage, so) %>
+            <span class="edit">
+              <%= link_to(edit_sabbatical_officer_path(so)) do %>
+                <%= fa_icon('wrench', text: t('global.edit')) %>
+              <% end %>
+            </span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

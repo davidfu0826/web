@@ -1,0 +1,23 @@
+en:
+  sabbatical_officers:
+    new:
+      all_sabbatical_officers: All sabbatical officers
+      title: New sabbatical officer
+
+    edit:
+      all_sabbatical_officers: All sabbatical officers
+      title: Edit sabbatical officer
+
+    index:
+      description: Teknologkårens heltidare driver verksamheten och kan hjälpa er med väldigt mycket. Nedan finner ni vilka heltidarna är samt deras kontaktuppgifter.
+      new_sabbatical: Add a new sabbatical officer
+      title: Sabbatical officers
+
+    create:
+      success: The sabbatical officer was created
+
+    update:
+      success: The sabbatical officer was updated
+
+    destroy:
+      success: The sabbatical officer was destroyed

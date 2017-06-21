@@ -1,0 +1,39 @@
+.row {
+  &.sabbatical-officers {
+    margin-bottom: 30px;
+  }
+}
+
+.sabbatical-officer {
+  .img-circle {
+    display: block;
+    margin: 10px auto;
+    max-height: 200px;
+    max-width: 200px;
+  }
+
+  .name,
+  .role,
+  .description,
+  .phone,
+  .email,
+  .edit {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+
+  .name,
+  .role {
+    font-weight: bold;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .role,
+  .description {
+    margin-bottom: 10px;
+  }
+}
