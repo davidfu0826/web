@@ -13,23 +13,19 @@ class UploadsController < ApplicationController
   def new; end
 
   def create
-    @uploads = Upload.create(files)
-    if @uploads.all?(&:persisted?)
-      notice = I18n.t('model.upload.success_uploading')
-    else
-      errors = @uploads.map do |upload|
-        upload.errors.full_messages unless upload.errors.full_messages.empty?
-      end.compact.join('<br/>')
-
-      notice = "#{I18n.t('model.upload.failed_to_save_some')}: #{errors}"
-    end
+    uploads = Upload.create(files)
+    notice = if uploads.all?(&:persisted?)
+               t('.success')
+             else
+               "#{t('.some_failed')}: #{upload_errors(uploads)}"
+             end
 
     redirect_to(uploads_path, notice: notice)
   end
 
   def destroy
     @upload.destroy!
-    redirect_to uploads_path
+    redirect_to uploads_path, notice: t('.success')
   end
 
   private
@@ -45,5 +41,11 @@ class UploadsController < ApplicationController
       fs << { pdf: param }
     end
     fs
+  end
+
+  def upload_errors(uploads)
+    uploads.map do |upload|
+      upload.errors.full_messages unless upload.errors.full_messages.empty?
+    end.compact.join('<br/>')
   end
 end

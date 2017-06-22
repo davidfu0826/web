@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      upload:
+        one: Upload
+        other: Uploads
+
+    attributes:
+      upload:
+        file: File
+        files: Files
