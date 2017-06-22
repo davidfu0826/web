@@ -69,6 +69,6 @@ RSpec.describe UploadsController, type: :controller do
   end
 
   def test_file
-    Rack::Test::UploadedFile.new(File.open('spec/support/image.png'))
+    Rack::Test::UploadedFile.new(File.open('spec/support/file.pdf'))
   end
 end

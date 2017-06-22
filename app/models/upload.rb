@@ -1,10 +1,9 @@
 class Upload < ApplicationRecord
   include Filterable
+  dragonfly_accessor(:file) # to be removed
 
-  dragonfly_accessor :file
-  belongs_to :image
-  validates :file, presence: true,
-                   if: proc { |u| u.image_id.nil? }
+  mount_uploader(:pdf, DocumentUploader)
+  validates(:pdf, presence: true)
 
   scope(:by_updated, -> { order(updated_at: :desc) })
 
@@ -35,16 +34,15 @@ class Upload < ApplicationRecord
     file_name.split('.').last.upcase
   end
 
+  def name
+    file_name || pdf_identifier
+  end
+
   def to_param
-    "#{id}-#{file_name.parameterize}"
+    "#{id}-#{name.parameterize}"
   end
 
   def view
-    return image.url if image.present?
-    if ENV['AWS']
-      file.remote_url(scheme: 'https')
-    else
-      file.path
-    end
+    pdf.try(:url)
   end
 end
