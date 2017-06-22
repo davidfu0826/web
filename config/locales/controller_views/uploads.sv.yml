@@ -14,3 +14,10 @@ sv:
       delete: Radera
       file_name: Filnamn
       type: Filtyp
+
+    create:
+      success: Filerna laddades upp
+      some_failed: Några filer kunde inte laddas upp
+
+    destroy:
+      success: Filen raderades

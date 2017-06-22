@@ -30,8 +30,7 @@ class Upload < ApplicationRecord
   end
 
   def file_type
-    return 'IMG' if image.present?
-    file_name.split('.').last.upcase
+    name.split('.').last.upcase
   end
 
   def name

@@ -14,3 +14,10 @@ en:
       delete: Delete
       file_name: File name
       type: File type
+
+    create:
+      success: Files where successfully uploaded
+      some_failed: Some file(s) could not be uploaded
+
+    destroy:
+      success: The file was destroyed
