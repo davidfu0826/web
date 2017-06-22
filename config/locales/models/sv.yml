@@ -50,17 +50,6 @@ sv:
         title: *title
         color: Färg
 
-      user:
-        email: *email
-        locale: Språkval
-        name: Namn
-        password: Lösenord
-        password_confirmation: Upprepa lösenord
-        phonenumber: Telefon
-        role: Roll
-        title: *title
-        profile_image: Profilbild
-
     models:
       contact_form: Kontaktformulär
       event: Event
@@ -70,4 +59,3 @@ sv:
       post: Nyhet
       question: Formulärsfråga
       tag: Tagg
-      user: Användare

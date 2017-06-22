@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :load_roles, only: [:new, :edit]
   load_and_authorize_resource
 
   def index
@@ -7,52 +6,44 @@ class UsersController < ApplicationController
   end
 
   def new
+    @roles = User.roles
   end
 
   def create
     if @user.save
       @user.send_password_selection_email
-      redirect_to users_path
+      redirect_to(users_path, notice: t('.success'))
     else
-      load_roles
-      render 'new'
+      @roles = User.roles
+      render(:new, status: 422)
     end
   end
 
   def edit
+    @roles = User.roles
   end
 
   def update
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to(edit_user_path(@user), notice: t('.success'))
     else
-      load_roles
-      render 'edit'
+      @roles = User.roles
+      render(:edit, status: 422)
     end
   end
 
   def destroy
-    @user.destroy
+    @user.destroy!
 
-    redirect_to users_path
+    redirect_to(users_path, notice: t('.success'))
   end
 
   private
 
   def user_params
-    params.require(:user).permit(
-      :name,
-      :email,
-      :title,
-      :role,
-      :phonenumber,
-      :password,
-      :password_confirmation,
-      :profile_image
-    )
-  end
-
-  def load_roles
-    @roles = User.roles
+    params.require(:user).permit(:name, :email, :title,
+                                 :role, :phonenumber,
+                                 :password, :password_confirmation,
+                                 :avatar, :remove_avatar)
   end
 end

@@ -1,0 +1,10 @@
+sv:
+  users:
+    create:
+      success: Användare skapades
+
+    update:
+      success: Användare uppdaterades
+
+    destroy:
+      success: Användare raderades

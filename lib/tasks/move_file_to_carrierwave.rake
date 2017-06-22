@@ -91,4 +91,36 @@ namespace :carrierwave do
       puts already_moved
     end
   end
+
+  task(users: :environment) do
+    already_moved = []
+    failed = []
+    User.all.each do |u|
+      begin
+        if u.avatar.present?
+          already_moved << u.id
+          next
+        end
+        if ENV['AWS']
+          u.remote_avatar_url = u.profile_image.remote_url
+        else
+          u.avatar = File.open(u.profile_image.path)
+        end
+        u.save!
+      rescue => error
+        failed << u.id
+        puts "#{u.id} : #{error}"
+      end
+    end
+
+    if failed.any?
+      puts "These id's failed: "
+      puts failed
+    end
+
+    if already_moved.any?
+      puts "These id's already moved: "
+      puts already_moved
+    end
+  end
 end
