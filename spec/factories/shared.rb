@@ -9,4 +9,5 @@ FactoryGirl.define do
   sequence(:name) {|n| "Namn #{n} Efternamn"}
   sequence(:phonenumber) {|n| "070#{n}6122"}
   sequence(:image_file) { |_| Rack::Test::UploadedFile.new(File.open('spec/support/cover.jpg')) }
+  sequence(:pdf_file) { |_| Rack::Test::UploadedFile.new(File.open('spec/support/file.pdf')) }
 end
