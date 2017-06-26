@@ -8,3 +8,10 @@ en:
 
     form:
       new_document: New document
+
+    update:
+      success: "The category was updated to %{kind}"
+      failed: The category could not be updated
+
+    destroy:
+      success: Document was destroyed
