@@ -8,7 +8,15 @@
     <%= f.select :role, roles.collect {|r| [r.first, r.first]}, include_blank: true %>
   <% end %>
 
-  <%= f.file_field :profile_image %>
+  <%= f.file_field(:avatar) %>
+  <% if user.thumb.present? %>
+    <%= f.form_group(:remove_avatar) do %>
+      <%= f.check_box(:remove_avatar) %>
+    <% end %>
+    <%= image_tag(user.thumb, class: 'img-circle',
+                              style: 'height: 200px') %>
+  <% end %>
+  <hr />
 
   <%= f.submit %>
 <% end %>

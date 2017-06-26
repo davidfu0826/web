@@ -16,21 +16,15 @@ class User < ApplicationRecord
   has_and_belongs_to_many :pages
   has_many :contact_forms, dependent: :destroy
 
-  dragonfly_accessor :profile_image do
-    copy_to(:profile_image_thumb) { |a| a.thumb('160x160#') }
-  end
-  dragonfly_accessor :profile_image_thumb
+  dragonfly_accessor :profile_image # to be removed
 
-  validates_property :format,
-                     of: :profile_image,
-                     in: [:jpeg, :jpg, :png, :bmp],
-                     case_sensitive: false,
-                     message: I18n.t('errors.messages.image_format')
+  mount_uploader(:avatar, ImageUploader)
+  attr_accessor(:remove_avatar)
 
   translates :title
 
-  enum role: %i(admin editor events)
-  enum locale: %i(sv en)
+  enum role: %i[admin editor events]
+  enum locale: %i[sv en]
 
   def send_password_selection_email
     raw, enc = Devise.token_generator.generate(self.class,
@@ -44,5 +38,9 @@ class User < ApplicationRecord
 
   def name_with_email
     "#{name} - #{email}"
+  end
+
+  def thumb
+    avatar.thumb.url if avatar.present?
   end
 end

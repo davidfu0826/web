@@ -27,6 +27,7 @@
 /public/uploads/*
 /public/meetingdocuments/*
 /public/sabbaticalofficers/*
+/public/users/*
 
 # Local environment
 .rspec

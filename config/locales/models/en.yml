@@ -43,16 +43,6 @@ en:
         color: color
       upload:
         file: document
-      user:
-        email: *email
-        locale: Locale
-        name: Name
-        password: Password
-        password_confirmation: Repeat Password
-        phonenumber: Phone
-        role: Role
-        title: *title
-        profile_image: Profile image
     models:
       contact_form: Contact form
       event: Event

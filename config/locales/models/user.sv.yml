@@ -1,0 +1,17 @@
+sv:
+  activerecord:
+    models:
+      user: Användare
+
+    attributes:
+      user:
+        avatar: Bild
+        email: E-post
+        locale: Språkval
+        name: Namn
+        password_confirmation: Upprepa lösenord
+        password: Lösenord
+        phonenumber: Telefon
+        remove_avatar: Ta bort bild
+        role: Roll
+        title: Titel

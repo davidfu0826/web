@@ -1,0 +1,19 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+
+    attributes:
+      user:
+        avatar: Image
+        email: Email
+        locale: Locale
+        name: Name
+        password_confirmation: Repeat Password
+        password: Password
+        phonenumber: Phone
+        remove_avatar: Remove image
+        role: Role
+        title: Title
