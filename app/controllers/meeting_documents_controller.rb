@@ -1,5 +1,5 @@
 class MeetingDocumentsController < ApplicationController
-  load_and_authorize_resource :meeting
+  load_and_authorize_resource :meeting, only: %i[update destroy]
 
   def update
     meeting_doc = @meeting.meeting_documents.find(params[:id])
@@ -16,7 +16,7 @@ class MeetingDocumentsController < ApplicationController
     meeting_doc = @meeting.meeting_documents.find(params[:id])
     meeting_doc.destroy!
 
-    redirect_to(edit_meeting_path(@meeting), notice: t('.destroyed'))
+    redirect_to(edit_meeting_path(@meeting), notice: t('.success'))
   end
 
   def show

@@ -14,4 +14,4 @@ sv:
       failed: Det gick ej att uppdatera kategorin
 
     destroy:
-      destroyed: Dokumentet raderades
+      success: Dokumentet raderades

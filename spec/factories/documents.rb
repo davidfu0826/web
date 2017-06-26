@@ -5,8 +5,8 @@ FactoryGirl.define do
     description_sv { generate(:content_sv) }
     description_en { generate(:content_en) }
     category { Document.categories.keys.sample }
-    file_sv Rack::Test::UploadedFile.new(File.open('spec/support/file.pdf'))
-    file_en Rack::Test::UploadedFile.new(File.open('spec/support/file.pdf'))
+    file_sv { generate(:pdf_file) }
+    file_en { generate(:pdf_file) }
     meeting
   end
 end

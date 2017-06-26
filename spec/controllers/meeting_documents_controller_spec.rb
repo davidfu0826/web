@@ -35,17 +35,4 @@ RSpec.describe(MeetingDocumentsController) do
       expect(meeting_document.kind).to eq(:minute.to_s)
     end
   end
-
-  describe('DELETE # destroy') do
-    it 'destroys meeting_document' do
-      meeting = create(:meeting)
-      meeting_document = create(:meeting_document, meeting: meeting)
-
-      expect do
-        delete(:destroy, params: { meeting_id: meeting.to_param,
-                                   id: meeting_document.to_param })
-      end.to change(MeetingDocument, :count).by(-1)
-      expect(response).to redirect_to(edit_meeting_path(meeting))
-    end
-  end
 end
