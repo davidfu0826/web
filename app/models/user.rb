@@ -16,8 +16,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :pages
   has_many :contact_forms, dependent: :destroy
 
-  dragonfly_accessor :profile_image # to be removed
-
   mount_uploader(:avatar, ImageUploader)
   attr_accessor(:remove_avatar)
 

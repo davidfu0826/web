@@ -22,8 +22,6 @@ gem 'bootstrap_form'
 gem 'carrierwave' # File uploads
 gem 'carrierwave-aws'
 gem 'codemirror-rails' # Used by summernote for displaying html
-gem 'dragonfly' # Image Uploading
-gem 'dragonfly-s3_data_store' # Store images on s3
 gem 'font-awesome-rails' # Used by summernote
 gem 'font-awesome-sass'
 gem 'fuzzily' # Fuzzy string search
