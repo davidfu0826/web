@@ -17,4 +17,7 @@
   <% end %>
   <hr />
   <%= f.submit %>
+  <% if sabbatical_officer.persisted? %>
+    <%= link_to(t('global.delete'), sabbatical_officer_path(@sabbatical_officer), method: :delete, class: 'btn btn-danger pull-right') %>
+  <% end %>
 <% end %>
