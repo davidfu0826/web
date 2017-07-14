@@ -16,7 +16,9 @@
                                               {selected: Settings.cover_image_ids,
                                                label: t('.cover_images')},
                                               {multiple: true, class: ''}) %>
-    <% end %>
+    <%= f.text_field(:front_page_video, value: Settings.front_page_video,
+                                        help: t('.front_page_video_hint')) %>
+  <% end %>
   <%= form.submit %>
 <% end %>
 <%= render 'images/cover_image_modal' %>
