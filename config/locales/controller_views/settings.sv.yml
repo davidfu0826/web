@@ -2,5 +2,10 @@ sv:
   settings:
     edit:
       cover_images: Omslagsbilder
+      front_page_video_hint: "Använd en fullständig url, t.ex. https://www.youtube.com/embed/kod."
       new_upload: Ladda upp ny bild
       select_cover_images: Välj omslagsbilder
+
+    update:
+      success: Inställningar uppdaterades
+      failure: Inställningar uppdaterades inte

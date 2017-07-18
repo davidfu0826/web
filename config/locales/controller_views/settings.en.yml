@@ -2,5 +2,10 @@ en:
   settings:
     edit:
       cover_images: Cover images
+      front_page_video_hint: "Use a complete url, e.g. https://www.youtube.com/embed/kod."
       new_upload: Upload new image
       select_cover_images: Select cover images
+
+    update:
+      success: Settings were updated
+      failure: Settings were not updated

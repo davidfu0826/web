@@ -9,6 +9,13 @@
       <div class="media-heading">
         <h1><%= t('.welcome') %></h1>
       </div>
+      <% if Settings.front_page_video.present? %>
+        <div class="responsive-video">
+          <iframe src="<%= Settings.front_page_video %>"
+                  frameborder="0"
+                  allowfullscreen></iframe>
+        </div>
+      <% end %>
       <div class="lead">
         <%= simple_format(t('.lead')) %>
       </div>
