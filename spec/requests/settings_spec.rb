@@ -5,6 +5,7 @@ RSpec.describe('Settings', type: :request) do
   let(:admin) { create(:user, :admin) }
 
   it('visit settings and updates') do
+    create(:image)
     sign_in(admin)
     get(settings_path)
     expect(response).to have_http_status(200)
