@@ -25,6 +25,7 @@ showImageLibraryDialog = function() {
     return $("#insert-image").click(function(event) {
       event.preventDefault();
       var select = $('#_settings_cover_image_ids option');
+
       var selected = $('.img-selected').map(function() {
         return $(this).data('image-id');
       }).get();
@@ -34,6 +35,11 @@ showImageLibraryDialog = function() {
         if (parseInt(this.value) == parseInt(selected) || selected.includes(parseInt(this.value))) {
           this.selected = true;
         }
+      });
+
+      $('#cover-images').empty();
+      $('.img-selected').each(function() {
+        $('#cover-images').prepend('<img src="' + $(this).data('thumb-source') + '" />');
       });
 
       $(".img-selected").removeClass("img-selected");

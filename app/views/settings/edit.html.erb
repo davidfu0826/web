@@ -1,9 +1,11 @@
 <%= bootstrap_form_tag url: settings_path do |form| %>
   <%= form.fields_for :settings do |f| %>
     <h3><%= t('.cover_images') %></h3>
+    <div id="cover-images">
     <% @cover_images.each do |img| %>
       <%= image_tag(img.thumb_url) %>
     <% end %>
+    </div>
     <br>
 
     <%= button_tag t('.select_cover_images'), type: :button,
@@ -12,10 +14,12 @@
     <%= link_to(t('.new_upload'), new_image_path, class: 'btn btn-default') %>
     <br>
     <br>
+    <div style="display: none;">
     <%= f.collection_select(:cover_image_ids, @images, :id, :id,
                                               {selected: Settings.cover_image_ids,
                                                label: t('.cover_images')},
                                               {multiple: true, class: ''}) %>
+    </div>
     <%= f.text_field(:front_page_video, value: Settings.front_page_video,
                                         help: t('.front_page_video_hint')) %>
   <% end %>
