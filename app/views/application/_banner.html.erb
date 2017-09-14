@@ -2,10 +2,6 @@
 <% images ||= [] %>
 
 <div id="banner" class="carousel slide" data-ride="carousel" data-interval="5000">
-  <div class="logo">
-    <%= image_tag("white_stand_#{I18n.locale}.svg") %>
-  </div>
-
   <div class="carousel-inner">
     <% if images.any? %>
       <% images.each_with_index do |img, index| %>

@@ -1,6 +1,10 @@
 <div class="navbar navbar-default">
   <div id="navbar-container" class="container">
-    <%= navbar_header %>
+    <%= navbar_header do %>
+      <a href="/" class="navbar-brand">
+          <%= image_tag("blue_mark.svg") %>
+      </a>
+    <% end %>
     <%= navbar_collapse do %>
       <%= navbar_group do %>
         <li><%= navbar_item t('.start'), root_path %></li>
