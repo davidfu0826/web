@@ -1,6 +1,6 @@
 <% content_for(:banner) do %>
   <%= render('/application/banner',
-             url: asset_url('board.jpg', host: PUBLIC_URL)) %>
+             url: asset_url('kårhuset.jpg', host: PUBLIC_URL)) %>
 <% end %>
 <div class="row">
   <div class="col-md-12">
@@ -26,20 +26,15 @@
     <table class="board member-table">
       <tbody>
         <tr>
-          <td><strong>Karin Dammer</strong><br />Styrelseordförande</td>
-          <td><strong>Linus Hammarlund</strong><br />Kårordförande </td>
+          <td><strong>Tim Djärf</strong><br /><%= t('.chairman') %></td>
+          <td><strong>Patrik Gustafsson</strong><br /><%= t('.president') %></td>
         </tr>
         <tr>
-          <td><strong>David Wessman</strong><br />Styrelseledamot</td>
-          <td><strong>Emil Thorselius</strong><br />Styrelseledamot</td>
+          <td><strong>My Reimer</strong><br /><%= t('.board_member') %></td>
+          <td><strong>Agnes Sörliden</strong><br /><%= t('.board_member') %></td>
         </tr>
         <tr>
-          <td><strong>Jacob Karlsson</strong><br />Styrelseledamot</td>
-          <td><strong>Oskar Jönsson</strong><br />Styrelseledamot</td>
-        </tr>
-        <tr>
-          <td><strong>Erik Alstersjö</strong><br />Styrelseledamot</td>
-          <td><strong>Desirée Ohlsson</strong><br />Styrelseledamot</td>
+          <td><strong>Joost Kranenborg</strong><br /><%= t('.board_member') %></td>
         </tr>
       </tbody>
     </table>
