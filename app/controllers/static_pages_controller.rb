@@ -20,4 +20,8 @@ class StaticPagesController < ApplicationController
   def robots
     render(:robots, content_type: 'text/plain')
   end
+
+  def logo_mail
+    send_file 'app/assets/images/logo-mail.png', type: 'image/png', disposition: 'inline'
+  end
 end
