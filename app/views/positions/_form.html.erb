@@ -1,0 +1,47 @@
+<%= bootstrap_form_for(position, layout: :horizontal) do |f| %>
+<% if position.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(position.errors.count, "error") %> prohibited this position from being saved:</h2>
+
+  <ul>
+    <% position.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="center-pills">
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#sv" role="tab" data-toggle="tab">
+      <%= t('locales.sv') %>
+    </a></li>
+    <li><a href="#en" role="tab" data-toggle="tab">
+      <%= t('locales.en') %>
+    </a></li>
+  </ul>
+</div>
+
+<!-- Tab Panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="sv">
+    <%= f.text_field :title_sv %>
+    <%= f.text_field :committee_sv %>
+    <%= f.text_area :desc_sv %>
+  </div>
+  <div class="tab-pane" id="en">
+    <%= f.text_field :title_en %>
+    <%= f.text_field :committee_en %>  
+    <%= f.text_area :desc_en %>
+  </div>
+</div>
+
+<%= f.number_field :number %>
+<%= f.text_field :term %>
+<%= f.text_field :apply_url %>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

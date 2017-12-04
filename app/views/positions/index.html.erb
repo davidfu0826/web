@@ -1,0 +1,15 @@
+<% if can?(:manage, Position) %>
+<% content_for(:sidebar) do %>
+<div class="row">
+  <h3><%= t(:tools) %><%= fa_icon('wrench', class: 'pull-right') %></h3>
+  <ul>
+    <li><%= link_to( t('.new_position'), new_position_path) %></li>
+  </ul>
+</div>
+<% end %>
+<% end %>
+
+<h1><%= t('.title') %></h1>
+<%= t('.description_html') %>
+
+<%= render('positions/position_table', positions: @positions) %>

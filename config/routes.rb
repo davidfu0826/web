@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get :karnytt, to: redirect('http://karnytt.dsgdev.com/'), status: 301
   get :fmval, to: redirect('http://fmval.tlth.se/'), status: 301
   get 'sitemap.xml.gz', to: redirect(Rails.configuration.x.sitemap_url),
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
 
   resources :documents
   get :styrdokument, controller: :documents, action: :index
+
+  resources :positions, except: [:show]
 
   resources :meetings, except: [:show], path_names: { edit: '' } do
     resources :meeting_documents, only: [:destroy, :update]

@@ -1,0 +1,32 @@
+sv:
+  positions:
+    new:
+      title: Ny post
+
+    edit:
+      title: Redigera post
+
+    index:
+      description_html: >
+        På den här sidan kan du se vilka poster som just nu är lediga.<br /><br />
+
+        Är du sugen på att engagera dig, men vet inte var du vill göra fyll i <strong><a href="#">det här formuläret</a></strong> så kontaktar vi dig med poster som kan passa dig.<br /><br />
+      new_position: Ny post
+      title: Lediga poster
+    position_table:
+      title: Post
+      number: Antal
+      committee: Utskott
+      term: Period
+      desc: Beskrivning
+      read_more: Läs mer
+      apply_here: Ansök här
+
+    create:
+      success: Heltidaren skapades
+
+    update:
+      success: Heltidaren uppdaterades
+
+    destroy:
+      success: Heltidaren raderades
