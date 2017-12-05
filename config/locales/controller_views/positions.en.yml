@@ -1,0 +1,23 @@
+en:
+  positions:
+    new:
+      title: New position
+
+    edit:
+      title: Edit position
+
+    index:
+      description_html: >
+        On this page you can see which positions that is open right now.<br /><br />
+
+        Are you interested in getting involved, but don't know what fits you? Fill in <strong><a href="#">this application</a></strong> and we will tell you which positions you may be are fit for!<br /><br />
+      new_position: New position
+      title: Open positions
+    position_table:
+      title: Position
+      number: Number
+      committee: Committee
+      desc: Description
+      term: Term
+      read_more: Read more
+      apply_here: Apply here

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      position:
+        one: position
+        other: positions

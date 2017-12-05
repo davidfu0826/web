@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626112643) do
+ActiveRecord::Schema.define(version: 20171204191115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,20 @@ ActiveRecord::Schema.define(version: 20170626112643) do
     t.datetime "updated_at"
     t.index ["page_id"], name: "index_pages_users_on_page_id", using: :btree
     t.index ["user_id"], name: "index_pages_users_on_user_id", using: :btree
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "title_sv"
+    t.string   "title_en"
+    t.integer  "number"
+    t.string   "committee_sv"
+    t.string   "committee_en"
+    t.string   "term"
+    t.string   "apply_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "desc_sv"
+    t.text     "desc_en"
   end
 
   create_table "posts", force: :cascade do |t|

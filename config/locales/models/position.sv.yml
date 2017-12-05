@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      position:
+        one: post
+        other: poster
