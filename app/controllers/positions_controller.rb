@@ -38,17 +38,12 @@ class PositionsController < ApplicationController
 
   # DELETE /positions/1
   def destroy
-    @position = set_position
-    @position.destroy
+    @position = Position.find(params[:id])
+    @position.destroy!
     redirect_to positions_url, notice: 'Position was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_position
-      @position = Position.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def position_params
       params.require(:position).permit(:title_sv, :title_en, :number, :committee_sv, :committee_en, :term, :apply_url, :desc_sv, :desc_en)
