@@ -5,10 +5,6 @@ class PositionsController < ApplicationController
     @positions = Position.all
   end
 
-  # # GET /positions/1
-  # def show
-  # end
-
   # GET /positions/new
   def new
     @position = Position.new
