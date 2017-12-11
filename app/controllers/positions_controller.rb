@@ -2,7 +2,7 @@ class PositionsController < ApplicationController
 
   # GET /positions
   def index
-    @positions = Position.all
+    @positions = Position.by_order.group_by(&:kind)
   end
 
   # GET /positions/new
@@ -46,6 +46,6 @@ class PositionsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def position_params
-      params.require(:position).permit(:title_sv, :title_en, :number, :committee_sv, :committee_en, :term, :apply_url, :desc_sv, :desc_en)
+      params.require(:position).permit(:title_sv, :title_en, :number, :committee_sv, :committee_en, :term, :apply_url, :desc_sv, :desc_en, :kind)
     end
 end

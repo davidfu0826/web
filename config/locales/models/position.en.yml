@@ -1,6 +1,22 @@
 en:
+  model:
+    position:
+      kinds:
+        uncategorized: uncategorized
+        position_of_trust: position of trust
+        committee_member: committee member
   activerecord:
     models:
       position:
         one: position
         other: positions
+    attributes:
+      position:
+        title_en: Title
+        committee_en: Committee
+        desc_en: Description
+        number: Number
+        term: Term
+        apply_url: Apply here link
+        kind: Kind
+        
