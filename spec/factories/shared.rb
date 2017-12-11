@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:content_en) {|n| "Some english contenet\n, number #{n}"}
   sequence(:content_sv) {|n| "Lite svenskt innehåll\n, nummer #{n}"}
   sequence(:link) {|n| "https://tlth.se/url#{n}"}

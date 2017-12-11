@@ -7,7 +7,7 @@ RSpec.describe('Users', type: :request) do
     sign_in(user)
     get(new_user_path)
     expect(response).to render_template(:new)
-    attributes = FactoryGirl.attributes_for(:user,
+    attributes = FactoryBot.attributes_for(:user,
                                             name: 'Cornelius Fudge',
                                             email: 'fudge@magic.io')
 
@@ -26,7 +26,7 @@ RSpec.describe('Users', type: :request) do
     sign_in(user)
     get(new_user_path)
     expect(response).to render_template(:new)
-    attributes = FactoryGirl.attributes_for(:user,
+    attributes = FactoryBot.attributes_for(:user,
                                             name: nil)
 
     post(users_path, params: { user: attributes })
