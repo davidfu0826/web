@@ -8,4 +8,10 @@ class Position < ApplicationRecord
 	validates(:committee_sv, :committee_en, presence: true)
 	validates(:desc_sv, :desc_en, presence: true)
 	validates(:term, :apply_url, presence: true)
+
+	validates :kind, presence: true
+  	enum kind: { uncategorized: 0, position_of_trust: 10, committee_member: 12 }
+
+  	scope(:by_order, -> { order(:kind) })
+
 end

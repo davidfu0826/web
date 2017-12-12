@@ -41,6 +41,8 @@
 <%= f.text_field :term %>
 <%= f.text_field :apply_url %>
 
+<%= f.select(:kind, options_for_select(position_kinds, selected: position.kind), {} , class: 'select2') %>
+
 <div class="actions">
   <%= f.submit %>
 </div>

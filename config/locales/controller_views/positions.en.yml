@@ -13,6 +13,7 @@ en:
         Are you interested in getting involved, but don't know what fits you? Fill in <strong><a href="#">this application</a></strong> and we will tell you which positions you may be are fit for!<br /><br />
       new_position: New position
       title: Open positions
+      no_positions: There are no open positions at the moment.
     position_table:
       title: Position
       number: Number
