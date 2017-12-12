@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory(:document) do
     title_sv
     title_en

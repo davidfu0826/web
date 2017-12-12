@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     # Skip random password callback
     after(:build) { |obj| obj.class.skip_callback(:validation, :before) }

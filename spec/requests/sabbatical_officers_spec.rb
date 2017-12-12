@@ -7,7 +7,7 @@ RSpec.describe('Sabbatical officers', type: :request) do
     sign_in(user)
     get(new_sabbatical_officer_path)
     expect(response).to render_template(:new)
-    attributes = FactoryGirl.attributes_for(:sabbatical_officer,
+    attributes = FactoryBot.attributes_for(:sabbatical_officer,
                                             name: 'Cornelius Fudge',
                                             email: 'fudge@magic.io')
 
@@ -27,7 +27,7 @@ RSpec.describe('Sabbatical officers', type: :request) do
     sign_in(user)
     get(new_sabbatical_officer_path)
     expect(response).to render_template(:new)
-    attributes = FactoryGirl.attributes_for(:sabbatical_officer,
+    attributes = FactoryBot.attributes_for(:sabbatical_officer,
                                             name: nil)
 
     post(sabbatical_officers_path, params: { sabbatical_officer: attributes })

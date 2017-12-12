@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory(:nav_item) do
     title_sv
     title_en
