@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     title_sv { FFaker::CheesyLingo.title }
     title_en { title_sv }

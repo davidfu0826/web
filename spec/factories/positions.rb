@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :position do
     title_sv "MyString"
     title_en "MyString"

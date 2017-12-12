@@ -17,4 +17,14 @@
 <h1><%= t('.title') %></h1>
 <%= t('.description_html') %>
 
-<%= render('positions/position_table', positions: @positions) %>
+<% if @positions.any? %>
+<% @positions.each do |kind, positions| %>
+<h3><%= position_kind(kind).humanize %></h3>
+<%= render 'position_table', positions: positions %>
+<hr />
+<% end %>
+<% else %>
+<p><%= t('.no_positions') %></p>
+<% end %>
+
+
