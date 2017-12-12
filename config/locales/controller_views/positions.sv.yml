@@ -13,6 +13,7 @@ sv:
         Är du sugen på att engagera dig, men vet inte var du vill göra fyll i <strong><a href="#">det här formuläret</a></strong> så kontaktar vi dig med poster som kan passa dig.<br /><br />
       new_position: Ny post
       title: Lediga poster
+      no_positions: Det finns inga lediga poster för tillfället.
     position_table:
       title: Post
       number: Antal

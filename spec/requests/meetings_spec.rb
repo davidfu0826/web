@@ -11,7 +11,7 @@ RSpec.describe('Meetings and Documents', type: :request) do
     get(new_meeting_path)
     expect(response).to render_template(:new)
 
-    attributes = FactoryGirl.attributes_for(:meeting, title: 'MöteT')
+    attributes = FactoryBot.attributes_for(:meeting, title: 'MöteT')
     post(meetings_path, params: { meeting: attributes })
 
     expect(response).to redirect_to(edit_meeting_path(Meeting.last))
@@ -40,7 +40,7 @@ RSpec.describe('Meetings and Documents', type: :request) do
     expect(response).to render_template(:edit)
 
     attributes = { document_kind: :minute,
-                   file_sv: FactoryGirl.generate(:pdf_file) }
+                   file_sv: FactoryBot.generate(:pdf_file) }
     patch(meeting_path(meeting), params: { meeting: attributes })
 
     expect(response).to redirect_to(edit_meeting_path(Meeting.last))

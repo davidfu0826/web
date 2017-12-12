@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :sabbatical_officer do
     name
     description_sv { generate(:content_sv) }

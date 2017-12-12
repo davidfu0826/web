@@ -1,6 +1,21 @@
-en:
+sv:
+  model:
+    position:
+      kinds:
+        uncategorized: okategoriserad
+        position_of_trust: förtroendevald
+        committee_member: utskottsmedlem
   activerecord:
     models:
       position:
         one: post
         other: poster
+    attributes:
+      position:
+        title: Titel
+        committee: Utskott
+        desc: Beskrivning
+        number: Antal
+        term: Termin
+        apply_url: Ansök här-länk
+        kind: Typ
