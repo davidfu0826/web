@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Assets
 gem 'acts_as_list'
+gem 'bootsnap', require: false
 gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap_form'
