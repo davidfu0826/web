@@ -4,7 +4,7 @@ class Document < ApplicationRecord
   mount_uploader(:file_sv, FaultyDocumentUploader)
   mount_uploader(:file_en, FaultyDocumentUploader)
 
-  belongs_to(:meeting) # Revisioned at meeting
+  belongs_to(:meeting, optional: true) # Revisioned at meeting
   has_many(:meeting_documents)
   has_many(:meetings, through: :meeting_documents)
   validates(:title_sv, :title_en, presence: true)
