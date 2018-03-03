@@ -22,7 +22,6 @@ require 'rspec/rails'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Load other dependencies
-require 'shoulda/matchers'
 require 'devise'
 
 # Checks for pending migration and applies them before tests are run.
@@ -57,11 +56,4 @@ RSpec.configure do |config|
   # Allow use of ControllerMacros defined in support/controller_macros.rb
   config.extend ControllerMacros, type: :controller
   config.include RequestSpecHelper, type: :request
-end
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
 end
