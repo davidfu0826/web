@@ -11,7 +11,6 @@ class DocumentsController < ApplicationController
       redirect_to(edit_document_path(@document),
                   notice: I18n.t('model.document.created'))
     else
-      puts @document.errors.full_messages
       render(:new, status: 422)
     end
   end
