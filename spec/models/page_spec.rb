@@ -7,10 +7,13 @@ RSpec.describe Page, type: :model do
 
   describe 'validates' do
     it 'slug only lowercase' do
-      page = build_stubbed(:page)
-      expect(page).to allow_value('slug-slug-123').for(:slug)
-      expect(page).to_not allow_value('slug_SLUG123').for(:slug)
+      page = build_stubbed(:page, slug: 'slug-slug-123')
+      page.valid?
+      expect(page.errors[:slug]).to be_empty
+
+      page.slug = 'slug_SLUG123'
+      page.valid?
+      expect(page.errors[:slug]).to_not be_empty
     end
   end
 end
-

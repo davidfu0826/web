@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
 
-  before_action :prepare_meta_tags, if: 'request.get?'
+  before_action :prepare_meta_tags, if: -> { request.get? }
 
   def prepare_meta_tags(options = {})
     site_name   = I18n.t('global.title')
