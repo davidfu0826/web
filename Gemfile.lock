@@ -299,7 +299,7 @@ GEM
     tilt (2.0.8)
     traco (3.2.1)
       activerecord (>= 3.0)
-    turbolinks (5.1.0)
+    turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
     twitter (6.2.0)
